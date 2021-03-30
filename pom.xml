@@ -10,7 +10,7 @@
   	<maven.compiler.target>1.8</maven.compiler.target>
   </properties>
 
-	<repositories>
+	<repositories> 
   <repository>
     <id>eclipselink</id>
     <url>http://www.eclipse.org/downloads/download.php?r=1&amp;nf=1&amp;file=/rt/eclipselink/maven.repo/</url>
