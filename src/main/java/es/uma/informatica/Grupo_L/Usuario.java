@@ -12,7 +12,7 @@ import javax.persistence.*;
 @Entity
 
 public class Usuario implements Serializable {
-//hola esto funciona?Esta es la primera prueba
+//hola esto funciona?
 	   
 	@Id @GeneratedValue
 	private Integer ID; //LONG
