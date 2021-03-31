@@ -4,7 +4,7 @@
 		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
 		<class>es.uma.informatica.Grupo_L.Usuario</class>
 		<properties>
-			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/sii"/>
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/Grupo_L"/>
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/sii"/>
 			<property name="javax.persistence.jdbc.user" value="siiuser"/>
 			<property name="javax.persistence.jdbc.password" value="siipassword"/>
