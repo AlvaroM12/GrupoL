@@ -50,7 +50,7 @@ public class GruposPorAsignatura implements Serializable {
 		return true;
 	}
 
-	@Id @GeneratedValue
+	@Id 
 	private Long Curso_Academico;
 	private Long Oferta;
 	private static final long serialVersionUID = 1L;
