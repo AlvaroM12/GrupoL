@@ -3,6 +3,8 @@ package es.uma.informatica.Grupo_L;
 import java.io.Serializable;
 import java.lang.Long;
 import java.lang.String;
+import java.util.Date;
+
 import javax.persistence.*;
 
 /**
