@@ -3,6 +3,8 @@ package es.uma.informatica.Grupo_L;
 import java.io.Serializable;
 import java.lang.Long;
 import java.lang.String;
+import java.util.List;
+
 import javax.persistence.*;
 
 /**
@@ -20,6 +22,9 @@ public class Centro implements Serializable {
 	private String Direccion;
 	private Long TLF_Conserjeria;
 	private static final long serialVersionUID = 1L;
+	
+	@ManyToMany
+	private List<Titulacion> TC;
 
 	public Centro() {
 		super();

@@ -3,6 +3,8 @@ package es.uma.informatica.Grupo_L;
 import java.io.Serializable;
 import java.lang.Long;
 import java.lang.String;
+import java.util.List;
+
 import javax.persistence.*;
 
 /**
@@ -24,6 +26,18 @@ public class Grupo implements Serializable {
 	private Long Asignar;
 	private Long Plazas;
 	private static final long serialVersionUID = 1L;
+	
+	@ManyToOne
+	private Titulacion TG;
+	
+	@OneToMany(mappedBy = "G_AM")
+	private List<Asignaturas_Matrícula> asignaturasMatriculas;
+	
+	@OneToMany(mappedBy = "GG")
+	private List<Grupo> grupos;
+	
+	@ManyToOne
+	private Grupo GG;
 
 	public Grupo() {
 		super();

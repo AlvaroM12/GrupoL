@@ -20,6 +20,12 @@ public class Expediente implements Serializable {
 	private String Activo;
 	private Float Nota_Media_Provisional;
 	private static final long serialVersionUID = 1L;
+	
+	@ManyToOne
+	private Titulacion TE;
+	
+	@ManyToOne
+	private Alumno AE;
 
 	public Expediente() {
 		super();

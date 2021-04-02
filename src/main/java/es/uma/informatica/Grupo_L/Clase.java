@@ -19,6 +19,9 @@ public class Clase implements Serializable {
 	private Long HoraInicio;
 	private Long HoraFin;
 	private static final long serialVersionUID = 1L;
+	
+	@ManyToOne
+	private Asignatura AC;
 
 	public Clase() {
 		super();

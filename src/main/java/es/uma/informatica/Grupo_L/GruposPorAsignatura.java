@@ -16,6 +16,33 @@ import javax.persistence.*;
 public class GruposPorAsignatura implements Serializable {
 
 	   
+
+	@Id @GeneratedValue
+	private Long Curso_Academico;
+	private Long Oferta;
+	private static final long serialVersionUID = 1L;
+	
+	@ManyToMany
+	private List<Encuesta> E_GPA;
+	
+
+	public GruposPorAsignatura() {
+		super();
+	}   
+	public Long getCurso_Academico() {
+		return this.Curso_Academico;
+	}
+
+	public void setCurso_Academico(Long Curso_Academico) {
+		this.Curso_Academico = Curso_Academico;
+	}   
+	public Long getOferta() {
+		return this.Oferta;
+	}
+
+	public void setOferta(Long Oferta) {
+		this.Oferta = Oferta;
+	}
 	@Override
 	public String toString() {
 		return "GruposPorAsignatura [Curso_Academico=" + Curso_Academico + ", Oferta=" + Oferta + "]";
@@ -50,28 +77,5 @@ public class GruposPorAsignatura implements Serializable {
 		return true;
 	}
 
-	@Id @GeneratedValue
-	private Long Curso_Academico;
-	private Long Oferta;
-	private static final long serialVersionUID = 1L;
-	
-
-	public GruposPorAsignatura() {
-		super();
-	}   
-	public Long getCurso_Academico() {
-		return this.Curso_Academico;
-	}
-
-	public void setCurso_Academico(Long Curso_Academico) {
-		this.Curso_Academico = Curso_Academico;
-	}   
-	public Long getOferta() {
-		return this.Oferta;
-	}
-
-	public void setOferta(Long Oferta) {
-		this.Oferta = Oferta;
-	}
    
 }

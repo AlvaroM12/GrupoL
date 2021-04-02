@@ -25,6 +25,15 @@ public class Titulacion implements Serializable {
 	
 	@OneToMany(mappedBy = "TA")
 	private List<Asignatura> asignaturas;
+	
+	@OneToMany(mappedBy = "TG")
+	private List<Grupo> grupos;
+	
+	@OneToMany(mappedBy = "TE")
+	private List<Expediente> expedientes;
+	
+	@ManyToMany(mappedBy = "TC")
+	private List<Centro> centros;
 
 	public Titulacion() {
 		super();

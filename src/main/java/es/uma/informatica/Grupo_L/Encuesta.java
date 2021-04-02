@@ -2,6 +2,8 @@ package es.uma.informatica.Grupo_L;
 
 import java.io.Serializable;
 import java.lang.Long;
+import java.util.List;
+
 import javax.persistence.*;
 
 /**
@@ -16,6 +18,9 @@ public class Encuesta implements Serializable {
 	@Id @GeneratedValue
 	private Long Fecha_De_Envío;
 	private static final long serialVersionUID = 1L;
+	
+	@ManyToMany(mappedBy = "E_GPA")
+	private List<GruposPorAsignatura> gruposPorAsignaturas;
 
 	public Encuesta() {
 		super();

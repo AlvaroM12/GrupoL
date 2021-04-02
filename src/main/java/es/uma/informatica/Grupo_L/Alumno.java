@@ -3,6 +3,8 @@ package es.uma.informatica.Grupo_L;
 import java.io.Serializable;
 import java.lang.Long;
 import java.lang.String;
+import java.util.List;
+
 import javax.persistence.*;
 
 /**
@@ -11,7 +13,7 @@ import javax.persistence.*;
  */
 @Entity
 
-public class Alumno implements Serializable {
+public class Alumno extends Usuario implements Serializable {
 
 	
 	private String DNI;
@@ -20,6 +22,9 @@ public class Alumno implements Serializable {
 	private String Email_Personal;
 	private Long Móvil;
 	private static final long serialVersionUID = 1L;
+	
+	@OneToMany(mappedBy = "AE")
+	private List<Expediente> expedientes;
 
 	public Alumno() {
 		super();
