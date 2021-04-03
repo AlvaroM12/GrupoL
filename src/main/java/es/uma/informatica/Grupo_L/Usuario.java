@@ -35,6 +35,7 @@ public class Usuario implements Serializable {
 	public void setTelefono(Long Telefono) {
 		this.Telefono = Telefono;
 	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;

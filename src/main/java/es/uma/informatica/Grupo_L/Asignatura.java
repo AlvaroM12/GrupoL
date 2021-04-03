@@ -34,6 +34,11 @@ public class Asignatura implements Serializable {
 	@OneToMany(mappedBy = "AC")
 	private List<Clase> clases;
 	
+	@OneToMany(mappedBy = "asignatura" , fetch = FetchType.LAZY)
+	private List<Asignaturas_Matrícula> asignaturasMatricula;
+	
+	@OneToMany(mappedBy = "A_GPA")
+	private List<GruposPorAsignatura> gruposPorAsignatura;
 	
 	private static final long serialVersionUID = 1L;
 
@@ -109,6 +114,33 @@ public class Asignatura implements Serializable {
 
 	public void setIdioma_de_imparticion(String Idioma_de_imparticion) {
 		this.Idioma_de_imparticion = Idioma_de_imparticion;
+	}	
+	
+	public Titulacion getTA() {
+		return TA;
+	}
+	public void setTA(Titulacion tA) {
+		TA = tA;
+	}
+	public List<Clase> getClases() {
+		return clases;
+	}
+	public void setClases(List<Clase> clases) {
+		this.clases = clases;
+	}
+	public List<Asignaturas_Matrícula> getAsignaturasMatricula() {
+		return asignaturasMatricula;
+	}
+	public void setAsignaturasMatricula(List<Asignaturas_Matrícula> asignaturasMatricula) {
+		this.asignaturasMatricula = asignaturasMatricula;
+	}
+	
+	
+	public List<GruposPorAsignatura> getGruposPorAsignatura() {
+		return gruposPorAsignatura;
+	}
+	public void setGruposPorAsignatura(List<GruposPorAsignatura> gruposPorAsignatura) {
+		this.gruposPorAsignatura = gruposPorAsignatura;
 	}
 	@Override
 	public int hashCode() {
@@ -123,8 +155,12 @@ public class Asignatura implements Serializable {
 		result = prime * result + ((Nombre == null) ? 0 : Nombre.hashCode());
 		result = prime * result + ((Ofertada == null) ? 0 : Ofertada.hashCode());
 		result = prime * result + ((Referencia == null) ? 0 : Referencia.hashCode());
+		result = prime * result + ((TA == null) ? 0 : TA.hashCode());
 		result = prime * result
 				+ ((Unidad_Temporal_Cuatrimestre == null) ? 0 : Unidad_Temporal_Cuatrimestre.hashCode());
+		result = prime * result + ((asignaturasMatricula == null) ? 0 : asignaturasMatricula.hashCode());
+		result = prime * result + ((clases == null) ? 0 : clases.hashCode());
+		result = prime * result + ((gruposPorAsignatura == null) ? 0 : gruposPorAsignatura.hashCode());
 		return result;
 	}
 	@Override
@@ -181,10 +217,30 @@ public class Asignatura implements Serializable {
 				return false;
 		} else if (!Referencia.equals(other.Referencia))
 			return false;
+		if (TA == null) {
+			if (other.TA != null)
+				return false;
+		} else if (!TA.equals(other.TA))
+			return false;
 		if (Unidad_Temporal_Cuatrimestre == null) {
 			if (other.Unidad_Temporal_Cuatrimestre != null)
 				return false;
 		} else if (!Unidad_Temporal_Cuatrimestre.equals(other.Unidad_Temporal_Cuatrimestre))
+			return false;
+		if (asignaturasMatricula == null) {
+			if (other.asignaturasMatricula != null)
+				return false;
+		} else if (!asignaturasMatricula.equals(other.asignaturasMatricula))
+			return false;
+		if (clases == null) {
+			if (other.clases != null)
+				return false;
+		} else if (!clases.equals(other.clases))
+			return false;
+		if (gruposPorAsignatura == null) {
+			if (other.gruposPorAsignatura != null)
+				return false;
+		} else if (!gruposPorAsignatura.equals(other.gruposPorAsignatura))
 			return false;
 		return true;
 	}
@@ -193,8 +249,11 @@ public class Asignatura implements Serializable {
 		return "Asignatura [Referencia=" + Referencia + ", Codigo=" + Codigo + ", Créditos=" + Créditos + ", Ofertada="
 				+ Ofertada + ", Nombre=" + Nombre + ", Curso=" + Curso + ", Caracter=" + Caracter + ", Duración="
 				+ Duración + ", Unidad_Temporal_Cuatrimestre=" + Unidad_Temporal_Cuatrimestre
-				+ ", Idioma_de_imparticion=" + Idioma_de_imparticion + "]";
+				+ ", Idioma_de_imparticion=" + Idioma_de_imparticion + ", TA=" + TA + ", clases=" + clases
+				+ ", asignaturasMatricula=" + asignaturasMatricula + ", gruposPorAsignatura=" + gruposPorAsignatura
+				+ "]";
 	}
+	
 	
 	
    

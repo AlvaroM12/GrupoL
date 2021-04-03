@@ -26,6 +26,7 @@ public class Personal_de_secretaria extends Usuario implements Serializable {
 	public void setRango(String Rango) {
 		this.Rango = Rango;
 	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;

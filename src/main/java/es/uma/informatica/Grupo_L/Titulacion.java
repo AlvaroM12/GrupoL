@@ -66,6 +66,26 @@ public class Titulacion implements Serializable {
 	public void setAsignaturas(List<Asignatura> asignaturas) {
 		this.asignaturas = asignaturas;
 	}
+	
+	
+	public List<Grupo> getGrupos() {
+		return grupos;
+	}
+	public void setGrupos(List<Grupo> grupos) {
+		this.grupos = grupos;
+	}
+	public List<Expediente> getExpedientes() {
+		return expedientes;
+	}
+	public void setExpedientes(List<Expediente> expedientes) {
+		this.expedientes = expedientes;
+	}
+	public List<Centro> getCentros() {
+		return centros;
+	}
+	public void setCentros(List<Centro> centros) {
+		this.centros = centros;
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -74,6 +94,9 @@ public class Titulacion implements Serializable {
 		result = prime * result + ((Código == null) ? 0 : Código.hashCode());
 		result = prime * result + ((Nombre == null) ? 0 : Nombre.hashCode());
 		result = prime * result + ((asignaturas == null) ? 0 : asignaturas.hashCode());
+		result = prime * result + ((centros == null) ? 0 : centros.hashCode());
+		result = prime * result + ((expedientes == null) ? 0 : expedientes.hashCode());
+		result = prime * result + ((grupos == null) ? 0 : grupos.hashCode());
 		return result;
 	}
 	@Override
@@ -105,16 +128,27 @@ public class Titulacion implements Serializable {
 				return false;
 		} else if (!asignaturas.equals(other.asignaturas))
 			return false;
+		if (centros == null) {
+			if (other.centros != null)
+				return false;
+		} else if (!centros.equals(other.centros))
+			return false;
+		if (expedientes == null) {
+			if (other.expedientes != null)
+				return false;
+		} else if (!expedientes.equals(other.expedientes))
+			return false;
+		if (grupos == null) {
+			if (other.grupos != null)
+				return false;
+		} else if (!grupos.equals(other.grupos))
+			return false;
 		return true;
 	}
 	@Override
 	public String toString() {
 		return "Titulacion [Código=" + Código + ", Nombre=" + Nombre + ", Créditos=" + Créditos + ", asignaturas="
-				+ asignaturas + "]";
+				+ asignaturas + ", grupos=" + grupos + ", expedientes=" + expedientes + ", centros=" + centros + "]";
 	}
-	
-	
-	
-	
-   
+	  
 }

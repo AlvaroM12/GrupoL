@@ -21,6 +21,11 @@ public class Encuesta implements Serializable {
 	
 	@ManyToMany(mappedBy = "E_GPA")
 	private List<GruposPorAsignatura> gruposPorAsignaturas;
+	
+	@Id
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "Num_Expediente", nullable = false, referencedColumnName = "Num_Expediente")
+	private Expediente EE;
 
 	public Encuesta() {
 		super();
@@ -32,12 +37,27 @@ public class Encuesta implements Serializable {
 	public void setFecha_De_Envío(Long Fecha_De_Envío) {
 		this.Fecha_De_Envío = Fecha_De_Envío;
 	}
+	
     
+	public List<GruposPorAsignatura> getGruposPorAsignaturas() {
+		return gruposPorAsignaturas;
+	}
+	public void setGruposPorAsignaturas(List<GruposPorAsignatura> gruposPorAsignaturas) {
+		this.gruposPorAsignaturas = gruposPorAsignaturas;
+	}
+	public Expediente getEE() {
+		return EE;
+	}
+	public void setEE(Expediente eE) {
+		EE = eE;
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + ((EE == null) ? 0 : EE.hashCode());
 		result = prime * result + ((Fecha_De_Envío == null) ? 0 : Fecha_De_Envío.hashCode());
+		result = prime * result + ((gruposPorAsignaturas == null) ? 0 : gruposPorAsignaturas.hashCode());
 		return result;
 	}
 	@Override
@@ -49,15 +69,26 @@ public class Encuesta implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Encuesta other = (Encuesta) obj;
+		if (EE == null) {
+			if (other.EE != null)
+				return false;
+		} else if (!EE.equals(other.EE))
+			return false;
 		if (Fecha_De_Envío == null) {
 			if (other.Fecha_De_Envío != null)
 				return false;
 		} else if (!Fecha_De_Envío.equals(other.Fecha_De_Envío))
 			return false;
+		if (gruposPorAsignaturas == null) {
+			if (other.gruposPorAsignaturas != null)
+				return false;
+		} else if (!gruposPorAsignaturas.equals(other.gruposPorAsignaturas))
+			return false;
 		return true;
 	}
 	@Override
 	public String toString() {
-		return "Encuesta [Fecha_De_Envío=" + Fecha_De_Envío + "]";
+		return "Encuesta [Fecha_De_Envío=" + Fecha_De_Envío + ", gruposPorAsignaturas=" + gruposPorAsignaturas + ", EE="
+				+ EE + "]";
 	}
 }

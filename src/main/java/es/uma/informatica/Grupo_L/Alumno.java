@@ -64,22 +64,31 @@ public class Alumno extends Usuario implements Serializable {
 	public void setMóvil(Long Móvil) {
 		this.Móvil = Móvil;
 	}
+	
+	
+	public List<Expediente> getExpedientes() {
+		return expedientes;
+	}
+	public void setExpedientes(List<Expediente> expedientes) {
+		this.expedientes = expedientes;
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
-		int result = 1;
+		int result = super.hashCode();
 		result = prime * result + ((DNI == null) ? 0 : DNI.hashCode());
 		result = prime * result + ((Email_Institucional == null) ? 0 : Email_Institucional.hashCode());
 		result = prime * result + ((Email_Personal == null) ? 0 : Email_Personal.hashCode());
 		result = prime * result + ((Móvil == null) ? 0 : Móvil.hashCode());
 		result = prime * result + ((Nombre_Completo == null) ? 0 : Nombre_Completo.hashCode());
+		result = prime * result + ((expedientes == null) ? 0 : expedientes.hashCode());
 		return result;
 	}
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
-		if (obj == null)
+		if (!super.equals(obj))
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
@@ -109,14 +118,19 @@ public class Alumno extends Usuario implements Serializable {
 				return false;
 		} else if (!Nombre_Completo.equals(other.Nombre_Completo))
 			return false;
+		if (expedientes == null) {
+			if (other.expedientes != null)
+				return false;
+		} else if (!expedientes.equals(other.expedientes))
+			return false;
 		return true;
 	}
 	@Override
 	public String toString() {
 		return "Alumno [DNI=" + DNI + ", Nombre_Completo=" + Nombre_Completo + ", Email_Institucional="
-				+ Email_Institucional + ", Email_Personal=" + Email_Personal + ", Móvil=" + Móvil + "]";
+				+ Email_Institucional + ", Email_Personal=" + Email_Personal + ", Móvil=" + Móvil + ", expedientes="
+				+ expedientes + "]";
 	}
 	
-	
-   
+	  
 }

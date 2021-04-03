@@ -25,6 +25,15 @@ public class GruposPorAsignatura implements Serializable {
 	@ManyToMany
 	private List<Encuesta> E_GPA;
 	
+	@Id
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "Referencia", nullable = false, referencedColumnName = "Referencia")
+	private Asignatura A_GPA;	
+	
+	@Id
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "ID_Grupo", nullable = false, referencedColumnName = "ID_Grupo")
+	private Asignatura G_GPA;
 
 	public GruposPorAsignatura() {
 		super();
@@ -43,15 +52,33 @@ public class GruposPorAsignatura implements Serializable {
 	public void setOferta(Long Oferta) {
 		this.Oferta = Oferta;
 	}
-	@Override
-	public String toString() {
-		return "GruposPorAsignatura [Curso_Academico=" + Curso_Academico + ", Oferta=" + Oferta + "]";
+	
+	public List<Encuesta> getE_GPA() {
+		return E_GPA;
+	}
+	public void setE_GPA(List<Encuesta> e_GPA) {
+		E_GPA = e_GPA;
+	}
+	public Asignatura getA_GPA() {
+		return A_GPA;
+	}
+	public void setA_GPA(Asignatura a_GPA) {
+		A_GPA = a_GPA;
+	}
+	public Asignatura getG_GPA() {
+		return G_GPA;
+	}
+	public void setG_GPA(Asignatura g_GPA) {
+		G_GPA = g_GPA;
 	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + ((A_GPA == null) ? 0 : A_GPA.hashCode());
 		result = prime * result + ((Curso_Academico == null) ? 0 : Curso_Academico.hashCode());
+		result = prime * result + ((E_GPA == null) ? 0 : E_GPA.hashCode());
+		result = prime * result + ((G_GPA == null) ? 0 : G_GPA.hashCode());
 		result = prime * result + ((Oferta == null) ? 0 : Oferta.hashCode());
 		return result;
 	}
@@ -64,10 +91,25 @@ public class GruposPorAsignatura implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		GruposPorAsignatura other = (GruposPorAsignatura) obj;
+		if (A_GPA == null) {
+			if (other.A_GPA != null)
+				return false;
+		} else if (!A_GPA.equals(other.A_GPA))
+			return false;
 		if (Curso_Academico == null) {
 			if (other.Curso_Academico != null)
 				return false;
 		} else if (!Curso_Academico.equals(other.Curso_Academico))
+			return false;
+		if (E_GPA == null) {
+			if (other.E_GPA != null)
+				return false;
+		} else if (!E_GPA.equals(other.E_GPA))
+			return false;
+		if (G_GPA == null) {
+			if (other.G_GPA != null)
+				return false;
+		} else if (!G_GPA.equals(other.G_GPA))
 			return false;
 		if (Oferta == null) {
 			if (other.Oferta != null)
@@ -76,6 +118,10 @@ public class GruposPorAsignatura implements Serializable {
 			return false;
 		return true;
 	}
-
+	@Override
+	public String toString() {
+		return "GruposPorAsignatura [Curso_Academico=" + Curso_Academico + ", Oferta=" + Oferta + ", E_GPA=" + E_GPA
+				+ ", A_GPA=" + A_GPA + ", G_GPA=" + G_GPA + "]";
+	}
    
 }

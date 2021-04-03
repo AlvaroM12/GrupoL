@@ -36,6 +36,9 @@ public class Grupo implements Serializable {
 	@OneToMany(mappedBy = "GG")
 	private List<Grupo> grupos;
 	
+	@OneToMany(mappedBy = "G_GPA")
+	private List<GruposPorAsignatura> gruposPorAsig;
+	
 	@ManyToOne
 	private Grupo GG;
 
@@ -98,18 +101,54 @@ public class Grupo implements Serializable {
 	public void setPlazas(Long Plazas) {
 		this.Plazas = Plazas;
 	}
+	
+	public Titulacion getTG() {
+		return TG;
+	}
+	public void setTG(Titulacion tG) {
+		TG = tG;
+	}
+	public List<Asignaturas_Matrícula> getAsignaturasMatriculas() {
+		return asignaturasMatriculas;
+	}
+	public void setAsignaturasMatriculas(List<Asignaturas_Matrícula> asignaturasMatriculas) {
+		this.asignaturasMatriculas = asignaturasMatriculas;
+	}
+	public List<Grupo> getGrupos() {
+		return grupos;
+	}
+	public void setGrupos(List<Grupo> grupos) {
+		this.grupos = grupos;
+	}
+	public List<GruposPorAsignatura> getGruposPorAsig() {
+		return gruposPorAsig;
+	}
+	public void setGruposPorAsig(List<GruposPorAsignatura> gruposPorAsig) {
+		this.gruposPorAsig = gruposPorAsig;
+	}
+	public Grupo getGG() {
+		return GG;
+	}
+	public void setGG(Grupo gG) {
+		GG = gG;
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((Asignar == null) ? 0 : Asignar.hashCode());
 		result = prime * result + ((Curso == null) ? 0 : Curso.hashCode());
+		result = prime * result + ((GG == null) ? 0 : GG.hashCode());
 		result = prime * result + ((ID == null) ? 0 : ID.hashCode());
 		result = prime * result + ((Ingles == null) ? 0 : Ingles.hashCode());
 		result = prime * result + ((Letra == null) ? 0 : Letra.hashCode());
 		result = prime * result + ((Plazas == null) ? 0 : Plazas.hashCode());
+		result = prime * result + ((TG == null) ? 0 : TG.hashCode());
 		result = prime * result + ((Turno_Mañana_Tarde == null) ? 0 : Turno_Mañana_Tarde.hashCode());
 		result = prime * result + ((Visible == null) ? 0 : Visible.hashCode());
+		result = prime * result + ((asignaturasMatriculas == null) ? 0 : asignaturasMatriculas.hashCode());
+		result = prime * result + ((grupos == null) ? 0 : grupos.hashCode());
+		result = prime * result + ((gruposPorAsig == null) ? 0 : gruposPorAsig.hashCode());
 		return result;
 	}
 	@Override
@@ -131,6 +170,11 @@ public class Grupo implements Serializable {
 				return false;
 		} else if (!Curso.equals(other.Curso))
 			return false;
+		if (GG == null) {
+			if (other.GG != null)
+				return false;
+		} else if (!GG.equals(other.GG))
+			return false;
 		if (ID == null) {
 			if (other.ID != null)
 				return false;
@@ -151,6 +195,11 @@ public class Grupo implements Serializable {
 				return false;
 		} else if (!Plazas.equals(other.Plazas))
 			return false;
+		if (TG == null) {
+			if (other.TG != null)
+				return false;
+		} else if (!TG.equals(other.TG))
+			return false;
 		if (Turno_Mañana_Tarde == null) {
 			if (other.Turno_Mañana_Tarde != null)
 				return false;
@@ -161,15 +210,29 @@ public class Grupo implements Serializable {
 				return false;
 		} else if (!Visible.equals(other.Visible))
 			return false;
+		if (asignaturasMatriculas == null) {
+			if (other.asignaturasMatriculas != null)
+				return false;
+		} else if (!asignaturasMatriculas.equals(other.asignaturasMatriculas))
+			return false;
+		if (grupos == null) {
+			if (other.grupos != null)
+				return false;
+		} else if (!grupos.equals(other.grupos))
+			return false;
+		if (gruposPorAsig == null) {
+			if (other.gruposPorAsig != null)
+				return false;
+		} else if (!gruposPorAsig.equals(other.gruposPorAsig))
+			return false;
 		return true;
 	}
 	@Override
 	public String toString() {
 		return "Grupo [ID=" + ID + ", Curso=" + Curso + ", Letra=" + Letra + ", Turno_Mañana_Tarde="
 				+ Turno_Mañana_Tarde + ", Ingles=" + Ingles + ", Visible=" + Visible + ", Asignar=" + Asignar
-				+ ", Plazas=" + Plazas + "]";
-	}
-	
-	
+				+ ", Plazas=" + Plazas + ", TG=" + TG + ", asignaturasMatriculas=" + asignaturasMatriculas + ", grupos="
+				+ grupos + ", gruposPorAsig=" + gruposPorAsig + ", GG=" + GG + "]";
+	}	
    
 }

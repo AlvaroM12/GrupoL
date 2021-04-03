@@ -57,6 +57,13 @@ public class Centro implements Serializable {
 	public void setTLF_Conserjeria(Long TLF_Conserjeria) {
 		this.TLF_Conserjeria = TLF_Conserjeria;
 	}
+	
+	public List<Titulacion> getTC() {
+		return TC;
+	}
+	public void setTC(List<Titulacion> tC) {
+		TC = tC;
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -64,6 +71,7 @@ public class Centro implements Serializable {
 		result = prime * result + ((Direccion == null) ? 0 : Direccion.hashCode());
 		result = prime * result + ((ID == null) ? 0 : ID.hashCode());
 		result = prime * result + ((Nombre == null) ? 0 : Nombre.hashCode());
+		result = prime * result + ((TC == null) ? 0 : TC.hashCode());
 		result = prime * result + ((TLF_Conserjeria == null) ? 0 : TLF_Conserjeria.hashCode());
 		return result;
 	}
@@ -91,6 +99,11 @@ public class Centro implements Serializable {
 				return false;
 		} else if (!Nombre.equals(other.Nombre))
 			return false;
+		if (TC == null) {
+			if (other.TC != null)
+				return false;
+		} else if (!TC.equals(other.TC))
+			return false;
 		if (TLF_Conserjeria == null) {
 			if (other.TLF_Conserjeria != null)
 				return false;
@@ -101,7 +114,7 @@ public class Centro implements Serializable {
 	@Override
 	public String toString() {
 		return "Centro [ID=" + ID + ", Nombre=" + Nombre + ", Direccion=" + Direccion + ", TLF_Conserjeria="
-				+ TLF_Conserjeria + "]";
+				+ TLF_Conserjeria + ", TC=" + TC + "]";
 	}
 	
    

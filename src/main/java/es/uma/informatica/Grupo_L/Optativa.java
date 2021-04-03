@@ -36,6 +36,7 @@ public class Optativa extends Asignatura implements Serializable {
 	public void setMención(String Mención) {
 		this.Mención = Mención;
 	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
