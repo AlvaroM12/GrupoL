@@ -12,10 +12,14 @@ import javax.persistence.*;
  *
  */
 @Entity
-
+@IdClass(GruposPorAsignatura.GruposPorAsignaturaId.class)
 public class GruposPorAsignatura implements Serializable {
-
-	   
+	
+	public static class GruposPorAsignaturaId implements Serializable{
+		private Long G_GPA;
+		private Long Curso_Academico;
+		private Long A_GPA;
+	}	   
 
 	@Id @GeneratedValue
 	private Long Curso_Academico;
@@ -26,14 +30,12 @@ public class GruposPorAsignatura implements Serializable {
 	private List<Encuesta> E_GPA;
 	
 	@Id
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "Referencia", nullable = false, referencedColumnName = "Referencia")
+	@ManyToOne
 	private Asignatura A_GPA;	
 	
 	@Id
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "ID_Grupo", nullable = false, referencedColumnName = "ID_Grupo")
-	private Asignatura G_GPA;
+	@ManyToOne
+	private Grupo G_GPA;
 
 	public GruposPorAsignatura() {
 		super();
@@ -65,10 +67,11 @@ public class GruposPorAsignatura implements Serializable {
 	public void setA_GPA(Asignatura a_GPA) {
 		A_GPA = a_GPA;
 	}
-	public Asignatura getG_GPA() {
+	
+	public Grupo getG_GPA() {
 		return G_GPA;
 	}
-	public void setG_GPA(Asignatura g_GPA) {
+	public void setG_GPA(Grupo g_GPA) {
 		G_GPA = g_GPA;
 	}
 	@Override
@@ -123,5 +126,8 @@ public class GruposPorAsignatura implements Serializable {
 		return "GruposPorAsignatura [Curso_Academico=" + Curso_Academico + ", Oferta=" + Oferta + ", E_GPA=" + E_GPA
 				+ ", A_GPA=" + A_GPA + ", G_GPA=" + G_GPA + "]";
 	}
+	
+	
+	
    
 }

@@ -34,7 +34,7 @@ public class Asignatura implements Serializable {
 	@OneToMany(mappedBy = "AC")
 	private List<Clase> clases;
 	
-	@OneToMany(mappedBy = "asignatura" , fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "asignatura")
 	private List<Asignaturas_Matrícula> asignaturasMatricula;
 	
 	@OneToMany(mappedBy = "A_GPA")

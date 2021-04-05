@@ -3,25 +3,32 @@ package es.uma.informatica.Grupo_L;
 import java.io.Serializable;
 import javax.persistence.*;
 
+import es.uma.informatica.Grupo_L.Matrícula.MatriculaId;
+
 /**
  * Entity implementation class for Entity: Asignaturas_Matrícula
  *
  */
 @Entity
+@IdClass(Asignaturas_Matrícula.Asignaturas_MatriculaId.class)
 
 public class Asignaturas_Matrícula implements Serializable {
 	
+	public static class Asignaturas_MatriculaId implements Serializable{
+		private Long asignatura;
+		private MatriculaId matricula;
+	}
+	
 	@Id
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne
 	@JoinColumns({
-		@JoinColumn(name = "Curso_Academico", nullable = false, referencedColumnName = "Curso_Academico"),
-		@JoinColumn(name = "EM", nullable = false, referencedColumnName = "EM"),
-	})	
+		@JoinColumn(name="Curso_Academico", referencedColumnName="Curso_Academico"),
+		@JoinColumn(name="EM", referencedColumnName="EM")
+		})
 	private Matrícula matricula;
 	
 	@Id
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "Referencia", nullable = false, referencedColumnName = "Referencia")
+	@ManyToOne
 	private Asignatura asignatura;
 	
 	@ManyToOne

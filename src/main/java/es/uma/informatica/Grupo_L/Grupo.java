@@ -41,6 +41,10 @@ public class Grupo implements Serializable {
 	
 	@ManyToOne
 	private Grupo GG;
+	
+	@OneToMany(mappedBy = "GC")
+	private List<Clase> clases;
+	
 
 	public Grupo() {
 		super();

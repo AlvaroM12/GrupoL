@@ -11,11 +11,15 @@ import javax.persistence.*;
  *
  */
 @Entity
-
+@IdClass(Encuesta.EncuestaId.class)
 public class Encuesta implements Serializable {
 
+	public static class EncuestaId implements Serializable{
+		private Long EE;
+		private Long Fecha_De_Envío;
+	}
 	   
-	@Id @GeneratedValue
+	@Id 
 	private Long Fecha_De_Envío;
 	private static final long serialVersionUID = 1L;
 	
@@ -23,8 +27,7 @@ public class Encuesta implements Serializable {
 	private List<GruposPorAsignatura> gruposPorAsignaturas;
 	
 	@Id
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "Num_Expediente", nullable = false, referencedColumnName = "Num_Expediente")
+	@ManyToOne
 	private Expediente EE;
 
 	public Encuesta() {

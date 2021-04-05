@@ -11,8 +11,14 @@ import javax.persistence.*;
  *
  */
 @Entity
-
+@IdClass(Clase.ClaseId.class)
 public class Clase implements Serializable {
+	
+	public static class ClaseId implements Serializable{
+		private Date Dia;
+		private Long HoraInicio;
+		private Long GC;
+	}
 
 	   
 	@Id @Temporal(TemporalType.DATE)
@@ -24,6 +30,10 @@ public class Clase implements Serializable {
 	
 	@ManyToOne
 	private Asignatura AC;
+	
+	@Id
+	@ManyToOne
+	private Grupo GC;
 
 	public Clase() {
 		super();

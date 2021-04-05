@@ -13,9 +13,13 @@ import javax.persistence.*;
  *
  */
 @Entity
-
+@IdClass(Matrícula.MatriculaId.class)
 public class Matrícula implements Serializable {
 
+	public static class MatriculaId implements Serializable{
+		private Long EM;
+		private String Curso_Academico;
+	}
 	   
 	@Id
 	private String Curso_Academico;
@@ -30,11 +34,10 @@ public class Matrícula implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "Num_Expedientes", nullable = false, referencedColumnName = "Num_Expedientes")
+	@ManyToOne
 	private Expediente EM;
 	
-	@OneToMany(mappedBy = "matricula", fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "matricula")
 	private List<Asignaturas_Matrícula> asigMatricula;
 
 	public Matrícula() {
