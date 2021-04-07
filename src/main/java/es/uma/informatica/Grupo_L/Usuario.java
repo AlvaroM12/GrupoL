@@ -9,7 +9,7 @@ import javax.persistence.*;
  *
  */
 @Entity
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Usuario implements Serializable {
 
 	   

@@ -15,7 +15,7 @@ import javax.persistence.*;
 
 public class Alumno extends Usuario implements Serializable {
 
-	
+	@Column(unique=true)
 	private String DNI;
 	private String Nombre_Completo;
 	private String Email_Institucional;
@@ -72,6 +72,7 @@ public class Alumno extends Usuario implements Serializable {
 	public void setExpedientes(List<Expediente> expedientes) {
 		this.expedientes = expedientes;
 	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;

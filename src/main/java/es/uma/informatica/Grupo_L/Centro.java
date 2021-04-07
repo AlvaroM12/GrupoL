@@ -18,6 +18,7 @@ public class Centro implements Serializable {
 	   
 	@Id @GeneratedValue
 	private Long ID;
+	@Column(unique=true)
 	private String Nombre;
 	private String Direccion;
 	private Long TLF_Conserjeria;
