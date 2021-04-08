@@ -68,12 +68,22 @@ public class Clase implements Serializable {
 	public void setAC(Asignatura aC) {
 		AC = aC;
 	}
+	
+	public Grupo getGC() {
+		return GC;
+	}
+
+	public void setGC(Grupo gC) {
+		GC = gC;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((AC == null) ? 0 : AC.hashCode());
 		result = prime * result + ((Dia == null) ? 0 : Dia.hashCode());
+		result = prime * result + ((GC == null) ? 0 : GC.hashCode());
 		result = prime * result + ((HoraFin == null) ? 0 : HoraFin.hashCode());
 		result = prime * result + ((HoraInicio == null) ? 0 : HoraInicio.hashCode());
 		return result;
@@ -97,6 +107,11 @@ public class Clase implements Serializable {
 				return false;
 		} else if (!Dia.equals(other.Dia))
 			return false;
+		if (GC == null) {
+			if (other.GC != null)
+				return false;
+		} else if (!GC.equals(other.GC))
+			return false;
 		if (HoraFin == null) {
 			if (other.HoraFin != null)
 				return false;
@@ -111,7 +126,8 @@ public class Clase implements Serializable {
 	}
 	@Override
 	public String toString() {
-		return "Clase [Dia=" + Dia + ", HoraInicio=" + HoraInicio + ", HoraFin=" + HoraFin + ", AC=" + AC + "]";
+		return "Clase [Dia=" + Dia + ", HoraInicio=" + HoraInicio + ", HoraFin=" + HoraFin + ", AC=" + AC + ", GC=" + GC
+				+ "]";
 	}
 	
 }

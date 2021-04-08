@@ -138,6 +138,12 @@ public class Grupo implements Serializable {
 	public void setGG(Grupo gG) {
 		GG = gG;
 	}
+	public List<Clase> getClases() {
+		return clases;
+	}
+	public void setClases(List<Clase> clases) {
+		this.clases = clases;
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -153,6 +159,7 @@ public class Grupo implements Serializable {
 		result = prime * result + ((Turno_Mañana_Tarde == null) ? 0 : Turno_Mañana_Tarde.hashCode());
 		result = prime * result + ((Visible == null) ? 0 : Visible.hashCode());
 		result = prime * result + ((asignaturasMatriculas == null) ? 0 : asignaturasMatriculas.hashCode());
+		result = prime * result + ((clases == null) ? 0 : clases.hashCode());
 		result = prime * result + ((grupos == null) ? 0 : grupos.hashCode());
 		result = prime * result + ((gruposPorAsig == null) ? 0 : gruposPorAsig.hashCode());
 		return result;
@@ -221,6 +228,11 @@ public class Grupo implements Serializable {
 				return false;
 		} else if (!asignaturasMatriculas.equals(other.asignaturasMatriculas))
 			return false;
+		if (clases == null) {
+			if (other.clases != null)
+				return false;
+		} else if (!clases.equals(other.clases))
+			return false;
 		if (grupos == null) {
 			if (other.grupos != null)
 				return false;
@@ -238,7 +250,7 @@ public class Grupo implements Serializable {
 		return "Grupo [ID=" + ID + ", Curso=" + Curso + ", Letra=" + Letra + ", Turno_Mañana_Tarde="
 				+ Turno_Mañana_Tarde + ", Ingles=" + Ingles + ", Visible=" + Visible + ", Asignar=" + Asignar
 				+ ", Plazas=" + Plazas + ", TG=" + TG + ", asignaturasMatriculas=" + asignaturasMatriculas + ", grupos="
-				+ grupos + ", gruposPorAsig=" + gruposPorAsig + ", GG=" + GG + "]";
+				+ grupos + ", gruposPorAsig=" + gruposPorAsig + ", GG=" + GG + ", clases=" + clases + "]";
 	}	
    
 }
