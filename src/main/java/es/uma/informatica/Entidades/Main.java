@@ -1,4 +1,4 @@
-package es.uma.informatica.Grupo_L;
+package es.uma.informatica.Entidades;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;

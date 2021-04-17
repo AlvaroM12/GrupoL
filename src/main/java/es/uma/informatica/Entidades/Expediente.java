@@ -1,4 +1,4 @@
-package es.uma.informatica.Grupo_L;
+package es.uma.informatica.Entidades;
 
 import java.io.Serializable;
 import java.lang.Float;

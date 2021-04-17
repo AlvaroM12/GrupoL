@@ -1,9 +1,9 @@
-package es.uma.informatica.Grupo_L;
+package es.uma.informatica.Entidades;
 
 import java.io.Serializable;
 import javax.persistence.*;
 
-import es.uma.informatica.Grupo_L.Matrícula.MatriculaId;
+import es.uma.informatica.Entidades.Matrícula.MatriculaId;
 
 /**
  * Entity implementation class for Entity: Asignaturas_Matrícula

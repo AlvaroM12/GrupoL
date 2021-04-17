@@ -1,10 +1,11 @@
-package es.uma.informatica.Grupo_L;
+package es.uma.informatica.Entidades;
 
-import es.uma.informatica.Grupo_L.Asignatura;
 import java.io.Serializable;
 import java.lang.Long;
 import java.lang.String;
 import javax.persistence.*;
+
+import es.uma.informatica.Entidades.Asignatura;
 
 /**
  * Entity implementation class for Entity: Optativa

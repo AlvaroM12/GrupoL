@@ -2,20 +2,20 @@
 <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
 	<persistence-unit name="Grupo_L">
 		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-		<class>es.uma.informatica.Grupo_L.Usuario</class>
-		<class>es.uma.informatica.Grupo_L.Grupo</class>
-		<class>es.uma.informatica.Grupo_L.Alumno</class>
-		<class>es.uma.informatica.Grupo_L.Asignatura</class>
-		<class>es.uma.informatica.Grupo_L.Asignaturas_Matrícula</class>
-		<class>es.uma.informatica.Grupo_L.Centro</class>
-		<class>es.uma.informatica.Grupo_L.Clase</class>
-		<class>es.uma.informatica.Grupo_L.Encuesta</class>
-		<class>es.uma.informatica.Grupo_L.Expediente</class>
-		<class>es.uma.informatica.Grupo_L.GruposPorAsignatura</class>
-		<class>es.uma.informatica.Grupo_L.Matrícula</class>
-		<class>es.uma.informatica.Grupo_L.Optativa</class>
-		<class>es.uma.informatica.Grupo_L.Personal_de_secretaria</class>
-		<class>es.uma.informatica.Grupo_L.Titulacion</class>
+		<class>es.uma.informatica.Entidades.Usuario</class>
+		<class>es.uma.informatica.Entidades.Grupo</class>
+		<class>es.uma.informatica.Entidades.Alumno</class>
+		<class>es.uma.informatica.Entidades.Asignatura</class>
+		<class>es.uma.informatica.Entidades.Asignaturas_Matrícula</class>
+		<class>es.uma.informatica.Entidades.Centro</class>
+		<class>es.uma.informatica.Entidades.Clase</class>
+		<class>es.uma.informatica.Entidades.Encuesta</class>
+		<class>es.uma.informatica.Entidades.Expediente</class>
+		<class>es.uma.informatica.Entidades.GruposPorAsignatura</class>
+		<class>es.uma.informatica.Entidades.Matrícula</class>
+		<class>es.uma.informatica.Entidades.Optativa</class>
+		<class>es.uma.informatica.Entidades.Personal_de_secretaria</class>
+		<class>es.uma.informatica.Entidades.Titulacion</class>
 		<properties>			
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/Grupo_L"/>
 			<property name="javax.persistence.jdbc.user" value="siiuser"/>
