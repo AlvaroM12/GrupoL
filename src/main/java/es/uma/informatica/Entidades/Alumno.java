@@ -17,10 +17,17 @@ public class Alumno extends Usuario implements Serializable {
 
 	@Column(unique=true)
 	private String DNI;
-	private String Nombre_Completo;
+	private String Nombre;
+	private String Apellido1;
+	private String Apellido2;
 	private String Email_Institucional;
 	private String Email_Personal;
+	private String Dirección;
 	private Long Móvil;
+	private String Direccion;
+	private String Localidad;
+	private String Provincia;
+	private Long CP;
 	private static final long serialVersionUID = 1L;
 	
 	@OneToMany(mappedBy = "AE")
@@ -36,13 +43,7 @@ public class Alumno extends Usuario implements Serializable {
 	public void setDNI(String DNI) {
 		this.DNI = DNI;
 	}   
-	public String getNombre_Completo() {
-		return this.Nombre_Completo;
-	}
-
-	public void setNombre_Completo(String Nombre_Completo) {
-		this.Nombre_Completo = Nombre_Completo;
-	}   
+	  
 	public String getEmail_Institucional() {
 		return this.Email_Institucional;
 	}
@@ -65,7 +66,6 @@ public class Alumno extends Usuario implements Serializable {
 		this.Móvil = Móvil;
 	}
 	
-	
 	public List<Expediente> getExpedientes() {
 		return expedientes;
 	}
@@ -73,15 +73,70 @@ public class Alumno extends Usuario implements Serializable {
 		this.expedientes = expedientes;
 	}
 	
+	public String getNombre() {
+		return Nombre;
+	}
+	public void setNombre(String nombre) {
+		Nombre = nombre;
+	}
+	public String getApellido1() {
+		return Apellido1;
+	}
+	public void setApellido1(String apellido1) {
+		Apellido1 = apellido1;
+	}
+	public String getApellido2() {
+		return Apellido2;
+	}
+	public void setApellido2(String apellido2) {
+		Apellido2 = apellido2;
+	}
+	public String getDirección() {
+		return Dirección;
+	}
+	public void setDirección(String dirección) {
+		Dirección = dirección;
+	}
+	public String getDireccion() {
+		return Direccion;
+	}
+	public void setDireccion(String direccion) {
+		Direccion = direccion;
+	}
+	public String getLocalidad() {
+		return Localidad;
+	}
+	public void setLocalidad(String localidad) {
+		Localidad = localidad;
+	}
+	public String getProvincia() {
+		return Provincia;
+	}
+	public void setProvincia(String provincia) {
+		Provincia = provincia;
+	}
+	public Long getCP() {
+		return CP;
+	}
+	public void setCP(Long cP) {
+		CP = cP;
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = super.hashCode();
+		result = prime * result + ((Apellido1 == null) ? 0 : Apellido1.hashCode());
+		result = prime * result + ((Apellido2 == null) ? 0 : Apellido2.hashCode());
+		result = prime * result + ((CP == null) ? 0 : CP.hashCode());
 		result = prime * result + ((DNI == null) ? 0 : DNI.hashCode());
+		result = prime * result + ((Direccion == null) ? 0 : Direccion.hashCode());
+		result = prime * result + ((Dirección == null) ? 0 : Dirección.hashCode());
 		result = prime * result + ((Email_Institucional == null) ? 0 : Email_Institucional.hashCode());
 		result = prime * result + ((Email_Personal == null) ? 0 : Email_Personal.hashCode());
+		result = prime * result + ((Localidad == null) ? 0 : Localidad.hashCode());
 		result = prime * result + ((Móvil == null) ? 0 : Móvil.hashCode());
-		result = prime * result + ((Nombre_Completo == null) ? 0 : Nombre_Completo.hashCode());
+		result = prime * result + ((Nombre == null) ? 0 : Nombre.hashCode());
+		result = prime * result + ((Provincia == null) ? 0 : Provincia.hashCode());
 		result = prime * result + ((expedientes == null) ? 0 : expedientes.hashCode());
 		return result;
 	}
@@ -94,10 +149,35 @@ public class Alumno extends Usuario implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Alumno other = (Alumno) obj;
+		if (Apellido1 == null) {
+			if (other.Apellido1 != null)
+				return false;
+		} else if (!Apellido1.equals(other.Apellido1))
+			return false;
+		if (Apellido2 == null) {
+			if (other.Apellido2 != null)
+				return false;
+		} else if (!Apellido2.equals(other.Apellido2))
+			return false;
+		if (CP == null) {
+			if (other.CP != null)
+				return false;
+		} else if (!CP.equals(other.CP))
+			return false;
 		if (DNI == null) {
 			if (other.DNI != null)
 				return false;
 		} else if (!DNI.equals(other.DNI))
+			return false;
+		if (Direccion == null) {
+			if (other.Direccion != null)
+				return false;
+		} else if (!Direccion.equals(other.Direccion))
+			return false;
+		if (Dirección == null) {
+			if (other.Dirección != null)
+				return false;
+		} else if (!Dirección.equals(other.Dirección))
 			return false;
 		if (Email_Institucional == null) {
 			if (other.Email_Institucional != null)
@@ -109,15 +189,25 @@ public class Alumno extends Usuario implements Serializable {
 				return false;
 		} else if (!Email_Personal.equals(other.Email_Personal))
 			return false;
+		if (Localidad == null) {
+			if (other.Localidad != null)
+				return false;
+		} else if (!Localidad.equals(other.Localidad))
+			return false;
 		if (Móvil == null) {
 			if (other.Móvil != null)
 				return false;
 		} else if (!Móvil.equals(other.Móvil))
 			return false;
-		if (Nombre_Completo == null) {
-			if (other.Nombre_Completo != null)
+		if (Nombre == null) {
+			if (other.Nombre != null)
 				return false;
-		} else if (!Nombre_Completo.equals(other.Nombre_Completo))
+		} else if (!Nombre.equals(other.Nombre))
+			return false;
+		if (Provincia == null) {
+			if (other.Provincia != null)
+				return false;
+		} else if (!Provincia.equals(other.Provincia))
 			return false;
 		if (expedientes == null) {
 			if (other.expedientes != null)
@@ -128,10 +218,12 @@ public class Alumno extends Usuario implements Serializable {
 	}
 	@Override
 	public String toString() {
-		return "Alumno [DNI=" + DNI + ", Nombre_Completo=" + Nombre_Completo + ", Email_Institucional="
-				+ Email_Institucional + ", Email_Personal=" + Email_Personal + ", Móvil=" + Móvil + ", expedientes="
-				+ expedientes + "]";
+		return "Alumno [DNI=" + DNI + ", Nombre=" + Nombre + ", Apellido1=" + Apellido1 + ", Apellido2=" + Apellido2
+				+ ", Email_Institucional=" + Email_Institucional + ", Email_Personal=" + Email_Personal + ", Dirección="
+				+ Dirección + ", Móvil=" + Móvil + ", Direccion=" + Direccion + ", Localidad=" + Localidad
+				+ ", Provincia=" + Provincia + ", CP=" + CP + ", expedientes=" + expedientes + "]";
 	}
+	
 	
 	  
 }
