@@ -1,6 +1,8 @@
 package es.uma.informatica.EJB;
 
 import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 import es.uma.informatica.Exception.AsignaturaException;
 import es.uma.informatica.Interfaces.InterfazAsignatura;
@@ -11,12 +13,8 @@ import es.uma.informatica.Interfaces.InterfazAsignatura;
 @Stateless
 public class Asignatura implements InterfazAsignatura {
 
-    /**
-     * Default constructor. 
-     */
-    public Asignatura() {
-        // TODO Auto-generated constructor stub
-    }
+	@PersistenceContext(name="Asignatura")
+	private EntityManager em;
 
 	@Override
 	public void Importar_Asignatura(Asignatura asig) throws AsignaturaException {

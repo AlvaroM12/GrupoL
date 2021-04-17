@@ -1,6 +1,8 @@
 package es.uma.informatica.EJB;
 
 import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 import es.uma.informatica.Exception.UsuarioException;
 import es.uma.informatica.Interfaces.InterfazUsuario;
@@ -11,12 +13,8 @@ import es.uma.informatica.Interfaces.InterfazUsuario;
 @Stateless
 public class Usuario implements InterfazUsuario{
 
-    /**
-     * Default constructor. 
-     */
-    public Usuario() {
-        // TODO Auto-generated constructor stub
-    }
+	@PersistenceContext(name="Usuario")
+	private EntityManager em;
 
 	@Override
 	public void Registrar_Usuario(Usuario u) throws UsuarioException {

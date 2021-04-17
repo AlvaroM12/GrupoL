@@ -1,6 +1,8 @@
 package es.uma.informatica.EJB;
 
 import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 import es.uma.informatica.Exception.AlumnoException;
 import es.uma.informatica.Interfaces.InterfazAlumno;
@@ -8,15 +10,13 @@ import es.uma.informatica.Interfaces.InterfazAlumno;
 /**
  * Session Bean implementation class Alumno
  */
+
 @Stateless
 public class Alumno implements InterfazAlumno {
 
-    /**
-     * Default constructor. 
-     */
-    public Alumno() {
-        // TODO Auto-generated constructor stub
-    }
+	@PersistenceContext(name="Alumno")
+	private EntityManager em;
+    
 
 	@Override
 	public void Crear_Alumno(Alumno a) throws AlumnoException {
@@ -38,7 +38,8 @@ public class Alumno implements InterfazAlumno {
 
 	@Override
 	public void Eliminar_Alumno(Alumno a) throws AlumnoException {
-		// TODO Auto-generated method stub
+		Leer_Alumno(a);
+		em.remove(em.merge(a));
 		
 	}
 

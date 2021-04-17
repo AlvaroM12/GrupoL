@@ -1,6 +1,8 @@
 package es.uma.informatica.EJB;
 
 import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 import es.uma.informatica.Exception.TitulacionException;
 import es.uma.informatica.Interfaces.InterfazTitulacion;
@@ -11,12 +13,8 @@ import es.uma.informatica.Interfaces.InterfazTitulacion;
 @Stateless
 public class Titulacion implements InterfazTitulacion{
 
-    /**
-     * Default constructor. 
-     */
-    public Titulacion() {
-        // TODO Auto-generated constructor stub
-    }
+	@PersistenceContext(name="Titilación")
+	private EntityManager em;
 
 	@Override
 	public void Consultar_Titulacion(es.uma.informatica.Entidades.Titulacion t) throws TitulacionException {

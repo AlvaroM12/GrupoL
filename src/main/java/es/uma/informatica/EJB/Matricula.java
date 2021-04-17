@@ -1,6 +1,8 @@
 package es.uma.informatica.EJB;
 
 import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 import es.uma.informatica.Exception.MatriculaException;
 import es.uma.informatica.Interfaces.InterfazMatricula;
@@ -10,17 +12,13 @@ import es.uma.informatica.Interfaces.InterfazMatricula;
  */
 @Stateless
 public class Matricula implements InterfazMatricula {
-
-    /**
-     * Default constructor. 
-     */
-    public Matricula() {
-        // TODO Auto-generated constructor stub
-    }
+	
+	@PersistenceContext(name="Matricula")
+	private EntityManager em;
 
 	@Override
 	public void Importar_Matricula(Matricula m) throws MatriculaException {
-		// TODO Auto-generated method stub
+		
 		
 	}
 

@@ -1,6 +1,8 @@
 package es.uma.informatica.EJB;
 
 import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 import es.uma.informatica.Exception.CentroException;
 import es.uma.informatica.Interfaces.InterfazCentro;
@@ -10,13 +12,9 @@ import es.uma.informatica.Interfaces.InterfazCentro;
  */
 @Stateless
 public class Centro implements InterfazCentro {
-
-    /**
-     * Default constructor. 
-     */
-    public Centro() {
-        // TODO Auto-generated constructor stub
-    }
+	
+	@PersistenceContext(name="Centro")
+	private EntityManager em;
 
 	@Override
 	public void Consultar_Centro(Centro c) throws CentroException {

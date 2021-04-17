@@ -1,6 +1,8 @@
 package es.uma.informatica.EJB;
 
 import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 import es.uma.informatica.Exception.ExpedienteException;
 import es.uma.informatica.Interfaces.InterfazExpediente;
@@ -11,12 +13,8 @@ import es.uma.informatica.Interfaces.InterfazExpediente;
 @Stateless
 public class Expediente implements InterfazExpediente {
 
-    /**
-     * Default constructor. 
-     */
-    public Expediente() {
-        // TODO Auto-generated constructor stub
-    }
+	@PersistenceContext(name="Expediente")
+	private EntityManager em;
 
 	@Override
 	public void Importar_Expediente(Expediente exp) throws ExpedienteException {

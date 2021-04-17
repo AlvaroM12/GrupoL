@@ -3,6 +3,8 @@ package es.uma.informatica.EJB;
 import java.util.Date;
 
 import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 import es.uma.informatica.Exception.ClaseException;
 import es.uma.informatica.Interfaces.InterfazClase;
@@ -13,13 +15,9 @@ import es.uma.informatica.Interfaces.InterfazClase;
 @Stateless
 public class Clase implements InterfazClase{
 
-    /**
-     * Default constructor. 
-     */
-    public Clase() {
-        // TODO Auto-generated constructor stub
-    }
-
+	@PersistenceContext(name="Clase")
+	private EntityManager em;
+	
 	@Override
 	public void Importar_Horario(Date horario) throws ClaseException {
 		// TODO Auto-generated method stub

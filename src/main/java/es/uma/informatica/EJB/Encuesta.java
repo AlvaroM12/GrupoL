@@ -1,6 +1,8 @@
 package es.uma.informatica.EJB;
 
 import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 import es.uma.informatica.Exception.EncuestaException;
 import es.uma.informatica.Interfaces.InterfazEncuesta;
@@ -11,12 +13,8 @@ import es.uma.informatica.Interfaces.InterfazEncuesta;
 @Stateless
 public class Encuesta implements InterfazEncuesta {
 
-    /**
-     * Default constructor. 
-     */
-    public Encuesta() {
-        // TODO Auto-generated constructor stub
-    }
+	@PersistenceContext(name="Encuesta")
+	private EntityManager em;
 
 	@Override
 	public void Responder_Encuesta(Encuesta e) throws EncuestaException {

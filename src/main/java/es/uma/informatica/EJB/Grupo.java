@@ -1,6 +1,8 @@
 package es.uma.informatica.EJB;
 
 import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 import es.uma.informatica.Exception.GrupoException;
 import es.uma.informatica.Interfaces.InterfazGrupo;
@@ -10,13 +12,9 @@ import es.uma.informatica.Interfaces.InterfazGrupo;
  */
 @Stateless
 public class Grupo implements InterfazGrupo {
-
-    /**
-     * Default constructor. 
-     */
-    public Grupo() {
-        // TODO Auto-generated constructor stub
-    }
+	
+	@PersistenceContext(name="Grupo")
+	private EntityManager em;
 
 	@Override
 	public void Crear_Grupo(Grupo g) throws GrupoException {
