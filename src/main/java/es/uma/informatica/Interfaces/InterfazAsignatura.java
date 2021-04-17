@@ -1,6 +1,6 @@
 package es.uma.informatica.Interfaces;
 
-import es.uma.informatica.EJB.Asignatura;
+import es.uma.informatica.EJB.AsignaturaEJB;
 import es.uma.informatica.Exception.AsignaturaException;
 
 public interface InterfazAsignatura {
@@ -10,5 +10,5 @@ public interface InterfazAsignatura {
 	  En caso de que haya algun dato incorrecto, se lanza la excepción AsignaturaErrorException.
 	  En caso de que la asignatura sea null, se lanza la excepción AsignaturaNullException.
 	 */
-	public void Importar_Asignatura(Asignatura asig) throws AsignaturaException;
+	public void Importar_Asignatura(AsignaturaEJB asig) throws AsignaturaException;
 }

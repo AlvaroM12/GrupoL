@@ -11,13 +11,13 @@ import es.uma.informatica.Interfaces.InterfazAsignatura;
  * Session Bean implementation class Asignatura
  */
 @Stateless
-public class Asignatura implements InterfazAsignatura {
+public class AsignaturaEJB implements InterfazAsignatura {
 
 	@PersistenceContext(name="Asignatura")
 	private EntityManager em;
 
 	@Override
-	public void Importar_Asignatura(Asignatura asig) throws AsignaturaException {
+	public void Importar_Asignatura(AsignaturaEJB asig) throws AsignaturaException {
 		// TODO Auto-generated method stub
 		
 	}

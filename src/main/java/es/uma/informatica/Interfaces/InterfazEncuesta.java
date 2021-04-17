@@ -1,6 +1,6 @@
 package es.uma.informatica.Interfaces;
 
-import es.uma.informatica.EJB.Encuesta;
+import es.uma.informatica.EJB.EncuestaEJB;
 import es.uma.informatica.Exception.EncuestaException;
 
 public interface InterfazEncuesta {
@@ -11,5 +11,5 @@ public interface InterfazEncuesta {
 	  En caso de que haya alguna respuesta incorrecta, se lanza la excepción EncuestaErrorException.
 	  En caso de que algun campo de la encuesta sea null, se lanza la excepción EncuestaNullException.
 	 */
-	public void Responder_Encuesta(Encuesta e)throws EncuestaException;
+	public void Responder_Encuesta(EncuestaEJB e)throws EncuestaException;
 }

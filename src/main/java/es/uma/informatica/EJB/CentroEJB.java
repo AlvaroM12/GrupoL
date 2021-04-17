@@ -11,13 +11,13 @@ import es.uma.informatica.Interfaces.InterfazCentro;
  * Session Bean implementation class Centro
  */
 @Stateless
-public class Centro implements InterfazCentro {
+public class CentroEJB implements InterfazCentro {
 	
 	@PersistenceContext(name="Centro")
 	private EntityManager em;
 
 	@Override
-	public void Consultar_Centro(Centro c) throws CentroException {
+	public void Consultar_Centro(CentroEJB c) throws CentroException {
 		// TODO Auto-generated method stub
 		
 	}

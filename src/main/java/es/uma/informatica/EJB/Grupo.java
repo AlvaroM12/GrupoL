@@ -38,6 +38,7 @@ public class Grupo implements InterfazGrupo {
 	public void Eliminar_Grupo(Grupo g) throws GrupoException {
 		// TODO Auto-generated method stub
 		
+		
 	}
 
 	@Override
@@ -49,6 +50,7 @@ public class Grupo implements InterfazGrupo {
 	@Override
 	public void Solicitar_Grupo(Grupo g) throws GrupoException {
 		// TODO Auto-generated method stub
+		
 		
 	}
 

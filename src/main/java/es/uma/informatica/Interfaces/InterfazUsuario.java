@@ -1,7 +1,9 @@
 package es.uma.informatica.Interfaces;
 
-import es.uma.informatica.EJB.Usuario;
+import es.uma.informatica.EJB.UsuarioEJB;
+import es.uma.informatica.Entidades.*;
 import es.uma.informatica.Exception.UsuarioException;
+import es.uma.informatica.Exception.UsuarioExistenteException;
 
 public interface InterfazUsuario {
 	/**
@@ -17,8 +19,9 @@ public interface InterfazUsuario {
 	  En caso de que el usuario no existiese, se lanza la excepción UsuarioExistenteException.
 	  En caso de que haya algun dato incorrecto, se lanza la excepción UsuarioErrorException.
 	  En caso de que algun campo sea null, se lanza la excepción UsuarioNullException.
+	 * @throws UsuarioExistenteException 
 	 */
-	public void Validar_Acceso(Usuario u) throws UsuarioException;
+	public void Validar_Acceso(Usuario u) throws UsuarioException, UsuarioExistenteException;
 	
 	/**
 	  Este método crea la sesión del usuario introducido.

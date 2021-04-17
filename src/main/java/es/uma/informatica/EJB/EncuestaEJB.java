@@ -11,13 +11,13 @@ import es.uma.informatica.Interfaces.InterfazEncuesta;
  * Session Bean implementation class Encuesta
  */
 @Stateless
-public class Encuesta implements InterfazEncuesta {
+public class EncuestaEJB implements InterfazEncuesta {
 
 	@PersistenceContext(name="Encuesta")
 	private EntityManager em;
 
 	@Override
-	public void Responder_Encuesta(Encuesta e) throws EncuestaException {
+	public void Responder_Encuesta(EncuestaEJB e) throws EncuestaException {
 		// TODO Auto-generated method stub
 		
 	}

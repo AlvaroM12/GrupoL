@@ -11,7 +11,7 @@ import es.uma.informatica.Interfaces.InterfazTitulacion;
  * Session Bean implementation class Titulacion
  */
 @Stateless
-public class Titulacion implements InterfazTitulacion{
+public class TitulacionEJB implements InterfazTitulacion{
 
 	@PersistenceContext(name="Titilación")
 	private EntityManager em;

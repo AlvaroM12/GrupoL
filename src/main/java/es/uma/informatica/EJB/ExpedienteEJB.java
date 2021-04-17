@@ -11,13 +11,13 @@ import es.uma.informatica.Interfaces.InterfazExpediente;
  * Session Bean implementation class Expediente
  */
 @Stateless
-public class Expediente implements InterfazExpediente {
+public class ExpedienteEJB implements InterfazExpediente {
 
 	@PersistenceContext(name="Expediente")
 	private EntityManager em;
 
 	@Override
-	public void Importar_Expediente(Expediente exp) throws ExpedienteException {
+	public void Importar_Expediente(ExpedienteEJB exp) throws ExpedienteException {
 		// TODO Auto-generated method stub
 		
 	}

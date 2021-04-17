@@ -4,14 +4,18 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import es.uma.informatica.Exception.UsuarioErrorException;
 import es.uma.informatica.Exception.UsuarioException;
+import es.uma.informatica.Exception.UsuarioExistenteException;
+import es.uma.informatica.Exception.UsuarioNullException;
 import es.uma.informatica.Interfaces.InterfazUsuario;
+import es.uma.informatica.Entidades.*;
 
 /**
  * Session Bean implementation class Usuario
  */
 @Stateless
-public class Usuario implements InterfazUsuario{
+public class UsuarioEJB implements InterfazUsuario{
 
 	@PersistenceContext(name="Usuario")
 	private EntityManager em;
@@ -23,8 +27,14 @@ public class Usuario implements InterfazUsuario{
 	}
 
 	@Override
-	public void Validar_Acceso(Usuario u) throws UsuarioException {
+	public void Validar_Acceso(Usuario u) throws UsuarioException, UsuarioExistenteException {
 		// TODO Auto-generated method stub
+		Usuario us = em.find(Usuario.class, u.getID());
+        if(us == null) {
+            throw new UsuarioExistenteException();
+        }
+
+
 		
 	}
 

@@ -13,7 +13,7 @@ import es.uma.informatica.Interfaces.InterfazClase;
  * Session Bean implementation class Clase
  */
 @Stateless
-public class Clase implements InterfazClase{
+public class ClaseEJB implements InterfazClase{
 
 	@PersistenceContext(name="Clase")
 	private EntityManager em;

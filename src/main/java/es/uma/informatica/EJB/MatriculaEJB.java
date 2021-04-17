@@ -11,13 +11,13 @@ import es.uma.informatica.Interfaces.InterfazMatricula;
  * Session Bean implementation class Matrícula
  */
 @Stateless
-public class Matricula implements InterfazMatricula {
+public class MatriculaEJB implements InterfazMatricula {
 	
 	@PersistenceContext(name="Matricula")
 	private EntityManager em;
 
 	@Override
-	public void Importar_Matricula(Matricula m) throws MatriculaException {
+	public void Importar_Matricula(MatriculaEJB m) throws MatriculaException {
 		
 		
 	}
