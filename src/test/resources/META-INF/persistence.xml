@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.2" 
+	xmlns="http://xmlns.jcp.org/xml/ns/persistence" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
+  <persistence-unit name="SecretariaTest" transaction-type="RESOURCE_LOCAL">
+   		<class>es.uma.informatica.Entidades.Usuario</class>
+		<class>es.uma.informatica.Entidades.Grupo</class>
+		<class>es.uma.informatica.Entidades.Alumno</class>
+		<class>es.uma.informatica.Entidades.Asignatura</class>
+		<class>es.uma.informatica.Entidades.Asignaturas_Matrícula</class>
+		<class>es.uma.informatica.Entidades.Centro</class>
+		<class>es.uma.informatica.Entidades.Clase</class>
+		<class>es.uma.informatica.Entidades.Encuesta</class>
+		<class>es.uma.informatica.Entidades.Expediente</class>
+		<class>es.uma.informatica.Entidades.GruposPorAsignatura</class>
+		<class>es.uma.informatica.Entidades.Matrícula</class>
+		<class>es.uma.informatica.Entidades.Optativa</class>
+		<class>es.uma.informatica.Entidades.Personal_de_secretaria</class>
+		<class>es.uma.informatica.Entidades.Titulacion</class>
+    <shared-cache-mode>NONE</shared-cache-mode>
+    <properties>
+    	<property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
+    	<property name="javax.persistence.schema-generation.scripts.action" value="create"/>
+    	<property name="javax.persistence.schema-generation.scripts.create-target" value="esquema.ddl"/>
+    	<property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:test;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE"/>
+		<property name="javax.persistence.jdbc.user" value=""/>
+		<property name="javax.persistence.jdbc.password" value=""/>
+		<property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
+    </properties>
+  </persistence-unit>
+</persistence>
