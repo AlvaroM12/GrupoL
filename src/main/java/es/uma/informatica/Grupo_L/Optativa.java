@@ -14,21 +14,13 @@ import javax.persistence.*;
 
 public class Optativa extends Asignatura implements Serializable {
 
-	
-	private Long Plazas;
-	private String Mención;
+	private String Mención;	
 	private static final long serialVersionUID = 1L;
 
 	public Optativa() {
 		super();
 	}   
-	public Long getPlazas() {
-		return this.Plazas;
-	}
-
-	public void setPlazas(Long Plazas) {
-		this.Plazas = Plazas;
-	}   
+	
 	public String getMención() {
 		return this.Mención;
 	}
@@ -42,7 +34,6 @@ public class Optativa extends Asignatura implements Serializable {
 		final int prime = 31;
 		int result = super.hashCode();
 		result = prime * result + ((Mención == null) ? 0 : Mención.hashCode());
-		result = prime * result + ((Plazas == null) ? 0 : Plazas.hashCode());
 		return result;
 	}
 	@Override
@@ -59,16 +50,12 @@ public class Optativa extends Asignatura implements Serializable {
 				return false;
 		} else if (!Mención.equals(other.Mención))
 			return false;
-		if (Plazas == null) {
-			if (other.Plazas != null)
-				return false;
-		} else if (!Plazas.equals(other.Plazas))
-			return false;
 		return true;
 	}
 	@Override
 	public String toString() {
-		return "Optativa [Plazas=" + Plazas + ", Mención=" + Mención + "]";
+		return "Optativa [Mención=" + Mención + ", getReferencia()=" + getReferencia() + ", getPlazas()=" + getPlazas()
+				+ "]";
 	}
    
 }
