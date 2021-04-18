@@ -18,17 +18,17 @@ public class Expediente implements Serializable {
 
 	   
 	@Id @GeneratedValue
-	private Long Num_Expediente;
+	private String Num_Expediente;
 	private String Activo;
 	private Float Nota_Media;
 	private static final long serialVersionUID = 1L;
-	private String Creditos_Superados;
-	private String Creditos_FB;
-	private String Creditos_OB;
-	private String Creditos_OF;
-	private String Creditos_CF;
-	private String Creditos_PE;
-	private String Creditos_TF;
+	private Long Creditos_Superados;
+	private Long Creditos_FB;
+	private Long Creditos_OB;
+	private Long Creditos_OP;
+	private Long Creditos_CF;
+	private Long Creditos_PE;
+	private Long Creditos_TF;
 	
 	
 	@ManyToOne
@@ -51,12 +51,17 @@ public class Expediente implements Serializable {
 		super();
 	}   
 	
-	public Long getNum_Expediente() {
-		return this.Num_Expediente;
+	   
+	public String getNum_Expediente() {
+		return Num_Expediente;
 	}
-	public void setNum_Expediente(Long Num_Expediente) {
-		this.Num_Expediente = Num_Expediente;
-	}   
+
+
+	public void setNum_Expediente(String num_Expediente) {
+		Num_Expediente = num_Expediente;
+	}
+
+
 	public String getActivo() {
 		return this.Activo;
 	}
@@ -105,62 +110,61 @@ public class Expediente implements Serializable {
 	public void setEncuestas(List<Encuesta> encuestas) {
 		this.encuestas = encuestas;
 	}
-	
-	
 
-	public String getCreditos_Superados() {
+	public Long getCreditos_Superados() {
 		return Creditos_Superados;
 	}
 
-	public void setCreditos_Superados(String creditos_Superados) {
+	public void setCreditos_Superados(Long creditos_Superados) {
 		Creditos_Superados = creditos_Superados;
 	}
 
-	public String getCreditos_FB() {
+	public Long getCreditos_FB() {
 		return Creditos_FB;
 	}
 
-	public void setCreditos_FB(String creditos_FB) {
+	public void setCreditos_FB(Long creditos_FB) {
 		Creditos_FB = creditos_FB;
 	}
 
-	public String getCreditos_OB() {
+	public Long getCreditos_OB() {
 		return Creditos_OB;
 	}
 
-	public void setCreditos_OB(String creditos_OB) {
+	public void setCreditos_OB(Long creditos_OB) {
 		Creditos_OB = creditos_OB;
 	}
+	
 
-	public String getCreditos_OF() {
-		return Creditos_OF;
+	public Long getCreditos_OP() {
+		return Creditos_OP;
 	}
 
-	public void setCreditos_OF(String creditos_OF) {
-		Creditos_OF = creditos_OF;
+	public void setCreditos_OP(Long creditos_OP) {
+		Creditos_OP = creditos_OP;
 	}
 
-	public String getCreditos_CF() {
+	public Long getCreditos_CF() {
 		return Creditos_CF;
 	}
 
-	public void setCreditos_CF(String creditos_CF) {
+	public void setCreditos_CF(Long creditos_CF) {
 		Creditos_CF = creditos_CF;
 	}
 
-	public String getCreditos_PE() {
+	public Long getCreditos_PE() {
 		return Creditos_PE;
 	}
 
-	public void setCreditos_PE(String creditos_PE) {
+	public void setCreditos_PE(Long creditos_PE) {
 		Creditos_PE = creditos_PE;
 	}
 
-	public String getCreditos_TF() {
+	public Long getCreditos_TF() {
 		return Creditos_TF;
 	}
 
-	public void setCreditos_TF(String creditos_TF) {
+	public void setCreditos_TF(Long creditos_TF) {
 		Creditos_TF = creditos_TF;
 	}
 
@@ -173,7 +177,7 @@ public class Expediente implements Serializable {
 		result = prime * result + ((Creditos_CF == null) ? 0 : Creditos_CF.hashCode());
 		result = prime * result + ((Creditos_FB == null) ? 0 : Creditos_FB.hashCode());
 		result = prime * result + ((Creditos_OB == null) ? 0 : Creditos_OB.hashCode());
-		result = prime * result + ((Creditos_OF == null) ? 0 : Creditos_OF.hashCode());
+		result = prime * result + ((Creditos_OP == null) ? 0 : Creditos_OP.hashCode());
 		result = prime * result + ((Creditos_PE == null) ? 0 : Creditos_PE.hashCode());
 		result = prime * result + ((Creditos_Superados == null) ? 0 : Creditos_Superados.hashCode());
 		result = prime * result + ((Creditos_TF == null) ? 0 : Creditos_TF.hashCode());
@@ -219,10 +223,10 @@ public class Expediente implements Serializable {
 				return false;
 		} else if (!Creditos_OB.equals(other.Creditos_OB))
 			return false;
-		if (Creditos_OF == null) {
-			if (other.Creditos_OF != null)
+		if (Creditos_OP == null) {
+			if (other.Creditos_OP != null)
 				return false;
-		} else if (!Creditos_OF.equals(other.Creditos_OF))
+		} else if (!Creditos_OP.equals(other.Creditos_OP))
 			return false;
 		if (Creditos_PE == null) {
 			if (other.Creditos_PE != null)
@@ -271,7 +275,7 @@ public class Expediente implements Serializable {
 	public String toString() {
 		return "Expediente [Num_Expediente=" + Num_Expediente + ", Activo=" + Activo + ", Nota_Media=" + Nota_Media
 				+ ", Creditos_Superados=" + Creditos_Superados + ", Creditos_FB=" + Creditos_FB + ", Creditos_OB="
-				+ Creditos_OB + ", Creditos_OF=" + Creditos_OF + ", Creditos_CF=" + Creditos_CF + ", Creditos_PE="
+				+ Creditos_OB + ", Creditos_OF=" + Creditos_OP + ", Creditos_CF=" + Creditos_CF + ", Creditos_PE="
 				+ Creditos_PE + ", Creditos_TF=" + Creditos_TF + ", TE=" + TE + ", AE=" + AE + ", matriculas="
 				+ matriculas + ", encuestas=" + encuestas + "]";
 	}
