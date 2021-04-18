@@ -1,7 +1,11 @@
 package es.uma.informatica.Interfaces;
 
-import es.uma.informatica.EJB.Grupo;
+import es.uma.informatica.EJB.GrupoEJB;
+import es.uma.informatica.Entidades.Grupo;
 import es.uma.informatica.Exception.GrupoException;
+import es.uma.informatica.Exception.GrupoErrorException;
+import es.uma.informatica.Exception.GrupoNullException;
+import es.uma.informatica.Exception.PlazasException;
 
 public interface InterfazGrupo {
 	
@@ -42,8 +46,10 @@ public interface InterfazGrupo {
 	  En caso de que no haya plaza, se lanza la excepción PlazasException.
 	  En caso de que haya algun dato incorrecto, se lanza la excepción GrupoErrorException.
 	  En caso de que el campo sea null, se lanza la excepción GrupoNullException.
+	 * @throws GrupoNullException 
+	 * @throws GrupoErrorException 
 	 */
-	public void Solicitar_Cambio_Grupo(String causa, Grupo g) throws GrupoException;
+	public void Solicitar_Cambio_Grupo(String causa, Grupo g) throws  GrupoErrorException, GrupoNullException;
 
 	/**
 	  Este método debe permite solicitar un grupo entre los existentes.
@@ -52,6 +58,7 @@ public interface InterfazGrupo {
 
 	/**
 	  Este método asigna solicitar un grupo entre los existentes.
+	 * @throws PlazasException 
 	 */
-	public void Asignar_Grupo(Grupo g) throws GrupoException;
+	public void Asignar_Grupo(Grupo g) throws GrupoException, PlazasException;
 }
