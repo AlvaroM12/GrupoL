@@ -23,10 +23,10 @@ public class Asignatura implements Serializable {
 	private Long Créditos_Practicos;
 	private Long Total_Créditos;
 	private String Ofertada;
-	private Long Nombre;
+	private String Nombre;
 	private Long Curso;
 	private String Plazas;
-	private Long Cuatrimestre;
+	private String Cuatrimestre;
 	private String Idioma_de_imparticion;
 	
 	@ManyToOne
@@ -68,13 +68,15 @@ public class Asignatura implements Serializable {
 	public void setOfertada(String Ofertada) {
 		this.Ofertada = Ofertada;
 	}   
-	public Long getNombre() {
-		return this.Nombre;
-	}
+	
 
-	public void setNombre(Long Nombre) {
-		this.Nombre = Nombre;
-	}   
+	public String getNombre() {
+		return Nombre;
+	}
+	public void setNombre(String nombre) {
+		Nombre = nombre;
+	}
+	  
 	public Long getCurso() {
 		return this.Curso;
 	}
@@ -115,10 +117,11 @@ public class Asignatura implements Serializable {
 	public void setPlazas(String plazas) {
 		Plazas = plazas;
 	}
-	public Long getCuatrimestre() {
+	
+	public String getCuatrimestre() {
 		return Cuatrimestre;
 	}
-	public void setCuatrimestre(Long cuatrimestre) {
+	public void setCuatrimestre(String cuatrimestre) {
 		Cuatrimestre = cuatrimestre;
 	}
 	public Titulacion getTA() {
