@@ -26,7 +26,7 @@ public class AsignaturaEJB implements InterfazAsignatura {
 	private EntityManager em;
 
 	@Override
-	public void Importar_Asignatura(AsignaturaEJB asig) throws AsignaturaException {
+	public void Importar_Asignatura(Asignatura asig) throws AsignaturaException {
 		try {
 			String directorio_de_ejecucion_de_la_aplicacion = new java.io.File( "." ).getCanonicalPath();
 			System.out.println("Real path " + directorio_de_ejecucion_de_la_aplicacion);
@@ -39,7 +39,7 @@ public class AsignaturaEJB implements InterfazAsignatura {
 	        Titulacion t = new Titulacion();
 	        for(int fila=1; fila<row.getRowNum(); fila++) {
 	        	Long tit = (long) sheet.getRow(fila).getCell(0).getNumericCellValue();
-	        	t.setCódigo(tit);
+	        	t = em.find(Titulacion.class, tit);
 	        	a.setTA(t);
 	        	String ofertada = sheet.getRow(fila).getCell(1).getStringCellValue();
 	        	a.setOfertada(ofertada);
