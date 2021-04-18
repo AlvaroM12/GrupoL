@@ -79,19 +79,6 @@ public class ExpedienteEJB implements InterfazExpediente {
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		Expediente e = new Expediente();
-		
-		
-		
 	}
 
 }
