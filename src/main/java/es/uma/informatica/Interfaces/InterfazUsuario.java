@@ -4,6 +4,7 @@ import es.uma.informatica.EJB.UsuarioEJB;
 import es.uma.informatica.Entidades.*;
 import es.uma.informatica.Exception.UsuarioException;
 import es.uma.informatica.Exception.UsuarioExistenteException;
+import es.uma.informatica.Exception.UsuarioNullException;
 
 public interface InterfazUsuario {
 	/**
@@ -38,8 +39,10 @@ public interface InterfazUsuario {
 	  En caso de que el email no existiese, se lanza la excepción UsuarioExistenteException.
 	  En caso de que el email sea incorrecto, se lanza la excepción UsuarioErrorException.
 	  En caso de que el email sea null, se lanza la excepción UsuarioNullException.
+	 * @throws UsuarioExistenteException 
+	 * @throws UsuarioNullException 
 	 */
-	public void Solicitar_Recuperar_Contraseña(String email) throws UsuarioException;
+	public void Solicitar_Recuperar_Contraseña(String email) throws UsuarioException, UsuarioExistenteException, UsuarioNullException;
 
 	/**
 	  Este método genera una nueva contraseña para un usuario en la plataforma.

@@ -3,6 +3,7 @@ package es.uma.informatica.EJB;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 import es.uma.informatica.Exception.UsuarioErrorException;
 import es.uma.informatica.Exception.UsuarioException;
@@ -51,9 +52,17 @@ public class UsuarioEJB implements InterfazUsuario{
 	}
 
 	@Override
-	public void Solicitar_Recuperar_Contraseña(String email) throws UsuarioException {
-		// TODO Auto-generated method stub
+	public void Solicitar_Recuperar_Contraseña(String email) throws UsuarioException, UsuarioExistenteException, UsuarioNullException {
+		if(email==null) {
+			throw new UsuarioNullException();
+		}
 		
+		Query alumno = em.createQuery("SELECT a FROM Alumno a "
+	            + "WHERE a.Email_Personal LIKE :email");
+		
+		if(alumno==null) {
+			throw new UsuarioExistenteException();
+		}	
 	}
 
 	@Override
