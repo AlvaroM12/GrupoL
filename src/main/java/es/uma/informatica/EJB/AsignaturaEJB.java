@@ -26,10 +26,9 @@ public class AsignaturaEJB implements InterfazAsignatura {
 	private EntityManager em;
 
 	@Override
-	public void Importar_Asignatura(Asignatura asig) throws AsignaturaException {
+	public void Importar_Asignatura() throws AsignaturaException {
 		try {
 			String directorio_de_ejecucion_de_la_aplicacion = new java.io.File( "." ).getCanonicalPath();
-			System.out.println("Real path " + directorio_de_ejecucion_de_la_aplicacion);
 			String sFile = directorio_de_ejecucion_de_la_aplicacion + "/" +"Oferta asignaturas.xlsx"; 
 			XSSFWorkbook workbook = new XSSFWorkbook(sFile);
 	        XSSFSheet sheet = workbook.getSheet("GII");
