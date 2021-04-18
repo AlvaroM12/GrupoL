@@ -16,19 +16,20 @@ import javax.persistence.*;
 
 public class Expediente implements Serializable {
 
-	   
+	private static final long serialVersionUID = 1L;   
+	
 	@Id @GeneratedValue
 	private String Num_Expediente;
 	private String Activo;
-	private Float Nota_Media;
-	private static final long serialVersionUID = 1L;
-	private Long Creditos_Superados;
-	private Long Creditos_FB;
-	private Long Creditos_OB;
-	private Long Creditos_OP;
-	private Long Creditos_CF;
-	private Long Creditos_PE;
-	private Long Creditos_TF;
+	private String Nota_Media;
+
+	private String Creditos_Superados;
+	private String Creditos_FB;
+	private String Creditos_OB;
+	private String Creditos_OP;
+	private String Creditos_CF;
+	private String Creditos_PE;
+	private String Creditos_TF;
 	
 	
 	@ManyToOne
@@ -51,7 +52,6 @@ public class Expediente implements Serializable {
 		super();
 	}   
 	
-	   
 	public String getNum_Expediente() {
 		return Num_Expediente;
 	}
@@ -69,16 +69,15 @@ public class Expediente implements Serializable {
 	public void setActivo(String Activo) {
 		this.Activo = Activo;
 	}   
-	public Float getNota_Media() {
-		return this.Nota_Media;
+	
+	public String getNota_Media() {
+		return Nota_Media;
 	}
 
-	public void setNota_Media(Float Nota_Media) {
-		this.Nota_Media = Nota_Media;
+	public void setNota_Media(String nota_Media) {
+		Nota_Media = nota_Media;
 	}
-	
-	
-	
+
 	public Titulacion getTE() {
 		return TE;
 	}
@@ -110,63 +109,76 @@ public class Expediente implements Serializable {
 	public void setEncuestas(List<Encuesta> encuestas) {
 		this.encuestas = encuestas;
 	}
-
-	public Long getCreditos_Superados() {
+	
+	public String getCreditos_Superados() {
 		return Creditos_Superados;
 	}
 
-	public void setCreditos_Superados(Long creditos_Superados) {
+
+	public void setCreditos_Superados(String creditos_Superados) {
 		Creditos_Superados = creditos_Superados;
 	}
 
-	public Long getCreditos_FB() {
+
+	public String getCreditos_FB() {
 		return Creditos_FB;
 	}
 
-	public void setCreditos_FB(Long creditos_FB) {
+
+	public void setCreditos_FB(String creditos_FB) {
 		Creditos_FB = creditos_FB;
 	}
 
-	public Long getCreditos_OB() {
+
+	public String getCreditos_OB() {
 		return Creditos_OB;
 	}
 
-	public void setCreditos_OB(Long creditos_OB) {
+
+	public void setCreditos_OB(String creditos_OB) {
 		Creditos_OB = creditos_OB;
 	}
-	
 
-	public Long getCreditos_OP() {
+
+	public String getCreditos_OP() {
 		return Creditos_OP;
 	}
 
-	public void setCreditos_OP(Long creditos_OP) {
+
+	public void setCreditos_OP(String creditos_OP) {
 		Creditos_OP = creditos_OP;
 	}
 
-	public Long getCreditos_CF() {
+
+	public String getCreditos_CF() {
 		return Creditos_CF;
 	}
 
-	public void setCreditos_CF(Long creditos_CF) {
+
+	public void setCreditos_CF(String creditos_CF) {
 		Creditos_CF = creditos_CF;
 	}
 
-	public Long getCreditos_PE() {
+
+	public String getCreditos_PE() {
 		return Creditos_PE;
 	}
 
-	public void setCreditos_PE(Long creditos_PE) {
+
+	public void setCreditos_PE(String creditos_PE) {
 		Creditos_PE = creditos_PE;
 	}
 
-	public Long getCreditos_TF() {
+
+	public String getCreditos_TF() {
 		return Creditos_TF;
 	}
 
-	public void setCreditos_TF(Long creditos_TF) {
+
+	public void setCreditos_TF(String creditos_TF) {
 		Creditos_TF = creditos_TF;
 	}
+
 
 	@Override
 	public int hashCode() {
