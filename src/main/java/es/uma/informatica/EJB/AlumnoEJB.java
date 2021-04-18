@@ -7,6 +7,7 @@ import javax.persistence.PersistenceContext;
 import es.uma.informatica.Exception.AlumnoErrorException;
 import es.uma.informatica.Exception.AlumnoException;
 import es.uma.informatica.Exception.AlumnoExistenteException;
+import es.uma.informatica.Exception.AlumnoNullException;
 import es.uma.informatica.Interfaces.InterfazAlumno;
 import es.uma.informatica.Entidades.Alumno;
 
@@ -36,9 +37,7 @@ public class AlumnoEJB implements InterfazAlumno {
 	public void Leer_Alumno(Alumno a) throws AlumnoException {
 		Alumno al=em.find(Alumno.class,  a.getID() );
 		if(al==null) {
-			throw new AlumnoExistenteException();
-		}else if(al!=null) {
-			throw new AlumnoErrorException();
+			throw new AlumnoNullException();
 		}
 		
 	}

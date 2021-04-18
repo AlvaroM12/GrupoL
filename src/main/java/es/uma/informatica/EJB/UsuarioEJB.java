@@ -24,6 +24,12 @@ public class UsuarioEJB implements InterfazUsuario{
 	@Override
 	public void Registrar_Usuario(Usuario u) throws UsuarioException {
 		// TODO Auto-generated method stub
+		Usuario user = em.find(Usuario.class, u.getID());
+		if(user != null) {
+			throw new UsuarioExistenteException();
+		}
+		
+		em.persist(u);
 		
 	}
 

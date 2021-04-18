@@ -10,8 +10,6 @@ public interface InterfazUsuario {
 	/**
 	  Este método registra un usuario de la base de datos.
 	  En caso de que el usuario no existiese, se lanza la excepción UsuarioExistenteException.
-	  En caso de que haya algun dato incorrecto, se lanza la excepción UsuarioErrorException.
-	  En caso de que el usuario sea null, se lanza la excepción UsuarioNullException.
 	 */
 	public void Registrar_Usuario(Usuario u) throws UsuarioException;
 	

@@ -4,12 +4,15 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import es.uma.informatica.Exception.AlumnoErrorException;
+import es.uma.informatica.Exception.AlumnoExistenteException;
 import es.uma.informatica.Exception.GrupoErrorException;
 import es.uma.informatica.Exception.GrupoException;
 import es.uma.informatica.Exception.GrupoExistenteException;
 import es.uma.informatica.Exception.GrupoNullException;
 import es.uma.informatica.Exception.PlazasException;
 import es.uma.informatica.Interfaces.InterfazGrupo;
+import es.uma.informatica.Entidades.Alumno;
 import es.uma.informatica.Entidades.Grupo;
 
 /**
@@ -34,7 +37,10 @@ public class GrupoEJB implements InterfazGrupo {
 	@Override
 	public void Leer_Grupo(Grupo g) throws GrupoException {
 		// TODO Auto-generated method stub
-		
+		Grupo gr=em.find(Grupo.class,  g.getID());
+		if(gr==null) {
+			throw new GrupoErrorException();
+		}
 	}
 
 	@Override
