@@ -49,6 +49,7 @@ public interface InterfazUsuario {
 	  En caso de que haya la contraseña coincida con la anterior, se lanza la excepción UsuarioErrorException.
 	  En caso de que haya la contraseña sea incorrecto, se lanza la excepción UsuarioErrorException.
 	  En caso de que la contraseña sea null, se lanza la excepción UsuarioNullException.
+	 * @throws UsuarioNullException 
 	 */
 	public void Generar_Nueva_Contraseña(String contraseña) throws UsuarioException;
 }

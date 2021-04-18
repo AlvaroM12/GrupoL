@@ -5,6 +5,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import es.uma.informatica.Exception.EncuestaException;
+import es.uma.informatica.Exception.EncuestaExistenteException;
 import es.uma.informatica.Interfaces.InterfazEncuesta;
 
 /**
@@ -18,7 +19,11 @@ public class EncuestaEJB implements InterfazEncuesta {
 
 	@Override
 	public void Responder_Encuesta(EncuestaEJB e) throws EncuestaException {
-		// TODO Auto-generated method stub
+		if(e == null){
+			throw new EncuestaExistenteException("No existe ninguna encuesta");
+		}
+		
+		
 		
 	}
 

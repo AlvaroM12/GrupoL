@@ -13,6 +13,7 @@ import es.uma.informatica.Exception.PlazasException;
 import es.uma.informatica.Exception.UsuarioExistenteException;
 import es.uma.informatica.Exception.UsuarioNullException;
 import es.uma.informatica.Interfaces.InterfazGrupo;
+import es.uma.informatica.Entidades.Alumno;
 import es.uma.informatica.Entidades.Grupo;
 
 /**
@@ -42,7 +43,10 @@ public class GrupoEJB implements InterfazGrupo {
 
 	@Override
 	public void Actualizar_Grupo(Grupo g) throws GrupoException {
-		// TODO Auto-generated method stub
+		Leer_Grupo(g);
+		Grupo grupo =em.find(Grupo.class, g.getID());
+		em.merge(grupo);
+		
 		
 	}
 
