@@ -1,5 +1,6 @@
 package es.uma.informatica.Interfaces;
 
+import es.uma.informatica.EJB.TitulacionEJB;
 import es.uma.informatica.Entidades.Titulacion;
 import es.uma.informatica.Exception.TitulacionException;
 
@@ -11,4 +12,5 @@ public interface InterfazTitulacion {
 	  En caso de que la titulacion sea null, se lanza la excepción TitulacionNullException.
 	 */
 	public void Consultar_Titulacion(Titulacion t) throws TitulacionException;
+	public void Importar_Titulacion() throws TitulacionException;
 }
