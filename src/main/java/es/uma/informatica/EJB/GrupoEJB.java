@@ -39,7 +39,6 @@ public class GrupoEJB implements InterfazGrupo {
 
 	@Override
 	public void Leer_Grupo(Grupo g) throws GrupoException {
-		// TODO Auto-generated method stub
 		Grupo gr=em.find(Grupo.class,  g.getID());
 		if(gr==null) {
 			throw new GrupoErrorException();
@@ -50,16 +49,13 @@ public class GrupoEJB implements InterfazGrupo {
 	public void Actualizar_Grupo(Grupo g) throws GrupoException {
 		Leer_Grupo(g);
 		Grupo grupo =em.find(Grupo.class, g.getID());
-		em.merge(grupo);
-		
-		
+		em.merge(grupo);	
 	}
 
 	@Override
 	public void Eliminar_Grupo(Grupo g) throws GrupoException {
-		// TODO Auto-generated method stub
-		
-		
+		Leer_Grupo(g);
+		em.remove(em.merge(g));	
 	}
 
 	@Override
@@ -74,7 +70,6 @@ public class GrupoEJB implements InterfazGrupo {
 
     @Override
     public void Solicitar_Grupo(Grupo g) throws GrupoException {
-        // TODO Auto-generated method stub
     	if(g==null) {
 			throw new GrupoNullException();
 		}
@@ -82,10 +77,6 @@ public class GrupoEJB implements InterfazGrupo {
     	if(grupoPref==null) {
     		throw new GrupoNullException();
     	}
-		
-		
-			
-
     }
 
     @Override
@@ -96,7 +87,5 @@ public class GrupoEJB implements InterfazGrupo {
         }
         grupoPref.setAsignar(grupoPref.getAsignar()-1);
         Actualizar_Grupo(grupoPref);
-
     }
-
 }

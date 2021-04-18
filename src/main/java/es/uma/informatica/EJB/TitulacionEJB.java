@@ -27,7 +27,6 @@ public class TitulacionEJB implements InterfazTitulacion{
 
 	@Override
 	public void Consultar_Titulacion(Titulacion t) throws TitulacionException {
-		// TODO Auto-generated method stub
 		Titulacion ti=em.find(Titulacion.class,  t.getNombre() );
 		if(ti==null) {
 			throw new TitulacionNullException();
@@ -35,9 +34,7 @@ public class TitulacionEJB implements InterfazTitulacion{
 	}
 
 	@Override
-	public void Importar_Titulacion() throws TitulacionException {
-		// TODO Auto-generated method stub
-		
+	public void Importar_Titulacion() throws TitulacionException {		
 		try {
 			String directorio_de_ejecucion_de_la_aplicacion = new java.io.File( "." ).getCanonicalPath();
 			String sFile = directorio_de_ejecucion_de_la_aplicacion + "/" +"Titulacion.xlsx";
@@ -55,7 +52,6 @@ public class TitulacionEJB implements InterfazTitulacion{
 	        	ti.setCréditos(creditos);
 	        }
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		 

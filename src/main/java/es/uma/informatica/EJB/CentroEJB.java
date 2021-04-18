@@ -22,7 +22,6 @@ public class CentroEJB implements InterfazCentro {
 
 	@Override
 	public void Consultar_Centro(Centro c) throws CentroException {
-		// TODO Auto-generated method stub
 		Centro ce = em.find(Centro.class,c.getNombre());
 		if(ce==null) {
 			throw new CentroNullException();

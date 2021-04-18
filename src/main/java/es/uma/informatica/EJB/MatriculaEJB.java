@@ -50,7 +50,6 @@ public class MatriculaEJB implements InterfazMatricula {
 	        	          
 	        }
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		

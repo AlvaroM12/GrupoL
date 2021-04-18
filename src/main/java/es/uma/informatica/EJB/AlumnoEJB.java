@@ -26,7 +26,7 @@ public class AlumnoEJB implements InterfazAlumno {
 	public void Crear_Alumno(Alumno a) throws AlumnoException {
 		Alumno alumno = em.find(Alumno.class, a.getID());
 		if(alumno!=null) {
-			//El grupo ya existe
+			//El alumno ya existe
 			throw new AlumnoExistenteException();
 		}
 		em.persist(a);	
@@ -46,17 +46,13 @@ public class AlumnoEJB implements InterfazAlumno {
 	public void Actualizar_Alumno(Alumno a) throws AlumnoException{
 		Leer_Alumno(a);
 		Alumno al=em.find(Alumno.class, a.getID());
-		em.merge(al);
-		
-		
-		
+		em.merge(al);	
 	}
 
 	@Override
 	public void Eliminar_Alumno(Alumno a) throws AlumnoException{
 		Leer_Alumno(a);
-		em.remove(em.merge(a));
-		
+		em.remove(em.merge(a));		
 	}
 
 }
