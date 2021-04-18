@@ -22,7 +22,7 @@ public interface InterfazUsuario {
 	  En caso de que algun campo sea null, se lanza la excepción UsuarioNullException.
 	 * @throws UsuarioExistenteException 
 	 */
-	public void Validar_Acceso(Usuario u) throws UsuarioException, UsuarioExistenteException;
+	public void Validar_Acceso(Usuario u) throws UsuarioException;
 	
 	/**
 	  Este método crea la sesión del usuario introducido.
@@ -42,7 +42,7 @@ public interface InterfazUsuario {
 	 * @throws UsuarioExistenteException 
 	 * @throws UsuarioNullException 
 	 */
-	public void Solicitar_Recuperar_Contraseña(String email) throws UsuarioException, UsuarioExistenteException, UsuarioNullException;
+	public void Solicitar_Recuperar_Contraseña(String email) throws UsuarioException;
 
 	/**
 	  Este método genera una nueva contraseña para un usuario en la plataforma.

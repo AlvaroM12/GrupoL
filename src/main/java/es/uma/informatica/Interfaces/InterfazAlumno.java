@@ -22,7 +22,7 @@ public interface InterfazAlumno {
 	 * @throws AlumnoExistenteException 
 	 * @throws AlumnoErrorException 
 	 */
-	public void Leer_Alumno(Alumno a) throws AlumnoException, AlumnoExistenteException, AlumnoErrorException;
+	public void Leer_Alumno(Alumno a) throws AlumnoException;
 	
 	 /**
 	  Este método debe actualizar un alumno de la base de datos.
@@ -32,7 +32,7 @@ public interface InterfazAlumno {
 	 * @throws AlumnoErrorException 
 	  
 	 */
-	public void Actualizar_Alumno(Alumno a) throws AlumnoException, AlumnoExistenteException, AlumnoErrorException;
+	public void Actualizar_Alumno(Alumno a) throws AlumnoException;
 	
 	/**
 	  Este método debe eliminar un alumno de la base de datos.
@@ -42,5 +42,5 @@ public interface InterfazAlumno {
 	 * @throws AlumnoErrorException 
 	  
 	 */
-	public void Eliminar_Alumno(Alumno a) throws AlumnoException, AlumnoExistenteException, AlumnoErrorException;
+	public void Eliminar_Alumno(Alumno a) throws AlumnoException;
 }

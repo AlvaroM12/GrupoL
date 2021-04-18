@@ -28,15 +28,12 @@ public class UsuarioEJB implements InterfazUsuario{
 	}
 
 	@Override
-	public void Validar_Acceso(Usuario u) throws UsuarioException, UsuarioExistenteException {
+	public void Validar_Acceso(Usuario u) throws UsuarioException{
 		// TODO Auto-generated method stub
 		Usuario us = em.find(Usuario.class, u.getID());
         if(us == null) {
             throw new UsuarioExistenteException();
-        }
-
-
-		
+        }		
 	}
 
 	@Override
@@ -52,7 +49,7 @@ public class UsuarioEJB implements InterfazUsuario{
 	}
 
 	@Override
-	public void Solicitar_Recuperar_Contraseña(String email) throws UsuarioException, UsuarioExistenteException, UsuarioNullException {
+	public void Solicitar_Recuperar_Contraseña(String email) throws UsuarioException{
 		if(email==null) {
 			throw new UsuarioNullException();
 		}

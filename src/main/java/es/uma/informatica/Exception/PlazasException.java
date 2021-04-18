@@ -1,5 +1,5 @@
 package es.uma.informatica.Exception;
 
-public class PlazasException extends Exception {
+public class PlazasException extends GrupoException {
 
 }

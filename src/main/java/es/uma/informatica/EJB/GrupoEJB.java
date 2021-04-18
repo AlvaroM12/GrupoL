@@ -6,11 +6,11 @@ import javax.persistence.PersistenceContext;
 
 import es.uma.informatica.Exception.GrupoErrorException;
 import es.uma.informatica.Exception.GrupoException;
+import es.uma.informatica.Exception.GrupoExistenteException;
 import es.uma.informatica.Exception.GrupoNullException;
 import es.uma.informatica.Exception.PlazasException;
 import es.uma.informatica.Interfaces.InterfazGrupo;
 import es.uma.informatica.Entidades.Grupo;
-import es.uma.informatica.Entidades.Asignatura;
 
 /**
  * Session Bean implementation class Grupo
@@ -23,8 +23,12 @@ public class GrupoEJB implements InterfazGrupo {
 
 	@Override
 	public void Crear_Grupo(Grupo g) throws GrupoException {
-		// TODO Auto-generated method stub
-		
+		Grupo grupoB = em.find(Grupo.class, g.getID());
+		if(grupoB!=null) {
+			//El grupo ya existe
+			throw new GrupoExistenteException();
+		}
+		em.persist(g);		
 	}
 
 	@Override
@@ -47,7 +51,7 @@ public class GrupoEJB implements InterfazGrupo {
 	}
 
 	@Override
-    public void Solicitar_Cambio_Grupo(String causa, Grupo g) throws GrupoErrorException, GrupoNullException {
+    public void Solicitar_Cambio_Grupo(String causa, Grupo g) throws GrupoException{
         if(causa == null) {
             throw new GrupoNullException();
         }
@@ -63,7 +67,7 @@ public class GrupoEJB implements InterfazGrupo {
     }
 
     @Override
-    public void Asignar_Grupo(Grupo g) throws GrupoException, PlazasException {
+    public void Asignar_Grupo(Grupo g) throws GrupoException{
         Grupo grupoPref = em.find(Grupo.class, g.getID());
         if(grupoPref.getAsignar()==0){
             throw new PlazasException();

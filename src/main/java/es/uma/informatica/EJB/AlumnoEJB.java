@@ -8,7 +8,8 @@ import es.uma.informatica.Exception.AlumnoErrorException;
 import es.uma.informatica.Exception.AlumnoException;
 import es.uma.informatica.Exception.AlumnoExistenteException;
 import es.uma.informatica.Interfaces.InterfazAlumno;
-import es.uma.informatica.Entidades.*;
+import es.uma.informatica.Entidades.Alumno;
+
 /**
  * Session Bean implementation class Alumno
  */
@@ -22,13 +23,18 @@ public class AlumnoEJB implements InterfazAlumno {
 
 	@Override
 	public void Crear_Alumno(Alumno a) throws AlumnoException {
-		// TODO Auto-generated method stub
+		Alumno alumno = em.find(Alumno.class, a.getID());
+		if(alumno!=null) {
+			//El grupo ya existe
+			throw new AlumnoExistenteException();
+		}
+		em.persist(a);	
 		
 	}
 
 	@Override
-	public void Leer_Alumno(Alumno a) throws AlumnoException, AlumnoExistenteException, AlumnoErrorException {
-		Alumno al=em.find(Alumno.class,  a.getDNI() );
+	public void Leer_Alumno(Alumno a) throws AlumnoException {
+		Alumno al=em.find(Alumno.class,  a.getID() );
 		if(al==null) {
 			throw new AlumnoExistenteException();
 		}else if(al!=null) {
@@ -38,9 +44,9 @@ public class AlumnoEJB implements InterfazAlumno {
 	}
 
 	@Override
-	public void Actualizar_Alumno(Alumno a) throws AlumnoException, AlumnoExistenteException, AlumnoErrorException {
+	public void Actualizar_Alumno(Alumno a) throws AlumnoException{
 		Leer_Alumno(a);
-		Alumno al=em.find(Alumno.class, a.getDNI());
+		Alumno al=em.find(Alumno.class, a.getID());
 		em.merge(al);
 		
 		
@@ -48,7 +54,7 @@ public class AlumnoEJB implements InterfazAlumno {
 	}
 
 	@Override
-	public void Eliminar_Alumno(Alumno a) throws AlumnoException, AlumnoExistenteException, AlumnoErrorException {
+	public void Eliminar_Alumno(Alumno a) throws AlumnoException{
 		Leer_Alumno(a);
 		em.remove(em.merge(a));
 		
