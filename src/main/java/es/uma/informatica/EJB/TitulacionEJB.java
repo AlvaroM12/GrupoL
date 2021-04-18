@@ -49,7 +49,7 @@ public class TitulacionEJB implements InterfazTitulacion{
 	        for(int fila=1; fila<row.getRowNum(); fila++) {
 	        	Long codigo = (long) sheet.getRow(fila).getCell(0).getNumericCellValue();
 	        	ti.setCódigo(codigo);
-	        	String nombre = (String) sheet.getRow(fila).getCell(1).getStringCellValue();
+	        	String nombre =  sheet.getRow(fila).getCell(1).getStringCellValue();
 	        	ti.setNombre(nombre);
 	        	Long creditos = (long) sheet.getRow(fila).getCell(2).getNumericCellValue();
 	        	ti.setCréditos(creditos);
