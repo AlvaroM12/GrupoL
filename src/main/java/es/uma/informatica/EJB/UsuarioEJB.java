@@ -35,7 +35,6 @@ public class UsuarioEJB implements InterfazUsuario{
 
 	@Override
 	public void Validar_Acceso(Usuario u) throws UsuarioException{
-		// TODO Auto-generated method stub
 		Usuario us = em.find(Usuario.class, u.getID());
         if(us == null) {
             throw new UsuarioExistenteException();
@@ -70,7 +69,10 @@ public class UsuarioEJB implements InterfazUsuario{
 
 	@Override
 	public void Generar_Nueva_Contraseña(String contraseña) throws UsuarioException {
-		// TODO Auto-generated method stub
+		if(contraseña==null) {
+			throw new UsuarioNullException();
+		}
+		
 		
 	}
 

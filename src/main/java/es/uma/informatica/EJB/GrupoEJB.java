@@ -3,6 +3,7 @@ package es.uma.informatica.EJB;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 import es.uma.informatica.Exception.AlumnoErrorException;
 import es.uma.informatica.Exception.AlumnoExistenteException;
@@ -11,6 +12,8 @@ import es.uma.informatica.Exception.GrupoException;
 import es.uma.informatica.Exception.GrupoExistenteException;
 import es.uma.informatica.Exception.GrupoNullException;
 import es.uma.informatica.Exception.PlazasException;
+import es.uma.informatica.Exception.UsuarioExistenteException;
+import es.uma.informatica.Exception.UsuarioNullException;
 import es.uma.informatica.Interfaces.InterfazGrupo;
 import es.uma.informatica.Entidades.Alumno;
 import es.uma.informatica.Entidades.Grupo;
@@ -45,7 +48,10 @@ public class GrupoEJB implements InterfazGrupo {
 
 	@Override
 	public void Actualizar_Grupo(Grupo g) throws GrupoException {
-		// TODO Auto-generated method stub
+		Leer_Grupo(g);
+		Grupo grupo =em.find(Grupo.class, g.getID());
+		em.merge(grupo);
+		
 		
 	}
 
@@ -69,6 +75,16 @@ public class GrupoEJB implements InterfazGrupo {
     @Override
     public void Solicitar_Grupo(Grupo g) throws GrupoException {
         // TODO Auto-generated method stub
+    	if(g==null) {
+			throw new GrupoNullException();
+		}
+    	Grupo grupoPref = em.find(Grupo.class, g.getID());
+    	if(grupoPref==null) {
+    		throw new GrupoNullException();
+    	}
+		
+		
+			
 
     }
 
