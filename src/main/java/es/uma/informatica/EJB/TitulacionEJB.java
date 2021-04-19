@@ -26,7 +26,7 @@ public class TitulacionEJB implements InterfazTitulacion{
 	private EntityManager em;
 
 	@Override
-	public void Consultar_Titulacion(Titulacion t) throws TitulacionException {
+	public void consultarTitulacion(Titulacion t) throws TitulacionException {
 		Titulacion ti=em.find(Titulacion.class,  t.getNombre() );
 		if(ti==null) {
 			throw new TitulacionNullException();
@@ -34,7 +34,7 @@ public class TitulacionEJB implements InterfazTitulacion{
 	}
 
 	@Override
-	public void Importar_Titulacion() throws TitulacionException {		
+	public void importarTitulacion() throws TitulacionException {		
 		try {
 			String directorio_de_ejecucion_de_la_aplicacion = new java.io.File( "." ).getCanonicalPath();
 			String sFile = directorio_de_ejecucion_de_la_aplicacion + "/" +"Titulacion.xlsx";
@@ -42,14 +42,15 @@ public class TitulacionEJB implements InterfazTitulacion{
 	        XSSFSheet sheet = workbook.getSheet("Hoja1");
 	        XSSFRow row = sheet.getRow(0);
 	        XSSFCell cell = null;
-	        Titulacion ti = new Titulacion();
+	        Titulacion t = new Titulacion();
+	        
 	        for(int fila=1; fila<row.getRowNum(); fila++) {
 	        	Long codigo = (long) sheet.getRow(fila).getCell(0).getNumericCellValue();
-	        	ti.setCódigo(codigo);
+	        	t.setCódigo(codigo);
 	        	String nombre =  sheet.getRow(fila).getCell(1).getStringCellValue();
-	        	ti.setNombre(nombre);
+	        	t.setNombre(nombre);
 	        	Long creditos = (long) sheet.getRow(fila).getCell(2).getNumericCellValue();
-	        	ti.setCréditos(creditos);
+	        	t.setCréditos(creditos);
 	        }
 		} catch (IOException e) {
 			e.printStackTrace();

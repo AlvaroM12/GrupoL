@@ -13,7 +13,6 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import es.uma.informatica.Entidades.Alumno;
 import es.uma.informatica.Entidades.Expediente;
-import es.uma.informatica.Entidades.Titulacion;
 import es.uma.informatica.Exception.ExpedienteException;
 import es.uma.informatica.Interfaces.InterfazExpediente;
 
@@ -27,7 +26,7 @@ public class ExpedienteEJB implements InterfazExpediente {
 	private EntityManager em;
 
 	@Override
-	public void ImportarExpediente(ExpedienteEJB exp) throws ExpedienteException {
+	public void importarExpediente(ExpedienteEJB exp) throws ExpedienteException {
 		
 		try {
 			String directorio_de_ejecucion_de_la_aplicacion;
@@ -48,31 +47,31 @@ public class ExpedienteEJB implements InterfazExpediente {
 	        	e.setAE(a);
 	        	
 	        	String Num_Expediente = sheet.getRow(fila).getCell(4).getStringCellValue();
-	        	e.setNum_Expediente(Num_Expediente);
+	        	e.setNum_Expediente(Long.parseLong(Num_Expediente));
 	        	
 	        	String Nota_Media = sheet.getRow(fila).getCell(17).getStringCellValue();
-	        	e.setNota_Media(Nota_Media);
+	        	e.setNota_Media(Float.parseFloat(Nota_Media));
 	        	
 	        	String Creditos_Superados = sheet.getRow(fila).getCell(18).getStringCellValue();
-	        	e.setCreditos_Superados(Creditos_Superados);
+	        	e.setCreditos_Superados(Long.parseLong(Creditos_Superados));
 	        	
 	        	String Creditos_FB = sheet.getRow(fila).getCell(19).getStringCellValue();
-	        	e.setCreditos_FB(Creditos_FB);
+	        	e.setCreditos_FB(Long.parseLong(Creditos_FB));
 	        	
 	        	String Creditos_OB = sheet.getRow(fila).getCell(20).getStringCellValue();
-	        	e.setCreditos_OB(Creditos_OB);
+	        	e.setCreditos_OB(Long.parseLong(Creditos_OB));
 	        	
 	        	String Creditos_OP = sheet.getRow(fila).getCell(21).getStringCellValue();
-	        	e.setCreditos_OP(Creditos_OP);
+	        	e.setCreditos_OP(Long.parseLong(Creditos_OP));
 	        	
 	        	String Creditos_CF = sheet.getRow(fila).getCell(22).getStringCellValue();
-	        	e.setCreditos_CF(Creditos_CF);
+	        	e.setCreditos_CF(Long.parseLong(Creditos_CF));
 	        	
 	        	String Creditos_PE = sheet.getRow(fila).getCell(23).getStringCellValue();
-	        	e.setCreditos_PE(Creditos_PE);
+	        	e.setCreditos_PE(Long.parseLong(Creditos_PE));
 	        	
 	        	String Creditos_TF = sheet.getRow(fila).getCell(24).getStringCellValue();
-	        	e.setCreditos_TF(Creditos_TF);
+	        	e.setCreditos_TF(Long.parseLong(Creditos_TF));
 	        }
 		
 		
