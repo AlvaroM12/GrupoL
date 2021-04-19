@@ -27,7 +27,7 @@ public class ExpedienteEJB implements InterfazExpediente {
 	private EntityManager em;
 
 	@Override
-	public void Importar_Expediente(ExpedienteEJB exp) throws ExpedienteException {
+	public void ImportarExpediente(ExpedienteEJB exp) throws ExpedienteException {
 		
 		try {
 			String directorio_de_ejecucion_de_la_aplicacion;
