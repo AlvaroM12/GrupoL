@@ -2,7 +2,7 @@ package es.uma.informatica.Entidades;
 
 import java.io.Serializable;
 import java.lang.Long;
-import java.util.Date;
+
 
 import javax.persistence.*;
 
@@ -48,7 +48,6 @@ public class Clase implements Serializable {
 	public void setDia(String dia) {
 		Dia = dia;
 	}
-
 
 	public String getHoraInicio() {
 		return HoraInicio;
