@@ -7,6 +7,7 @@ import javax.persistence.Query;
 
 import es.uma.informatica.Exception.AlumnoErrorException;
 import es.uma.informatica.Exception.AlumnoExistenteException;
+import es.uma.informatica.Exception.AlumnoNullException;
 import es.uma.informatica.Exception.GrupoErrorException;
 import es.uma.informatica.Exception.GrupoException;
 import es.uma.informatica.Exception.GrupoExistenteException;
@@ -16,6 +17,7 @@ import es.uma.informatica.Exception.UsuarioExistenteException;
 import es.uma.informatica.Exception.UsuarioNullException;
 import es.uma.informatica.Interfaces.InterfazGrupo;
 import es.uma.informatica.Entidades.Alumno;
+import es.uma.informatica.Entidades.Asignatura;
 import es.uma.informatica.Entidades.Grupo;
 
 /**
@@ -28,7 +30,7 @@ public class GrupoEJB implements InterfazGrupo {
 	private EntityManager em;
 
 	@Override
-	public void Crear_Grupo(Grupo g) throws GrupoException {
+	public void crearGrupo(Grupo g) throws GrupoException {
 		Grupo grupoB = em.find(Grupo.class, g.getID());
 		if(grupoB!=null) {
 			//El grupo ya existe
@@ -38,38 +40,46 @@ public class GrupoEJB implements InterfazGrupo {
 	}
 
 	@Override
-	public void Leer_Grupo(Grupo g) throws GrupoException {
+	public Grupo leerGrupo(Grupo g) throws GrupoException {
 		Grupo gr=em.find(Grupo.class,  g.getID());
 		if(gr==null) {
 			throw new GrupoErrorException();
 		}
+		return gr;
 	}
 
 	@Override
-	public void Actualizar_Grupo(Grupo g) throws GrupoException {
-		Leer_Grupo(g);
+	public void actualizarGrupo(Grupo g) throws GrupoException {
+		leerGrupo(g);
 		Grupo grupo =em.find(Grupo.class, g.getID());
 		em.merge(grupo);	
 	}
 
 	@Override
-	public void Eliminar_Grupo(Grupo g) throws GrupoException {
-		Leer_Grupo(g);
+	public void eliminarGrupo(Grupo g, Alumno a) throws GrupoException {
+		leerGrupo(g);
+		//Alumno alumno = em.find(Alumno.class, a.getID());
+
+		if(g.getPlazas()==g.getAsignar()) {
+			throw new GrupoErrorException();
+		}
 		em.remove(em.merge(g));	
 	}
 
 	@Override
-    public void Solicitar_Cambio_Grupo(String causa, Grupo g) throws GrupoException{
-        if(causa == null) {
+    public void solicitarCambioGrupo(String causa, Grupo g, Alumno al, Asignatura a) throws GrupoException{
+		
+		if(causa == null) {
             throw new GrupoNullException();
         }
+		
         if(causa.length() < 75){
             throw new GrupoErrorException();
         }
     }
 
     @Override
-    public void Solicitar_Grupo(Grupo g) throws GrupoException {
+    public void solicitarGrupo(Grupo g) throws GrupoException {
     	if(g==null) {
 			throw new GrupoNullException();
 		}
@@ -80,12 +90,14 @@ public class GrupoEJB implements InterfazGrupo {
     }
 
     @Override
-    public void Asignar_Grupo(Grupo g) throws GrupoException{
-        Grupo grupoPref = em.find(Grupo.class, g.getID());
+    public void asignarGrupo(Grupo g) throws GrupoException{
+    	 Grupo grupoPref = em.find(Grupo.class, g.getID());
         if(grupoPref.getAsignar()==0){
             throw new PlazasException();
         }
         grupoPref.setAsignar(grupoPref.getAsignar()-1);
-        Actualizar_Grupo(grupoPref);
+        actualizarGrupo(grupoPref);
     }
+
+	
 }

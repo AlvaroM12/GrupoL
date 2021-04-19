@@ -12,5 +12,5 @@ public interface InterfazEncuesta {
 	  En caso de que haya alguna respuesta incorrecta, se lanza la excepción EncuestaErrorException.
 	  En caso de que algun campo de la encuesta sea null, se lanza la excepción EncuestaNullException.
 	 */
-	public void Responder_Encuesta(Encuesta e)throws EncuestaException;
+	public void responderEncuesta(Encuesta e)throws EncuestaException;
 }

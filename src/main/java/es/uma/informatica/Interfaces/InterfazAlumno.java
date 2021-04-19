@@ -12,7 +12,7 @@ public interface InterfazAlumno {
 	  En caso de que haya algun dato incorrecto, se lanza la excepción AlumnoErrorException.
 	  En caso de que el alumno sea null, se lanza la excepción AlumnoNullException.
 	 */
-	public void Crear_Alumno(Alumno a) throws AlumnoException;
+	public void crearAlumno(Alumno a) throws AlumnoException;
 	
 	/**
 	  Este método debe leer un alumno de la base de datos.
@@ -22,7 +22,7 @@ public interface InterfazAlumno {
 	 * @throws AlumnoExistenteException 
 	 * @throws AlumnoErrorException 
 	 */
-	public void Leer_Alumno(Alumno a) throws AlumnoException;
+	public Alumno leerAlumno(Alumno a) throws AlumnoException;
 	
 	 /**
 	  Este método debe actualizar un alumno de la base de datos.
@@ -32,7 +32,7 @@ public interface InterfazAlumno {
 	 * @throws AlumnoErrorException 
 	  
 	 */
-	public void Actualizar_Alumno(Alumno a) throws AlumnoException;
+	public void actualizarAlumno(Alumno a) throws AlumnoException;
 	
 	/**
 	  Este método debe eliminar un alumno de la base de datos.
@@ -42,5 +42,5 @@ public interface InterfazAlumno {
 	 * @throws AlumnoErrorException 
 	  
 	 */
-	public void Eliminar_Alumno(Alumno a) throws AlumnoException;
+	public void eliminarAlumno(Alumno a) throws AlumnoException;
 }
