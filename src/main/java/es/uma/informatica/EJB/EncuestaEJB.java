@@ -22,7 +22,12 @@ public class EncuestaEJB implements InterfazEncuesta {
 	private EntityManager em;
 
 	@Override
+<<<<<<< HEAD
 	public void responderEncuesta(String campos, Encuesta e) throws EncuestaException {
+=======
+	public void responderEncuesta(Encuesta e) throws EncuestaException {
+		
+>>>>>>> branch 'EJB' of https://github.com/AlvaroM12/GrupoL.git
 		
 		Encuesta en = em.find(Encuesta.class, e.getFecha_De_Envío());
 		

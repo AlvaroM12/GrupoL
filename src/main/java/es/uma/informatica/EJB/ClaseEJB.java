@@ -1,6 +1,7 @@
 package es.uma.informatica.EJB;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 import javax.ejb.Stateless;
@@ -49,24 +50,24 @@ public class ClaseEJB implements InterfazClase{
 	        	c.setAC(a);
 	        	String dia = sheet.getRow(fila).getCell(12).getStringCellValue();
 	        	c.setDia(dia);
-	        	String hini = sheet.getRow(fila).getCell(13).getStringCellValue();
-	        	c.setDia(hini);
-	        	String hfin = sheet.getRow(fila).getCell(14).getStringCellValue();
-	        	c.setDia(hfin);
+	        	LocalDateTime hini = sheet.getRow(fila).getCell(13).getLocalDateTimeCellValue();    	
+	        	c.setHoraInicio(hini.getHour() + ":" + hini.getMinute());
+	        	LocalDateTime hfin = sheet.getRow(fila).getCell(14).getLocalDateTimeCellValue();
+	        	c.setHoraFin(hfin.getHour() + ":" + hfin.getMinute());
 	        	em.persist(c);
 	        	String dia2 = sheet.getRow(fila).getCell(15).getStringCellValue();
 	        	c.setDia(dia2);
-	        	String hini2 = sheet.getRow(fila).getCell(16).getStringCellValue();
-	        	c.setDia(hini2);
-	        	String hfin2 = sheet.getRow(fila).getCell(17).getStringCellValue();
-	        	c.setDia(hfin2);
+	        	LocalDateTime hini2 = sheet.getRow(fila).getCell(16).getLocalDateTimeCellValue();
+	        	c.setHoraInicio(hini2.getHour() + ":" + hini2.getMinute());
+	        	LocalDateTime hfin2 = sheet.getRow(fila).getCell(17).getLocalDateTimeCellValue();
+	        	c.setHoraFin(hfin2.getHour() + ":" + hfin2.getMinute());
 	        	em.persist(c);
 	        	String dia3 = sheet.getRow(fila).getCell(18).getStringCellValue();
 	        	c.setDia(dia3);
-	        	String hini3 = sheet.getRow(fila).getCell(19).getStringCellValue();
-	        	c.setDia(hini3);
-	        	String hfin3 = sheet.getRow(fila).getCell(20).getStringCellValue();
-	        	c.setDia(hfin3);
+	        	LocalDateTime hini3 = sheet.getRow(fila).getCell(19).getLocalDateTimeCellValue();
+	        	c.setHoraInicio(hini3.getHour() + ":" + hini3.getMinute());
+	        	LocalDateTime hfin3 = sheet.getRow(fila).getCell(20).getLocalDateTimeCellValue();
+	        	c.setHoraFin(hfin3.getHour() + ":" + hfin3.getMinute());
 	        	em.persist(c);
 	        }
 		} catch (IOException e1) {

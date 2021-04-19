@@ -6,7 +6,13 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+<<<<<<< HEAD
 import es.uma.informatica.Exception.GrupoAsigErrorException;
+=======
+import es.uma.informatica.Exception.AlumnoErrorException;
+import es.uma.informatica.Exception.AlumnoExistenteException;
+import es.uma.informatica.Exception.AlumnoNullException;
+>>>>>>> branch 'EJB' of https://github.com/AlvaroM12/GrupoL.git
 import es.uma.informatica.Exception.GrupoErrorException;
 import es.uma.informatica.Exception.GrupoException;
 import es.uma.informatica.Exception.GrupoExistenteException;
@@ -65,11 +71,16 @@ public class GrupoEJB implements InterfazGrupo {
 	}
 
 	@Override
+<<<<<<< HEAD
     public void solicitarCambioGrupo(String causa,Grupo g, Alumno al, Asignatura a) throws GrupoException{
+=======
+    public void solicitarCambioGrupo(String causa, Grupo g, Alumno al, Asignatura a) throws GrupoException{
+>>>>>>> branch 'EJB' of https://github.com/AlvaroM12/GrupoL.git
 		
 		if(causa == null) {
             throw new GrupoNullException();
         }
+		
         if(causa.length() < 75){
             throw new GrupoErrorException();
         }
@@ -113,7 +124,11 @@ public class GrupoEJB implements InterfazGrupo {
     }
 
     @Override
+<<<<<<< HEAD
     public void solicitarGrupo(Grupo g, Alumno a) throws GrupoException {
+=======
+    public void solicitarGrupo(Grupo g) throws GrupoException {
+>>>>>>> branch 'EJB' of https://github.com/AlvaroM12/GrupoL.git
     	if(g==null) {
 			throw new GrupoNullException();
 		}
@@ -126,8 +141,13 @@ public class GrupoEJB implements InterfazGrupo {
     }
 
     @Override
+<<<<<<< HEAD
     public void asignarGrupo(Grupo g, Alumno a) throws GrupoException{
     	Grupo grupoPref = em.find(Grupo.class, g.getID());
+=======
+    public void asignarGrupo(Grupo g) throws GrupoException{
+    	 Grupo grupoPref = em.find(Grupo.class, g.getID());
+>>>>>>> branch 'EJB' of https://github.com/AlvaroM12/GrupoL.git
         if(grupoPref.getAsignar()==0){
             throw new PlazasException();
         }

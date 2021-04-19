@@ -57,11 +57,19 @@ public interface InterfazGrupo {
 	  Este método debe permite solicitar un grupo entre los existentes.
 	  En caso de que el grupo sea null, se lanza la excepción GrupoNullException.
 	 */
+<<<<<<< HEAD
 	public void solicitarGrupo(Grupo g, Alumno a) throws GrupoException;
+=======
+	public void solicitarGrupo(Grupo g) throws GrupoException;
+>>>>>>> branch 'EJB' of https://github.com/AlvaroM12/GrupoL.git
 
 	/**
 	  Este método asigna solicitar un grupo entre los existentes.
 	 * @throws PlazasException 
 	 */
+<<<<<<< HEAD
 	public void asignarGrupo(Grupo g, Alumno a) throws GrupoException;
+=======
+	public void asignarGrupo(Grupo g) throws GrupoException;
+>>>>>>> branch 'EJB' of https://github.com/AlvaroM12/GrupoL.git
 }
