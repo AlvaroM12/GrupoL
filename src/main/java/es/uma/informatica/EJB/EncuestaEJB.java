@@ -19,9 +19,7 @@ public class EncuestaEJB implements InterfazEncuesta {
 
 	@Override
 	public void responderEncuesta(Encuesta e) throws EncuestaException {
-		if(e == null){
-			throw new EncuestaExistenteException("No existe ninguna encuesta");
-		}
+		
 		
 		Encuesta en = em.find(Encuesta.class, e.getFecha_De_Envío());
 		

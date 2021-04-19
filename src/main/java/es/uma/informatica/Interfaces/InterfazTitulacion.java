@@ -7,10 +7,12 @@ import es.uma.informatica.Exception.TitulacionException;
 public interface InterfazTitulacion {
 	/**
 	  Este método debe consultar una titulacion en la base de datos.
-	  En caso de que la titulacion no existiese, se lanza la excepción TitulacionExistenteException.
-	  En caso de que haya algun dato incorrecto, se lanza la excepción TitulacionErrorException.
 	  En caso de que la titulacion sea null, se lanza la excepción TitulacionNullException.
 	 */
 	public void consultarTitulacion(Titulacion t) throws TitulacionException;
+	/**
+	  Este método debe importar una titulacion en la base de datos.
+
+	 */
 	public void importarTitulacion() throws TitulacionException;
 }

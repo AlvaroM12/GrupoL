@@ -15,8 +15,8 @@ public interface InterfazUsuario {
 	/**
 	  Este método valida el acceso de un usuario en la plataforma.
 	  En caso de que el usuario no existiese, se lanza la excepción UsuarioExistenteException.
-	  En caso de que haya algun dato incorrecto, se lanza la excepción UsuarioErrorException.
-	  En caso de que algun campo sea null, se lanza la excepción UsuarioNullException.
+	  En caso de que la contraseña sea incorrecto, se lanza la excepción UsuarioErrorException.
+
 	 * @throws UsuarioExistenteException 
 	 */
 	public void validarAcceso(String email, String pass) throws UsuarioException;

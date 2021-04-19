@@ -37,7 +37,7 @@ public class AlumnoEJB implements InterfazAlumno {
 	public Alumno leerAlumno(Alumno a) throws AlumnoException {
 		Alumno al=em.find(Alumno.class,  a.getID() );
 		if(al==null) {
-			throw new AlumnoNullException();
+			throw new AlumnoExistenteException();
 		}
 		return al;
 	}
