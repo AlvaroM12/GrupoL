@@ -73,6 +73,7 @@ public class ExpedienteEJB implements InterfazExpediente {
 	        	
 	        	String Creditos_TF = sheet.getRow(fila).getCell(24).getStringCellValue();
 	        	e.setCreditos_TF(Creditos_TF);
+	        	em.persist(e);
 	        }
 		
 		
