@@ -28,7 +28,7 @@ public class Matrícula implements Serializable {
 	private String Turno_Preferente;
 	
 	@Temporal(TemporalType.DATE)
-	private String Fecha_De_Matrícula;
+	private Date Fecha_De_Matrícula;
 	private String Nuevo_Ingreso;
 	private String Listado_Asignaturas;
 	private static final long serialVersionUID = 1L;
@@ -71,11 +71,11 @@ public class Matrícula implements Serializable {
 	public void setTurno_Preferente(String Turno_Preferente) {
 		this.Turno_Preferente = Turno_Preferente;
 	}   
-	  
-	public String getFecha_De_Matrícula() {
+	
+	public Date getFecha_De_Matrícula() {
 		return Fecha_De_Matrícula;
 	}
-	public void setFecha_De_Matrícula(String fecha_De_Matrícula) {
+	public void setFecha_De_Matrícula(Date fecha_De_Matrícula) {
 		Fecha_De_Matrícula = fecha_De_Matrícula;
 	}
 	public String getNuevo_Ingreso() {

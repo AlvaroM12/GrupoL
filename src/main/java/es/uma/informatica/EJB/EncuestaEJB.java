@@ -1,5 +1,4 @@
 package es.uma.informatica.EJB;
-
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -19,7 +18,7 @@ public class EncuestaEJB implements InterfazEncuesta {
 	private EntityManager em;
 
 	@Override
-	public void Responder_Encuesta(Encuesta e) throws EncuestaException {
+	public void responderEncuesta(Encuesta e) throws EncuestaException {
 		if(e == null){
 			throw new EncuestaExistenteException("No existe ninguna encuesta");
 		}
@@ -34,3 +33,4 @@ public class EncuestaEJB implements InterfazEncuesta {
 	}
 
 }
+
