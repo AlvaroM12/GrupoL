@@ -1,9 +1,14 @@
 package es.uma.informatica.EJB;
 
+import java.io.UnsupportedEncodingException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.Base64;
+
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 
 import es.uma.informatica.Exception.UsuarioErrorException;
 import es.uma.informatica.Exception.UsuarioException;
@@ -22,7 +27,7 @@ public class UsuarioEJB implements InterfazUsuario{
 	private EntityManager em;
 
 	@Override
-	public void Registrar_Usuario(Usuario u) throws UsuarioException {
+	public void crearUsuario(Usuario u) throws UsuarioException {
 		Usuario user = em.find(Usuario.class, u.getID());
 		if(user != null) {
 			throw new UsuarioExistenteException();
@@ -31,46 +36,57 @@ public class UsuarioEJB implements InterfazUsuario{
 	}
 
 	@Override
-	public void Validar_Acceso(Usuario u) throws UsuarioException{
-		Usuario us = em.find(Usuario.class, u.getID());
-        if(us == null) {
+	public void validarAcceso(String email, String pass) throws UsuarioException{
+		
+        if( email== null) {
             throw new UsuarioExistenteException();
-        }		
+        }
+        TypedQuery <Alumno> query = em.createQuery("SELECT a FROM Alumno a "
+	            + "WHERE a.Email_Personal LIKE :correo", Alumno.class);
+		query.setParameter("correo", email);
+		Alumno a = query.getSingleResult();
+		if(!a.getContraseña().equalsIgnoreCase(pass)) {
+			throw new UsuarioErrorException();
+		}        
 	}
 
 	@Override
-	public void Iniciar_Sesión(String username, String contraseña) throws UsuarioException {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void Cerrar_Sesión(Usuario u) throws UsuarioException {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void Solicitar_Recuperar_Contraseña(String email) throws UsuarioException{
+	public void solicitarRecuperarContraseña(String email) throws UsuarioException{
 		if(email==null) {
 			throw new UsuarioNullException();
 		}
 		
-		Query alumno = em.createQuery("SELECT a FROM Alumno a "
-	            + "WHERE a.Email_Personal LIKE :email");
+		TypedQuery <Alumno> query = em.createQuery("SELECT a FROM Alumno a "
+	            + "WHERE a.Email_Personal LIKE :correo", Alumno.class);
+		query.setParameter("correo", email);
+		Alumno a = query.getSingleResult();	
 		
-		if(alumno==null) {
-			throw new UsuarioExistenteException();
-		}	
+		if(a==null) {
+			throw new UsuarioNullException();
+		}
 	}
 
 	@Override
-	public void Generar_Nueva_Contraseña(String contraseña) throws UsuarioException {
+	public void generarNuevaContraseña(Usuario u, String contraseña) throws UsuarioException {
+		
 		if(contraseña==null) {
 			throw new UsuarioNullException();
 		}
-		
-		
+		byte[] newPassword = null;
+	    try {
+	        newPassword = MessageDigest.getInstance("SHA").digest(contraseña.getBytes("UTF-8"));
+	    } catch (NoSuchAlgorithmException e) {
+	        e.printStackTrace();
+	    } catch (UnsupportedEncodingException e) {
+	        e.printStackTrace();
+	    }
+
+	    String encriptado = Base64.getEncoder().encodeToString(newPassword);
+	    Usuario usuario = em.find(Usuario.class, u.getID());
+		if(usuario==null) {
+			throw new UsuarioNullException();
+		}
+		usuario.setContraseña(encriptado);	
 	}
 
 }
