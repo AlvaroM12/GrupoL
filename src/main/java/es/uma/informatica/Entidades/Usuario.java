@@ -16,6 +16,7 @@ public class Usuario implements Serializable {
 	@Id @GeneratedValue
 	private Long ID;
 	private Long Telefono;
+	private String contraseña;
 	private static final long serialVersionUID = 1L;
 
 	public Usuario() {
@@ -36,12 +37,19 @@ public class Usuario implements Serializable {
 		this.Telefono = Telefono;
 	}
 	
+	public String getContraseña() {
+		return contraseña;
+	}
+	public void setContraseña(String contraseña) {
+		this.contraseña = contraseña;
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((ID == null) ? 0 : ID.hashCode());
 		result = prime * result + ((Telefono == null) ? 0 : Telefono.hashCode());
+		result = prime * result + ((contraseña == null) ? 0 : contraseña.hashCode());
 		return result;
 	}
 	@Override
@@ -62,6 +70,11 @@ public class Usuario implements Serializable {
 			if (other.Telefono != null)
 				return false;
 		} else if (!Telefono.equals(other.Telefono))
+			return false;
+		if (contraseña == null) {
+			if (other.contraseña != null)
+				return false;
+		} else if (!contraseña.equals(other.contraseña))
 			return false;
 		return true;
 	}

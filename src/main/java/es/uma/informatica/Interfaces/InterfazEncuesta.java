@@ -14,3 +14,4 @@ public interface InterfazEncuesta {
 	 */
 	public void responderEncuesta(Encuesta e)throws EncuestaException;
 }
+

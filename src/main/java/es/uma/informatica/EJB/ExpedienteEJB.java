@@ -71,12 +71,9 @@ public class ExpedienteEJB implements InterfazExpediente {
 	        	e.setCreditos_PE(Long.parseLong(Creditos_PE));
 	        	
 	        	String Creditos_TF = sheet.getRow(fila).getCell(24).getStringCellValue();
-<<<<<<< HEAD
-	        	e.setCreditos_TF(Creditos_TF);
-	        	em.persist(e);
-=======
+
 	        	e.setCreditos_TF(Long.parseLong(Creditos_TF));
->>>>>>> branch 'EJB' of https://github.com/AlvaroM12/GrupoL.git
+	        	em.persist(e);
 	        }
 		
 		

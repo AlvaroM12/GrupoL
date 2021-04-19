@@ -10,6 +10,6 @@ public interface InterfazMatricula {
 	  En caso de que haya algun dato incorrecto, se lanza la excepción MatriculaErrorException.
 	  En caso de que la matricula sea null, se lanza la excepción MatriculaNullException.
 	 */
-	public void Importar_Matricula() throws MatriculaException;
+	public void importarMatricula() throws MatriculaException;
 	
 }
