@@ -1,6 +1,5 @@
 package es.uma.informatica.Interfaces;
 
-import es.uma.informatica.EJB.CentroEJB;
 import es.uma.informatica.Entidades.Centro;
 import es.uma.informatica.Exception.CentroException;
 

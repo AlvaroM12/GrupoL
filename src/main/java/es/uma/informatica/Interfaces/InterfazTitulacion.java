@@ -1,6 +1,5 @@
 package es.uma.informatica.Interfaces;
 
-import es.uma.informatica.EJB.TitulacionEJB;
 import es.uma.informatica.Entidades.Titulacion;
 import es.uma.informatica.Exception.TitulacionException;
 

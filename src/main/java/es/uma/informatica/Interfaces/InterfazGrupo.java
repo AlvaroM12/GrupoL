@@ -1,13 +1,9 @@
 package es.uma.informatica.Interfaces;
 
-import es.uma.informatica.EJB.GrupoEJB;
 import es.uma.informatica.Entidades.Alumno;
 import es.uma.informatica.Entidades.Asignatura;
 import es.uma.informatica.Entidades.Grupo;
-import es.uma.informatica.Entidades.Usuario;
 import es.uma.informatica.Exception.GrupoException;
-import es.uma.informatica.Exception.GrupoErrorException;
-import es.uma.informatica.Exception.GrupoNullException;
 import es.uma.informatica.Exception.PlazasException;
 
 public interface InterfazGrupo {
@@ -57,19 +53,11 @@ public interface InterfazGrupo {
 	  Este método debe permite solicitar un grupo entre los existentes.
 	  En caso de que el grupo sea null, se lanza la excepción GrupoNullException.
 	 */
-<<<<<<< HEAD
 	public void solicitarGrupo(Grupo g, Alumno a) throws GrupoException;
-=======
-	public void solicitarGrupo(Grupo g) throws GrupoException;
->>>>>>> branch 'EJB' of https://github.com/AlvaroM12/GrupoL.git
 
 	/**
 	  Este método asigna solicitar un grupo entre los existentes.
 	 * @throws PlazasException 
 	 */
-<<<<<<< HEAD
 	public void asignarGrupo(Grupo g, Alumno a) throws GrupoException;
-=======
-	public void asignarGrupo(Grupo g) throws GrupoException;
->>>>>>> branch 'EJB' of https://github.com/AlvaroM12/GrupoL.git
 }

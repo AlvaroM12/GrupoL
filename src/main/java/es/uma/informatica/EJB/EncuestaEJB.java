@@ -8,8 +8,6 @@ import es.uma.informatica.Exception.EncuestaErrorException;
 import es.uma.informatica.Exception.EncuestaException;
 import es.uma.informatica.Exception.EncuestaExistenteException;
 import es.uma.informatica.Exception.EncuestaNullException;
-import es.uma.informatica.Exception.GrupoErrorException;
-import es.uma.informatica.Exception.GrupoNullException;
 import es.uma.informatica.Interfaces.InterfazEncuesta;
 
 /**
@@ -22,12 +20,8 @@ public class EncuestaEJB implements InterfazEncuesta {
 	private EntityManager em;
 
 	@Override
-<<<<<<< HEAD
+
 	public void responderEncuesta(String campos, Encuesta e) throws EncuestaException {
-=======
-	public void responderEncuesta(Encuesta e) throws EncuestaException {
-		
->>>>>>> branch 'EJB' of https://github.com/AlvaroM12/GrupoL.git
 		
 		Encuesta en = em.find(Encuesta.class, e.getFecha_De_Envío());
 		

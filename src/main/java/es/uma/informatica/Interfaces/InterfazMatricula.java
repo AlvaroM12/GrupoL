@@ -1,6 +1,5 @@
 package es.uma.informatica.Interfaces;
 
-import es.uma.informatica.EJB.MatriculaEJB;
 import es.uma.informatica.Exception.MatriculaException;
 
 public interface InterfazMatricula {

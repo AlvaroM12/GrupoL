@@ -5,10 +5,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import es.uma.informatica.Entidades.Centro;
-import es.uma.informatica.Entidades.Titulacion;
 import es.uma.informatica.Exception.CentroException;
 import es.uma.informatica.Exception.CentroNullException;
-import es.uma.informatica.Exception.TitulacionNullException;
 import es.uma.informatica.Interfaces.InterfazCentro;
 
 /**

@@ -13,10 +13,8 @@ import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-import es.uma.informatica.Entidades.Alumno;
 import es.uma.informatica.Entidades.Asignatura;
 import es.uma.informatica.Entidades.Clase;
-import es.uma.informatica.Entidades.Expediente;
 import es.uma.informatica.Exception.ClaseException;
 import es.uma.informatica.Interfaces.InterfazClase;
 

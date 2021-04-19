@@ -1,6 +1,5 @@
 package es.uma.informatica.Interfaces;
 
-import es.uma.informatica.EJB.AlumnoEJB;
 import es.uma.informatica.Exception.AlumnoErrorException;
 import es.uma.informatica.Exception.AlumnoException;
 import es.uma.informatica.Exception.AlumnoExistenteException;

@@ -4,10 +4,8 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import es.uma.informatica.Exception.AlumnoErrorException;
 import es.uma.informatica.Exception.AlumnoException;
 import es.uma.informatica.Exception.AlumnoExistenteException;
-import es.uma.informatica.Exception.AlumnoNullException;
 import es.uma.informatica.Interfaces.InterfazAlumno;
 import es.uma.informatica.Entidades.Alumno;
 
