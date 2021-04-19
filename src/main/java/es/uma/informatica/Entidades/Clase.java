@@ -2,7 +2,7 @@ package es.uma.informatica.Entidades;
 
 import java.io.Serializable;
 import java.lang.Long;
-import java.util.Date;
+
 
 import javax.persistence.*;
 
@@ -15,17 +15,17 @@ import javax.persistence.*;
 public class Clase implements Serializable {
 	
 	public static class ClaseId implements Serializable{
-		private Date Dia;
-		private Long HoraInicio;
+		private String Dia;
+		private String HoraInicio;
 		private Long GC;
 	}
 
 	   
 	@Id @Temporal(TemporalType.DATE)
-	private Date Dia;   
+	private String Dia;   
 	@Id 
-	private Long HoraInicio;
-	private Long HoraFin;
+	private String HoraInicio;
+	private String HoraFin;
 	private static final long serialVersionUID = 1L;
 	
 	@ManyToOne
@@ -39,29 +39,36 @@ public class Clase implements Serializable {
 		super();
 	}   
 	   
-	public Date getDia() {
+	
+	public String getDia() {
 		return Dia;
 	}
 
-	public void setDia(Date dia) {
+
+	public void setDia(String dia) {
 		Dia = dia;
 	}
 
-	public Long getHoraInicio() {
-		return this.HoraInicio;
+	public String getHoraInicio() {
+		return HoraInicio;
 	}
 
-	public void setHoraInicio(Long HoraInicio) {
-		this.HoraInicio = HoraInicio;
-	}   
-	public Long getHoraFin() {
-		return this.HoraFin;
+
+	public void setHoraInicio(String horaInicio) {
+		HoraInicio = horaInicio;
 	}
 
-	public void setHoraFin(Long HoraFin) {
-		this.HoraFin = HoraFin;
+
+	public String getHoraFin() {
+		return HoraFin;
 	}
-	
+
+
+	public void setHoraFin(String horaFin) {
+		HoraFin = horaFin;
+	}
+
+
 	public Asignatura getAC() {
 		return AC;
 	}

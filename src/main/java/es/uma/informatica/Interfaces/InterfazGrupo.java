@@ -1,10 +1,9 @@
 package es.uma.informatica.Interfaces;
 
-import es.uma.informatica.EJB.GrupoEJB;
+import es.uma.informatica.Entidades.Alumno;
+import es.uma.informatica.Entidades.Asignatura;
 import es.uma.informatica.Entidades.Grupo;
 import es.uma.informatica.Exception.GrupoException;
-import es.uma.informatica.Exception.GrupoErrorException;
-import es.uma.informatica.Exception.GrupoNullException;
 import es.uma.informatica.Exception.PlazasException;
 
 public interface InterfazGrupo {
@@ -15,7 +14,7 @@ public interface InterfazGrupo {
 	  En caso de que haya algun dato incorrecto, se lanza la excepción GrupoErrorException.
 	  En caso de que el grupo sea null, se lanza la excepción GrupoNullException.
 	 */
-	public void Crear_Grupo(Grupo g) throws GrupoException;
+	public void crearGrupo(Grupo g) throws GrupoException;
 	
 	/**
 	  Este método debe leer un grupo de la base de datos.
@@ -23,7 +22,7 @@ public interface InterfazGrupo {
 	  En caso de que haya algun dato incorrecto, se lanza la excepción GrupoErrorException.
 	  En caso de que el grupo sea null, se lanza la excepción GrupoNullException.
 	 */
-	public void Leer_Grupo(Grupo g) throws GrupoException;
+	public Grupo leerGrupo(Grupo g) throws GrupoException;
 	
 	 /**
 	  Este método debe actualizar un grupo de la base de datos.
@@ -31,7 +30,7 @@ public interface InterfazGrupo {
 	  En caso de que haya algun dato incorrecto, se lanza la excepción GrupoErrorException.
 	  En caso de que el grupo sea null, se lanza la excepción GrupoNullException.
 	 */
-	public void Actualizar_Grupo(Grupo g) throws GrupoException;
+	public void actualizarGrupo(Grupo g) throws GrupoException;
 	
 	/**
 	  Este método debe eliminar un grupo de la base de datos.
@@ -39,25 +38,26 @@ public interface InterfazGrupo {
 	  En caso de que haya algun dato incorrecto, se lanza la excepción GrupoErrorException.
 	  En caso de que el grupo sea null, se lanza la excepción GrupoNullException.
 	 */
-	public void Eliminar_Grupo(Grupo g) throws GrupoException;
+	public void eliminarGrupo(Grupo g, Alumno a) throws GrupoException;
 	
 	/**
 	  Este método debe permite solicitar un cambio de grupo.
-	  En caso de que no haya plaza, se lanza la excepción PlazasException.
-	  En caso de que haya algun dato incorrecto, se lanza la excepción GrupoErrorException.
-	  En caso de que el campo sea null, se lanza la excepción GrupoNullException. 
+	  En caso de que la causa supere el número de carácteres permitidos, se lanza la excepción GrupoErrorException.
+	  En caso de que la causa, grupo, asignatura o alumno sea null, se lanza la excepción GrupoNullException. 
+	  En caso de que la Asignatura no pertenezca al grupo indicado, se lanza la excepción GrupoAsigErrorException.
 	 * @throws GrupoException 
 	 */
-	public void Solicitar_Cambio_Grupo(String causa, Grupo g) throws GrupoException;
+	public void solicitarCambioGrupo(String causa, Grupo g, Alumno al, Asignatura a) throws GrupoException;
 
 	/**
 	  Este método debe permite solicitar un grupo entre los existentes.
+	  En caso de que el grupo sea null, se lanza la excepción GrupoNullException.
 	 */
-	public void Solicitar_Grupo(Grupo g) throws GrupoException;
+	public void solicitarGrupo(Grupo g, Alumno a) throws GrupoException;
 
 	/**
 	  Este método asigna solicitar un grupo entre los existentes.
 	 * @throws PlazasException 
 	 */
-	public void Asignar_Grupo(Grupo g) throws GrupoException;
+	public void asignarGrupo(Grupo g, Alumno a) throws GrupoException;
 }
