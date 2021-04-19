@@ -10,6 +10,6 @@ public interface InterfazExpediente {
 	  En caso de que haya algun dato incorrecto, se lanza la excepción ExpedienteErrorException.
 	  En caso de que el expediente sea null, se lanza la excepción ExpedienteNullException.
 	 */
-	public void Importar_Expediente(ExpedienteEJB exp) throws ExpedienteException;
+	public void importarExpediente(ExpedienteEJB exp) throws ExpedienteException;
 
 }

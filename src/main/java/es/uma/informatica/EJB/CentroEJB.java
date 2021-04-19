@@ -21,7 +21,7 @@ public class CentroEJB implements InterfazCentro {
 	private EntityManager em;
 
 	@Override
-	public void Consultar_Centro(Centro c) throws CentroException {
+	public void ConsultarCentro(Centro c) throws CentroException {
 		Centro ce = em.find(Centro.class,c.getNombre());
 		if(ce==null) {
 			throw new CentroNullException();

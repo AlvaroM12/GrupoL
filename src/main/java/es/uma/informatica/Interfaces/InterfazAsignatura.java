@@ -10,5 +10,5 @@ public interface InterfazAsignatura {
 	  En caso de que haya algun dato incorrecto, se lanza la excepción AsignaturaErrorException.
 	  En caso de que la asignatura sea null, se lanza la excepción AsignaturaNullException.
 	 */
-	public void Importar_Asignatura() throws AsignaturaException;
+	public void ImportarAsignatura() throws AsignaturaException;
 }

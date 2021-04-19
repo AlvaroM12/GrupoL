@@ -19,17 +19,17 @@ public class Expediente implements Serializable {
 	private static final long serialVersionUID = 1L;   
 	
 	@Id @GeneratedValue
-	private String Num_Expediente;
+	private Long Num_Expediente;
 	private String Activo;
-	private String Nota_Media;
+	private Float Nota_Media;
 
-	private String Creditos_Superados;
-	private String Creditos_FB;
-	private String Creditos_OB;
-	private String Creditos_OP;
-	private String Creditos_CF;
-	private String Creditos_PE;
-	private String Creditos_TF;
+	private Long Creditos_Superados;
+	private Long Creditos_FB;
+	private Long Creditos_OB;
+	private Long Creditos_OP;
+	private Long Creditos_CF;
+	private Long Creditos_PE;
+	private Long Creditos_TF;
 	
 	
 	@ManyToOne
@@ -50,32 +50,86 @@ public class Expediente implements Serializable {
 
 	public Expediente() {
 		super();
-	}   
-	
-	public String getNum_Expediente() {
+	}
+
+	public Long getNum_Expediente() {
 		return Num_Expediente;
 	}
 
-
-	public void setNum_Expediente(String num_Expediente) {
+	public void setNum_Expediente(Long num_Expediente) {
 		Num_Expediente = num_Expediente;
 	}
 
-
 	public String getActivo() {
-		return this.Activo;
+		return Activo;
 	}
 
-	public void setActivo(String Activo) {
-		this.Activo = Activo;
-	}   
-	
-	public String getNota_Media() {
+	public void setActivo(String activo) {
+		Activo = activo;
+	}
+
+	public Float getNota_Media() {
 		return Nota_Media;
 	}
 
-	public void setNota_Media(String nota_Media) {
+	public void setNota_Media(Float nota_Media) {
 		Nota_Media = nota_Media;
+	}
+
+	public Long getCreditos_Superados() {
+		return Creditos_Superados;
+	}
+
+	public void setCreditos_Superados(Long creditos_Superados) {
+		Creditos_Superados = creditos_Superados;
+	}
+
+	public Long getCreditos_FB() {
+		return Creditos_FB;
+	}
+
+	public void setCreditos_FB(Long creditos_FB) {
+		Creditos_FB = creditos_FB;
+	}
+
+	public Long getCreditos_OB() {
+		return Creditos_OB;
+	}
+
+	public void setCreditos_OB(Long creditos_OB) {
+		Creditos_OB = creditos_OB;
+	}
+
+	public Long getCreditos_OP() {
+		return Creditos_OP;
+	}
+
+	public void setCreditos_OP(Long creditos_OP) {
+		Creditos_OP = creditos_OP;
+	}
+
+	public Long getCreditos_CF() {
+		return Creditos_CF;
+	}
+
+	public void setCreditos_CF(Long creditos_CF) {
+		Creditos_CF = creditos_CF;
+	}
+
+	public Long getCreditos_PE() {
+		return Creditos_PE;
+	}
+
+	public void setCreditos_PE(Long creditos_PE) {
+		Creditos_PE = creditos_PE;
+	}
+
+	public Long getCreditos_TF() {
+		return Creditos_TF;
+	}
+
+	public void setCreditos_TF(Long creditos_TF) {
+		Creditos_TF = creditos_TF;
 	}
 
 	public Titulacion getTE() {
@@ -109,82 +163,11 @@ public class Expediente implements Serializable {
 	public void setEncuestas(List<Encuesta> encuestas) {
 		this.encuestas = encuestas;
 	}
-	
-	public String getCreditos_Superados() {
-		return Creditos_Superados;
-	}
-
-
-	public void setCreditos_Superados(String creditos_Superados) {
-		Creditos_Superados = creditos_Superados;
-	}
-
-
-	public String getCreditos_FB() {
-		return Creditos_FB;
-	}
-
-
-	public void setCreditos_FB(String creditos_FB) {
-		Creditos_FB = creditos_FB;
-	}
-
-
-	public String getCreditos_OB() {
-		return Creditos_OB;
-	}
-
-
-	public void setCreditos_OB(String creditos_OB) {
-		Creditos_OB = creditos_OB;
-	}
-
-
-	public String getCreditos_OP() {
-		return Creditos_OP;
-	}
-
-
-	public void setCreditos_OP(String creditos_OP) {
-		Creditos_OP = creditos_OP;
-	}
-
-
-	public String getCreditos_CF() {
-		return Creditos_CF;
-	}
-
-
-	public void setCreditos_CF(String creditos_CF) {
-		Creditos_CF = creditos_CF;
-	}
-
-
-	public String getCreditos_PE() {
-		return Creditos_PE;
-	}
-
-
-	public void setCreditos_PE(String creditos_PE) {
-		Creditos_PE = creditos_PE;
-	}
-
-
-	public String getCreditos_TF() {
-		return Creditos_TF;
-	}
-
-
-	public void setCreditos_TF(String creditos_TF) {
-		Creditos_TF = creditos_TF;
-	}
-
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((AE == null) ? 0 : AE.hashCode());
 		result = prime * result + ((Activo == null) ? 0 : Activo.hashCode());
 		result = prime * result + ((Creditos_CF == null) ? 0 : Creditos_CF.hashCode());
 		result = prime * result + ((Creditos_FB == null) ? 0 : Creditos_FB.hashCode());
@@ -195,9 +178,6 @@ public class Expediente implements Serializable {
 		result = prime * result + ((Creditos_TF == null) ? 0 : Creditos_TF.hashCode());
 		result = prime * result + ((Nota_Media == null) ? 0 : Nota_Media.hashCode());
 		result = prime * result + ((Num_Expediente == null) ? 0 : Num_Expediente.hashCode());
-		result = prime * result + ((TE == null) ? 0 : TE.hashCode());
-		result = prime * result + ((encuestas == null) ? 0 : encuestas.hashCode());
-		result = prime * result + ((matriculas == null) ? 0 : matriculas.hashCode());
 		return result;
 	}
 
@@ -210,11 +190,6 @@ public class Expediente implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Expediente other = (Expediente) obj;
-		if (AE == null) {
-			if (other.AE != null)
-				return false;
-		} else if (!AE.equals(other.AE))
-			return false;
 		if (Activo == null) {
 			if (other.Activo != null)
 				return false;
@@ -265,21 +240,6 @@ public class Expediente implements Serializable {
 				return false;
 		} else if (!Num_Expediente.equals(other.Num_Expediente))
 			return false;
-		if (TE == null) {
-			if (other.TE != null)
-				return false;
-		} else if (!TE.equals(other.TE))
-			return false;
-		if (encuestas == null) {
-			if (other.encuestas != null)
-				return false;
-		} else if (!encuestas.equals(other.encuestas))
-			return false;
-		if (matriculas == null) {
-			if (other.matriculas != null)
-				return false;
-		} else if (!matriculas.equals(other.matriculas))
-			return false;
 		return true;
 	}
 
@@ -287,10 +247,9 @@ public class Expediente implements Serializable {
 	public String toString() {
 		return "Expediente [Num_Expediente=" + Num_Expediente + ", Activo=" + Activo + ", Nota_Media=" + Nota_Media
 				+ ", Creditos_Superados=" + Creditos_Superados + ", Creditos_FB=" + Creditos_FB + ", Creditos_OB="
-				+ Creditos_OB + ", Creditos_OF=" + Creditos_OP + ", Creditos_CF=" + Creditos_CF + ", Creditos_PE="
-				+ Creditos_PE + ", Creditos_TF=" + Creditos_TF + ", TE=" + TE + ", AE=" + AE + ", matriculas="
-				+ matriculas + ", encuestas=" + encuestas + "]";
-	}
-
-   
+				+ Creditos_OB + ", Creditos_OP=" + Creditos_OP + ", Creditos_CF=" + Creditos_CF + ", Creditos_PE="
+				+ Creditos_PE + ", Creditos_TF=" + Creditos_TF + "]";
+	}   
+	
+	
 }

@@ -26,7 +26,7 @@ public class AsignaturaEJB implements InterfazAsignatura {
 	private EntityManager em;
 
 	@Override
-	public void Importar_Asignatura() throws AsignaturaException {
+	public void ImportarAsignatura() throws AsignaturaException {
 		try {
 			String directorio_de_ejecucion_de_la_aplicacion = new java.io.File( "." ).getCanonicalPath();
 			String sFile = directorio_de_ejecucion_de_la_aplicacion + "/" +"Oferta asignaturas.xlsx"; 
