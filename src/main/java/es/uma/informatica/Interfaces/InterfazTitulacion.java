@@ -11,6 +11,6 @@ public interface InterfazTitulacion {
 	  En caso de que haya algun dato incorrecto, se lanza la excepción TitulacionErrorException.
 	  En caso de que la titulacion sea null, se lanza la excepción TitulacionNullException.
 	 */
-	public void Consultar_Titulacion(Titulacion t) throws TitulacionException;
-	public void Importar_Titulacion() throws TitulacionException;
+	public void consultarTitulacion(Titulacion t) throws TitulacionException;
+	public void importarTitulacion() throws TitulacionException;
 }
