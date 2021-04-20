@@ -8,5 +8,5 @@ public interface InterfazAsignatura {
 	  Este método debe importar una asignatura en la base de datos.
 	  
 	 */
-	public void ImportarAsignatura() throws AsignaturaException;
+	public void importarAsignatura() throws AsignaturaException;
 }
