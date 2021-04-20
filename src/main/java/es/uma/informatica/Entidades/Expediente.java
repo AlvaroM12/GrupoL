@@ -51,8 +51,7 @@ public class Expediente implements Serializable {
 	
 
 	public Expediente(Long num_Expediente, String activo, Float nota_Media, Long creditos_Superados, Long creditos_FB,
-			Long creditos_OB, Long creditos_OP, Long creditos_CF, Long creditos_PE, Long creditos_TF, Titulacion tE,
-			Alumno aE, List<Matrícula> matriculas, List<Encuesta> encuestas) {
+			Long creditos_OB, Long creditos_OP, Long creditos_CF, Long creditos_PE, Long creditos_TF) {
 		super();
 		Num_Expediente = num_Expediente;
 		Activo = activo;

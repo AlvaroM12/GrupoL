@@ -36,7 +36,7 @@ public class Asignaturas_Matrícula implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
-	public Asignaturas_Matrícula(Matrícula matricula, Asignatura asignatura, Grupo g_AM) {
+	public Asignaturas_Matrícula(Matrícula matricula, Asignatura asignatura) {
 		super();
 		this.matricula = matricula;
 		this.asignatura = asignatura;

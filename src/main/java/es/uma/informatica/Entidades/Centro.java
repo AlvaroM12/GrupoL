@@ -29,7 +29,7 @@ public class Centro implements Serializable {
 	
 	
 	
-	public Centro(Long iD, String nombre, String direccion, Long tLF_Conserjeria, List<Titulacion> tC) {
+	public Centro(Long iD, String nombre, String direccion, Long tLF_Conserjeria) {
 		super();
 		ID = iD;
 		Nombre = nombre;

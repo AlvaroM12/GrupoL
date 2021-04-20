@@ -37,7 +37,7 @@ public class Clase implements Serializable {
 
 	
 	
-	public Clase(String dia, String horaInicio, String horaFin, Asignatura aC, Grupo gC) {
+	public Clase(String dia, String horaInicio, String horaFin) {
 		super();
 		Dia = dia;
 		HoraInicio = horaInicio;

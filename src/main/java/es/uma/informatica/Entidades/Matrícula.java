@@ -42,8 +42,7 @@ public class Matrícula implements Serializable {
 
 	
 	public Matrícula(String curso_Academico, String estado, Long num_Archivo, String turno_Preferente,
-			Date fecha_De_Matrícula, String nuevo_Ingreso, String listado_Asignaturas, Expediente eM,
-			List<Asignaturas_Matrícula> asigMatricula) {
+			Date fecha_De_Matrícula, String nuevo_Ingreso, String listado_Asignaturas) {
 		super();
 		Curso_Academico = curso_Academico;
 		Estado = estado;
