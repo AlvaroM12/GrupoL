@@ -2,20 +2,19 @@ package es.uma.informatica.ejb.test;
 
 import static org.junit.Assert.*;
 
-import java.util.List;
+
 import java.util.Properties;
 
 import javax.ejb.embeddable.EJBContainer;
 import javax.naming.Context;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
+
 
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import es.uma.informatica.EJB.AlumnoEJB;
+
 import es.uma.informatica.Entidades.Alumno;
 import es.uma.informatica.Exception.AlumnoException;
 import es.uma.informatica.Exception.AlumnoExistenteException;
@@ -24,8 +23,6 @@ import es.uma.informatica.Interfaces.InterfazAlumno;
 
 public class AlumnoTest {
 	
-	@PersistenceContext(name="Alumno")
-    private EntityManager em;
 	
 	private static final String Alumnos_EJB="java:global/classes/AlumnosEJB";
 	private static final String GLASSFISH_CONFIGI_FILE_PROPERTY = "org.glassfish.ejb.embedded.glassfish.configuration.file";
@@ -81,7 +78,7 @@ public class AlumnoTest {
 		try {
 			Alumno a1 = new Alumno ("78456235Q", "Juan", "Caba", "Merino", "jsm@uma.es", "juansm@gmail.com", (long) 654789123, "calle rio duero", "Benalmádena", "Málaga", (long)29561);
             alumno.actualizarAlumno(a1);
-            Alumno a = em.find(Alumno.class, "78456235Q");
+            Alumno a =alumno.leerAlumno("78456235Q");
             if(!a.getApellido1().equalsIgnoreCase(a1.getApellido1())) {
             	fail("Error al actualizar");
             }
