@@ -20,6 +20,7 @@ import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
+import es.uma.informatica.Entidades.Asignaturas_Matrícula;
 import es.uma.informatica.Entidades.Grupo;
 import es.uma.informatica.Entidades.GruposPorAsignatura;
 import es.uma.informatica.Exception.DatosException;
@@ -41,10 +42,14 @@ public class DatosEJB {
 	        XSSFSheet sheet = workbook.createSheet("Hoja1");
 	        
 	        String[] headers = new String[]{
-	                "Curso Academico",
-	                "Oferta",
+	                "Curso",
+	                "Letra",
+	                "Turno",
+	                "Ingles",
+	                "Plazas",
+	                "Alumno",
 	                "Asignatura",
-	                "Grupo"               
+	                "Titulación"
 	        };
 	        CellStyle headerStyle = workbook.createCellStyle();
 	        XSSFFont font = workbook.createFont();
@@ -61,34 +66,23 @@ public class DatosEJB {
 	            cell.setCellValue(header);
 	        }
 	        
-	       
-	        TypedQuery<GruposPorAsignatura> query = em.createQuery("select * from GruposPorAsignatura ;", GruposPorAsignatura.class);
-	        List<GruposPorAsignatura> lista = query.getResultList();
-	       
+	        TypedQuery<Asignaturas_Matrícula> query2 = em.createQuery("select * from Asignaturas_Matricula ;", Asignaturas_Matrícula.class);
+	        List<Asignaturas_Matrícula> am = query2.getResultList();
+	        
+	        
 	        int fila = 0;
-	        for (GruposPorAsignatura l : lista) {
-	        	
+	        for (Asignaturas_Matrícula a : am) {
 	        	XSSFRow dataRow = sheet.createRow(fila + 1);
-	        	dataRow.createCell(fila).setCellValue(l.getCurso_Academico());
-	        	dataRow.createCell(fila).setCellValue(l.getOferta());
-	        	dataRow.createCell(fila).setCellValue(l.getA_GPA().getReferencia());
-	        	dataRow.createCell(fila).setCellValue(l.getG_GPA().getID());
+	        	dataRow.createCell(fila).setCellValue(a.getG_AM().getCurso());
+	        	dataRow.createCell(fila).setCellValue(a.getG_AM().getLetra());
+	        	dataRow.createCell(fila).setCellValue(a.getG_AM().getTurno_Mañana_Tarde());
+	        	dataRow.createCell(fila).setCellValue(a.getG_AM().getIngles());
+	        	dataRow.createCell(fila).setCellValue(a.getG_AM().getPlazas());
+	        	dataRow.createCell(fila).setCellValue(a.getMatricula().getEM().getAE().getDNI());
+	        	dataRow.createCell(fila).setCellValue(a.getAsignatura().getReferencia());
+	        	dataRow.createCell(fila).setCellValue(a.getAsignatura().getTA().getCódigo());
 	        	fila++;
-	        }
-	        
-	        
-			/*
-			 * for (int i = 0; i < headers.length; ++i) { XSSFRow dataRow =
-			 * sheet.createRow(i + 1);
-			 * 
-			 * Long curso = (long) gpa_aux.getCurso_Academico(); Long oferta = (long)
-			 * gpa_aux.getOferta(); //Long asig = (long) gpa_aux.getA_GPA(); //Long grupo =
-			 * (long) gpa_aux.getG_GPA(); if(curso == null || oferta == null) {
-			 * dataRow.createCell(0).setCellValue("null");
-			 * dataRow.createCell(1).setCellValue("null"); } else {
-			 * dataRow.createCell(0).setCellValue(curso);
-			 * dataRow.createCell(1).setCellValue(oferta); } }
-			 */
+			}
 	        
 	        // Exportacion archivo
 			try (FileOutputStream file = new FileOutputStream("DatosGrupos.xls")){
