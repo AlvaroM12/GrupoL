@@ -22,7 +22,7 @@ public interface InterfazGrupo {
 	  En caso de que haya algun dato incorrecto, se lanza la excepción GrupoErrorException.
 	  En caso de que el grupo sea null, se lanza la excepción GrupoNullException.
 	 */
-	public Grupo leerGrupo(Grupo g) throws GrupoException;
+	public Grupo leerGrupo(Long ID) throws GrupoException ;
 	
 	 /**
 	  Este método debe actualizar un grupo de la base de datos.

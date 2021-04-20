@@ -38,8 +38,8 @@ public class GrupoEJB implements InterfazGrupo {
 	}
 
 	@Override
-	public Grupo leerGrupo(Grupo g) throws GrupoException {
-		Grupo gr=em.find(Grupo.class,  g.getID());
+	public Grupo leerGrupo(Long ID) throws GrupoException {
+		Grupo gr=em.find(Grupo.class,  ID);
 		if(gr==null) {
 			throw new GrupoErrorException();
 		}
@@ -48,14 +48,20 @@ public class GrupoEJB implements InterfazGrupo {
 
 	@Override
 	public void actualizarGrupo(Grupo g) throws GrupoException {
-		leerGrupo(g);
-		Grupo grupo =em.find(Grupo.class, g.getID());
-		em.merge(grupo);	
+		Grupo g1 = leerGrupo(g.getID());
+		g1.setCurso(g.getCurso());
+		g1.setLetra(g.getLetra());
+		g1.setTurno_Mañana_Tarde(g.getTurno_Mañana_Tarde());
+		g1.setIngles(g.getIngles());
+		g1.setVisible(g.getVisible());
+		g1.setAsignar(g.getAsignar());
+		g1.setPlazas(g.getPlazas());
+		em.merge(g1);		
 	}
 
 	@Override
 	public void eliminarGrupo(Grupo g, Alumno a) throws GrupoException {
-		leerGrupo(g);
+		leerGrupo(g.getID());
 		//Alumno alumno = em.find(Alumno.class, a.getID());
 
 		if(g.getPlazas()==g.getAsignar()) {
