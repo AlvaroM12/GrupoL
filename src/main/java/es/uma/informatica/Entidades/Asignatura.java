@@ -29,6 +29,27 @@ public class Asignatura implements Serializable {
 	private String Cuatrimestre;
 	private String Idioma_de_imparticion;
 	
+	public Asignatura(Long referencia, Long codigo, Long créditos_Teoricos, Long créditos_Practicos,
+			Long total_Créditos, String ofertada, String nombre, Long curso, String plazas, String cuatrimestre,
+			String idioma_de_imparticion) {
+		super();
+		Referencia = referencia;
+		Codigo = codigo;
+		Créditos_Teoricos = créditos_Teoricos;
+		Créditos_Practicos = créditos_Practicos;
+		Total_Créditos = total_Créditos;
+		Ofertada = ofertada;
+		Nombre = nombre;
+		Curso = curso;
+		Plazas = plazas;
+		Cuatrimestre = cuatrimestre;
+		Idioma_de_imparticion = idioma_de_imparticion;
+	}
+	
+	public Asignatura() {
+		super();
+	} 
+	
 	@ManyToOne
 	private Titulacion TA;
 	
@@ -42,10 +63,7 @@ public class Asignatura implements Serializable {
 	private List<GruposPorAsignatura> gruposPorAsignatura;
 	
 	private static final long serialVersionUID = 1L;
-
-	public Asignatura() {
-		super();
-	}   
+  
 	public Long getReferencia() {
 		return this.Referencia;
 	}
