@@ -14,6 +14,7 @@ import org.junit.Test;
 
 import es.uma.informatica.Entidades.Alumno;
 import es.uma.informatica.Exception.AlumnoException;
+import es.uma.informatica.Exception.AlumnoExistenteException;
 import es.uma.informatica.Interfaces.InterfazAlumno;
 
 
@@ -43,20 +44,16 @@ public class AlumnoTest {
 	@Test
 	public void testCrearAlumno() {
 		try {
-			Alumno a=new Alumno();
-			a.setID((long)1);
-			
+			Alumno a = new Alumno("22222222M", "Bruno", "Martin", "Gonzalez", "bruno@uma.es", "brunito@gmail.com", 
+					(long) 666666666, "Calle Florencia", "Torremolinos", "Malaga", (long) 29620);
+			alumno.crearAlumno(a);
 			Alumno al = alumno.leerAlumno(a);
 			
-			alumno.eliminarAlumno(al);
-			//revisar
-			
-			alumno.leerAlumno(al);
-			
-		} catch (AlumnoException e) {
+		}catch(AlumnoExistenteException e) {
+			fail("Los valores para encuestaID no son validos");
+		}catch(AlumnoException e) {
 			fail("No debería lanzarse excepción");
 		}
-		
 	}
 	
 	@Test
