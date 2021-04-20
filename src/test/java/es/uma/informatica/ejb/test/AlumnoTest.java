@@ -45,7 +45,7 @@ public class AlumnoTest {
 	@Before
 	public void setUp() throws Exception {
 		alumno = (InterfazAlumno) ctx.lookup(Alumnos_EJB);
-		BasesDatos.inicializaBaseDatos(UNIDAD_PERSITENCIA_PRUEBAS);
+		BaseDatos.inicializaBaseDatos(UNIDAD_PERSITENCIA_PRUEBAS);
 	}
 
 	@Test
