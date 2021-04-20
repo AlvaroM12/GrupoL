@@ -19,24 +19,13 @@ import es.uma.informatica.Interfaces.InterfazTitulacion;
 
 public class TitulacionTest {
 	private static final String Titulacion_EJB="java:global/classes/TitulacionEJB";
-	private static final String GLASSFISH_CONFIGI_FILE_PROPERTY = "org.glassfish.ejb.embedded.glassfish.configuration.file";
-    private static final String CONFIG_FILE = "target/test-classes/META-INF/domain.xml";
     private static final String UNIDAD_PERSITENCIA_PRUEBAS = "SecretariaTest";
-	private static EJBContainer ejbContainer;
-	private static Context ctx;
+	
 	private InterfazTitulacion titulacion;
     
-    @BeforeClass
-	public static void setUpBeforeClass() throws Exception {
-		Properties properties = new Properties();
-		properties.setProperty(GLASSFISH_CONFIGI_FILE_PROPERTY, CONFIG_FILE);
-		ejbContainer = EJBContainer.createEJBContainer(properties);
-		ctx = ejbContainer.getContext();
-	}
-
 	@Before
 	public void setUp() throws Exception {
-		titulacion = (InterfazTitulacion) ctx.lookup(Titulacion_EJB);
+		titulacion = (InterfazTitulacion) SuiteTest.ctx.lookup(Titulacion_EJB);
 		BaseDatos.inicializaBaseDatos(UNIDAD_PERSITENCIA_PRUEBAS);
 	}
 
@@ -50,12 +39,4 @@ public class TitulacionTest {
 			fail("No deberia lanzar una excepcion");
 		}		
 	}
-	
-	@AfterClass
-	public static void tearDownClass() {
-		if (ejbContainer != null) {
-			ejbContainer.close();
-		}
-	}
-
 }
