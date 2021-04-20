@@ -47,6 +47,17 @@ public class Grupo implements Serializable {
 	@OneToMany(mappedBy = "GC")
 	private List<Clase> clases;
 	
+	public Grupo(Long id, Long curso, String letra, String turno, String ingles, Long visible, Long asignar, Long plazas) {
+		super();
+		ID = id;
+		Curso = curso;
+		Letra = letra;
+		Turno_Mañana_Tarde = turno;
+		Ingles = ingles;
+		Visible = visible;
+		Asignar = asignar;
+		Plazas = plazas;
+	}
 
 	public Grupo() {
 		super();
