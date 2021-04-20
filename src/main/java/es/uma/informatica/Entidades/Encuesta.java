@@ -30,6 +30,12 @@ public class Encuesta implements Serializable {
 	@ManyToOne
 	private Expediente EE;
 
+	public Encuesta(Long fecha_De_Envío, List<GruposPorAsignatura> gruposPorAsignaturas, Expediente eE) {
+		super();
+		Fecha_De_Envío = fecha_De_Envío;
+		
+		
+	}
 	public Encuesta() {
 		super();
 	}   

@@ -35,6 +35,17 @@ public class Clase implements Serializable {
 	@ManyToOne
 	private Grupo GC;
 
+	
+	
+	public Clase(String dia, String horaInicio, String horaFin, Asignatura aC, Grupo gC) {
+		super();
+		Dia = dia;
+		HoraInicio = horaInicio;
+		HoraFin = horaFin;
+		
+	}
+
+
 	public Clase() {
 		super();
 	}   

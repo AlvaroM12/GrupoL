@@ -17,6 +17,12 @@ public class Optativa extends Asignatura implements Serializable {
 	private String Mención;	
 	private static final long serialVersionUID = 1L;
 
+	
+	public Optativa(String mención) {
+		super();
+		Mención = mención;
+	}
+
 	public Optativa() {
 		super();
 	}   

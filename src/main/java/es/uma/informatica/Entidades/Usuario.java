@@ -19,6 +19,12 @@ public class Usuario implements Serializable {
 	private String contraseña;
 	private static final long serialVersionUID = 1L;
 
+	public Usuario(Long iD, Long telefono, String contraseña) {
+		super();
+		ID = iD;
+		Telefono = telefono;
+		this.contraseña = contraseña;
+	}
 	public Usuario() {
 		super();
 	}   

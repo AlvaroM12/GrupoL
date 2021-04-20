@@ -40,6 +40,20 @@ public class Matrícula implements Serializable {
 	@OneToMany(mappedBy = "matricula")
 	private List<Asignaturas_Matrícula> asigMatricula;
 
+	
+	public Matrícula(String curso_Academico, String estado, Long num_Archivo, String turno_Preferente,
+			Date fecha_De_Matrícula, String nuevo_Ingreso, String listado_Asignaturas, Expediente eM,
+			List<Asignaturas_Matrícula> asigMatricula) {
+		super();
+		Curso_Academico = curso_Academico;
+		Estado = estado;
+		Num_Archivo = num_Archivo;
+		Turno_Preferente = turno_Preferente;
+		Fecha_De_Matrícula = fecha_De_Matrícula;
+		Nuevo_Ingreso = nuevo_Ingreso;
+		Listado_Asignaturas = listado_Asignaturas;
+		
+	}
 	public Matrícula() {
 		super();
 	}   

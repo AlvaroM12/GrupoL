@@ -35,6 +35,14 @@ public class Titulacion implements Serializable {
 	@ManyToMany(mappedBy = "TC")
 	private List<Centro> centros;
 
+	public Titulacion(Long código, String nombre, Long créditos, List<Asignatura> asignaturas, List<Grupo> grupos,
+			List<Expediente> expedientes, List<Centro> centros) {
+		super();
+		Código = código;
+		Nombre = nombre;
+		Créditos = créditos;
+		
+	}
 	public Titulacion() {
 		super();
 	}   

@@ -37,6 +37,13 @@ public class GruposPorAsignatura implements Serializable {
 	@ManyToOne
 	private Grupo G_GPA;
 
+	
+	public GruposPorAsignatura(Long curso_Academico, Long oferta, List<Encuesta> e_GPA, Asignatura a_GPA, Grupo g_GPA) {
+		super();
+		Curso_Academico = curso_Academico;
+		Oferta = oferta;
+		
+	}
 	public GruposPorAsignatura() {
 		super();
 	}   

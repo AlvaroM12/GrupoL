@@ -16,6 +16,10 @@ public class Personal_de_secretaria extends Usuario implements Serializable {
 	private String Rango;
 	private static final long serialVersionUID = 1L;
 
+	public Personal_de_secretaria(String rango) {
+		super();
+		Rango = rango;
+	}
 	public Personal_de_secretaria() {
 		super();
 	}   

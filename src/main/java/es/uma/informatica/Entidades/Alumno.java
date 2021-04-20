@@ -22,7 +22,6 @@ public class Alumno extends Usuario implements Serializable {
 	private String Apellido2;
 	private String Email_Institucional;
 	private String Email_Personal;
-	private String Dirección;
 	private Long Móvil;
 	private String Direccion;
 	private String Localidad;
@@ -32,7 +31,26 @@ public class Alumno extends Usuario implements Serializable {
 	
 	@OneToMany(mappedBy = "AE")
 	private List<Expediente> expedientes;
+	
+	
 
+	public Alumno(String dNI, String nombre, String apellido1, String apellido2, String email_Institucional,
+			String email_Personal, Long móvil, String direccion, String localidad, String provincia, Long cP,
+			List<Expediente> expedientes) {
+		super();
+		DNI = dNI;
+		Nombre = nombre;
+		Apellido1 = apellido1;
+		Apellido2 = apellido2;
+		Email_Institucional = email_Institucional;
+		Email_Personal = email_Personal;
+		Móvil = móvil;
+		Direccion = direccion;
+		Localidad = localidad;
+		Provincia = provincia;
+		CP = cP;
+		this.expedientes = expedientes;
+	}
 	public Alumno() {
 		super();
 	}   
@@ -91,12 +109,7 @@ public class Alumno extends Usuario implements Serializable {
 	public void setApellido2(String apellido2) {
 		Apellido2 = apellido2;
 	}
-	public String getDirección() {
-		return Dirección;
-	}
-	public void setDirección(String dirección) {
-		Dirección = dirección;
-	}
+	
 	public String getDireccion() {
 		return Direccion;
 	}
@@ -130,7 +143,6 @@ public class Alumno extends Usuario implements Serializable {
 		result = prime * result + ((CP == null) ? 0 : CP.hashCode());
 		result = prime * result + ((DNI == null) ? 0 : DNI.hashCode());
 		result = prime * result + ((Direccion == null) ? 0 : Direccion.hashCode());
-		result = prime * result + ((Dirección == null) ? 0 : Dirección.hashCode());
 		result = prime * result + ((Email_Institucional == null) ? 0 : Email_Institucional.hashCode());
 		result = prime * result + ((Email_Personal == null) ? 0 : Email_Personal.hashCode());
 		result = prime * result + ((Localidad == null) ? 0 : Localidad.hashCode());
@@ -174,11 +186,7 @@ public class Alumno extends Usuario implements Serializable {
 				return false;
 		} else if (!Direccion.equals(other.Direccion))
 			return false;
-		if (Dirección == null) {
-			if (other.Dirección != null)
-				return false;
-		} else if (!Dirección.equals(other.Dirección))
-			return false;
+		
 		if (Email_Institucional == null) {
 			if (other.Email_Institucional != null)
 				return false;
@@ -219,8 +227,7 @@ public class Alumno extends Usuario implements Serializable {
 	@Override
 	public String toString() {
 		return "Alumno [DNI=" + DNI + ", Nombre=" + Nombre + ", Apellido1=" + Apellido1 + ", Apellido2=" + Apellido2
-				+ ", Email_Institucional=" + Email_Institucional + ", Email_Personal=" + Email_Personal + ", Dirección="
-				+ Dirección + ", Móvil=" + Móvil + ", Direccion=" + Direccion + ", Localidad=" + Localidad
+				+ ", Email_Institucional=" + Email_Institucional + ", Email_Personal=" + Email_Personal + ", Móvil=" + Móvil + ", Direccion=" + Direccion + ", Localidad=" + Localidad
 				+ ", Provincia=" + Provincia + ", CP=" + CP + ", expedientes=" + expedientes + "]";
 	}
 	

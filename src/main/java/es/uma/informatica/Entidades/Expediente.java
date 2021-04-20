@@ -47,6 +47,25 @@ public class Expediente implements Serializable {
 	
 	@OneToMany(mappedBy = "EE")
 	private List<Encuesta> encuestas;
+	
+	
+
+	public Expediente(Long num_Expediente, String activo, Float nota_Media, Long creditos_Superados, Long creditos_FB,
+			Long creditos_OB, Long creditos_OP, Long creditos_CF, Long creditos_PE, Long creditos_TF, Titulacion tE,
+			Alumno aE, List<Matrícula> matriculas, List<Encuesta> encuestas) {
+		super();
+		Num_Expediente = num_Expediente;
+		Activo = activo;
+		Nota_Media = nota_Media;
+		Creditos_Superados = creditos_Superados;
+		Creditos_FB = creditos_FB;
+		Creditos_OB = creditos_OB;
+		Creditos_OP = creditos_OP;
+		Creditos_CF = creditos_CF;
+		Creditos_PE = creditos_PE;
+		Creditos_TF = creditos_TF;
+		
+	}
 
 	public Expediente() {
 		super();

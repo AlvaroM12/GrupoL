@@ -26,7 +26,17 @@ public class Centro implements Serializable {
 	
 	@ManyToMany
 	private List<Titulacion> TC;
-
+	
+	
+	
+	public Centro(Long iD, String nombre, String direccion, Long tLF_Conserjeria, List<Titulacion> tC) {
+		super();
+		ID = iD;
+		Nombre = nombre;
+		Direccion = direccion;
+		TLF_Conserjeria = tLF_Conserjeria;
+		
+	}
 	public Centro() {
 		super();
 	}   
