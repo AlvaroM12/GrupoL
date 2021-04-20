@@ -23,7 +23,7 @@ import es.uma.informatica.Entidades.Personal_de_secretaria;
 import es.uma.informatica.Entidades.Titulacion;
 import es.uma.informatica.Entidades.Usuario;
 
-public class BasesDatos {
+public class BaseDatos {
 	public static void inicializaBaseDatos(String nombreUnidadPersistencia) {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory(nombreUnidadPersistencia);
 		EntityManager em = emf.createEntityManager();
