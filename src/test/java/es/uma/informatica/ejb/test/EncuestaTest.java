@@ -11,6 +11,8 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import es.uma.informatica.Entidades.Encuesta;
+import es.uma.informatica.Exception.EncuestaException;
 import es.uma.informatica.Interfaces.InterfazAlumno;
 import es.uma.informatica.Interfaces.InterfazEncuesta;
 
@@ -39,8 +41,13 @@ public class EncuestaTest {
 
 
 	@Test
-	public void test() {
-		fail("Not yet implemented");
+	public void testResponderEncuesta() {
+		try {
+			Encuesta EleccionGrupo = new Encuesta ((long) 14);
+			String texto = "Hola";
+			encuesta.responderEncuesta(texto,EleccionGrupo);
+		}catch(EncuestaException e){
+			fail("Not yet implemented");
+		}
 	}
-
 }
