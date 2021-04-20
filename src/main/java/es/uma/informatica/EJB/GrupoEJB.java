@@ -1,5 +1,6 @@
 package es.uma.informatica.EJB;
 
+import java.util.Iterator;
 import java.util.List;
 
 import javax.ejb.Stateless;
@@ -15,6 +16,7 @@ import es.uma.informatica.Exception.PlazasException;
 import es.uma.informatica.Interfaces.InterfazGrupo;
 import es.uma.informatica.Entidades.Alumno;
 import es.uma.informatica.Entidades.Asignatura;
+import es.uma.informatica.Entidades.Asignaturas_Matrícula;
 import es.uma.informatica.Entidades.Grupo;
 import es.uma.informatica.Entidades.GruposPorAsignatura;
 
@@ -60,14 +62,15 @@ public class GrupoEJB implements InterfazGrupo {
 	}
 
 	@Override
-	public void eliminarGrupo(Grupo g, Alumno a) throws GrupoException {
-		leerGrupo(g.getID());
-		//Alumno alumno = em.find(Alumno.class, a.getID());
-
-		if(g.getPlazas()==g.getAsignar()) {
-			throw new GrupoErrorException();
-		}
-		em.remove(em.merge(g));	
+	public void eliminarGrupo(Grupo g) throws GrupoException {
+			Grupo gr = em.find(Grupo.class, g.getID());
+			if(gr==null) {
+				throw new GrupoNullException();
+			}
+			for(Iterator<Asignaturas_Matrícula>iterator = gr.getAsignaturasMatriculas().iterator();iterator.hasNext();) {
+				Asignaturas_Matrícula am = iterator.next();
+				em.remove(am);
+			}
 	}
 
 	@Override

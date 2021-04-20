@@ -72,5 +72,18 @@ public class GrupoTest {
             fail("Lanza excepcion al actualizar");
         }
 	}
+	
+	@Test
+	public void testEliminarGrupo() {
+		try {
+			Grupo gr = grupo.leerGrupo(1);
+			grupo.eliminarGrupo(g, a);
+			Alumno alumno2 = alumno.leerAlumno(al.getDNI());
+            assertEquals(null,alumno2.getID());
+			
+		} catch (AlumnoException e) {
+			fail("No debería lanzarse excepción");
+		}
+	}
 
 }

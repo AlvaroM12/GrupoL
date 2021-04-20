@@ -38,7 +38,7 @@ public interface InterfazGrupo {
 	  En caso de que haya algun dato incorrecto, se lanza la excepción GrupoErrorException.
 	  En caso de que el grupo sea null, se lanza la excepción GrupoNullException.
 	 */
-	public void eliminarGrupo(Grupo g, Alumno a) throws GrupoException;
+	public void eliminarGrupo(Grupo g) throws GrupoException;
 	
 	/**
 	  Este método debe permite solicitar un cambio de grupo.
