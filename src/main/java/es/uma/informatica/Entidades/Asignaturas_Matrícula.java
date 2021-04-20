@@ -42,6 +42,10 @@ public class Asignaturas_Matrícula implements Serializable {
 		this.asignatura = asignatura;
 		
 	}
+	public Asignaturas_Matrícula() {
+		super();
+		
+	}
 
 	public Matrícula getMatricula() {
 		return matricula;
