@@ -8,7 +8,7 @@ public interface InterfazTitulacion {
 	  Este método debe consultar una titulacion en la base de datos.
 	  En caso de que la titulacion sea null, se lanza la excepción TitulacionNullException.
 	 */
-	public void consultarTitulacion(Titulacion t) throws TitulacionException;
+	public Titulacion consultarTitulacion(Long codigo) throws TitulacionException;
 	/**
 	  Este método debe importar una titulacion en la base de datos.
 

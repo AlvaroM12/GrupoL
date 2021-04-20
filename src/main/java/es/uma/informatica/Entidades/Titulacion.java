@@ -17,7 +17,7 @@ import javax.persistence.*;
 public class Titulacion implements Serializable {
 
 	   
-	@Id @GeneratedValue
+	@Id
 	private Long Código;
 	private String Nombre;
 	private Long Créditos;

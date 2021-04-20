@@ -23,20 +23,14 @@ public class EncuestaEJB implements InterfazEncuesta {
 
 	public void responderEncuesta(String campos, Encuesta e) throws EncuestaException {
 		
-		Encuesta en = em.find(Encuesta.class, e.getFecha_De_Envío());
-		
+		Encuesta en = em.find(Encuesta.class, e.getFecha_De_Envío());		
 		if(en == null){
 			throw new EncuestaExistenteException("No existe ninguna encuesta");
 		}
-		//suponemos que la encuesta se responde con texto
-		if(campos == null) {
-            throw new EncuestaNullException();
-        }
-        if(campos.length() < 75){
-            throw new EncuestaErrorException();
-        }
-        
-        //suponiendo que se elige una opcion ¿como seria?
+		
+		
+		
+		
 	}
 }
 

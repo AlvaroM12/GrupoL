@@ -7,10 +7,14 @@ import java.util.Properties;
 import javax.ejb.embeddable.EJBContainer;
 import javax.naming.Context;
 
+import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import es.uma.informatica.Entidades.Alumno;
+import es.uma.informatica.Entidades.Usuario;
+import es.uma.informatica.Exception.UsuarioException;
 import es.uma.informatica.Interfaces.InterfazAlumno;
 import es.uma.informatica.Interfaces.InterfazUsuario;
 
@@ -39,8 +43,27 @@ public class UsuarioTest {
 
 
 	@Test
-	public void test() {
-		fail("Not yet implemented");
+	public void testCrearUsuario() {
+		try {
+			Usuario u1 = new Usuario ((long) 11, (long) 664184557, "18752");
+			usuario.crearUsuario(u1);
+			Usuario al = usuario.leerUsuario(u1.getID()); 
+			assertEquals(1,al);
+			
+		} catch (UsuarioException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
 	}
+	
+	@AfterClass
+	public static void tearDownClass() {
+		if (ejbContainer != null) {
+			ejbContainer.close();
+		}
+	}
+
 
 }

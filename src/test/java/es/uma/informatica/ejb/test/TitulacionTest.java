@@ -7,10 +7,13 @@ import java.util.Properties;
 import javax.ejb.embeddable.EJBContainer;
 import javax.naming.Context;
 
+import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import es.uma.informatica.Entidades.Titulacion;
+import es.uma.informatica.Exception.TitulacionException;
 import es.uma.informatica.Interfaces.InterfazAlumno;
 import es.uma.informatica.Interfaces.InterfazTitulacion;
 
@@ -39,8 +42,20 @@ public class TitulacionTest {
 
 
 	@Test
-	public void test() {
-		fail("Not yet implemented");
+	public void testConsultarTitulacion() {
+		try {
+			Titulacion t = titulacion.consultarTitulacion((long) 1);
+			assertEquals("Grado de Ingeniería Informática", t.getNombre());
+		} catch (TitulacionException e) {
+			fail("No deberia lanzar una excepcion");
+		}		
+	}
+	
+	@AfterClass
+	public static void tearDownClass() {
+		if (ejbContainer != null) {
+			ejbContainer.close();
+		}
 	}
 
 }

@@ -26,11 +26,12 @@ public class TitulacionEJB implements InterfazTitulacion{
 	private EntityManager em;
 
 	@Override
-	public void consultarTitulacion(Titulacion t) throws TitulacionException {
-		Titulacion ti=em.find(Titulacion.class,  t.getNombre() );
+	public Titulacion consultarTitulacion(Long codigo) throws TitulacionException {
+		Titulacion ti=em.find(Titulacion.class,  codigo);
 		if(ti==null) {
 			throw new TitulacionNullException();
 		}
+		return ti;
 	}
 
 	@Override
