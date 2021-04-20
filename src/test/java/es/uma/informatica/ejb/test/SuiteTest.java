@@ -14,6 +14,7 @@ import org.junit.runners.Suite.SuiteClasses;
 @RunWith(Suite.class)
 @SuiteClasses({AlumnoTest.class,AsignaturaTest.class,CentroTest.class,ClaseTest.class,DatosTest.class,EncuestaTest.class,
 				ExpedienteTest.class,GrupoTest.class,MatriculaTest.class,TitulacionTest.class,UsuarioTest.class})
+
 public class SuiteTest {
 	
 	private static final String GLASSFISH_CONFIGI_FILE_PROPERTY = "org.glassfish.ejb.embedded.glassfish.configuration.file";

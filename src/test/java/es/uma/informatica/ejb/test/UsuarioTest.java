@@ -19,18 +19,17 @@ import es.uma.informatica.Interfaces.InterfazAlumno;
 import es.uma.informatica.Interfaces.InterfazUsuario;
 
 public class UsuarioTest {
+	
 	private static final String Usuario_EJB="java:global/classes/UsuarioEJB";
 	private static final String UNIDAD_PERSITENCIA_PRUEBAS = "SecretariaTest";
 	
 	private InterfazUsuario usuario;
-    
 
 	@Before
 	public void setUp() throws Exception {
 		usuario = (InterfazUsuario) SuiteTest.ctx.lookup(Usuario_EJB);
 		BaseDatos.inicializaBaseDatos(UNIDAD_PERSITENCIA_PRUEBAS);
 	}
-
 
 	@Test
 	public void testCrearUsuario() {
@@ -41,13 +40,17 @@ public class UsuarioTest {
 			assertEquals(1,al);
 			
 		} catch (UsuarioException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 	
 	@Test
 	public void testGenerarNuevaContraseña() {
+		
+	}
+	
+	@Test
+	public void testSolicitarRecuperarContraseña() {
 		
 	}
 }

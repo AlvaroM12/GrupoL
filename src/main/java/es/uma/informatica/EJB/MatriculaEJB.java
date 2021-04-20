@@ -19,7 +19,7 @@ import com.sun.tools.example.debug.expr.ParseException;
 import es.uma.informatica.Exception.MatriculaException;
 import es.uma.informatica.Interfaces.InterfazMatricula;
 import es.uma.informatica.Entidades.Expediente;
-import es.uma.informatica.Entidades.Matrícula;
+import es.uma.informatica.Entidades.Matricula;
 
 /**
  * Session Bean implementation class Matrícula
@@ -39,7 +39,7 @@ public class MatriculaEJB implements InterfazMatricula {
 	        XSSFSheet sheet = workbook.getSheet("Hoja1");
 	        XSSFRow row = sheet.getRow(0);
 	        XSSFCell cell = null;
-	        Matrícula m = new Matrícula();
+	        Matricula m = new Matricula();
 	        Expediente e = new Expediente();
 	        for(int fila=4; fila<row.getRowNum(); fila++) {
 	        	String nExp = sheet.getRow(4).getCell(4).getStringCellValue();
@@ -65,7 +65,5 @@ public class MatriculaEJB implements InterfazMatricula {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
 	}
-
 }

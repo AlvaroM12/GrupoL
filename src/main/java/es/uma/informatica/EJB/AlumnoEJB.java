@@ -18,7 +18,6 @@ public class AlumnoEJB implements InterfazAlumno {
 
 	@PersistenceContext(name="Alumno")
 	private EntityManager em;
-    
 
 	@Override
 	public void crearAlumno(Alumno a) throws AlumnoException {
@@ -28,7 +27,6 @@ public class AlumnoEJB implements InterfazAlumno {
 			throw new AlumnoExistenteException();
 		}
 		em.persist(a);	
-		
 	}
 
 	@Override
@@ -63,5 +61,4 @@ public class AlumnoEJB implements InterfazAlumno {
 		leerAlumno(a.getDNI());
 		em.remove(em.merge(a));		
 	}
-
 }

@@ -18,6 +18,7 @@ import es.uma.informatica.Interfaces.InterfazAlumno;
 import es.uma.informatica.Interfaces.InterfazTitulacion;
 
 public class TitulacionTest {
+	
 	private static final String Titulacion_EJB="java:global/classes/TitulacionEJB";
     private static final String UNIDAD_PERSITENCIA_PRUEBAS = "SecretariaTest";
 	
@@ -28,7 +29,6 @@ public class TitulacionTest {
 		titulacion = (InterfazTitulacion) SuiteTest.ctx.lookup(Titulacion_EJB);
 		BaseDatos.inicializaBaseDatos(UNIDAD_PERSITENCIA_PRUEBAS);
 	}
-
 
 	@Test
 	public void testConsultarTitulacion() {

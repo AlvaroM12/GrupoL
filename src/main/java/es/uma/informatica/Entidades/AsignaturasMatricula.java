@@ -3,16 +3,16 @@ package es.uma.informatica.Entidades;
 import java.io.Serializable;
 import javax.persistence.*;
 
-import es.uma.informatica.Entidades.Matrícula.MatriculaId;
+import es.uma.informatica.Entidades.Matricula.MatriculaId;
 
 /**
  * Entity implementation class for Entity: Asignaturas_Matrícula
  *
  */
 @Entity
-@IdClass(Asignaturas_Matrícula.Asignaturas_MatriculaId.class)
+@IdClass(AsignaturasMatricula.Asignaturas_MatriculaId.class)
 
-public class Asignaturas_Matrícula implements Serializable {
+public class AsignaturasMatricula implements Serializable {
 	
 	public static class Asignaturas_MatriculaId implements Serializable{
 		private Long asignatura;
@@ -25,7 +25,7 @@ public class Asignaturas_Matrícula implements Serializable {
 		@JoinColumn(name="Curso_Academico", referencedColumnName="Curso_Academico"),
 		@JoinColumn(name="EM", referencedColumnName="EM")
 		})
-	private Matrícula matricula;
+	private Matricula matricula;
 	
 	@Id
 	@ManyToOne
@@ -36,22 +36,22 @@ public class Asignaturas_Matrícula implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
-	public Asignaturas_Matrícula(Matrícula matricula, Asignatura asignatura) {
+	public AsignaturasMatricula(Matricula matricula, Asignatura asignatura) {
 		super();
 		this.matricula = matricula;
 		this.asignatura = asignatura;
 		
 	}
-	public Asignaturas_Matrícula() {
+	public AsignaturasMatricula() {
 		super();
 		
 	}
 
-	public Matrícula getMatricula() {
+	public Matricula getMatricula() {
 		return matricula;
 	}
 
-	public void setMatricula(Matrícula matricula) {
+	public void setMatricula(Matricula matricula) {
 		this.matricula = matricula;
 	}
 
@@ -90,7 +90,7 @@ public class Asignaturas_Matrícula implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Asignaturas_Matrícula other = (Asignaturas_Matrícula) obj;
+		AsignaturasMatricula other = (AsignaturasMatricula) obj;
 		if (G_AM == null) {
 			if (other.G_AM != null)
 				return false;

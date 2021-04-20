@@ -2,24 +2,18 @@ package es.uma.informatica.ejb.test;
 
 import static org.junit.Assert.*;
 
-import java.util.Properties;
-
-import javax.ejb.embeddable.EJBContainer;
-import javax.naming.Context;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
-import es.uma.informatica.Entidades.Alumno;
-import es.uma.informatica.Entidades.Matrícula;
+import es.uma.informatica.Entidades.Matricula;
 import es.uma.informatica.Exception.MatriculaException;
-import es.uma.informatica.Interfaces.InterfazAlumno;
 import es.uma.informatica.Interfaces.InterfazMatricula;
 
 public class MatriculaTest {
+	
 	@PersistenceContext(name="Matricula")
 	private EntityManager em;
 	
@@ -27,7 +21,6 @@ public class MatriculaTest {
     private static final String UNIDAD_PERSITENCIA_PRUEBAS = "SecretariaTest";
 	
 	private InterfazMatricula matricula;
-
 
 	@Before
 	public void setUp() throws Exception {
@@ -39,14 +32,10 @@ public class MatriculaTest {
 	public void testImportarMatricula() {
 		try {
 			matricula.importarMatricula();
-			Matrícula m=em.find(Matrícula.class, (long) 104200001);
+			Matricula m=em.find(Matricula.class, (long) 104200001);
 			assertEquals(1,m);
 		} catch (MatriculaException e) {
-			
 			fail("No debería lanzarse excepción");
 		}
-		
-		
 	}
-
 }

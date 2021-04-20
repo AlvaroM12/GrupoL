@@ -2,37 +2,40 @@ package es.uma.informatica.ejb.test;
 
 import static org.junit.Assert.*;
 
-import java.util.Properties;
-
-import javax.ejb.embeddable.EJBContainer;
-import javax.naming.Context;
-import javax.naming.Name;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
-import es.uma.informatica.Interfaces.InterfazAlumno;
+import es.uma.informatica.Entidades.Asignatura;
+import es.uma.informatica.Exception.AsignaturaException;
 import es.uma.informatica.Interfaces.InterfazAsignatura;
 
 public class AsignaturaTest {
-	private static final String Asignatura_EJB="java:global/classes/AsignaturaEJB";
 	
+	@PersistenceContext(name="Asignatura")
+	private EntityManager em;
+	
+	private static final String Asignatura_EJB="java:global/classes/AsignaturaEJB";
     private static final String UNIDAD_PERSITENCIA_PRUEBAS = "SecretariaTest";
 
-	private InterfazAsignatura asig;
+	private InterfazAsignatura asignatura;
 	
-	
-
 	@Before
 	public void setUp() throws Exception {
-		asig = (InterfazAsignatura) SuiteTest.ctx.lookup(Asignatura_EJB);
+		asignatura = (InterfazAsignatura) SuiteTest.ctx.lookup(Asignatura_EJB);
 		BaseDatos.inicializaBaseDatos(UNIDAD_PERSITENCIA_PRUEBAS);
 	}
 
 	@Test
-	public void testImportarAsignatura() {
-		fail("Not yet implemented");
+	public void testImportarAsignatura() throws AsignaturaException {
+		try {
+			asignatura.importarAsignatura();
+			Asignatura a = em.find(Asignatura.class, (long) 50658);
+			assertEquals(1,a);
+		} catch (AsignaturaException e) {
+			fail("No debería lanzarse excepción");
+		}
 	}
-
 }

@@ -18,6 +18,7 @@ import es.uma.informatica.Entidades.Grupo;
 import es.uma.informatica.Exception.AlumnoException;
 import es.uma.informatica.Exception.AlumnoNullException;
 import es.uma.informatica.Exception.GrupoException;
+import es.uma.informatica.Exception.GrupoExistenteException;
 import es.uma.informatica.Interfaces.InterfazGrupo;
 
 
@@ -26,9 +27,7 @@ public class GrupoTest {
 	private static final String Grupos_EJB = "java:global/classes/GrupoEJB";
 	private static final String UNIDAD_PERSITENCIA_PRUEBAS = "SecretariaTest";
 	
-	
 	private InterfazGrupo grupo;
-
 
 	@Before
 	public void setUp() throws Exception {
@@ -36,6 +35,20 @@ public class GrupoTest {
 		BaseDatos.inicializaBaseDatos(UNIDAD_PERSITENCIA_PRUEBAS);
 	}
 
+	@Test
+	public void testCrearGrupo(){
+		try {
+			Grupo g = new Grupo((long) 78, (long) 4, "B", "mañana", "no", (long) 8, (long) 0, (long) 50);
+			grupo.crearGrupo(g);
+			Grupo gr = grupo.leerGrupo(g.getID());
+			assertEquals(1,gr);
+			
+		}catch(GrupoExistenteException e) {
+			fail("Los valores para encuestaID no son validos");
+		}catch(GrupoException e) {
+			fail("No debería lanzarse excepción");
+		}
+	}
 	
 	@Test
 	public void testLeerGrupo(){
@@ -47,7 +60,6 @@ public class GrupoTest {
             fail("No deberia lanzar una excepcion");
         }
 	}
-	
 	
 	@Test
 	public void testActualizarGrupo(){

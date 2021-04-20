@@ -4,10 +4,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import es.uma.informatica.Entidades.Encuesta;
-import es.uma.informatica.Exception.EncuestaErrorException;
 import es.uma.informatica.Exception.EncuestaException;
 import es.uma.informatica.Exception.EncuestaExistenteException;
-import es.uma.informatica.Exception.EncuestaNullException;
 import es.uma.informatica.Interfaces.InterfazEncuesta;
 
 /**
@@ -27,10 +25,5 @@ public class EncuestaEJB implements InterfazEncuesta {
 		if(en == null){
 			throw new EncuestaExistenteException("No existe ninguna encuesta");
 		}
-		
-		
-		
-		
 	}
 }
-

@@ -1,51 +1,95 @@
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
-import org.apache.poi.*;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
+
+import org.apache.poi.ss.usermodel.CellStyle;
+import org.apache.poi.xssf.usermodel.XSSFCell;
+import org.apache.poi.xssf.usermodel.XSSFFont;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.apache.poi.xssf.usermodel.charts.XSSFScatterChartData;
 
-import es.uma.informatica.Entidades.Asignatura;
-import es.uma.informatica.Entidades.Clase;
-import es.uma.informatica.Entidades.Titulacion;
+import es.uma.informatica.Entidades.AsignaturasMatricula;
 
 public class prueba {
 
 	public static void main(String[] args) throws IOException {
-		String directorio_de_ejecucion_de_la_aplicacion = new java.io.File( "." ).getCanonicalPath();
-        System.out.println("Real path " + directorio_de_ejecucion_de_la_aplicacion);
-        String sFile = directorio_de_ejecucion_de_la_aplicacion + "/" +"Oferta asignaturas.xlsx";  
-        XSSFWorkbook workbook = new XSSFWorkbook(sFile);
-        XSSFSheet sheet = workbook.getSheet("GII");
-        Clase c = new Clase();
-        Asignatura a = new Asignatura();
-        XSSFRow row = sheet.getRow(0);
-        
-        Long ref = (long) sheet.getRow(1).getCell(3).getNumericCellValue();
-        a.setReferencia(ref);
-    	c.setAC(a);
-    	String dia = sheet.getRow(1).getCell(12).getStringCellValue();
-    	c.setDia(dia);
-    	String hini = sheet.getRow(1).getCell(13).getStringCellValue();
-    	c.setDia(hini);
-    	String hfin = sheet.getRow(1).getCell(14).getStringCellValue();
-    	c.setDia(hfin);
-    	System.out.println(c);
-    	String dia2 = sheet.getRow(1).getCell(15).getStringCellValue();
-    	c.setDia(dia2);
-    	String hini2 = sheet.getRow(1).getCell(16).getStringCellValue();
-    	c.setDia(hini2);
-    	String hfin2 = sheet.getRow(1).getCell(17).getStringCellValue();
-    	c.setDia(hfin2);
-    	System.out.println(c);
-    	String dia3 = sheet.getRow(1).getCell(18).getStringCellValue();
-    	c.setDia(dia3);
-    	String hini3 = sheet.getRow(1).getCell(19).getStringCellValue();
-    	c.setDia(hini3);
-    	String hfin3 = sheet.getRow(1).getCell(20).getStringCellValue();
-    	c.setDia(hfin3);
-    	System.out.println(c);
-        
-	}
 
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("Grupo_L");
+        EntityManager em = emf.createEntityManager();
+        
+		em.getTransaction().begin();
+		
+		try{
+        	// Creacion archivo
+			XSSFWorkbook workbook = new XSSFWorkbook();
+	        XSSFSheet sheet = workbook.createSheet("Hoja1");
+	        
+	        System.out.println("Creando headers");
+	        String[] headers = new String[]{
+	                "Curso",
+	                "Letra",
+	                "Turno",
+	                "Ingles",
+	                "Plazas",
+	                "Alumno",
+	                "Asignatura",
+	                "Titulación"
+	        };
+	        CellStyle headerStyle = workbook.createCellStyle();
+	        XSSFFont font = workbook.createFont();
+	        font.setBold(true);
+	        headerStyle.setFont(font);
+	        
+	        // Rellenar con los datos
+	    
+	        XSSFRow headerRow = sheet.createRow(0);
+	        for (int i = 0; i < headers.length; ++i) {
+	            String header = headers[i];
+	            XSSFCell cell = headerRow.createCell(i);
+	            cell.setCellStyle(headerStyle);
+	            cell.setCellValue(header);
+	        }
+	        
+	        TypedQuery<AsignaturasMatricula> query2 = em.createQuery("select * from Asignaturas_Matricula ;", AsignaturasMatricula.class);
+	        List<AsignaturasMatricula> am = query2.getResultList();
+	        
+	        
+	        int fila = 0;
+	        for (AsignaturasMatricula a : am) {
+	        	XSSFRow dataRow = sheet.createRow(fila + 1);
+	        	dataRow.createCell(fila).setCellValue(a.getG_AM().getCurso());
+	        	dataRow.createCell(fila).setCellValue(a.getG_AM().getLetra());
+	        	dataRow.createCell(fila).setCellValue(a.getG_AM().getTurno_Mañana_Tarde());
+	        	dataRow.createCell(fila).setCellValue(a.getG_AM().getIngles());
+	        	dataRow.createCell(fila).setCellValue(a.getG_AM().getPlazas());
+	        	dataRow.createCell(fila).setCellValue(a.getMatricula().getEM().getAE().getDNI());
+	        	dataRow.createCell(fila).setCellValue(a.getAsignatura().getReferencia());
+	        	dataRow.createCell(fila).setCellValue(a.getAsignatura().getTA().getCódigo());
+	        	fila++;
+			}
+	        
+	        // Exportacion archivo
+	        System.out.println("Exportando Archivo");
+			try (FileOutputStream file = new FileOutputStream("DatosGrupos.xls")){
+				workbook.write(file);
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			}   
+			
+        }catch (NullPointerException n) {
+        	n.printStackTrace();
+        }
+		
+		em.getTransaction().commit();
+        em.close();
+        emf.close();
+	}
 }

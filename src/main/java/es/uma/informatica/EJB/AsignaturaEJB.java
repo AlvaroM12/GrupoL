@@ -65,11 +65,7 @@ public class AsignaturaEJB implements InterfazAsignatura {
 	        	em.persist(a);        
 	        }
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-        
-		
 	}
-
 }

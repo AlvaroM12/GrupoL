@@ -35,26 +35,20 @@ public class Clase implements Serializable {
 	@ManyToOne
 	private Grupo GC;
 
-	
-	
 	public Clase(String dia, String horaInicio, String horaFin) {
 		super();
 		Dia = dia;
 		HoraInicio = horaInicio;
 		HoraFin = horaFin;
-		
 	}
-
 
 	public Clase() {
 		super();
 	}   
 	   
-	
 	public String getDia() {
 		return Dia;
 	}
-
 
 	public void setDia(String dia) {
 		Dia = dia;
@@ -64,25 +58,22 @@ public class Clase implements Serializable {
 		return HoraInicio;
 	}
 
-
 	public void setHoraInicio(String horaInicio) {
 		HoraInicio = horaInicio;
 	}
-
 
 	public String getHoraFin() {
 		return HoraFin;
 	}
 
-
 	public void setHoraFin(String horaFin) {
 		HoraFin = horaFin;
 	}
 
-
 	public Asignatura getAC() {
 		return AC;
 	}
+	
 	public void setAC(Asignatura aC) {
 		AC = aC;
 	}
@@ -147,5 +138,4 @@ public class Clase implements Serializable {
 		return "Clase [Dia=" + Dia + ", HoraInicio=" + HoraInicio + ", HoraFin=" + HoraFin + ", AC=" + AC + ", GC=" + GC
 				+ "]";
 	}
-	
 }

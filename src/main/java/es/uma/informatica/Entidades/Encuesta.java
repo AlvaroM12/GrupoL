@@ -33,12 +33,12 @@ public class Encuesta implements Serializable {
 	public Encuesta(Long fecha_De_Envío) {
 		super();
 		Fecha_De_Envío = fecha_De_Envío;
-		
-		
 	}
+	
 	public Encuesta() {
 		super();
 	}   
+	
 	public Long getFecha_De_Envío() {
 		return this.Fecha_De_Envío;
 	}
@@ -46,20 +46,23 @@ public class Encuesta implements Serializable {
 	public void setFecha_De_Envío(Long Fecha_De_Envío) {
 		this.Fecha_De_Envío = Fecha_De_Envío;
 	}
-	
     
 	public List<GruposPorAsignatura> getGruposPorAsignaturas() {
 		return gruposPorAsignaturas;
 	}
+	
 	public void setGruposPorAsignaturas(List<GruposPorAsignatura> gruposPorAsignaturas) {
 		this.gruposPorAsignaturas = gruposPorAsignaturas;
 	}
+	
 	public Expediente getEE() {
 		return EE;
 	}
+	
 	public void setEE(Expediente eE) {
 		EE = eE;
 	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -69,6 +72,7 @@ public class Encuesta implements Serializable {
 		result = prime * result + ((gruposPorAsignaturas == null) ? 0 : gruposPorAsignaturas.hashCode());
 		return result;
 	}
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -95,6 +99,7 @@ public class Encuesta implements Serializable {
 			return false;
 		return true;
 	}
+	
 	@Override
 	public String toString() {
 		return "Encuesta [Fecha_De_Envío=" + Fecha_De_Envío + ", gruposPorAsignaturas=" + gruposPorAsignaturas + ", EE="

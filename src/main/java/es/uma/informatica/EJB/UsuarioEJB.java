@@ -45,7 +45,6 @@ public class UsuarioEJB implements InterfazUsuario{
 		}
 		return u;
 	}
-	
 
 	@Override
 	public void validarAcceso(String email, String pass) throws UsuarioException{
@@ -101,5 +100,4 @@ public class UsuarioEJB implements InterfazUsuario{
 		usuario.setContraseña(encriptado);
 		em.merge(usuario);
 	}
-
 }

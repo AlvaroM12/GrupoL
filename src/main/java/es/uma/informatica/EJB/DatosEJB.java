@@ -20,7 +20,7 @@ import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-import es.uma.informatica.Entidades.Asignaturas_Matrícula;
+import es.uma.informatica.Entidades.AsignaturasMatricula;
 import es.uma.informatica.Entidades.Grupo;
 import es.uma.informatica.Entidades.GruposPorAsignatura;
 import es.uma.informatica.Exception.DatosException;
@@ -35,7 +35,6 @@ public class DatosEJB {
 	private EntityManager em;
 
 	public void exportarDatos() throws DatosException, IOException {
-
         try{
         	// Creacion archivo
 			XSSFWorkbook workbook = new XSSFWorkbook();
@@ -67,12 +66,12 @@ public class DatosEJB {
 	            cell.setCellValue(header);
 	        }
 	        
-	        TypedQuery<Asignaturas_Matrícula> query2 = em.createQuery("select * from Asignaturas_Matricula ;", Asignaturas_Matrícula.class);
-	        List<Asignaturas_Matrícula> am = query2.getResultList();
+	        TypedQuery<AsignaturasMatricula> query2 = em.createQuery("select * from Asignaturas_Matricula ;", AsignaturasMatricula.class);
+	        List<AsignaturasMatricula> am = query2.getResultList();
 	        
 	        
 	        int fila = 0;
-	        for (Asignaturas_Matrícula a : am) {
+	        for (AsignaturasMatricula a : am) {
 	        	XSSFRow dataRow = sheet.createRow(fila + 1);
 	        	dataRow.createCell(fila).setCellValue(a.getG_AM().getCurso());
 	        	dataRow.createCell(fila).setCellValue(a.getG_AM().getLetra());

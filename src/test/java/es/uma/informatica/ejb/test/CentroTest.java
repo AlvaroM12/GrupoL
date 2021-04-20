@@ -16,12 +16,11 @@ import es.uma.informatica.Exception.CentroException;
 import es.uma.informatica.Interfaces.InterfazCentro;
 
 public class CentroTest {
-	private static final String Centro_EJB="java:global/classes/CentroEJB";
 	
+	private static final String Centro_EJB="java:global/classes/CentroEJB";
     private static final String UNIDAD_PERSITENCIA_PRUEBAS = "SecretariaTest";
 	
 	private InterfazCentro centro;
-	
 
 	@Before
 	public void setUp() throws Exception {

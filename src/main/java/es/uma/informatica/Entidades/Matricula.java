@@ -13,8 +13,8 @@ import javax.persistence.*;
  *
  */
 @Entity
-@IdClass(Matrícula.MatriculaId.class)
-public class Matrícula implements Serializable {
+@IdClass(Matricula.MatriculaId.class)
+public class Matricula implements Serializable {
 
 	public static class MatriculaId implements Serializable{
 		private Long EM;
@@ -38,10 +38,10 @@ public class Matrícula implements Serializable {
 	private Expediente EM;
 	
 	@OneToMany(mappedBy = "matricula")
-	private List<Asignaturas_Matrícula> asigMatricula;
+	private List<AsignaturasMatricula> asigMatricula;
 
 	
-	public Matrícula(String curso_Academico, String estado, Long num_Archivo, String turno_Preferente,
+	public Matricula(String curso_Academico, String estado, Long num_Archivo, String turno_Preferente,
 			Date fecha_De_Matrícula, String nuevo_Ingreso, String listado_Asignaturas) {
 		super();
 		Curso_Academico = curso_Academico;
@@ -53,7 +53,7 @@ public class Matrícula implements Serializable {
 		Listado_Asignaturas = listado_Asignaturas;
 		
 	}
-	public Matrícula() {
+	public Matricula() {
 		super();
 	}   
 	public String getCurso_Academico() {
@@ -113,10 +113,10 @@ public class Matrícula implements Serializable {
 	public void setEM(Expediente eM) {
 		EM = eM;
 	}
-	public List<Asignaturas_Matrícula> getAsigMatricula() {
+	public List<AsignaturasMatricula> getAsigMatricula() {
 		return asigMatricula;
 	}
-	public void setAsigMatricula(List<Asignaturas_Matrícula> asigMatricula) {
+	public void setAsigMatricula(List<AsignaturasMatricula> asigMatricula) {
 		this.asigMatricula = asigMatricula;
 	}
 	@Override
@@ -142,7 +142,7 @@ public class Matrícula implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Matrícula other = (Matrícula) obj;
+		Matricula other = (Matricula) obj;
 		if (Curso_Academico == null) {
 			if (other.Curso_Academico != null)
 				return false;

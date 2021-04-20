@@ -56,11 +56,5 @@ public class TitulacionEJB implements InterfazTitulacion{
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		 
 	}
-
-
-
-	
-
 }

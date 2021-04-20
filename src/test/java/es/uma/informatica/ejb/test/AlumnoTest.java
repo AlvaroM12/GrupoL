@@ -14,14 +14,11 @@ import es.uma.informatica.Interfaces.InterfazAlumno;
 
 public class AlumnoTest {
 	
-	
 	private static final String Alumnos_EJB="java:global/classes/AlumnosEJB";
     private static final String UNIDAD_PERSITENCIA_PRUEBAS = "SecretariaTest";
 	
     private InterfazAlumno alumno;
     
-    
-
 	@Before
 	public void setUp() throws Exception {
 		alumno = (InterfazAlumno) SuiteTest.ctx.lookup(Alumnos_EJB);
@@ -52,7 +49,6 @@ public class AlumnoTest {
 
         }catch(AlumnoException e) {
             fail("No deberia lanzar una excepcion");
-
         }
 	}
 	
@@ -81,7 +77,5 @@ public class AlumnoTest {
 		} catch (AlumnoException e) {
 			fail("No debería lanzarse excepción");
 		}
-		
 	}
-	
 }

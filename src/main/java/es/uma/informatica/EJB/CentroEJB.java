@@ -26,5 +26,4 @@ public class CentroEJB implements InterfazCentro {
 		}		
 		return ce;
 	}
-
 }

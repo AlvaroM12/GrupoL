@@ -75,11 +75,8 @@ public class ExpedienteEJB implements InterfazExpediente {
 	        	e.setCreditos_TF(Long.parseLong(Creditos_TF));
 	        	em.persist(e);
 	        }
-		
-		
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
 	}
-
 }

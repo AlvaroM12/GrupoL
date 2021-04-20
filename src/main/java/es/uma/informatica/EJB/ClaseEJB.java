@@ -29,7 +29,6 @@ public class ClaseEJB implements InterfazClase{
 	
 	@Override
 	public void Importar_Horario(Date horario) throws ClaseException {
-		// TODO Auto-generated method stub
 		try {
 			String directorio_de_ejecucion_de_la_aplicacion;
 			directorio_de_ejecucion_de_la_aplicacion = new java.io.File( "." ).getCanonicalPath();
@@ -72,5 +71,4 @@ public class ClaseEJB implements InterfazClase{
 			e1.printStackTrace();
 		}
 	}
-
 }

@@ -17,6 +17,7 @@ import es.uma.informatica.Interfaces.InterfazAlumno;
 import es.uma.informatica.Interfaces.InterfazEncuesta;
 
 public class EncuestaTest {
+	
 	private static final String Encuesta_EJB="java:global/classes/EncuestaEJB";
     private static final String UNIDAD_PERSITENCIA_PRUEBAS = "SecretariaTest";
 	
@@ -27,7 +28,6 @@ public class EncuestaTest {
 		encuesta = (InterfazEncuesta) SuiteTest.ctx.lookup(Encuesta_EJB);
 		BaseDatos.inicializaBaseDatos(UNIDAD_PERSITENCIA_PRUEBAS);
 	}
-
 
 	@Test
 	public void testResponderEncuesta() {
