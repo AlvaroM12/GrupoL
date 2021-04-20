@@ -12,6 +12,8 @@ public interface InterfazUsuario {
 	 */
 	public void crearUsuario(Usuario u) throws UsuarioException;
 	
+	
+	public Usuario leerUsuario(Long num) throws UsuarioException;
 	/**
 	  Este método valida el acceso de un usuario en la plataforma.
 	  En caso de que el usuario no existiese, se lanza la excepción UsuarioExistenteException.

@@ -10,6 +10,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
+import es.uma.informatica.Exception.AlumnoException;
+import es.uma.informatica.Exception.AlumnoExistenteException;
 import es.uma.informatica.Exception.UsuarioErrorException;
 import es.uma.informatica.Exception.UsuarioException;
 import es.uma.informatica.Exception.UsuarioExistenteException;
@@ -34,6 +36,16 @@ public class UsuarioEJB implements InterfazUsuario{
 		}		
 		em.persist(u);		
 	}
+	
+	@Override
+	public Usuario leerUsuario(Long num) throws UsuarioException {
+		Usuario u=em.find(Usuario.class, num );
+		if(u==null) {
+			throw new UsuarioExistenteException();
+		}
+		return u;
+	}
+	
 
 	@Override
 	public void validarAcceso(String email, String pass) throws UsuarioException{
