@@ -51,6 +51,7 @@ public class AlumnoTest {
 			
 			alumno.eliminarAlumno(al);
 			//revisar
+			
 			alumno.leerAlumno(al);
 			
 		} catch (AlumnoException e) {
