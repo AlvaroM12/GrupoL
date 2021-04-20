@@ -8,6 +8,6 @@ public interface InterfazExpediente {
 	  Este método debe importar un expediente en la base de datos.
 	 
 	 */
-	public void importarExpediente(ExpedienteEJB exp) throws ExpedienteException;
+	public void importarExpediente() throws ExpedienteException;
 
 }
