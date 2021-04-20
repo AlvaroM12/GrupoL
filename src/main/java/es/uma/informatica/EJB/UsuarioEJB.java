@@ -98,7 +98,8 @@ public class UsuarioEJB implements InterfazUsuario{
 		if(usuario==null) {
 			throw new UsuarioNullException();
 		}
-		usuario.setContraseña(encriptado);	
+		usuario.setContraseña(encriptado);
+		em.merge(usuario);
 	}
 
 }
