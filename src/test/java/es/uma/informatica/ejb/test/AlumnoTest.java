@@ -14,11 +14,8 @@ import org.junit.Test;
 
 import es.uma.informatica.Entidades.Alumno;
 import es.uma.informatica.Exception.AlumnoException;
-import es.uma.informatica.sii.ejb.practica.BaseDatos;
-import es.uma.informatica.sii.ejb.practica.ejb.GestionLotes;
-import es.uma.informatica.sii.ejb.practica.ejb.GestionProductos;
-import es.uma.informatica.sii.ejb.practica.ejb.exceptions.TrazabilidadException;
-import es.uma.informatica.sii.ejb.practica.entidades.Lote;
+import es.uma.informatica.Interfaces.InterfazAlumno;
+
 
 public class AlumnoTest {
 	private static final String Alumnos_EJB="java:global/classes/AlumnosEJB";
@@ -27,7 +24,7 @@ public class AlumnoTest {
     private static final String UNIDAD_PERSITENCIA_PRUEBAS = "SecretariaTest";
 	private static EJBContainer ejbContainer;
 	private static Context ctx;
-	private Alumno alumno;
+	private InterfazAlumno alumno;
     
     @BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -39,28 +36,27 @@ public class AlumnoTest {
 
 	@Before
 	public void setUp() throws Exception {
-		alumno = (Alumno) ctx.lookup(Alumnos_EJB);
+		alumno = (InterfazAlumno) ctx.lookup(Alumnos_EJB);
 		BaseDatos.inicializaBaseDatos(UNIDAD_PERSITENCIA_PRUEBAS);
 	}
 
 	@Test
 	
-	public void eliminarAlumno() {
-		/*try {
+	public void testeliminarAlumno() {
+		try {
+			Alumno a=new Alumno();
+			a.setID((long)1);
 			
-			List<Alumno>  lotes = alumno.obtenerLotesDeProducto(nombreProducto);
+			Alumno al = alumno.leerAlumno(a);
 			
-			Alumno al = al.get(0);
-			
-			gestionLotes.eliminarLote(nombreProducto, lote1);
-			
-			lotes = alumno.;
-			assertEquals(1, lotes.size());
+			alumno.eliminarAlumno(al);
+			//revisar
+			alumno.leerAlumno(al);
 			
 		} catch (AlumnoException e) {
 			fail("No debería lanzarse excepción");
 		}
-		*/
+		
 	}
 
 }
