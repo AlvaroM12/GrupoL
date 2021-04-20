@@ -10,6 +10,7 @@ import javax.naming.Context;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -101,5 +102,11 @@ public class AlumnoTest {
 			fail("No debería lanzarse excepción");
 		}
 		
+	}
+	@AfterClass
+	public static void tearDownClass() {
+		if(ejbContainer != null) {
+			ejbContainer.close();
+		}
 	}
 }
