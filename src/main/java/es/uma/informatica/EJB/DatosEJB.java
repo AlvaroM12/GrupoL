@@ -20,9 +20,9 @@ import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
+import es.uma.informatica.Entidades.Grupo;
 import es.uma.informatica.Entidades.GruposPorAsignatura;
 import es.uma.informatica.Exception.DatosException;
-import es.uma.informatica.jpa.demo.Customer;
 
 /**
  * Session Bean implementation class DatosEJB
@@ -33,36 +33,9 @@ public class DatosEJB {
 	@PersistenceContext(name="Datos")
 	private EntityManager em;
 
-	public void exportarDatos(GruposPorAsignatura gpa) throws DatosException, IOException {
+	public void exportarDatos() throws DatosException, IOException {
 
-        GruposPorAsignatura gpa_aux = em.find(GruposPorAsignatura.class, gpa.getClass());
-        
-        em.getTransaction().begin();
-        
-        // Hacer una consulta
-        TypedQuery<GruposPorAsignatura> query = em.createQuery("select c from Customer c", GruposPorAsignatura.class);
-        List<GruposPorAsignatura> resultado = query.getResultList();
-        
-        for (GruposPorAsignatura c : resultado) {
-			System.out.println(c);
-		}
-        
-/*         
-        Address a = new Address();
-        a.setCountry("Spain");
-        a.setState("Andalucía");
-        a.setStreet1("Calle");
-        a.setZipcode("29071");
-        a.setCity("Málaga");
-        
-        em.persist(a);
-        
-        Customer c = em.find(Customer.class, 1L);
-        c.setAddress(a);	// Hacer una relación		*/
-        
-        
         try{
-        	
         	// Creacion archivo
 			XSSFWorkbook workbook = new XSSFWorkbook();
 	        XSSFSheet sheet = workbook.createSheet("Hoja1");
@@ -79,9 +52,7 @@ public class DatosEJB {
 	        headerStyle.setFont(font);
 	        
 	        // Rellenar con los datos
-	        
-	        // cell.setCellValue("Hola esto es una prueba");
-	        
+	    
 	        XSSFRow headerRow = sheet.createRow(0);
 	        for (int i = 0; i < headers.length; ++i) {
 	            String header = headers[i];
@@ -90,24 +61,34 @@ public class DatosEJB {
 	            cell.setCellValue(header);
 	        }
 	        
-	        for (int i = 0; i < headers.length; ++i) {
-	            XSSFRow dataRow = sheet.createRow(i + 1);
-	
-	            
-	            Long curso = (long) gpa_aux.getCurso_Academico();
-	            Long oferta = (long) gpa_aux.getOferta();
-	            //Long asig = (long) gpa_aux.getA_GPA();
-	            //Long grupo = (long) gpa_aux.getG_GPA();
-	            if(curso == null || oferta == null) {
-	            	dataRow.createCell(0).setCellValue("null");
-	                dataRow.createCell(1).setCellValue("null");
-	            }
-	            else {
-	            	dataRow.createCell(0).setCellValue(curso);
-	            	dataRow.createCell(1).setCellValue(oferta);
-	            }
-            
+	       
+	        TypedQuery<GruposPorAsignatura> query = em.createQuery("select * from GruposPorAsignatura ;", GruposPorAsignatura.class);
+	        List<GruposPorAsignatura> lista = query.getResultList();
+	       
+	        int fila = 0;
+	        for (GruposPorAsignatura l : lista) {
+	        	
+	        	XSSFRow dataRow = sheet.createRow(fila + 1);
+	        	dataRow.createCell(fila).setCellValue(l.getCurso_Academico());
+	        	dataRow.createCell(fila).setCellValue(l.getOferta());
+	        	dataRow.createCell(fila).setCellValue(l.getA_GPA().getReferencia());
+	        	dataRow.createCell(fila).setCellValue(l.getG_GPA().getID());
+	        	fila++;
 	        }
+	        
+	        
+			/*
+			 * for (int i = 0; i < headers.length; ++i) { XSSFRow dataRow =
+			 * sheet.createRow(i + 1);
+			 * 
+			 * Long curso = (long) gpa_aux.getCurso_Academico(); Long oferta = (long)
+			 * gpa_aux.getOferta(); //Long asig = (long) gpa_aux.getA_GPA(); //Long grupo =
+			 * (long) gpa_aux.getG_GPA(); if(curso == null || oferta == null) {
+			 * dataRow.createCell(0).setCellValue("null");
+			 * dataRow.createCell(1).setCellValue("null"); } else {
+			 * dataRow.createCell(0).setCellValue(curso);
+			 * dataRow.createCell(1).setCellValue(oferta); } }
+			 */
 	        
 	        // Exportacion archivo
 			try (FileOutputStream file = new FileOutputStream("DatosGrupos.xls")){

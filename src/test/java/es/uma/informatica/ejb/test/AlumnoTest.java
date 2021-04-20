@@ -41,8 +41,7 @@ public class AlumnoTest {
 	}
 
 	@Test
-	
-	public void testeliminarAlumno() {
+	public void testCrearAlumno() {
 		try {
 			Alumno a=new Alumno();
 			a.setID((long)1);
@@ -59,5 +58,36 @@ public class AlumnoTest {
 		}
 		
 	}
+	
+	@Test
+	public void testLeerAlumno() {
+		
+	}
+	
+	@Test
+	public void testActualizarAlumno() {
+		
+	}
+	
+	@Test
+	public void testEliminarAlumno() {
+		try {
+			Alumno a=new Alumno();
+			a.setID((long)1);
+			
+			Alumno al = alumno.leerAlumno(a);
+			
+			alumno.eliminarAlumno(al);
+			//revisar
+			
+			alumno.leerAlumno(al);
+			
+		} catch (AlumnoException e) {
+			fail("No debería lanzarse excepción");
+		}
+		
+	}
+	
+	
 
 }
