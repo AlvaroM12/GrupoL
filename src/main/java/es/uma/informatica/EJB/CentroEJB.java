@@ -19,11 +19,12 @@ public class CentroEJB implements InterfazCentro {
 	private EntityManager em;
 
 	@Override
-	public void ConsultarCentro(Centro c) throws CentroException {
-		Centro ce = em.find(Centro.class,c.getNombre());
+	public Centro ConsultarCentro(Long id) throws CentroException {
+		Centro ce = em.find(Centro.class,id);
 		if(ce==null) {
 			throw new CentroNullException();
-		}
+		}		
+		return ce;
 	}
 
 }

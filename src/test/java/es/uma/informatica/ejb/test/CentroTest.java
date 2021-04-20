@@ -11,6 +11,8 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import es.uma.informatica.Entidades.Centro;
+import es.uma.informatica.Exception.CentroException;
 import es.uma.informatica.Interfaces.InterfazCentro;
 
 public class CentroTest {
@@ -37,8 +39,13 @@ public class CentroTest {
 	}
 
 	@Test
-	public void test() {
-		fail("Not yet implemented");
+	public void testConsultarCentro() {
+		try {
+			Centro c = centro.ConsultarCentro((long) 1);
+			assertEquals(1,c);
+		} catch (CentroException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}		
 	}
-
 }

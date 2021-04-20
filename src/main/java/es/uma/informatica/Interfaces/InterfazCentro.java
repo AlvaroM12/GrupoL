@@ -8,5 +8,5 @@ public interface InterfazCentro {
 	  Este método debe consultar un centro de la base de datos.
 	  En caso de que el centro sea null, se lanza la excepción CentroNullException.
 	 */
-	public void ConsultarCentro(Centro c) throws CentroException;
+	public Centro ConsultarCentro(Long id) throws CentroException;
 }

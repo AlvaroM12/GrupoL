@@ -31,15 +31,15 @@ public class BaseDatos {
 		em.getTransaction().begin();
 		
 		Centro ETSII = new Centro ((long) 1, "Escula Técnica Superior de Ingeniería Informática", "calle Bulevar Louis Pasteur, 35", (long) 952132700);
-		Centro EII = new Centro ((long) 1, "Escula de Ingenierías Industriales", "calle  Arquitecto Francisco Peñalosa, 6", (long) 951952350);
-		Centro FD = new Centro ((long) 1, "Facultad de Derecho", "calle Bulevar Louis Pasteur, 26", (long) 952132101);
-		Centro FFL = new Centro ((long) 1, "Facultad de Filosofía y Letras", "calle Bulevar Louis Pasteur, 27", (long) 952131688);
+		Centro EII = new Centro ((long) 2, "Escula de Ingenierías Industriales", "calle  Arquitecto Francisco Peñalosa, 6", (long) 951952350);
+		Centro FD = new Centro ((long) 3, "Facultad de Derecho", "calle Bulevar Louis Pasteur, 26", (long) 952132101);
+		Centro FFL = new Centro ((long) 4, "Facultad de Filosofía y Letras", "calle Bulevar Louis Pasteur, 27", (long) 952131688);
 
 		
 		Titulacion GII = new Titulacion((long)1, "Grado de Ingeniería Informática", (long) 240);
 		Titulacion GIS = new Titulacion((long)52, "Grado de Ingeniería del Software", (long) 240);
 		Titulacion GISa = new Titulacion((long)20, "Grado de Ingeniería de la Salud", (long) 240);
-		Titulacion GIC = new Titulacion((long)1, "Grado de Ingeniería de Computadores", (long) 240);
+		Titulacion GIC = new Titulacion((long)30, "Grado de Ingeniería de Computadores", (long) 240);
 		
 		ETSII.setTC(Stream.of(GII, GIS, GISa, GIC).collect(Collectors.toList()));
 		
