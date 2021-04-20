@@ -71,19 +71,18 @@ public class AlumnoTest {
 		try {
 			Alumno a=new Alumno();
 			a.setID((long)1);
-			
 			Alumno al = alumno.leerAlumno(a);
-			
 			alumno.eliminarAlumno(al);
-			//revisar
-			
 			alumno.leerAlumno(al);
+			Alumno alumno2 = alumno.leerAlumno(a);
+            assertEquals(null,alumno2.getID());
 			
 		} catch (AlumnoException e) {
 			fail("No debería lanzarse excepción");
 		}
 		
 	}
+	
 	
 	
 
