@@ -41,6 +41,7 @@ public class DatosEJB {
 			XSSFWorkbook workbook = new XSSFWorkbook();
 	        XSSFSheet sheet = workbook.createSheet("Hoja1");
 	        
+	        System.out.println("Creando headers");
 	        String[] headers = new String[]{
 	                "Curso",
 	                "Letra",
@@ -85,6 +86,7 @@ public class DatosEJB {
 			}
 	        
 	        // Exportacion archivo
+	        System.out.println("Exportando Archivo");
 			try (FileOutputStream file = new FileOutputStream("DatosGrupos.xls")){
 				workbook.write(file);
 			} catch (FileNotFoundException e) {
