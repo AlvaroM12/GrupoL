@@ -9,13 +9,13 @@
 		<class>es.uma.informatica.Entidades.Grupo</class>
 		<class>es.uma.informatica.Entidades.Alumno</class>
 		<class>es.uma.informatica.Entidades.Asignatura</class>
-		<class>es.uma.informatica.Entidades.AsignaturasMatricula</class>
+		<class>es.uma.informatica.Entidades.Asignaturas_Matrícula</class>
 		<class>es.uma.informatica.Entidades.Centro</class>
 		<class>es.uma.informatica.Entidades.Clase</class>
 		<class>es.uma.informatica.Entidades.Encuesta</class>
 		<class>es.uma.informatica.Entidades.Expediente</class>
 		<class>es.uma.informatica.Entidades.GruposPorAsignatura</class>
-		<class>es.uma.informatica.Entidades.Matricula</class>
+		<class>es.uma.informatica.Entidades.Matrícula</class>
 		<class>es.uma.informatica.Entidades.Optativa</class>
 		<class>es.uma.informatica.Entidades.Personal_de_secretaria</class>
 		<class>es.uma.informatica.Entidades.Titulacion</class>

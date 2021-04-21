@@ -21,7 +21,7 @@ public class Clase implements Serializable {
 	}
 
 	   
-	@Id @Temporal(TemporalType.DATE)
+	@Id
 	private String Dia;   
 	@Id 
 	private String HoraInicio;

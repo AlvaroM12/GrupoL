@@ -57,7 +57,7 @@ public class Asignatura implements Serializable {
 	private List<Clase> clases;
 	
 	@OneToMany(mappedBy = "asignatura")
-	private List<AsignaturasMatricula> asignaturasMatricula;
+	private List<Asignaturas_Matrícula> asignaturasMatricula;
 	
 	@OneToMany(mappedBy = "A_GPA")
 	private List<GruposPorAsignatura> gruposPorAsignatura;
@@ -154,10 +154,10 @@ public class Asignatura implements Serializable {
 	public void setClases(List<Clase> clases) {
 		this.clases = clases;
 	}
-	public List<AsignaturasMatricula> getAsignaturasMatricula() {
+	public List<Asignaturas_Matrícula> getAsignaturasMatricula() {
 		return asignaturasMatricula;
 	}
-	public void setAsignaturasMatricula(List<AsignaturasMatricula> asignaturasMatricula) {
+	public void setAsignaturasMatricula(List<Asignaturas_Matrícula> asignaturasMatricula) {
 		this.asignaturasMatricula = asignaturasMatricula;
 	}
 	

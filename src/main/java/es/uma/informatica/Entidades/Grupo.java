@@ -33,7 +33,7 @@ public class Grupo implements Serializable {
 	private Titulacion TG;
 	
 	@OneToMany(mappedBy = "G_AM")
-	private List<AsignaturasMatricula> asignaturasMatriculas;
+	private List<Asignaturas_Matrícula> asignaturasMatriculas;
 	
 	@OneToMany(mappedBy = "GG")
 	private List<Grupo> grupos;
@@ -125,10 +125,10 @@ public class Grupo implements Serializable {
 	public void setTG(Titulacion tG) {
 		TG = tG;
 	}
-	public List<AsignaturasMatricula> getAsignaturasMatriculas() {
+	public List<Asignaturas_Matrícula> getAsignaturasMatriculas() {
 		return asignaturasMatriculas;
 	}
-	public void setAsignaturasMatriculas(List<AsignaturasMatricula> asignaturasMatriculas) {
+	public void setAsignaturasMatriculas(List<Asignaturas_Matrícula> asignaturasMatriculas) {
 		this.asignaturasMatriculas = asignaturasMatriculas;
 	}
 	public List<Grupo> getGrupos() {

@@ -16,80 +16,20 @@ import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-import es.uma.informatica.Entidades.AsignaturasMatricula;
+import es.uma.informatica.EJB.DatosEJB;
+import es.uma.informatica.Entidades.Asignaturas_Matrícula;
+import es.uma.informatica.Exception.DatosException;
 
 public class prueba {
 
 	public static void main(String[] args) throws IOException {
-
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("Grupo_L");
-        EntityManager em = emf.createEntityManager();
-        
-		em.getTransaction().begin();
-		
-		try{
-        	// Creacion archivo
-			XSSFWorkbook workbook = new XSSFWorkbook();
-	        XSSFSheet sheet = workbook.createSheet("Hoja1");
-	        
-	        System.out.println("Creando headers");
-	        String[] headers = new String[]{
-	                "Curso",
-	                "Letra",
-	                "Turno",
-	                "Ingles",
-	                "Plazas",
-	                "Alumno",
-	                "Asignatura",
-	                "Titulación"
-	        };
-	        CellStyle headerStyle = workbook.createCellStyle();
-	        XSSFFont font = workbook.createFont();
-	        font.setBold(true);
-	        headerStyle.setFont(font);
-	        
-	        // Rellenar con los datos
-	    
-	        XSSFRow headerRow = sheet.createRow(0);
-	        for (int i = 0; i < headers.length; ++i) {
-	            String header = headers[i];
-	            XSSFCell cell = headerRow.createCell(i);
-	            cell.setCellStyle(headerStyle);
-	            cell.setCellValue(header);
-	        }
-	        
-	        TypedQuery<AsignaturasMatricula> query2 = em.createQuery("select * from Asignaturas_Matricula ;", AsignaturasMatricula.class);
-	        List<AsignaturasMatricula> am = query2.getResultList();
-	        
-	        
-	        int fila = 0;
-	        for (AsignaturasMatricula a : am) {
-	        	XSSFRow dataRow = sheet.createRow(fila + 1);
-	        	dataRow.createCell(fila).setCellValue(a.getG_AM().getCurso());
-	        	dataRow.createCell(fila).setCellValue(a.getG_AM().getLetra());
-	        	dataRow.createCell(fila).setCellValue(a.getG_AM().getTurno_Mañana_Tarde());
-	        	dataRow.createCell(fila).setCellValue(a.getG_AM().getIngles());
-	        	dataRow.createCell(fila).setCellValue(a.getG_AM().getPlazas());
-	        	dataRow.createCell(fila).setCellValue(a.getMatricula().getEM().getAE().getDNI());
-	        	dataRow.createCell(fila).setCellValue(a.getAsignatura().getReferencia());
-	        	dataRow.createCell(fila).setCellValue(a.getAsignatura().getTA().getCódigo());
-	        	fila++;
-			}
-	        
-	        // Exportacion archivo
-	        System.out.println("Exportando Archivo");
-			try (FileOutputStream file = new FileOutputStream("DatosGrupos.xls")){
-				workbook.write(file);
-			} catch (FileNotFoundException e) {
-				e.printStackTrace();
-			}   
-			
-        }catch (NullPointerException n) {
-        	n.printStackTrace();
-        }
-		
-		em.getTransaction().commit();
-        em.close();
-        emf.close();
+		DatosEJB d = new DatosEJB();
+		try {
+			d.exportarDatos();
+		} catch (DatosException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 }

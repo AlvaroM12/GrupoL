@@ -16,7 +16,7 @@ import es.uma.informatica.Exception.PlazasException;
 import es.uma.informatica.Interfaces.InterfazGrupo;
 import es.uma.informatica.Entidades.Alumno;
 import es.uma.informatica.Entidades.Asignatura;
-import es.uma.informatica.Entidades.AsignaturasMatricula;
+import es.uma.informatica.Entidades.Asignaturas_Matrícula;
 import es.uma.informatica.Entidades.Grupo;
 import es.uma.informatica.Entidades.GruposPorAsignatura;
 
@@ -67,8 +67,8 @@ public class GrupoEJB implements InterfazGrupo {
 			if(gr==null) {
 				throw new GrupoNullException();
 			}
-			for(Iterator<AsignaturasMatricula>iterator = gr.getAsignaturasMatriculas().iterator();iterator.hasNext();) {
-				AsignaturasMatricula am = iterator.next();
+			for(Iterator<Asignaturas_Matrícula>iterator = gr.getAsignaturasMatriculas().iterator();iterator.hasNext();) {
+				Asignaturas_Matrícula am = iterator.next();
 				em.remove(am);
 			}
 	}

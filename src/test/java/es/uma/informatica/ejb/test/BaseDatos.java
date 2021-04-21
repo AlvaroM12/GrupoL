@@ -10,14 +10,14 @@ import javax.persistence.Persistence;
 
 import es.uma.informatica.Entidades.Alumno;
 import es.uma.informatica.Entidades.Asignatura;
-import es.uma.informatica.Entidades.AsignaturasMatricula;
+import es.uma.informatica.Entidades.Asignaturas_Matrícula;
 import es.uma.informatica.Entidades.Centro;
 import es.uma.informatica.Entidades.Clase;
 import es.uma.informatica.Entidades.Encuesta;
 import es.uma.informatica.Entidades.Expediente;
 import es.uma.informatica.Entidades.Grupo;
 import es.uma.informatica.Entidades.GruposPorAsignatura;
-import es.uma.informatica.Entidades.Matricula;
+import es.uma.informatica.Entidades.Matrícula;
 import es.uma.informatica.Entidades.Optativa;
 import es.uma.informatica.Entidades.Personal_de_secretaria;
 import es.uma.informatica.Entidades.Titulacion;
@@ -146,17 +146,17 @@ public class BaseDatos {
 		}
 		
 		
-		Matricula m1 = new Matricula ("Primero", "activo", (long) 5, "tarde", new Date(14/03/2020), "si", "Cálculo, Matemáticas Discretas, Álgebra");
-		Matricula m2 = new Matricula ("Segundo", "inactivo", (long) 54, "mañana", new Date(11/12/2019), "no", "ADA,ED ,Concurrencias");
-		Matricula m3 = new Matricula ("Tercero", "activo", (long) 14, "tarde", new Date(22/11/2018), "si", "PL, SII, ABD");
-		Matricula m4 = new Matricula ("Primero", "inactivo", (long) 60, "mañana", new Date(13/04/2021), "no", "Física, Electrónica, POO");
+		Matrícula m1 = new Matrícula ("Primero", "activo", (long) 5, "tarde", new Date(14/03/2020), "si", "Cálculo, Matemáticas Discretas, Álgebra");
+		Matrícula m2 = new Matrícula ("Segundo", "inactivo", (long) 54, "mañana", new Date(11/12/2019), "no", "ADA,ED ,Concurrencias");
+		Matrícula m3 = new Matrícula ("Tercero", "activo", (long) 14, "tarde", new Date(22/11/2018), "si", "PL, SII, ABD");
+		Matrícula m4 = new Matrícula ("Primero", "inactivo", (long) 60, "mañana", new Date(13/04/2021), "no", "Física, Electrónica, POO");
 
 		m1.setEM(e4);
 		m2.setEM(e3);
 		m3.setEM(e2);
 		m4.setEM(e1);
 		
-		for (Matricula matricula : new Matricula [] {m1, m2, m3, m4}) {
+		for (Matrícula matricula : new Matrícula [] {m1, m2, m3, m4}) {
 			em.persist(matricula);
 		}
 		
@@ -191,10 +191,10 @@ public class BaseDatos {
 		}
 		
 		
-		AsignaturasMatricula am = new AsignaturasMatricula ();
-		AsignaturasMatricula am2 = new AsignaturasMatricula ();
-		AsignaturasMatricula am3 = new AsignaturasMatricula ();
-		AsignaturasMatricula am4 = new AsignaturasMatricula ();
+		Asignaturas_Matrícula am = new Asignaturas_Matrícula ();
+		Asignaturas_Matrícula am2 = new Asignaturas_Matrícula ();
+		Asignaturas_Matrícula am3 = new Asignaturas_Matrícula ();
+		Asignaturas_Matrícula am4 = new Asignaturas_Matrícula ();
 		
 		am.setAsignatura(Calculo);
 		am2.setAsignatura(PL);
@@ -211,7 +211,7 @@ public class BaseDatos {
 		am3.setG_AM(C);
 		am4.setG_AM(D);
 		
-		for(AsignaturasMatricula asigm: new AsignaturasMatricula [] {am, am2, am3, am4}) {
+		for(Asignaturas_Matrícula asigm: new Asignaturas_Matrícula [] {am, am2, am3, am4}) {
 			em.persist(asigm);
 		}
 		
