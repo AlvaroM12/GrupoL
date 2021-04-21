@@ -143,7 +143,7 @@ public class GrupoEJB implements InterfazGrupo {
         if(grupoPref.getAsignar()==0){
             throw new PlazasException();
         }
-        //asignar el grupo a un alumno ¿crear relacion?
+        //asignar el grupo a un alumno
         grupoPref.setAsignar(grupoPref.getAsignar()-1);
         actualizarGrupo(grupoPref);
     }

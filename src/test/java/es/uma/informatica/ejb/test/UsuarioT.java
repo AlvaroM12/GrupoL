@@ -19,6 +19,7 @@ import org.junit.Test;
 import es.uma.informatica.Entidades.Alumno;
 import es.uma.informatica.Entidades.Encuesta;
 import es.uma.informatica.Entidades.Usuario;
+import es.uma.informatica.Exception.AlumnoException;
 import es.uma.informatica.Exception.EncuestaException;
 import es.uma.informatica.Exception.UsuarioException;
 import es.uma.informatica.Interfaces.InterfazAlumno;
@@ -48,6 +49,17 @@ public class UsuarioT {
 		} catch (UsuarioException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	@Test
+	public void testLeerUsuario() {
+		try {
+            Usuario u = usuario.leerUsuario((long) 12);
+            assertEquals("18752",u.getContraseña());
+
+        }catch(UsuarioException e) {
+            fail("No deberia lanzar una excepcion");
+        }
 	}
 	
 	@Test
