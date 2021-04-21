@@ -57,6 +57,7 @@ public interface InterfazGrupo {
 
 	/**
 	  Este método asigna solicitar un grupo entre los existentes.
+	  En caso de que el grupo no haya plazas, se lanza la excepción PlazasException.
 	 * @throws PlazasException 
 	 */
 	public void asignarGrupo(Grupo g, Alumno a) throws GrupoException;
