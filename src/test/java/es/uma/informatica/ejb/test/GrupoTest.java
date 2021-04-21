@@ -14,11 +14,14 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import es.uma.informatica.Entidades.Alumno;
+import es.uma.informatica.Entidades.Encuesta;
 import es.uma.informatica.Entidades.Grupo;
 import es.uma.informatica.Exception.AlumnoException;
 import es.uma.informatica.Exception.AlumnoNullException;
+import es.uma.informatica.Exception.EncuestaException;
 import es.uma.informatica.Exception.GrupoException;
 import es.uma.informatica.Exception.GrupoExistenteException;
+import es.uma.informatica.Interfaces.InterfazEncuesta;
 import es.uma.informatica.Interfaces.InterfazGrupo;
 
 
@@ -28,6 +31,7 @@ public class GrupoTest {
 	private static final String UNIDAD_PERSITENCIA_PRUEBAS = "SecretariaTest";
 	
 	private InterfazGrupo grupo;
+	private InterfazEncuesta encuesta;
 
 	@Before
 	public void setUp() throws Exception {
@@ -74,6 +78,21 @@ public class GrupoTest {
             fail("Lanza excepcion al actualizar");
         }
 	}
+	@Test
+	public void testSolicitarCambioDeGrupo() {
+		try {
+			 
+			Encuesta en=new Encuesta((long)14);
+			String causa="Coincide con otra asignatura";
+			encuesta.responderEncuesta(causa, en);
+			
+			
+		} catch (EncuestaException e) {
+			
+			fail("No debería lanzarse excepción");
+		}
+	}
+	
 	
 	@Test
 	public void testEliminarGrupo() {
