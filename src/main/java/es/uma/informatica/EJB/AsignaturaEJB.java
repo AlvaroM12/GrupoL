@@ -22,7 +22,7 @@ import es.uma.informatica.Interfaces.InterfazAsignatura;
 @Stateless
 public class AsignaturaEJB implements InterfazAsignatura {
 
-	@PersistenceContext(name="Asignatura")
+	@PersistenceContext(name="Grupo_L")
 	private EntityManager em;
 
 	@Override

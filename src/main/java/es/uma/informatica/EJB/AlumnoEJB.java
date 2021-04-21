@@ -16,7 +16,7 @@ import es.uma.informatica.Entidades.Alumno;
 @Stateless
 public class AlumnoEJB implements InterfazAlumno {
 
-	@PersistenceContext(name="Alumno")
+	@PersistenceContext(name="Grupo_L")
 	private EntityManager em;
 
 	@Override

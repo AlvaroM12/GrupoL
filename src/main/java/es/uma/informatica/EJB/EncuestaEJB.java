@@ -14,7 +14,7 @@ import es.uma.informatica.Interfaces.InterfazEncuesta;
 @Stateless
 public class EncuestaEJB implements InterfazEncuesta {
 
-	@PersistenceContext(name="Encuesta")
+	@PersistenceContext(name="Grupo_L")
 	private EntityManager em;
 
 	@Override

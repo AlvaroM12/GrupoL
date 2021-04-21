@@ -12,9 +12,9 @@ import es.uma.informatica.Entidades.Asignatura;
 import es.uma.informatica.Exception.AsignaturaException;
 import es.uma.informatica.Interfaces.InterfazAsignatura;
 
-public class AsignaturaTest {
+public class AsignaturaT {
 	
-	@PersistenceContext(name="Asignatura")
+	@PersistenceContext(name="Grupo_L")
 	private EntityManager em;
 	
 	private static final String Asignatura_EJB="java:global/classes/AsignaturaEJB";

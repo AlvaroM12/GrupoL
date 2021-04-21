@@ -15,7 +15,7 @@ import es.uma.informatica.Entidades.Centro;
 import es.uma.informatica.Exception.CentroException;
 import es.uma.informatica.Interfaces.InterfazCentro;
 
-public class CentroTest {
+public class CentroT {
 	
 	private static final String Centro_EJB="java:global/classes/CentroEJB";
     private static final String UNIDAD_PERSITENCIA_PRUEBAS = "SecretariaTest";

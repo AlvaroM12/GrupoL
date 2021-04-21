@@ -17,7 +17,7 @@ import es.uma.informatica.Exception.TitulacionException;
 import es.uma.informatica.Interfaces.InterfazAlumno;
 import es.uma.informatica.Interfaces.InterfazTitulacion;
 
-public class TitulacionTest {
+public class TitulacionT {
 	
 	private static final String Titulacion_EJB="java:global/classes/TitulacionEJB";
     private static final String UNIDAD_PERSITENCIA_PRUEBAS = "SecretariaTest";

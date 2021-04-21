@@ -12,7 +12,7 @@ import es.uma.informatica.Exception.AlumnoExistenteException;
 import es.uma.informatica.Interfaces.InterfazAlumno;
 
 
-public class AlumnoTest {
+public class AlumnoT {
 	
 	private static final String Alumnos_EJB="java:global/classes/AlumnosEJB";
     private static final String UNIDAD_PERSITENCIA_PRUEBAS = "SecretariaTest";

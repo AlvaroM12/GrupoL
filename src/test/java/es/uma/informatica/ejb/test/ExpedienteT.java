@@ -20,9 +20,9 @@ import es.uma.informatica.Exception.MatriculaException;
 import es.uma.informatica.Interfaces.InterfazAlumno;
 import es.uma.informatica.Interfaces.InterfazExpediente;
 
-public class ExpedienteTest {
+public class ExpedienteT {
 	
-	@PersistenceContext(name="Expediente")
+	@PersistenceContext(name="Grupo_L")
 	private EntityManager em;
 	
 	private static final String Expediente_EJB="java:global/classes/ExpedienteEJB";

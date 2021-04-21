@@ -25,7 +25,7 @@ import es.uma.informatica.Entidades.*;
 @Stateless
 public class UsuarioEJB implements InterfazUsuario{
 
-	@PersistenceContext(name="Usuario")
+	@PersistenceContext(name="Grupo_L")
 	private EntityManager em;
 
 	@Override

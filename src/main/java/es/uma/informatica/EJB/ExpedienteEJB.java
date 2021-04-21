@@ -22,7 +22,7 @@ import es.uma.informatica.Interfaces.InterfazExpediente;
 @Stateless
 public class ExpedienteEJB implements InterfazExpediente {
 
-	@PersistenceContext(name="Expediente")
+	@PersistenceContext(name="Grupo_L")
 	private EntityManager em;
 
 	@Override

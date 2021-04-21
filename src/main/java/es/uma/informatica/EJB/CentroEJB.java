@@ -15,7 +15,7 @@ import es.uma.informatica.Interfaces.InterfazCentro;
 @Stateless
 public class CentroEJB implements InterfazCentro {
 	
-	@PersistenceContext(name="Centro")
+	@PersistenceContext(name="Grupo_L")
 	private EntityManager em;
 
 	@Override

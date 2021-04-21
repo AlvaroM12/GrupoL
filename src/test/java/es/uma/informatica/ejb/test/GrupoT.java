@@ -25,7 +25,7 @@ import es.uma.informatica.Interfaces.InterfazEncuesta;
 import es.uma.informatica.Interfaces.InterfazGrupo;
 
 
-public class GrupoTest {
+public class GrupoT {
 	
 	private static final String Grupos_EJB = "java:global/classes/GrupoEJB";
 	private static final String UNIDAD_PERSITENCIA_PRUEBAS = "SecretariaTest";

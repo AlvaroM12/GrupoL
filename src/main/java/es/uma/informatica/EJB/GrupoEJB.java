@@ -26,7 +26,7 @@ import es.uma.informatica.Entidades.GruposPorAsignatura;
 @Stateless
 public class GrupoEJB implements InterfazGrupo {
 	
-	@PersistenceContext(name="Grupo")
+	@PersistenceContext(name="Grupo_L")
 	private EntityManager em;
 
 	@Override

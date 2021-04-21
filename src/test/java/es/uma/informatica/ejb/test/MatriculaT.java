@@ -12,7 +12,7 @@ import es.uma.informatica.Entidades.Matrícula;
 import es.uma.informatica.Exception.MatriculaException;
 import es.uma.informatica.Interfaces.InterfazMatricula;
 
-public class MatriculaTest {
+public class MatriculaT {
 	
 	@PersistenceContext(name="Grupo_L")
 	private EntityManager em;

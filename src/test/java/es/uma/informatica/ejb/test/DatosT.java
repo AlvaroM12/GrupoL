@@ -13,7 +13,7 @@ import org.junit.Test;
 
 import es.uma.informatica.Interfaces.InterfazDatos;
 
-public class DatosTest {
+public class DatosT {
 	
 	private static final String Datos_EJB="java:global/classes/DatosEJB";
     private static final String UNIDAD_PERSITENCIA_PRUEBAS = "SecretariaTest";

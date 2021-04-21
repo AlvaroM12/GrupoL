@@ -22,7 +22,7 @@ import es.uma.informatica.Interfaces.InterfazTitulacion;
 @Stateless
 public class TitulacionEJB implements InterfazTitulacion{
 
-	@PersistenceContext(name="Titilación")
+	@PersistenceContext(name="Grupo_L")
 	private EntityManager em;
 
 	@Override

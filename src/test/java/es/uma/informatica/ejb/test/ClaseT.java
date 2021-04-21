@@ -12,7 +12,7 @@ import es.uma.informatica.Entidades.Clase;
 import es.uma.informatica.Exception.ClaseException;
 import es.uma.informatica.Interfaces.InterfazClase;
 
-public class ClaseTest {
+public class ClaseT {
 	
 	@PersistenceContext(name="Grupo_L")
 	private EntityManager em;

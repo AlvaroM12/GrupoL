@@ -16,7 +16,7 @@ import es.uma.informatica.Exception.EncuestaException;
 import es.uma.informatica.Interfaces.InterfazAlumno;
 import es.uma.informatica.Interfaces.InterfazEncuesta;
 
-public class EncuestaTest {
+public class EncuestaT {
 	
 	private static final String Encuesta_EJB="java:global/classes/EncuestaEJB";
     private static final String UNIDAD_PERSITENCIA_PRUEBAS = "SecretariaTest";

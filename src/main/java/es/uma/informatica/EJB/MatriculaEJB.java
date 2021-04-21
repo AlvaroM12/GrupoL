@@ -27,7 +27,7 @@ import es.uma.informatica.Entidades.Matrícula;
 @Stateless
 public class MatriculaEJB implements InterfazMatricula {
 	
-	@PersistenceContext(name="Matricula")
+	@PersistenceContext(name="Grupo_L")
 	private EntityManager em;
 
 	@Override

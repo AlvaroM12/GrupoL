@@ -20,7 +20,7 @@ import es.uma.informatica.Exception.UsuarioException;
 import es.uma.informatica.Interfaces.InterfazAlumno;
 import es.uma.informatica.Interfaces.InterfazUsuario;
 
-public class UsuarioTest {
+public class UsuarioT {
 	
 	private static final String Usuario_EJB="java:global/classes/UsuarioEJB";
 	private static final String UNIDAD_PERSITENCIA_PRUEBAS = "SecretariaTest";
