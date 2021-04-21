@@ -28,7 +28,7 @@ public class ClaseEJB implements InterfazClase{
 	private EntityManager em;
 	
 	@Override
-	public void Importar_Horario(Date horario) throws ClaseException {
+	public void Importar_Horario() throws ClaseException {
 		try {
 			String directorio_de_ejecucion_de_la_aplicacion;
 			directorio_de_ejecucion_de_la_aplicacion = new java.io.File( "." ).getCanonicalPath();

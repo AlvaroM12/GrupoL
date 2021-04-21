@@ -11,5 +11,5 @@ public interface InterfazClase {
 	  En caso de que haya algun dato incorrecto, se lanza la excepción HorarioErrorException.
 	  En caso de que el horario sea null, se lanza la excepción HorarioNullException.
 	 */
-	public void Importar_Horario(Date horario) throws ClaseException;
+	public void Importar_Horario() throws ClaseException;
 }

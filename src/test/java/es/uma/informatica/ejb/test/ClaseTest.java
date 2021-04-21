@@ -14,7 +14,7 @@ import es.uma.informatica.Interfaces.InterfazClase;
 
 public class ClaseTest {
 	
-	@PersistenceContext(name="Clase")
+	@PersistenceContext(name="Grupo_L")
 	private EntityManager em;
 	
 	private static final String Clase_EJB="java:global/classes/ClaseEJB";
@@ -31,7 +31,7 @@ public class ClaseTest {
 	@Test
 	public void testImportarHorario() throws ClaseException {
 		try {
-			clase.Importar_Horario(null); 	// qué se le pone por parámetro como date
+			clase.Importar_Horario();
 			Clase c = em.find(Clase.class, (long) 50658); 	// que se le pone como parametro
 			assertEquals(1,c);
 		} catch (ClaseException e) {

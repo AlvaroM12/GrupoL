@@ -14,7 +14,7 @@ import es.uma.informatica.Interfaces.InterfazMatricula;
 
 public class MatriculaTest {
 	
-	@PersistenceContext(name="Matricula")
+	@PersistenceContext(name="Grupo_L")
 	private EntityManager em;
 	
 	private static final String Matricula_EJB="java:global/classes/MatriculaEJB";

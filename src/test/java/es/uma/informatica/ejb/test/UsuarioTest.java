@@ -13,7 +13,9 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import es.uma.informatica.Entidades.Alumno;
+import es.uma.informatica.Entidades.Encuesta;
 import es.uma.informatica.Entidades.Usuario;
+import es.uma.informatica.Exception.EncuestaException;
 import es.uma.informatica.Exception.UsuarioException;
 import es.uma.informatica.Interfaces.InterfazAlumno;
 import es.uma.informatica.Interfaces.InterfazUsuario;
@@ -51,6 +53,13 @@ public class UsuarioTest {
 	
 	@Test
 	public void testSolicitarRecuperarContraseña() {
-		
+		try {
+			Alumno a = new Alumno ("45698712R", "Marta", "Molero", "Santiago", "mms@uma.es", "martams@gmail.com",
+								   (long) 632547891, "calle margarita", "Torremolinos", "Málaga", (long)29620);
+			usuario.solicitarRecuperarContraseña(a.getEmail_Personal());
+			
+		} catch (UsuarioException e) {
+			fail("No debería lanzarse excepción");
+		}
 	}
 }
