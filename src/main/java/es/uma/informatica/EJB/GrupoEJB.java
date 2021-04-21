@@ -17,8 +17,10 @@ import es.uma.informatica.Interfaces.InterfazGrupo;
 import es.uma.informatica.Entidades.Alumno;
 import es.uma.informatica.Entidades.Asignatura;
 import es.uma.informatica.Entidades.Asignaturas_Matrícula;
+import es.uma.informatica.Entidades.Expediente;
 import es.uma.informatica.Entidades.Grupo;
 import es.uma.informatica.Entidades.GruposPorAsignatura;
+import es.uma.informatica.Entidades.Matrícula;
 
 /**
  * Session Bean implementation class Grupo
@@ -123,7 +125,7 @@ public class GrupoEJB implements InterfazGrupo {
     }
 
     @Override
-    public void solicitarGrupo(Grupo g, Alumno a) throws GrupoException {
+    public void solicitarGrupo(Grupo g, Matrícula m) throws GrupoException {
 
     	if(g==null) {
 			throw new GrupoNullException();
@@ -132,19 +134,18 @@ public class GrupoEJB implements InterfazGrupo {
     	if(grupoPref==null) {
     		throw new GrupoNullException();
     	}
-    	//Asignar directamente al alumno al grupo que elige
-    	asignarGrupo(g,a);
+    	asignarGrupo(g,m);
     }
 
     @Override
-    public void asignarGrupo(Grupo g, Alumno a) throws GrupoException{
+    public void asignarGrupo(Grupo g, Matrícula m) throws GrupoException{
     	Grupo grupoPref = em.find(Grupo.class, g.getID());
-
         if(grupoPref.getAsignar()==0){
             throw new PlazasException();
         }
-        //asignar el grupo a un alumno
-        grupoPref.setAsignar(grupoPref.getAsignar()-1);
-        actualizarGrupo(grupoPref);
+        grupoPref.setAsignar(grupoPref.getAsignar()-1);               
+        List <Asignaturas_Matrícula> am =  grupoPref.getAsignaturasMatriculas();
+        m.setAsigMatricula(am); 
+        actualizarGrupo(grupoPref);        
     }
 }

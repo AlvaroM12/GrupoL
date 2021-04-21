@@ -2,7 +2,9 @@ package es.uma.informatica.Interfaces;
 
 import es.uma.informatica.Entidades.Alumno;
 import es.uma.informatica.Entidades.Asignatura;
+import es.uma.informatica.Entidades.Expediente;
 import es.uma.informatica.Entidades.Grupo;
+import es.uma.informatica.Entidades.Matrícula;
 import es.uma.informatica.Exception.GrupoException;
 import es.uma.informatica.Exception.PlazasException;
 
@@ -53,12 +55,12 @@ public interface InterfazGrupo {
 	  Este método debe permite solicitar un grupo entre los existentes.
 	  En caso de que el grupo sea null, se lanza la excepción GrupoNullException.
 	 */
-	public void solicitarGrupo(Grupo g, Alumno a) throws GrupoException;
+	public void solicitarGrupo(Grupo g, Matrícula m) throws GrupoException;
 
 	/**
 	  Este método asigna solicitar un grupo entre los existentes.
 	  En caso de que el grupo no haya plazas, se lanza la excepción PlazasException.
 	 * @throws PlazasException 
 	 */
-	public void asignarGrupo(Grupo g, Alumno a) throws GrupoException;
+	public void asignarGrupo(Grupo g, Matrícula m) throws GrupoException;
 }
