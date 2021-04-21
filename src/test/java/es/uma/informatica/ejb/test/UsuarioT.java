@@ -2,6 +2,10 @@ package es.uma.informatica.ejb.test;
 
 import static org.junit.Assert.*;
 
+import java.io.UnsupportedEncodingException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.Base64;
 import java.util.Properties;
 
 import javax.ejb.embeddable.EJBContainer;
@@ -47,8 +51,27 @@ public class UsuarioT {
 	}
 	
 	@Test
-	public void testGenerarNuevaContraseña() {
-		
+	public void testGenerarNuevaContraseña() {		
+		try {
+			String pass="Hola";
+			byte[] newPassword = null;
+		    try {
+		        newPassword = MessageDigest.getInstance("SHA").digest(pass.getBytes("UTF-8"));
+		    } catch (NoSuchAlgorithmException e) {
+		        e.printStackTrace();
+		    } catch (UnsupportedEncodingException e) {
+		        e.printStackTrace();
+		    }
+		    String encriptado = Base64.getEncoder().encodeToString(newPassword);
+			Usuario u = new Usuario((long)7987, (long)664184557, "erfeghrweeg");
+			usuario.generarNuevaContraseña(u, pass);
+			Usuario u2=usuario.leerUsuario(u.getID());
+			if(!encriptado.equals(u2.getContraseña())) {
+				fail("No debería lanzarse excepción");
+			}		
+		} catch (UsuarioException e) {
+			fail("No debería lanzarse excepción");
+		}	
 	}
 	
 	@Test
