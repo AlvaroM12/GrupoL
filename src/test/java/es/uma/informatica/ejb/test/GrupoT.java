@@ -2,40 +2,44 @@ package es.uma.informatica.ejb.test;
 
 import static org.junit.Assert.*;
 
-import java.util.Properties;
+import java.util.Date;
+import java.util.List;
 
-import javax.ejb.embeddable.EJBContainer;
-import javax.naming.Context;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
-import es.uma.informatica.Entidades.Alumno;
+import es.uma.informatica.Entidades.Asignaturas_Matrícula;
 import es.uma.informatica.Entidades.Encuesta;
 import es.uma.informatica.Entidades.Grupo;
-import es.uma.informatica.Exception.AlumnoException;
-import es.uma.informatica.Exception.AlumnoNullException;
+import es.uma.informatica.Entidades.Matrícula;
 import es.uma.informatica.Exception.EncuestaException;
 import es.uma.informatica.Exception.GrupoException;
 import es.uma.informatica.Exception.GrupoExistenteException;
 import es.uma.informatica.Interfaces.InterfazEncuesta;
 import es.uma.informatica.Interfaces.InterfazGrupo;
+import es.uma.informatica.Interfaces.InterfazMatricula;
 
 
 public class GrupoT {
 	
+	@PersistenceContext(name="Grupo_L")
+	private EntityManager em;
+	
 	private static final String Grupos_EJB = "java:global/classes/GrupoEJB";
+	private static final String Matricula_EJB = "java:global/classes/MatriculaEJB";
 	private static final String UNIDAD_PERSITENCIA_PRUEBAS = "SecretariaTest";
 	
+	private InterfazMatricula matricula;
 	private InterfazGrupo grupo;
 	private InterfazEncuesta encuesta;
 
 	@Before
 	public void setUp() throws Exception {
 		grupo = (InterfazGrupo) SuiteTest.ctx.lookup(Grupos_EJB);
+		matricula = (InterfazMatricula) SuiteTest.ctx.lookup(Matricula_EJB);
 		BaseDatos.inicializaBaseDatos(UNIDAD_PERSITENCIA_PRUEBAS);
 	}
 
@@ -78,6 +82,21 @@ public class GrupoT {
             fail("Lanza excepcion al actualizar");
         }
 	}
+	
+	@Test
+	public void testEliminarGrupo() {
+		/*try {
+			/*Grupo gr = grupo.leerGrupo(1);
+			grupo.eliminarGrupo(g, a);
+			Alumno alumno2 = alumno.leerAlumno(al.getDNI());
+            assertEquals(null,alumno2.getID());
+			
+		} catch (AlumnoNullException e) {
+			fail("No debería lanzarse excepción");
+		}
+	}*/
+	}
+	
 	@Test
 	public void testSolicitarCambioDeGrupo() {
 		try {
@@ -93,18 +112,35 @@ public class GrupoT {
 		}
 	}
 	
-	
 	@Test
-	public void testEliminarGrupo() {
-		/*try {
-			/*Grupo gr = grupo.leerGrupo(1);
-			grupo.eliminarGrupo(g, a);
-			Alumno alumno2 = alumno.leerAlumno(al.getDNI());
-            assertEquals(null,alumno2.getID());
+	public void testSolicitarGrupo() {
+		try {
+			Grupo A = new Grupo((long) 1, (long) 1, "A", "tarde", "si", (long) 8, (long) 75, (long) 80);
+			Matrícula m1 = new Matrícula ("Primero", "activo", (long) 5, "tarde", new Date(14/03/2020), "si", "Cálculo, Matemáticas Discretas, Álgebra");
 			
-		} catch (AlumnoNullException e) {
+			grupo.solicitarGrupo(A, m1);
+			
+		}catch(GrupoException e) {
 			fail("No debería lanzarse excepción");
 		}
-	}*/
+	}
+	
+	@Test
+	public void testAsignarGrupo() {
+		try {
+			Grupo A = new Grupo((long) 1, (long) 1, "A", "tarde", "si", (long) 8, (long) 75, (long) 80);
+			Matrícula m1 = new Matrícula ("Primero", "activo", (long) 5, "tarde", new Date(14/03/2020), "si", "Cálculo, Matemáticas Discretas, Álgebra");
+			
+			grupo.asignarGrupo(A, m1);
+			Grupo B = grupo.leerGrupo(A.getID());
+			List<Asignaturas_Matrícula> l1 = B.getAsignaturasMatriculas();
+			Matrícula m = em.find(Matrícula.class, m1.getEM());
+			List<Asignaturas_Matrícula> l2 = m.getAsigMatricula();
+			if(!l1.equals(l2)) {
+				fail("No debería lanzarse excepción");
+			}
+		}catch(GrupoException e) {
+			fail("No debería lanzarse excepción");
+		}
 	}
 }
