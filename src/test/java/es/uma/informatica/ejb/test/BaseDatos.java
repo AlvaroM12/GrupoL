@@ -78,10 +78,10 @@ public class BaseDatos {
 		}
 		
 		
-		Alumno Juan = new Alumno ("78456235Q", "Juan", "Sanchez", "Merino", "jsm@uma.es", "juansm@gmail.com", (long) 654789123, "calle rio duero", "Benalmádena", "Málaga", (long)29561);
-		Alumno Marta = new Alumno ("45698712R", "Marta", "Molero", "Santiago", "mms@uma.es", "martams@gmail.com", (long) 632547891, "calle margarita", "Torremolinos", "Málaga", (long)29620);
-		Alumno Pedro = new Alumno ("78453692P", "Pedro", "Molina", "Caba", "pmc@uma.es", "pedromc@gmail.com", (long) 678945123, "calle san juan", "Fuengirola", "Málaga", (long)29568);
-		Alumno Rocío = new Alumno ("12398754W", "Rocío", "Martín", "Carrasco", "rsm@uma.es", "rociomc@gmail.com", (long) 654789123, "calle ancha", "Álora", "Málaga", (long)29501);
+		Alumno Juan = new Alumno ((long)9, (long)664184557, "njevpnev","78456235Q", "Juan", "Sanchez", "Merino", "jsm@uma.es", "juansm@gmail.com", (long) 654789123, "calle rio duero", "Benalmádena", "Málaga", (long)29561);
+		Alumno Marta = new Alumno ((long)16, (long)664184557, "njevpnev","45698712R", "Marta", "Molero", "Santiago", "mms@uma.es", "martams@gmail.com", (long) 632547891, "calle margarita", "Torremolinos", "Málaga", (long)29620);
+		Alumno Pedro = new Alumno ((long)15, (long)664184557, "njevpnev","78453692P", "Pedro", "Molina", "Caba", "pmc@uma.es", "pedromc@gmail.com", (long) 678945123, "calle san juan", "Fuengirola", "Málaga", (long)29568);
+		Alumno Rocío = new Alumno ((long)7, (long)664184557, "njevpnev","12398754W", "Rocío", "Martín", "Carrasco", "rsm@uma.es", "rociomc@gmail.com", (long) 654789123, "calle ancha", "Álora", "Málaga", (long)29501);
 
 		for (Alumno alumno : new Alumno [] {Juan, Marta, Pedro, Rocío}) {
 			em.persist(alumno);
@@ -146,10 +146,10 @@ public class BaseDatos {
 		}
 		
 		
-		Matrícula m1 = new Matrícula ("Primero", "activo", (long) 5, "tarde", new Date(14/03/2020), "si", "Cálculo, Matemáticas Discretas, Álgebra");
-		Matrícula m2 = new Matrícula ("Segundo", "inactivo", (long) 54, "mañana", new Date(11/12/2019), "no", "ADA,ED ,Concurrencias");
-		Matrícula m3 = new Matrícula ("Tercero", "activo", (long) 14, "tarde", new Date(22/11/2018), "si", "PL, SII, ABD");
-		Matrícula m4 = new Matrícula ("Primero", "inactivo", (long) 60, "mañana", new Date(13/04/2021), "no", "Física, Electrónica, POO");
+		Matrícula m1 = new Matrícula ("Primero", "activo", (long) 5, "tarde", new Date(14/03/2020), "si", "Cálculo, Matemáticas Discretas, Álgebra", e1);
+		Matrícula m2 = new Matrícula ("Segundo", "inactivo", (long) 54, "mañana", new Date(11/12/2019), "no", "ADA,ED ,Concurrencias", e2);
+		Matrícula m3 = new Matrícula ("Tercero", "activo", (long) 14, "tarde", new Date(22/11/2018), "si", "PL, SII, ABD", e3);
+		Matrícula m4 = new Matrícula ("Primero", "inactivo", (long) 60, "mañana", new Date(13/04/2021), "no", "Física, Electrónica, POO", e4);
 
 		m1.setEM(e4);
 		m2.setEM(e3);
@@ -191,12 +191,12 @@ public class BaseDatos {
 		}
 		
 		
-		Asignaturas_Matrícula am = new Asignaturas_Matrícula ();
-		Asignaturas_Matrícula am2 = new Asignaturas_Matrícula ();
-		Asignaturas_Matrícula am3 = new Asignaturas_Matrícula ();
-		Asignaturas_Matrícula am4 = new Asignaturas_Matrícula ();
+		Asignaturas_Matrícula am = new Asignaturas_Matrícula (m1,Calculo);
+		Asignaturas_Matrícula am2 = new Asignaturas_Matrícula (m2,PL);
+		Asignaturas_Matrícula am3 = new Asignaturas_Matrícula (m3,IIS);
+		Asignaturas_Matrícula am4 = new Asignaturas_Matrícula (m4,Algebra);
 		
-		am.setAsignatura(Calculo);
+		/*am.setAsignatura(Calculo);
 		am2.setAsignatura(PL);
 		am3.setAsignatura(IIS);
 		am4.setAsignatura(Algebra);
@@ -204,7 +204,7 @@ public class BaseDatos {
 		am.setMatricula(m1);
 		am2.setMatricula(m2);
 		am3.setMatricula(m3);
-		am4.setMatricula(m4);
+		am4.setMatricula(m4);*/
 		
 		am.setG_AM(A);
 		am2.setG_AM(B);

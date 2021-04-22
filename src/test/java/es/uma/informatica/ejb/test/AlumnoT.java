@@ -14,7 +14,7 @@ import es.uma.informatica.Interfaces.InterfazAlumno;
 
 public class AlumnoT {
 	
-	private static final String Alumnos_EJB="java:global/classes/AlumnosEJB";
+	private static final String Alumnos_EJB="java:global/classes/AlumnoEJB";
     private static final String UNIDAD_PERSITENCIA_PRUEBAS = "SecretariaTest";
 	
     private InterfazAlumno alumno;
@@ -28,11 +28,13 @@ public class AlumnoT {
 	@Test
 	public void testCrearAlumno() {
 		try {
-			Alumno a = new Alumno("22222222M", "Bruno", "Martin", "Gonzalez", "bruno@uma.es", "brunito@gmail.com", 
+			Alumno a = new Alumno((long)4, (long)664184557, "njevpnev","22222222M", "Bruno", "Martin", "Gonzalez", "bruno@uma.es", "brunito@gmail.com", 
 					(long) 666666666, "Calle Florencia", "Torremolinos", "Malaga", (long) 29620);
 			alumno.crearAlumno(a);
 			Alumno al = alumno.leerAlumno("22222222M");
-			assertEquals(1,al);
+			if((long)4 != al.getID()) {
+				fail("No debería lanzarse excepción");
+			}
 			
 		}catch(AlumnoExistenteException e) {
 			fail("Los valores para encuestaID no son validos");
@@ -55,7 +57,7 @@ public class AlumnoT {
 	@Test
 	public void testActualizarAlumno() {
 		try {
-			Alumno a1 = new Alumno ("78456235Q", "Juan", "Caba", "Merino", "jsm@uma.es", "juansm@gmail.com", (long) 654789123, "calle rio duero", "Benalmádena", "Málaga", (long)29561);
+			Alumno a1 = new Alumno ((long)10, (long)664184557, "njevpnev","78456235Q", "Juan", "Caba", "Merino", "jsm@uma.es", "juansm@gmail.com", (long) 654789123, "calle rio duero", "Benalmádena", "Málaga", (long)29561);
             alumno.actualizarAlumno(a1);
             Alumno a =alumno.leerAlumno("78456235Q");
             if(!a.getApellido1().equalsIgnoreCase(a1.getApellido1())) {

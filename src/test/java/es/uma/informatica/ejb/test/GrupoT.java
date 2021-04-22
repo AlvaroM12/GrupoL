@@ -13,6 +13,7 @@ import org.junit.Test;
 
 import es.uma.informatica.Entidades.Asignaturas_Matrícula;
 import es.uma.informatica.Entidades.Encuesta;
+import es.uma.informatica.Entidades.Expediente;
 import es.uma.informatica.Entidades.Grupo;
 import es.uma.informatica.Entidades.Matrícula;
 import es.uma.informatica.Exception.EncuestaException;
@@ -116,7 +117,8 @@ public class GrupoT {
 	public void testSolicitarGrupo() {
 		try {
 			Grupo A = new Grupo((long) 1, (long) 1, "A", "tarde", "si", (long) 8, (long) 75, (long) 80);
-			Matrícula m1 = new Matrícula ("Primero", "activo", (long) 5, "tarde", new Date(14/03/2020), "si", "Cálculo, Matemáticas Discretas, Álgebra");
+			Expediente e1 = new Expediente ( (long) 12, "activo", (float)8.75, (long) 120, (long) 60, (long) 60, (long) 0, (long) 0, (long) 0, (long)0);
+			Matrícula m1 = new Matrícula ("Primero", "activo", (long) 5, "tarde", new Date(14/03/2020), "si", "Cálculo, Matemáticas Discretas, Álgebra",e1);
 			
 			grupo.solicitarGrupo(A, m1);
 			
@@ -129,7 +131,8 @@ public class GrupoT {
 	public void testAsignarGrupo() {
 		try {
 			Grupo A = new Grupo((long) 1, (long) 1, "A", "tarde", "si", (long) 8, (long) 75, (long) 80);
-			Matrícula m1 = new Matrícula ("Primero", "activo", (long) 5, "tarde", new Date(14/03/2020), "si", "Cálculo, Matemáticas Discretas, Álgebra");
+			Expediente e1 = new Expediente ( (long) 12, "activo", (float)8.75, (long) 120, (long) 60, (long) 60, (long) 0, (long) 0, (long) 0, (long)0);
+			Matrícula m1 = new Matrícula ("Primero", "activo", (long) 5, "tarde", new Date(14/03/2020), "si", "Cálculo, Matemáticas Discretas, Álgebra", e1);
 			
 			grupo.asignarGrupo(A, m1);
 			Grupo B = grupo.leerGrupo(A.getID());

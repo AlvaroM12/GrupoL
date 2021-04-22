@@ -17,8 +17,8 @@ import javax.persistence.*;
 public class Matrícula implements Serializable {
 
 	public static class MatriculaId implements Serializable{
-		private Long EM;
 		private String Curso_Academico;
+		private Long EM;
 	}
 	   
 	@Id
@@ -34,7 +34,8 @@ public class Matrícula implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@ManyToOne
+	@ManyToOne 
+	@JoinColumn(name="EM")
 	private Expediente EM;
 	
 	@OneToMany(mappedBy = "matricula")
@@ -42,7 +43,7 @@ public class Matrícula implements Serializable {
 
 	
 	public Matrícula(String curso_Academico, String estado, Long num_Archivo, String turno_Preferente,
-			Date fecha_De_Matrícula, String nuevo_Ingreso, String listado_Asignaturas) {
+			Date fecha_De_Matrícula, String nuevo_Ingreso, String listado_Asignaturas, Expediente E) {
 		super();
 		Curso_Academico = curso_Academico;
 		Estado = estado;
@@ -51,6 +52,7 @@ public class Matrícula implements Serializable {
 		Fecha_De_Matrícula = fecha_De_Matrícula;
 		Nuevo_Ingreso = nuevo_Ingreso;
 		Listado_Asignaturas = listado_Asignaturas;
+		EM = E;
 		
 	}
 	public Matrícula() {

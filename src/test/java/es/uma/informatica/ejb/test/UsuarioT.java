@@ -14,6 +14,7 @@ import javax.naming.Context;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import es.uma.informatica.Entidades.Alumno;
@@ -41,10 +42,12 @@ public class UsuarioT {
 	@Test
 	public void testCrearUsuario() {
 		try {
-			Usuario u1 = new Usuario ((long) 11, (long) 664184557, "18752");
+			Usuario u1 = new Usuario ((long) 1, (long) 664184557, "18752");
 			usuario.crearUsuario(u1);
 			Usuario al = usuario.leerUsuario(u1.getID()); 
-			assertEquals(1,al);
+			if((long)1 != al.getID()) {
+				fail("No debería lanzarse excepción");
+			}
 			
 		} catch (UsuarioException e) {
 			e.printStackTrace();
@@ -89,7 +92,7 @@ public class UsuarioT {
 	@Test
 	public void testSolicitarRecuperarContraseña() {
 		try {
-			Alumno a = new Alumno ("45698712R", "Marta", "Molero", "Santiago", "mms@uma.es", "martams@gmail.com",
+			Alumno a = new Alumno ((long)41, (long)664184557, "njevpnev","45698712R", "Marta", "Molero", "Santiago", "mms@uma.es", "martams@gmail.com",
 								   (long) 632547891, "calle margarita", "Torremolinos", "Málaga", (long)29620);
 			usuario.solicitarRecuperarContraseña(a.getEmail_Personal());
 			

@@ -34,9 +34,9 @@ public class Alumno extends Usuario implements Serializable {
 	
 	
 
-	public Alumno(String dNI, String nombre, String apellido1, String apellido2, String email_Institucional,
+	public Alumno(Long id, Long telefono, String Contraseña ,String dNI, String nombre, String apellido1, String apellido2, String email_Institucional,
 			String email_Personal, Long móvil, String direccion, String localidad, String provincia, Long cP) {
-		super();
+		super(id,telefono,Contraseña);
 		DNI = dNI;
 		Nombre = nombre;
 		Apellido1 = apellido1;

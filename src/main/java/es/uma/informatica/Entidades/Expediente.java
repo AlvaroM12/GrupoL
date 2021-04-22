@@ -42,7 +42,7 @@ public class Expediente implements Serializable {
 	private Alumno AE;
 	
 	
-	@OneToMany(mappedBy = "EM")
+	@OneToMany(mappedBy = "EM" )
 	private List<Matrícula> matriculas;
 	
 	@OneToMany(mappedBy = "EE")
