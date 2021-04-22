@@ -50,7 +50,9 @@ public class GrupoT {
 			Grupo g = new Grupo((long) 78, (long) 4, "B", "mañana", "no", (long) 8, (long) 0, (long) 50);
 			grupo.crearGrupo(g);
 			Grupo gr = grupo.leerGrupo(g.getID());
-			assertEquals(1,gr);
+			if((long)78 != gr.getID()) {
+				fail("No debería lanzarse excepción");
+			}
 			
 		}catch(GrupoExistenteException e) {
 			fail("Los valores para encuestaID no son validos");

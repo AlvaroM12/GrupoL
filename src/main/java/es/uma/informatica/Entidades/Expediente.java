@@ -33,16 +33,15 @@ public class Expediente implements Serializable {
 	
 	
 	@ManyToOne
-	@JoinColumn(name="CodTitulacion",foreignKey=@ForeignKey(name="FKTitulacion", foreignKeyDefinition = "FOREIGN KEY (TE) REFERENCES Titulacion (Código)"))
-
+	//@JoinColumn(name="CodTitulacion",foreignKey=@ForeignKey(name="FKTitulacion", foreignKeyDefinition = "FOREIGN KEY (TE) REFERENCES Titulacion (Código)"))
 	private Titulacion TE;
 	
 	@ManyToOne
-	@JoinColumn(name="idAlumno",foreignKey=@ForeignKey(name="FKAlumno", foreignKeyDefinition = "FOREIGN KEY (AE) REFERENCES Alumno (ID)"))
+	//@JoinColumn(name="idAlumno",foreignKey=@ForeignKey(name="FKAlumno", foreignKeyDefinition = "FOREIGN KEY (AE) REFERENCES Alumno (ID)"))
 	private Alumno AE;
 	
 	
-	@OneToMany(mappedBy = "EM" )
+	@OneToMany(mappedBy = "EM")
 	private List<Matrícula> matriculas;
 	
 	@OneToMany(mappedBy = "EE")

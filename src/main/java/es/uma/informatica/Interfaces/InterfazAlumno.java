@@ -19,7 +19,7 @@ public interface InterfazAlumno {
 	 * @throws AlumnoExistenteException 
 	 * @throws AlumnoErrorException 
 	 */
-	public Alumno leerAlumno(String dni) throws AlumnoException;
+	public Alumno leerAlumno(Long id) throws AlumnoException;
 	
 	 /**
 	  Este método debe actualizar un alumno de la base de datos.

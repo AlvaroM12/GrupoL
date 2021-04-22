@@ -161,10 +161,10 @@ public class BaseDatos {
 		}
 		
 		
-		Optativa O1 = new Optativa ("TIC");
-		Optativa O2 = new Optativa ("C");
-		Optativa O3 = new Optativa ("SI");
-		Optativa O4 = new Optativa ("S");
+		Optativa O1 = new Optativa ((long) 78, (long) 123, (long) 5, (long) 1, (long) 6, "Sí", "Cálculo", (long) 1, "50", "Primer Cuatrimestre", "Español","TIC");
+		Optativa O2 = new Optativa ((long) 79, (long) 123, (long) 5, (long) 1, (long) 6, "Sí", "Cálculo", (long) 1, "50", "Primer Cuatrimestre", "Español","C");
+		Optativa O3 = new Optativa ((long) 80, (long) 123, (long) 5, (long) 1, (long) 6, "Sí", "Cálculo", (long) 1, "50", "Primer Cuatrimestre", "Español","SI");
+		Optativa O4 = new Optativa ((long) 81, (long) 123, (long) 5, (long) 1, (long) 6, "Sí", "Cálculo", (long) 1, "50", "Primer Cuatrimestre", "Español","S");
 		
 		for (Optativa optativa : new Optativa [] {O1, O2, O3, O4}) {
 			em.persist(optativa);
@@ -251,5 +251,10 @@ public class BaseDatos {
 		for (Encuesta encuesta : new Encuesta [] {EleccionGrupo, EleccionCurso, EleccionTurno, EleccionClase}) {
 			em.persist(encuesta);
 		}
+		
+		em.getTransaction().commit();
+		em.close();
+		emf.close();
+		
 	}
 } 

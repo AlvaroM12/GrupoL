@@ -30,8 +30,8 @@ public class AlumnoEJB implements InterfazAlumno {
 	}
 
 	@Override
-	public Alumno leerAlumno(String dni) throws AlumnoException {
-		Alumno al=em.find(Alumno.class, dni );
+	public Alumno leerAlumno(Long id) throws AlumnoException {
+		Alumno al = em.find(Alumno.class, id );
 		if(al==null) {
 			throw new AlumnoExistenteException();
 		}
@@ -40,7 +40,7 @@ public class AlumnoEJB implements InterfazAlumno {
 
 	@Override
 	public void actualizarAlumno(Alumno a) throws AlumnoException{
-		Alumno al = leerAlumno(a.getDNI());
+		Alumno al = leerAlumno(a.getID());
 		al.setApellido1(a.getApellido1());
 		al.setApellido2(a.getApellido2());
 		al.setContraseña(a.getContraseña());
@@ -58,7 +58,7 @@ public class AlumnoEJB implements InterfazAlumno {
 
 	@Override
 	public void eliminarAlumno(Alumno a) throws AlumnoException{
-		leerAlumno(a.getDNI());
+		leerAlumno(a.getID());
 		em.remove(em.merge(a));		
 	}
 }

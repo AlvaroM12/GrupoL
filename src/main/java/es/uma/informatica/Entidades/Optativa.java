@@ -18,8 +18,11 @@ public class Optativa extends Asignatura implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	
-	public Optativa(String mención) {
-		super();
+	public Optativa(Long referencia, Long codigo, Long créditos_Teoricos, Long créditos_Practicos,
+			Long total_Créditos, String ofertada, String nombre, Long curso, String plazas, String cuatrimestre,
+			String idioma_de_imparticion,String mención) {
+		super(referencia,codigo,créditos_Teoricos, créditos_Practicos, total_Créditos, ofertada, nombre, curso,
+				plazas, cuatrimestre, idioma_de_imparticion);
 		Mención = mención;
 	}
 
