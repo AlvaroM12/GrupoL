@@ -13,8 +13,10 @@ import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
+import es.uma.informatica.Entidades.Alumno;
 import es.uma.informatica.Entidades.Asignatura;
 import es.uma.informatica.Entidades.Clase;
+import es.uma.informatica.Exception.AlumnoExistenteException;
 import es.uma.informatica.Exception.ClaseException;
 import es.uma.informatica.Interfaces.InterfazClase;
 
@@ -70,5 +72,13 @@ public class ClaseEJB implements InterfazClase{
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
+	}
+	
+	public Clase leerClase(String dia) throws ClaseException {
+		Clase c = em.find(Clase.class, dia );
+		if(c==null) {
+			throw new ClaseException();
+		}
+		return c;
 	}
 }

@@ -18,6 +18,41 @@ public class Clase implements Serializable {
 		private String Dia;
 		private String HoraInicio;
 		private Long GC;
+		@Override
+		public int hashCode() {
+			final int prime = 31;
+			int result = 1;
+			result = prime * result + ((Dia == null) ? 0 : Dia.hashCode());
+			result = prime * result + ((GC == null) ? 0 : GC.hashCode());
+			result = prime * result + ((HoraInicio == null) ? 0 : HoraInicio.hashCode());
+			return result;
+		}
+		@Override
+		public boolean equals(Object obj) {
+			if (this == obj)
+				return true;
+			if (obj == null)
+				return false;
+			if (getClass() != obj.getClass())
+				return false;
+			ClaseId other = (ClaseId) obj;
+			if (Dia == null) {
+				if (other.Dia != null)
+					return false;
+			} else if (!Dia.equals(other.Dia))
+				return false;
+			if (GC == null) {
+				if (other.GC != null)
+					return false;
+			} else if (!GC.equals(other.GC))
+				return false;
+			if (HoraInicio == null) {
+				if (other.HoraInicio != null)
+					return false;
+			} else if (!HoraInicio.equals(other.HoraInicio))
+				return false;
+			return true;
+		}
 	}
 
 	   

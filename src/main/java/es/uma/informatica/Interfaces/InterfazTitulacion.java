@@ -14,4 +14,5 @@ public interface InterfazTitulacion {
 
 	 */
 	public void importarTitulacion() throws TitulacionException;
+	Titulacion leerTitulacion(Long cod) throws TitulacionException;
 }

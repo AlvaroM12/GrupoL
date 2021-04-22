@@ -16,8 +16,11 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import com.sun.tools.example.debug.expr.ParseException;
 
+import es.uma.informatica.Exception.AlumnoException;
+import es.uma.informatica.Exception.AlumnoExistenteException;
 import es.uma.informatica.Exception.MatriculaException;
 import es.uma.informatica.Interfaces.InterfazMatricula;
+import es.uma.informatica.Entidades.Alumno;
 import es.uma.informatica.Entidades.Expediente;
 import es.uma.informatica.Entidades.Matrícula;
 
@@ -60,10 +63,19 @@ public class MatriculaEJB implements InterfazMatricula {
 	        	m.setFecha_De_Matrícula(date);
 	        	String turnoPref = sheet.getRow(4).getCell(15).getStringCellValue();
 	        	m.setTurno_Preferente(turnoPref);
-	        	System.out.println(m);
+	        	em.persist(m);;
 	        }
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	@Override
+	public Matrícula leerMatricula (String Curso_Academico) throws MatriculaException {
+		Matrícula m = em.find(Matrícula.class, Curso_Academico );
+		if(m==null) {
+			throw new MatriculaException();
+		}
+		return m;
 	}
 }

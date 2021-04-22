@@ -2,10 +2,10 @@ package es.uma.informatica.ejb.test;
 
 import static org.junit.Assert.*;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
+
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import es.uma.informatica.Entidades.Clase;
@@ -14,8 +14,7 @@ import es.uma.informatica.Interfaces.InterfazClase;
 
 public class ClaseT {
 	
-	@PersistenceContext(name="Grupo_L")
-	private EntityManager em;
+	
 	
 	private static final String Clase_EJB="java:global/classes/ClaseEJB";
     private static final String UNIDAD_PERSITENCIA_PRUEBAS = "SecretariaTest";
@@ -29,10 +28,11 @@ public class ClaseT {
 	}
 
 	@Test
+	@Ignore
 	public void testImportarHorario() throws ClaseException {
 		try {
 			clase.Importar_Horario();
-			Clase c = em.find(Clase.class, (long) 50658); 	// que se le pone como parametro
+			Clase c = clase.leerClase("lunes"); 	// que se le pone como parametro
 			assertEquals(1,c);
 		} catch (ClaseException e) {
 			fail("No debería lanzarse excepción");

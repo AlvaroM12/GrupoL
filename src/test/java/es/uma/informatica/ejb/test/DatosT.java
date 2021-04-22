@@ -9,6 +9,7 @@ import javax.naming.Context;
 
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import es.uma.informatica.Interfaces.InterfazDatos;
@@ -27,6 +28,7 @@ public class DatosT {
 	}
 
 	@Test
+	@Ignore
 	public void testExportarDatos() {
 		fail("Not yet implemented");
 	}

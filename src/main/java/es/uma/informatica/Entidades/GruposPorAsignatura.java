@@ -20,6 +20,41 @@ public class GruposPorAsignatura implements Serializable {
 		private Long G_GPA;
 		private Long Curso_Academico;
 		private Long A_GPA;
+		@Override
+		public int hashCode() {
+			final int prime = 31;
+			int result = 1;
+			result = prime * result + ((A_GPA == null) ? 0 : A_GPA.hashCode());
+			result = prime * result + ((Curso_Academico == null) ? 0 : Curso_Academico.hashCode());
+			result = prime * result + ((G_GPA == null) ? 0 : G_GPA.hashCode());
+			return result;
+		}
+		@Override
+		public boolean equals(Object obj) {
+			if (this == obj)
+				return true;
+			if (obj == null)
+				return false;
+			if (getClass() != obj.getClass())
+				return false;
+			GruposPorAsignaturaId other = (GruposPorAsignaturaId) obj;
+			if (A_GPA == null) {
+				if (other.A_GPA != null)
+					return false;
+			} else if (!A_GPA.equals(other.A_GPA))
+				return false;
+			if (Curso_Academico == null) {
+				if (other.Curso_Academico != null)
+					return false;
+			} else if (!Curso_Academico.equals(other.Curso_Academico))
+				return false;
+			if (G_GPA == null) {
+				if (other.G_GPA != null)
+					return false;
+			} else if (!G_GPA.equals(other.G_GPA))
+				return false;
+			return true;
+		}
 	}	   
 
 	@Id @GeneratedValue

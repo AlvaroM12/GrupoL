@@ -9,6 +9,7 @@ import javax.naming.Context;
 
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import es.uma.informatica.Entidades.Encuesta;
@@ -30,6 +31,7 @@ public class EncuestaT {
 	}
 
 	@Test
+	@Ignore
 	public void testResponderEncuesta() {
 		try {
 			Encuesta EleccionGrupo = new Encuesta ((long) 14);

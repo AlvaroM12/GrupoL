@@ -11,7 +11,10 @@ import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
+import es.uma.informatica.Entidades.Alumno;
 import es.uma.informatica.Entidades.Titulacion;
+import es.uma.informatica.Exception.AlumnoException;
+import es.uma.informatica.Exception.AlumnoExistenteException;
 import es.uma.informatica.Exception.TitulacionException;
 import es.uma.informatica.Exception.TitulacionNullException;
 import es.uma.informatica.Interfaces.InterfazTitulacion;
@@ -52,9 +55,20 @@ public class TitulacionEJB implements InterfazTitulacion{
 	        	t.setNombre(nombre);
 	        	Long creditos = (long) sheet.getRow(fila).getCell(2).getNumericCellValue();
 	        	t.setCréditos(creditos);
+	        	em.persist(t);
 	        }
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	
+	@Override
+	public Titulacion leerTitulacion(Long cod) throws TitulacionException {
+		Titulacion t = em.find(Titulacion.class, cod );
+		if(t==null) {
+			throw new TitulacionException();
+		}
+		return t;
 	}
 }

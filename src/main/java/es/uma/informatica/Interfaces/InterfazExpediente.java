@@ -1,6 +1,7 @@
 package es.uma.informatica.Interfaces;
 
 import es.uma.informatica.EJB.ExpedienteEJB;
+import es.uma.informatica.Entidades.Expediente;
 import es.uma.informatica.Exception.ExpedienteException;
 
 public interface InterfazExpediente {
@@ -9,5 +10,7 @@ public interface InterfazExpediente {
 	 
 	 */
 	public void importarExpediente() throws ExpedienteException;
+	
+	public Expediente leerExpediente (Long num) throws ExpedienteException;
 
 }

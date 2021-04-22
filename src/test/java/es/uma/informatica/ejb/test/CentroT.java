@@ -4,11 +4,11 @@ import static org.junit.Assert.*;
 
 import java.util.Properties;
 
-import javax.ejb.embeddable.EJBContainer;
-import javax.naming.Context;
+
 
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import es.uma.informatica.Entidades.Centro;
@@ -29,6 +29,7 @@ public class CentroT {
 	}
 
 	@Test
+	@Ignore
 	public void testConsultarCentro() {
 		try {
 			Centro c = centro.ConsultarCentro((long) 1);

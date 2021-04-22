@@ -3,6 +3,7 @@ package es.uma.informatica.ejb.test;
 import static org.junit.Assert.*;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 
@@ -44,6 +45,7 @@ public class AlumnoT {
 	}
 	
 	@Test
+	@Ignore
 	public void testLeerAlumno() {
 		try {
             Alumno a = alumno.leerAlumno((long)9);
@@ -71,6 +73,7 @@ public class AlumnoT {
 	}
 	
 	@Test
+	@Ignore
 	public void testEliminarAlumno() {
 		try {
 			Alumno al = alumno.leerAlumno((long) 9);

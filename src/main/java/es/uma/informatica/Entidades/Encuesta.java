@@ -17,6 +17,35 @@ public class Encuesta implements Serializable {
 	public static class EncuestaId implements Serializable{
 		private Long EE;
 		private Long Fecha_De_Envío;
+		@Override
+		public int hashCode() {
+			final int prime = 31;
+			int result = 1;
+			result = prime * result + ((EE == null) ? 0 : EE.hashCode());
+			result = prime * result + ((Fecha_De_Envío == null) ? 0 : Fecha_De_Envío.hashCode());
+			return result;
+		}
+		@Override
+		public boolean equals(Object obj) {
+			if (this == obj)
+				return true;
+			if (obj == null)
+				return false;
+			if (getClass() != obj.getClass())
+				return false;
+			EncuestaId other = (EncuestaId) obj;
+			if (EE == null) {
+				if (other.EE != null)
+					return false;
+			} else if (!EE.equals(other.EE))
+				return false;
+			if (Fecha_De_Envío == null) {
+				if (other.Fecha_De_Envío != null)
+					return false;
+			} else if (!Fecha_De_Envío.equals(other.Fecha_De_Envío))
+				return false;
+			return true;
+		}
 	}
 	   
 	@Id 

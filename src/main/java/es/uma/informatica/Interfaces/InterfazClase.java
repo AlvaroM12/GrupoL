@@ -2,6 +2,7 @@ package es.uma.informatica.Interfaces;
 
 import java.util.Date;
 
+import es.uma.informatica.Entidades.Clase;
 import es.uma.informatica.Exception.ClaseException;
 
 public interface InterfazClase {
@@ -12,4 +13,6 @@ public interface InterfazClase {
 	  En caso de que el horario sea null, se lanza la excepción HorarioNullException.
 	 */
 	public void Importar_Horario() throws ClaseException;
+	
+	public Clase leerClase(String dia) throws ClaseException;
 }

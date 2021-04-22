@@ -171,10 +171,10 @@ public class BaseDatos {
 		}
 		
 
-		Personal_de_secretaria p1 = new Personal_de_secretaria("secretarío");
-		Personal_de_secretaria p2 = new Personal_de_secretaria("ejecutivo");
-		Personal_de_secretaria p3 = new Personal_de_secretaria("técnico");
-		Personal_de_secretaria p4 = new Personal_de_secretaria("comercial");
+		Personal_de_secretaria p1 = new Personal_de_secretaria((long) 150, (long) 621748359, "18752","secretarío");
+		Personal_de_secretaria p2 = new Personal_de_secretaria((long) 151, (long) 621748359, "18752","ejecutivo");
+		Personal_de_secretaria p3 = new Personal_de_secretaria((long) 153, (long) 621748359, "18752","técnico");
+		Personal_de_secretaria p4 = new Personal_de_secretaria((long) 154, (long) 621748359, "18752","comercial");
 		
 		for (Personal_de_secretaria ps : new Personal_de_secretaria [] {p1, p2, p3, p4}) {
 			em.persist(ps);

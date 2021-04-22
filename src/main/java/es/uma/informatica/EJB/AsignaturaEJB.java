@@ -11,8 +11,10 @@ import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
+import es.uma.informatica.Entidades.Alumno;
 import es.uma.informatica.Entidades.Asignatura;
 import es.uma.informatica.Entidades.Titulacion;
+import es.uma.informatica.Exception.AlumnoExistenteException;
 import es.uma.informatica.Exception.AsignaturaException;
 import es.uma.informatica.Interfaces.InterfazAsignatura;
 
@@ -67,5 +69,14 @@ public class AsignaturaEJB implements InterfazAsignatura {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public Asignatura leerAsignatura(Long ref) throws AsignaturaException {
+		Asignatura a = em.find(Asignatura.class, ref );
+		if(a==null) {
+			throw new AsignaturaException();
+		}
+		return a;
+		
 	}
 }

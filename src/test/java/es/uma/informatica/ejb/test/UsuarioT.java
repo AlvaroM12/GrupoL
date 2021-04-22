@@ -6,15 +6,12 @@ import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Base64;
-import java.util.Properties;
 
-import javax.ejb.embeddable.EJBContainer;
-import javax.naming.Context;
 
-import org.junit.AfterClass;
+
+
 import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Ignore;
+
 import org.junit.Test;
 
 import es.uma.informatica.Entidades.Alumno;

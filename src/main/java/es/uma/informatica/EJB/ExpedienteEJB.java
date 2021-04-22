@@ -13,6 +13,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import es.uma.informatica.Entidades.Alumno;
 import es.uma.informatica.Entidades.Expediente;
+import es.uma.informatica.Exception.AlumnoExistenteException;
 import es.uma.informatica.Exception.ExpedienteException;
 import es.uma.informatica.Interfaces.InterfazExpediente;
 
@@ -78,5 +79,13 @@ public class ExpedienteEJB implements InterfazExpediente {
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
+	}
+	
+	public Expediente leerExpediente(Long num) throws ExpedienteException {
+		Expediente e = em.find(Expediente.class, num );
+		if(e==null) {
+			throw new ExpedienteException();
+		}
+		return e;
 	}
 }
