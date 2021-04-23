@@ -13,8 +13,10 @@ import org.junit.BeforeClass;
 import org.junit.Ignore;
 import org.junit.Test;
 
+import es.uma.informatica.Entidades.Asignatura;
 import es.uma.informatica.Entidades.Expediente;
 import es.uma.informatica.Entidades.Matrícula;
+import es.uma.informatica.Exception.AsignaturaException;
 import es.uma.informatica.Exception.ExpedienteException;
 import es.uma.informatica.Exception.MatriculaException;
 import es.uma.informatica.Interfaces.InterfazAlumno;
@@ -49,6 +51,14 @@ public class ExpedienteT {
 	
 	@Test
 	public void testLeerExpediente() {
-		fail("Not implemented yet");
+		try {
+			Expediente exp = expediente.leerExpediente((long) 12);
+			if((long)12 != exp.getNum_Expediente()) {
+				fail("No deberia lanzar excepcion1");
+			}
+		
+		} catch (ExpedienteException e) {
+			fail("No deberia lanzar excepcion2");
+		}
 	}
 }
