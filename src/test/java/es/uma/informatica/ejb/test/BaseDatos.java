@@ -68,10 +68,9 @@ public class BaseDatos {
 		C.setTG(GIC);
 		D.setTG(GIS);
 		
-	/*	A.setGrupos(Stream.of(B).collect(Collectors.toList()));
+		A.setGrupos(Stream.of(B).collect(Collectors.toList()));
 		B.setGrupos(Stream.of(C).collect(Collectors.toList()));
 		C.setGrupos(Stream.of(D).collect(Collectors.toList()));
-		D.setGrupos(Stream.of(A).collect(Collectors.toList()));*/
 		
 		
 		for (Grupo grupo: new Grupo [] {A,B,C,D}) {
@@ -79,7 +78,6 @@ public class BaseDatos {
 		}
 		em.getTransaction().commit();
 		em.getTransaction().begin();
-		
 		
 		
 		Alumno Juan = new Alumno ((long)9, (long)664184557, "njevpnev","78456235Q", "Juan", "Sanchez", "Merino", "jsm@uma.es", "juansm@gmail.com", (long) 654789123, "calle rio duero", "Benalmádena", "Málaga", (long)29561);

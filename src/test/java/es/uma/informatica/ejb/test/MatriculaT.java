@@ -8,7 +8,9 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 import es.uma.informatica.Entidades.Matrícula;
+import es.uma.informatica.Entidades.Titulacion;
 import es.uma.informatica.Exception.MatriculaException;
+import es.uma.informatica.Exception.TitulacionException;
 import es.uma.informatica.Interfaces.InterfazMatricula;
 
 public class MatriculaT {
@@ -31,9 +33,15 @@ public class MatriculaT {
 		try {
 			matricula.importarMatricula();
 			Matrícula m= matricula.leerMatricula("Primero");
-			assertEquals(1,m);
+			assertEquals("Primero",m.getCurso_Academico());
 		} catch (MatriculaException e) {
 			fail("No debería lanzarse excepción");
 		}
+	}
+	
+	@Test
+	public void testLeerMatricula() {
+            fail("Not implemented yet");
+       
 	}
 }

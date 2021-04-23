@@ -20,7 +20,7 @@ public class CentroEJB implements InterfazCentro {
 
 	@Override
 	public Centro ConsultarCentro(Long id) throws CentroException {
-		Centro ce = em.find(Centro.class,id);
+		Centro ce = em.find(Centro.class, id);
 		if(ce==null) {
 			throw new CentroNullException();
 		}		

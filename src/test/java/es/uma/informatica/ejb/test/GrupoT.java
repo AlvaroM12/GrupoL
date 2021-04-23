@@ -7,7 +7,6 @@ import java.util.List;
 
 
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import es.uma.informatica.Entidades.Asignaturas_Matrícula;
@@ -46,15 +45,14 @@ public class GrupoT {
 	@Test
 	public void testCrearGrupo(){
 		try {
-			Grupo g = new Grupo((long) 78, (long) 4, "B", "mañana", "no", (long) 8, (long) 0, (long) 50);
+			Grupo g = new Grupo((long) 13, (long) 3, "A", "tarde", "no", (long) 5, (long) 6, (long) 30);
 			grupo.crearGrupo(g);
 			Grupo gr = grupo.leerGrupo(g.getID());
-			if((long)78 != gr.getID()) {
+			if((long)13 != gr.getID()) {
 				fail("No debería lanzarse excepción");
 			}
-			
 		}catch(GrupoExistenteException e) {
-			fail("Los valores para encuestaID no son validos");
+			fail("Los valores no son validos");
 		}catch(GrupoException e) {
 			fail("No debería lanzarse excepción");
 		}
@@ -107,9 +105,7 @@ public class GrupoT {
 			String causa="Coincide con otra asignatura";
 			encuesta.responderEncuesta(causa, en);
 			
-			
 		} catch (EncuestaException e) {
-			
 			fail("No debería lanzarse excepción");
 		}
 	}
@@ -146,7 +142,6 @@ public class GrupoT {
 		}catch(GrupoException e) {
 			fail("No debería lanzarse excepción");
 		} catch (MatriculaException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

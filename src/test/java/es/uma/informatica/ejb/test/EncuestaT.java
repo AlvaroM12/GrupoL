@@ -35,9 +35,9 @@ public class EncuestaT {
 		try {
 			Encuesta EleccionGrupo = new Encuesta ((long) 14);
 			String texto = "Hola";
-			encuesta.responderEncuesta(texto,EleccionGrupo);
+			encuesta.responderEncuesta(texto, EleccionGrupo);
 		}catch(EncuestaException e){
-			fail("Not yet implemented");
+			fail("No debería lanzarse excepción");
 		}
 	}
 }

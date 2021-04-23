@@ -32,10 +32,11 @@ public class CentroT {
 	public void testConsultarCentro() {
 		try {
 			Centro c = centro.ConsultarCentro((long) 1);
-			assertEquals(1,c);
+			if((long)1 != c.getID()) {
+				fail("No coinciden los ID");
+			}
 		} catch (CentroException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			fail("No debería lanzarse excepción");
 		}		
 	}
 }

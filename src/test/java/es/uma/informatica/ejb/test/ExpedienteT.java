@@ -47,5 +47,8 @@ public class ExpedienteT {
 		}
 	}
 	
-	
+	@Test
+	public void testLeerExpediente() {
+		fail("Not implemented yet");
+	}
 }

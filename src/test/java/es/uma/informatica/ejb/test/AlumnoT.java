@@ -38,7 +38,7 @@ public class AlumnoT {
 			}
 			
 		}catch(AlumnoExistenteException e) {
-			fail("Los valores para encuestaID no son validos");
+			fail("Los valores no son validos");
 		}catch(AlumnoException e) {
 			fail("No debería lanzarse excepción");
 		}
@@ -61,7 +61,7 @@ public class AlumnoT {
 	@Test
 	public void testActualizarAlumno() {
 		try {
-			Alumno a1 = new Alumno ((long)10, (long)664184557, "njevpnev","78456235Q", "Juan", "Caba", "Merino", "jsm@uma.es", "juansm@gmail.com", (long) 654789123, "calle rio duero", "Benalmádena", "Málaga", (long)29561);
+			Alumno a1 = new Alumno ((long)9, (long)664184557, "njevpnev","78456235Q", "Juan", "Caba", "Merino", "jsm@uma.es", "juansm@gmail.com", (long) 654789123, "calle rio duero", "Benalmádena", "Málaga", (long)29561);
             alumno.actualizarAlumno(a1);
             Alumno a =alumno.leerAlumno(a1.getID());
             if(!a.getApellido1().equalsIgnoreCase(a1.getApellido1())) {
@@ -79,7 +79,9 @@ public class AlumnoT {
 			Alumno al = alumno.leerAlumno((long) 9);
 			alumno.eliminarAlumno(al);
 			Alumno alumno2 = alumno.leerAlumno(al.getID());
-            assertEquals(null,alumno2);
+            if(alumno2 != null) {
+            	fail("Alumno not null");
+            }
 			
 		} catch (AlumnoException e) {
 			fail("No debería lanzarse excepción");

@@ -31,10 +31,15 @@ public class ClaseT {
 	public void testImportarHorario() throws ClaseException {
 		try {
 			clase.Importar_Horario();
-			Clase c = clase.leerClase("lunes"); 	// que se le pone como parametro
-			assertEquals(1,c);
+			Clase c = clase.leerClase("lunes");
+			assertEquals("lunes",c.getDia());
 		} catch (ClaseException e) {
 			fail("No debería lanzarse excepción");
 		}
+	}
+	
+	@Test
+	public void testLeerClase() throws ClaseException {
+		fail("Not implemented yet");
 	}
 }

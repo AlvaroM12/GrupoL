@@ -27,14 +27,21 @@ public class AsignaturaT {
 	}
 	
 	@Test
-	
 	public void testImportarAsignatura() throws AsignaturaException {
 		try {
 			asignatura.importarAsignatura();
 			Asignatura a = asignatura.leerAsignatura((long)50658);
-			assertEquals(1,a);
+			if(50658 != a.getReferencia()) {
+				fail("No coinciden las referencias");
+			}
 		} catch (AsignaturaException e) {
 			fail("No debería lanzarse excepción");
 		}
 	}
+	
+	@Test
+	public void testLeerAsignatura() throws AsignaturaException {
+		fail("Not implemented yet");
+	}
+	
 }

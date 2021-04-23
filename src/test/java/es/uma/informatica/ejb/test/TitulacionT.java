@@ -9,9 +9,9 @@ import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 
-
+import es.uma.informatica.Entidades.Grupo;
 import es.uma.informatica.Entidades.Titulacion;
-
+import es.uma.informatica.Exception.GrupoException;
 import es.uma.informatica.Exception.TitulacionException;
 
 import es.uma.informatica.Interfaces.InterfazTitulacion;
@@ -47,9 +47,22 @@ public class TitulacionT {
 		try {
 			titulacion.importarTitulacion();
 			Titulacion t = titulacion.leerTitulacion((long) 1041);
-			assertEquals(1,t);
+			assertEquals(1041,t);
 		} catch (TitulacionException e) {
 			fail("No debería lanzarse excepción");
 		}
+	}
+	
+	@Test
+	public void testLeerTitulacion() throws TitulacionException {
+		try {
+            Titulacion t = titulacion.leerTitulacion((long) 1);
+            if((long)1 != t.getCódigo()) {
+				fail("No coincide el codigo");
+			}
+
+        }catch(TitulacionException g) {
+            fail("No deberia lanzar una excepcion");
+        }
 	}
 }
