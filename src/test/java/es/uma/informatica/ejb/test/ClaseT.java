@@ -28,7 +28,6 @@ public class ClaseT {
 	}
 
 	@Test
-	@Ignore
 	public void testImportarHorario() throws ClaseException {
 		try {
 			clase.Importar_Horario();

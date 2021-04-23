@@ -45,7 +45,7 @@ public class AlumnoT {
 	}
 	
 	@Test
-	@Ignore
+	
 	public void testLeerAlumno() {
 		try {
             Alumno a = alumno.leerAlumno((long)9);
@@ -73,7 +73,7 @@ public class AlumnoT {
 	}
 	
 	@Test
-	@Ignore
+	
 	public void testEliminarAlumno() {
 		try {
 			Alumno al = alumno.leerAlumno((long) 9);

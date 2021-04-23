@@ -31,7 +31,6 @@ public class EncuestaT {
 	}
 
 	@Test
-	@Ignore
 	public void testResponderEncuesta() {
 		try {
 			Encuesta EleccionGrupo = new Encuesta ((long) 14);

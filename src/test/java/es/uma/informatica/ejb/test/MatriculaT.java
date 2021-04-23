@@ -27,7 +27,6 @@ public class MatriculaT {
 	}
 
 	@Test
-	@Ignore
 	public void testImportarMatricula() {
 		try {
 			matricula.importarMatricula();

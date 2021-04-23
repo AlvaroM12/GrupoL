@@ -37,7 +37,6 @@ public class ExpedienteT {
 
 
 	@Test
-	@Ignore
 	public void testImportarExpediente() {
 		try {
 			expediente.importarExpediente();

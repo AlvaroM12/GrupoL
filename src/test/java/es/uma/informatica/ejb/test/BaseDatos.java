@@ -68,10 +68,10 @@ public class BaseDatos {
 		C.setTG(GIC);
 		D.setTG(GIS);
 		
-		A.setGrupos(Stream.of(B).collect(Collectors.toList()));
+	/*	A.setGrupos(Stream.of(B).collect(Collectors.toList()));
 		B.setGrupos(Stream.of(C).collect(Collectors.toList()));
 		C.setGrupos(Stream.of(D).collect(Collectors.toList()));
-		D.setGrupos(Stream.of(A).collect(Collectors.toList()));
+		D.setGrupos(Stream.of(A).collect(Collectors.toList()));*/
 
 		for (Grupo grupo: new Grupo [] {A,B,C,D}) {
 			em.persist(grupo);
@@ -196,7 +196,7 @@ public class BaseDatos {
 		Asignaturas_Matrícula am3 = new Asignaturas_Matrícula (m3,IIS);
 		Asignaturas_Matrícula am4 = new Asignaturas_Matrícula (m4,Algebra);
 		
-		/*am.setAsignatura(Calculo);
+		am.setAsignatura(Calculo);
 		am2.setAsignatura(PL);
 		am3.setAsignatura(IIS);
 		am4.setAsignatura(Algebra);
@@ -204,7 +204,7 @@ public class BaseDatos {
 		am.setMatricula(m1);
 		am2.setMatricula(m2);
 		am3.setMatricula(m3);
-		am4.setMatricula(m4);*/
+		am4.setMatricula(m4);
 		
 		am.setG_AM(A);
 		am2.setG_AM(B);

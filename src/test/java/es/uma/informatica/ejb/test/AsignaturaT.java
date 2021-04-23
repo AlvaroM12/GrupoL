@@ -27,7 +27,7 @@ public class AsignaturaT {
 	}
 	
 	@Test
-	@Ignore
+	
 	public void testImportarAsignatura() throws AsignaturaException {
 		try {
 			asignatura.importarAsignatura();

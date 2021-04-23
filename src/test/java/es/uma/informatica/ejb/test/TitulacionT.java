@@ -32,7 +32,6 @@ public class TitulacionT {
 	}
 
 	@Test
-	@Ignore
 	public void testConsultarTitulacion() {
 		try {
 			Titulacion t = titulacion.consultarTitulacion((long) 1);
@@ -44,7 +43,6 @@ public class TitulacionT {
 	
 
 	@Test
-	@Ignore
 	public void testImportarTitulacion() {
 		try {
 			titulacion.importarTitulacion();

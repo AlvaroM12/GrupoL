@@ -44,7 +44,6 @@ public class GrupoT {
 	}
 
 	@Test
-	@Ignore
 	public void testCrearGrupo(){
 		try {
 			Grupo g = new Grupo((long) 78, (long) 4, "B", "mañana", "no", (long) 8, (long) 0, (long) 50);
@@ -62,7 +61,6 @@ public class GrupoT {
 	}
 	
 	@Test
-	@Ignore
 	public void testLeerGrupo(){
 		try {
             Grupo g = grupo.leerGrupo((long) 1);
@@ -74,7 +72,6 @@ public class GrupoT {
 	}
 	
 	@Test
-	@Ignore
 	public void testActualizarGrupo(){
 		try {
 			Grupo g1 = new Grupo ((long) 1, (long) 1, "A", "tarde", "si", (long) 8, (long) 75, (long) 80);
@@ -89,7 +86,6 @@ public class GrupoT {
 	}
 	
 	@Test
-	@Ignore
 	public void testEliminarGrupo() {
 		/*try {
 			/*Grupo gr = grupo.leerGrupo(1);
@@ -104,7 +100,6 @@ public class GrupoT {
 	}
 	
 	@Test
-	@Ignore
 	public void testSolicitarCambioDeGrupo() {
 		try {
 			 
@@ -120,7 +115,6 @@ public class GrupoT {
 	}
 	
 	@Test
-	@Ignore
 	public void testSolicitarGrupo() {
 		try {
 			Grupo A = new Grupo((long) 1, (long) 1, "A", "tarde", "si", (long) 8, (long) 75, (long) 80);
@@ -135,7 +129,6 @@ public class GrupoT {
 	}
 	
 	@Test
-	@Ignore
 	public void testAsignarGrupo() {
 		try {
 			Grupo A = new Grupo((long) 1, (long) 1, "A", "tarde", "si", (long) 8, (long) 75, (long) 80);

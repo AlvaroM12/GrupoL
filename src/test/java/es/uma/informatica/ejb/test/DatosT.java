@@ -28,7 +28,6 @@ public class DatosT {
 	}
 
 	@Test
-	@Ignore
 	public void testExportarDatos() {
 		fail("Not yet implemented");
 	}

@@ -28,8 +28,7 @@ public class CentroT {
 		BaseDatos.inicializaBaseDatos(UNIDAD_PERSITENCIA_PRUEBAS);
 	}
 
-	@Test
-	@Ignore
+	@Test	
 	public void testConsultarCentro() {
 		try {
 			Centro c = centro.ConsultarCentro((long) 1);
