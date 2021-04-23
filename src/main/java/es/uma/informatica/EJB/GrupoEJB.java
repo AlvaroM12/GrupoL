@@ -17,6 +17,7 @@ import es.uma.informatica.Interfaces.InterfazGrupo;
 import es.uma.informatica.Entidades.Alumno;
 import es.uma.informatica.Entidades.Asignatura;
 import es.uma.informatica.Entidades.Asignaturas_Matrícula;
+import es.uma.informatica.Entidades.Asignaturas_Matrícula.Asignaturas_MatriculaId;
 import es.uma.informatica.Entidades.Expediente;
 import es.uma.informatica.Entidades.Grupo;
 import es.uma.informatica.Entidades.GruposPorAsignatura;
@@ -65,14 +66,15 @@ public class GrupoEJB implements InterfazGrupo {
 
 	@Override
 	public void eliminarGrupo(Grupo g) throws GrupoException {
-			Grupo gr = em.find(Grupo.class, g.getID());
-			if(gr==null) {
-				throw new GrupoNullException();
-			}
-			for(Iterator<Asignaturas_Matrícula>iterator = gr.getAsignaturasMatriculas().iterator();iterator.hasNext();) {
+		Grupo gr = em.find(Grupo.class, g.getID());
+		if(gr==null) {
+			throw new GrupoNullException();
+		}
+		em.remove(gr);
+			/*for(Iterator<Asignaturas_Matrícula>iterator = gr.getAsignaturasMatriculas().iterator();iterator.hasNext();) {
 				Asignaturas_Matrícula am = iterator.next();
 				em.remove(am);
-			}
+			}*/
 	}
 
 	@Override
@@ -147,5 +149,15 @@ public class GrupoEJB implements InterfazGrupo {
         List <Asignaturas_Matrícula> am =  grupoPref.getAsignaturasMatriculas();
         m.setAsigMatricula(am); 
         actualizarGrupo(grupoPref);        
+    }
+    
+    @Override
+    public Asignaturas_Matrícula leerGrupoAsignatura(Asignaturas_MatriculaId a) throws GrupoErrorException{
+		Asignaturas_Matrícula am = em.find(Asignaturas_Matrícula.class, a);
+
+		if(am==null) {
+			throw new GrupoErrorException();
+		}
+		return am;
     }
 }

@@ -8,6 +8,8 @@ import java.util.List;
 
 import javax.persistence.*;
 
+import es.uma.informatica.Entidades.Matrícula.MatriculaId;
+
 /**
  * Entity implementation class for Entity: Matrícula
  *
@@ -19,6 +21,11 @@ public class Matrícula implements Serializable {
 	public static class MatriculaId implements Serializable{
 		private String Curso_Academico;
 		private Long EM;
+		
+		public MatriculaId(String c, Long em) {
+			Curso_Academico = c;
+			EM = em;
+		}
 		@Override
 		public int hashCode() {
 			final int prime = 31;

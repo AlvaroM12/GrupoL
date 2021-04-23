@@ -18,6 +18,11 @@ public class Asignaturas_Matrícula implements Serializable {
 		private Long asignatura;
 		private MatriculaId matricula;
 		
+		public Asignaturas_MatriculaId(Long a, MatriculaId m) {
+			asignatura = a;
+			matricula = m;
+		}
+		
 		@Override
 		public int hashCode() {
 			final int prime = 31;
@@ -61,7 +66,7 @@ public class Asignaturas_Matrícula implements Serializable {
 	@ManyToOne
 	private Asignatura asignatura;
 	
-	@ManyToOne
+	@ManyToOne 
 	private Grupo G_AM;
 	
 	private static final long serialVersionUID = 1L;

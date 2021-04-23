@@ -9,12 +9,16 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
+import es.uma.informatica.Entidades.Asignatura;
 import es.uma.informatica.Entidades.Asignaturas_Matrícula;
 import es.uma.informatica.Entidades.Encuesta;
 import es.uma.informatica.Entidades.Expediente;
 import es.uma.informatica.Entidades.Grupo;
 import es.uma.informatica.Entidades.Matrícula;
+import es.uma.informatica.Entidades.Matrícula.MatriculaId;
+import es.uma.informatica.Entidades.Asignaturas_Matrícula.Asignaturas_MatriculaId;
 import es.uma.informatica.Exception.EncuestaException;
+import es.uma.informatica.Exception.GrupoErrorException;
 import es.uma.informatica.Exception.GrupoException;
 import es.uma.informatica.Exception.GrupoExistenteException;
 import es.uma.informatica.Exception.MatriculaException;
@@ -85,17 +89,17 @@ public class GrupoT {
 	
 	@Test
 	public void testEliminarGrupo() {
-		/*try {
-			/*Grupo gr = grupo.leerGrupo(1);
-			grupo.eliminarGrupo(g, a);
-			Alumno alumno2 = alumno.leerAlumno(al.getDNI());
-            assertEquals(null,alumno2.getID());
+		try {
+			Grupo gr = grupo.leerGrupo((long)1);
+			grupo.eliminarGrupo(gr);
+			Grupo gr2 = grupo.leerGrupo((long)1);
+            assertEquals(null,gr2.getAsignaturasMatriculas());
 			
-		} catch (AlumnoNullException e) {
+		} catch (GrupoException e) {
 			fail("No debería lanzarse excepción");
 		}
-	}*/
 	}
+	
 	
 	@Test
 	public void testSolicitarCambioDeGrupo() {
@@ -144,5 +148,23 @@ public class GrupoT {
 		} catch (MatriculaException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	@Test
+	public void testLeerGrupoAsignatura(){
+		try {
+			Expediente e1 = new Expediente ( (long) 12, "activo", (float)8.75, (long) 120, (long) 60, (long) 60, (long) 0, (long) 0, (long) 0, (long)0);
+			Matrícula m1 = new Matrícula ("Primero", "activo", (long) 5, "tarde", new Date(14/03/2020), "si", "Cálculo, Matemáticas Discretas, Álgebra", e1);
+			Asignatura Calculo = new Asignatura((long) 1, (long) 123, (long) 5, (long) 1, (long) 6, "Sí", "Cálculo", (long) 1, "50", "Primer Cuatrimestre", "Español");
+			MatriculaId m = new MatriculaId("Primero", (long) 12);
+			Asignaturas_MatriculaId a = new Asignaturas_MatriculaId ((long) 1, m);
+			Asignaturas_Matrícula am = grupo.leerGrupoAsignatura(a);
+            if(am==null) {
+            	fail("No deberia lanzar una excepcion");
+            }
+
+        }catch(GrupoException g) {
+            fail("No deberia lanzar una excepcion2");
+        }
 	}
 }

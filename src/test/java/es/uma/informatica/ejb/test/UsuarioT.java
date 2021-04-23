@@ -66,7 +66,7 @@ public class UsuarioT {
 	}
 	
 	@Test
-	public void testValidarUsuario() {
+	public void testValidarAcceso() {
 		fail("Not implemented yet");
 	}
 

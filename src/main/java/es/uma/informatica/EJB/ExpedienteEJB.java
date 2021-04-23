@@ -35,13 +35,12 @@ public class ExpedienteEJB implements InterfazExpediente {
 			String sFile = directorio_de_ejecucion_de_la_aplicacion + "/" +"Datos alumnadoFAKE.xlsx"; 
 			XSSFWorkbook workbook = new XSSFWorkbook(sFile);
 			XSSFSheet sheet = workbook.getSheet("Hoja1");
-	        XSSFRow row = sheet.getRow(0);
-	        XSSFCell cell = null;
 	        
-	        Expediente e = new Expediente();
-	        Alumno a = new Alumno();
 	        
-	        for(int fila=1; fila<row.getRowNum(); fila++) {
+	        for(int fila=1; fila<sheet.getLastRowNum(); fila++) {
+	        	
+	        	Expediente e = new Expediente();
+		        Alumno a = new Alumno();
 	        	
 	        	Long alum = (long) sheet.getRow(fila).getCell(0).getNumericCellValue();
 	        	a = em.find(Alumno.class, alum);

@@ -2,9 +2,12 @@ package es.uma.informatica.Interfaces;
 
 import es.uma.informatica.Entidades.Alumno;
 import es.uma.informatica.Entidades.Asignatura;
+import es.uma.informatica.Entidades.Asignaturas_Matrícula;
+import es.uma.informatica.Entidades.Asignaturas_Matrícula.Asignaturas_MatriculaId;
 import es.uma.informatica.Entidades.Expediente;
 import es.uma.informatica.Entidades.Grupo;
 import es.uma.informatica.Entidades.Matrícula;
+import es.uma.informatica.Exception.GrupoErrorException;
 import es.uma.informatica.Exception.GrupoException;
 import es.uma.informatica.Exception.PlazasException;
 
@@ -63,4 +66,6 @@ public interface InterfazGrupo {
 	 * @throws PlazasException 
 	 */
 	public void asignarGrupo(Grupo g, Matrícula m) throws GrupoException;
+
+	public Asignaturas_Matrícula leerGrupoAsignatura(Asignaturas_MatriculaId a) throws GrupoErrorException;
 }
