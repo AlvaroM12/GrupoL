@@ -8,6 +8,7 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 import es.uma.informatica.Entidades.Matrícula;
+import es.uma.informatica.Entidades.Matrícula.MatriculaId;
 import es.uma.informatica.Entidades.Titulacion;
 import es.uma.informatica.Exception.MatriculaException;
 import es.uma.informatica.Exception.TitulacionException;
@@ -41,7 +42,7 @@ public class MatriculaT {
 	
 	@Test
 	public void testLeerMatricula() {
-            fail("Not implemented yet");
+		MatriculaId mi = new MatriculaId("Primero", null);
        
 	}
 }

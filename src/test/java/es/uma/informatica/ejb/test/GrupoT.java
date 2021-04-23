@@ -93,7 +93,12 @@ public class GrupoT {
 			Grupo gr = grupo.leerGrupo((long)1);
 			grupo.eliminarGrupo(gr);
 			Grupo gr2 = grupo.leerGrupo((long)1);
-            assertEquals(null,gr2.getAsignaturasMatriculas());
+			MatriculaId m = new MatriculaId("Primero", (long) 33);
+			Asignaturas_MatriculaId a = new Asignaturas_MatriculaId ((long) 1, m);
+			Asignaturas_Matrícula gr3 = grupo.leerGrupoAsignatura(a);
+			if(gr2.getAsignaturasMatriculas()==gr3.getAsignatura()) {
+            	fail("No deberia lanzar una excepcion2");
+            }
 			
 		} catch (GrupoException e) {
 			fail("No debería lanzarse excepción");
@@ -151,12 +156,12 @@ public class GrupoT {
 	}
 	
 	@Test
-	public void testLeerGrupoAsignatura(){
+	public void testLeerAsignaturaMatricula(){
 		try {
-			Expediente e1 = new Expediente ( (long) 12, "activo", (float)8.75, (long) 120, (long) 60, (long) 60, (long) 0, (long) 0, (long) 0, (long)0);
-			Matrícula m1 = new Matrícula ("Primero", "activo", (long) 5, "tarde", new Date(14/03/2020), "si", "Cálculo, Matemáticas Discretas, Álgebra", e1);
-			Asignatura Calculo = new Asignatura((long) 1, (long) 123, (long) 5, (long) 1, (long) 6, "Sí", "Cálculo", (long) 1, "50", "Primer Cuatrimestre", "Español");
-			MatriculaId m = new MatriculaId("Primero", (long) 12);
+			//Expediente e1 = new Expediente ( (long) 12, "activo", (float)8.75, (long) 120, (long) 60, (long) 60, (long) 0, (long) 0, (long) 0, (long)0);
+			//Matrícula m1 = new Matrícula ("Primero", "activo", (long) 5, "tarde", new Date(14/03/2020), "si", "Cálculo, Matemáticas Discretas, Álgebra", e1);
+			//Asignatura Calculo = new Asignatura((long) 1, (long) 123, (long) 5, (long) 1, (long) 6, "Sí", "Cálculo", (long) 1, "50", "Primer Cuatrimestre", "Español");
+			MatriculaId m = new MatriculaId("Primero", (long) 33);
 			Asignaturas_MatriculaId a = new Asignaturas_MatriculaId ((long) 1, m);
 			Asignaturas_Matrícula am = grupo.leerGrupoAsignatura(a);
             if(am==null) {
