@@ -8,8 +8,12 @@ import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 
+import es.uma.informatica.Entidades.Asignatura;
 import es.uma.informatica.Entidades.Clase;
+import es.uma.informatica.Entidades.Clase.ClaseId;
+import es.uma.informatica.Exception.AsignaturaException;
 import es.uma.informatica.Exception.ClaseException;
+import es.uma.informatica.Exception.ExpedienteException;
 import es.uma.informatica.Interfaces.InterfazClase;
 
 public class ClaseT {
@@ -31,8 +35,9 @@ public class ClaseT {
 	public void testImportarHorario() throws ClaseException {
 		try {
 			clase.Importar_Horario();
-			Clase c = clase.leerClase("lunes");
-			assertEquals("lunes",c.getDia());
+			ClaseId clase1 = new ClaseId("Lunes","08:45:00",(long)1);
+			Clase c = clase.leerClase(clase1);
+			assertEquals("Lunes",c.getDia());
 		} catch (ClaseException e) {
 			fail("No debería lanzarse excepción");
 		}
@@ -40,6 +45,15 @@ public class ClaseT {
 	
 	@Test
 	public void testLeerClase() throws ClaseException {
-		fail("Not implemented yet");
+		
+		try {
+			ClaseId clase1 = new ClaseId("Lunes","08:45:00",(long)1);
+			Clase cl = clase.leerClase(clase1);
+			if(cl == null) {
+				fail("No deberia lanzar excepcion");
+			} 
+		} catch (ClaseException e) {
+				fail("No deberia lanzar excepcion2");
+		}
 	}
 }

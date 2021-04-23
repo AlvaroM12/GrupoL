@@ -15,9 +15,20 @@ import javax.persistence.*;
 public class Clase implements Serializable {
 	
 	public static class ClaseId implements Serializable{
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
 		private String Dia;
 		private String HoraInicio;
 		private Long GC;
+		
+		public ClaseId(String dia, String HoraInicio, long GC) {
+			Dia = dia;
+			this.HoraInicio = HoraInicio;
+			this.GC = GC ;
+		}
+		
 		@Override
 		public int hashCode() {
 			final int prime = 31;

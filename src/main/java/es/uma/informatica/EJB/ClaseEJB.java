@@ -2,7 +2,6 @@ package es.uma.informatica.EJB;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
-import java.util.Date;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -13,10 +12,10 @@ import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-import es.uma.informatica.Entidades.Alumno;
 import es.uma.informatica.Entidades.Asignatura;
 import es.uma.informatica.Entidades.Clase;
-import es.uma.informatica.Exception.AlumnoExistenteException;
+import es.uma.informatica.Entidades.Clase.ClaseId;
+import es.uma.informatica.Entidades.Grupo;
 import es.uma.informatica.Exception.ClaseException;
 import es.uma.informatica.Interfaces.InterfazClase;
 
@@ -42,6 +41,7 @@ public class ClaseEJB implements InterfazClase{
 	        
 	        Clase c = new Clase();
 	        Asignatura a = new Asignatura();
+	        Grupo g = new Grupo();
 	        
 	        for(int fila=1; fila<row.getRowNum(); fila++) {
 	        	Long ref = (long) sheet.getRow(fila).getCell(3).getNumericCellValue();
@@ -50,23 +50,26 @@ public class ClaseEJB implements InterfazClase{
 	        	String dia = sheet.getRow(fila).getCell(12).getStringCellValue();
 	        	c.setDia(dia);
 	        	LocalDateTime hini = sheet.getRow(fila).getCell(13).getLocalDateTimeCellValue();    	
-	        	c.setHoraInicio(hini.getHour() + ":" + hini.getMinute());
+	        	c.setHoraInicio(hini.getHour() + ":" + hini.getMinute() + hini.getSecond());
 	        	LocalDateTime hfin = sheet.getRow(fila).getCell(14).getLocalDateTimeCellValue();
-	        	c.setHoraFin(hfin.getHour() + ":" + hfin.getMinute());
+	        	c.setHoraFin(hfin.getHour() + ":" + hfin.getMinute()+ hfin.getSecond());
 	        	em.persist(c);
 	        	String dia2 = sheet.getRow(fila).getCell(15).getStringCellValue();
 	        	c.setDia(dia2);
 	        	LocalDateTime hini2 = sheet.getRow(fila).getCell(16).getLocalDateTimeCellValue();
-	        	c.setHoraInicio(hini2.getHour() + ":" + hini2.getMinute());
+	        	c.setHoraInicio(hini2.getHour() + ":" + hini2.getMinute() + hini2.getSecond());
 	        	LocalDateTime hfin2 = sheet.getRow(fila).getCell(17).getLocalDateTimeCellValue();
-	        	c.setHoraFin(hfin2.getHour() + ":" + hfin2.getMinute());
+	        	c.setHoraFin(hfin2.getHour() + ":" + hfin2.getMinute() + hfin2.getSecond());
 	        	em.persist(c);
 	        	String dia3 = sheet.getRow(fila).getCell(18).getStringCellValue();
 	        	c.setDia(dia3);
 	        	LocalDateTime hini3 = sheet.getRow(fila).getCell(19).getLocalDateTimeCellValue();
-	        	c.setHoraInicio(hini3.getHour() + ":" + hini3.getMinute());
+	        	c.setHoraInicio(hini3.getHour() + ":" + hini3.getMinute() + hini3.getSecond());
 	        	LocalDateTime hfin3 = sheet.getRow(fila).getCell(20).getLocalDateTimeCellValue();
-	        	c.setHoraFin(hfin3.getHour() + ":" + hfin3.getMinute());
+	        	c.setHoraFin(hfin3.getHour() + ":" + hfin3.getMinute() + hfin3.getSecond());
+	        	Long idGrupo = (long)sheet.getRow(fila).getCell(21).getNumericCellValue();
+	        	g = em.find(Grupo.class, idGrupo);
+	        	c.setGC(g);
 	        	em.persist(c);
 	        }
 		} catch (IOException e1) {
@@ -74,11 +77,13 @@ public class ClaseEJB implements InterfazClase{
 		}
 	}
 	
-	public Clase leerClase(String dia) throws ClaseException {
-		Clase c = em.find(Clase.class, dia );
+	public Clase leerClase(ClaseId cl) throws ClaseException {
+		Clase c = em.find(Clase.class, cl );
 		if(c==null) {
 			throw new ClaseException();
 		}
 		return c;
 	}
+
+	
 }
