@@ -9,6 +9,7 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
+import es.uma.informatica.Entidades.Alumno;
 import es.uma.informatica.Entidades.Asignatura;
 import es.uma.informatica.Entidades.Asignaturas_Matrícula;
 import es.uma.informatica.Entidades.Encuesta;
@@ -93,10 +94,10 @@ public class GrupoT {
 			Grupo gr = grupo.leerGrupo((long)1);
 			grupo.eliminarGrupo(gr);
 			Grupo gr2 = grupo.leerGrupo((long)1);
-			MatriculaId m = new MatriculaId("Primero", (long) 33);
-			Asignaturas_MatriculaId a = new Asignaturas_MatriculaId ((long) 1, m);
-			Asignaturas_Matrícula gr3 = grupo.leerGrupoAsignatura(a);
-			if(gr2.getAsignaturasMatriculas()==gr3.getAsignatura()) {
+			//MatriculaId m = new MatriculaId("Primero", (long) 33);
+			//Asignaturas_MatriculaId a = new Asignaturas_MatriculaId ((long) 1, m);
+			//Asignaturas_Matrícula gr3 = grupo.leerGrupoAsignatura(a);
+			if(gr2==null) {
             	fail("No deberia lanzar una excepcion2");
             }
 			
@@ -135,6 +136,8 @@ public class GrupoT {
 	
 	@Test
 	public void testAsignarGrupo() {
+		
+		
 		try {
 			Grupo A = new Grupo((long) 1, (long) 1, "A", "tarde", "si", (long) 8, (long) 75, (long) 80);
 			Expediente e1 = new Expediente ( (long) 12, "activo", (float)8.75, (long) 120, (long) 60, (long) 60, (long) 0, (long) 0, (long) 0, (long)0);
