@@ -10,7 +10,7 @@ import javax.persistence.*;
  */
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-public class Usuario implements Serializable {
+public abstract class Usuario implements Serializable {
 
 	   
 	@Id @GeneratedValue

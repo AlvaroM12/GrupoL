@@ -61,7 +61,7 @@ public class BaseDatos {
 		Grupo A = new Grupo((long) 1, (long) 1, "A", "tarde", "si", (long) 8, (long) 75, (long) 80);
 		Grupo B = new Grupo((long) 78, (long) 4, "B", "mañana", "no", (long) 8, (long) 0, (long) 50);
 		Grupo C = new Grupo((long) 85, (long) 2, "C", "tarde", "si", (long) 8, (long) 1, (long) 45);
-		Grupo D = new Grupo((long) 32, (long) 1, "D", "mañana", "no", (long) 8, (long) 3, (long) 55);
+		Grupo D = new Grupo((long) 32, (long) 3, "D", "mañana", "no", (long) 8, (long) 3, (long) 55);
 
 		A.setTG(GII);
 		B.setTG(GISa);
@@ -72,10 +72,14 @@ public class BaseDatos {
 		B.setGrupos(Stream.of(C).collect(Collectors.toList()));
 		C.setGrupos(Stream.of(D).collect(Collectors.toList()));
 		D.setGrupos(Stream.of(A).collect(Collectors.toList()));*/
-
+		
+		
 		for (Grupo grupo: new Grupo [] {A,B,C,D}) {
 			em.persist(grupo);
 		}
+		em.getTransaction().commit();
+		em.getTransaction().begin();
+		
 		
 		
 		Alumno Juan = new Alumno ((long)9, (long)664184557, "njevpnev","78456235Q", "Juan", "Sanchez", "Merino", "jsm@uma.es", "juansm@gmail.com", (long) 654789123, "calle rio duero", "Benalmádena", "Málaga", (long)29561);
@@ -181,14 +185,7 @@ public class BaseDatos {
 		}
 		
 		
-		Usuario u1 = new Usuario ((long) 12, (long) 621748359, "18752");
-		Usuario u2 = new Usuario ((long) 50, (long) 678123492, "51sd84gfs1");
-		Usuario u3 = new Usuario ((long) 4, (long) 632147892, "5x4fg8dsf");
-		Usuario u4 = new Usuario ((long) 20, (long) 698123654, "f2g144s8");
-
-		for (Usuario ps : new Usuario [] {u1, u2, u3, u4}) {
-			em.persist(ps);
-		}
+		
 		
 		
 		Asignaturas_Matrícula am = new Asignaturas_Matrícula (m1,Calculo);
