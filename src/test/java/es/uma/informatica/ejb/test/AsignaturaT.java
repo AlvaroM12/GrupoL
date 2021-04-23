@@ -41,7 +41,12 @@ public class AsignaturaT {
 	
 	@Test
 	public void testLeerAsignatura() throws AsignaturaException {
-		fail("Not implemented yet");
+		try {
+			Asignatura asig = asignatura.leerAsignatura((long) 1);
+			assertEquals("Cálculo", asig.getNombre());
+		} catch (AsignaturaException e) {
+			fail("No deberia lanzar excepcion");
+		}
 	}
 	
 }
