@@ -67,5 +67,5 @@ public interface InterfazGrupo {
 	 */
 	public void asignarGrupo(Grupo g, Matrícula m) throws GrupoException;
 
-	public Asignaturas_Matrícula leerGrupoAsignatura(Asignaturas_MatriculaId a) throws GrupoErrorException;
+	public Asignaturas_Matrícula leerGrupoAsignatura(Asignaturas_MatriculaId a) throws GrupoException;
 }

@@ -68,14 +68,14 @@ public class BaseDatos {
 		C.setTG(GIC);
 		D.setTG(GIS);
 		
+		
+		
 		A.setGrupos(Stream.of(B).collect(Collectors.toList()));
 		B.setGrupos(Stream.of(C).collect(Collectors.toList()));
 		C.setGrupos(Stream.of(D).collect(Collectors.toList()));
 		
 		
-		for (Grupo grupo: new Grupo [] {A,B,C,D}) {
-			em.persist(grupo);
-		}
+		
 		em.getTransaction().commit();
 		em.getTransaction().begin();
 		
@@ -148,7 +148,6 @@ public class BaseDatos {
 		}
 		
 		
-		
 		Matrícula m1 = new Matrícula ("Primero", "activo", (long) 5, "tarde", new Date(14/03/2020), "si", "Cálculo, Matemáticas Discretas, Álgebra", e1);
 		Matrícula m2 = new Matrícula ("Segundo", "inactivo", (long) 54, "mañana", new Date(11/12/2019), "no", "ADA,ED ,Concurrencias", e2);
 		Matrícula m3 = new Matrícula ("Tercero", "activo", (long) 14, "tarde", new Date(22/11/2018), "si", "PL, SII, ABD", e3);
@@ -206,6 +205,16 @@ public class BaseDatos {
 		am2.setG_AM(B);
 		am3.setG_AM(C);
 		am4.setG_AM(D);
+		
+		A.setAsignaturasMatriculas(Stream.of(am).collect(Collectors.toList()));
+		B.setAsignaturasMatriculas(Stream.of(am2).collect(Collectors.toList()));
+		C.setAsignaturasMatriculas(Stream.of(am3).collect(Collectors.toList()));
+		D.setAsignaturasMatriculas(Stream.of(am4).collect(Collectors.toList()));
+		
+		
+		for (Grupo grupo: new Grupo [] {A,B,C,D}) {
+			em.persist(grupo);
+		}
 		
 		for(Asignaturas_Matrícula asigm: new Asignaturas_Matrícula [] {am, am2, am3, am4}) {
 			em.persist(asigm);

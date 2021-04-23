@@ -70,7 +70,7 @@ public class GrupoEJB implements InterfazGrupo {
 		if(gr==null) {
 			throw new GrupoNullException();
 		}
-		em.remove(gr);
+		em.remove(em.merge(gr));
 			/*for(Iterator<Asignaturas_Matrícula>iterator = gr.getAsignaturasMatriculas().iterator();iterator.hasNext();) {
 				Asignaturas_Matrícula am = iterator.next();
 				em.remove(am);
@@ -152,11 +152,10 @@ public class GrupoEJB implements InterfazGrupo {
     }
     
     @Override
-    public Asignaturas_Matrícula leerGrupoAsignatura(Asignaturas_MatriculaId a) throws GrupoErrorException{
+    public Asignaturas_Matrícula leerGrupoAsignatura(Asignaturas_MatriculaId a) throws GrupoException{
 		Asignaturas_Matrícula am = em.find(Asignaturas_Matrícula.class, a);
-
 		if(am==null) {
-			throw new GrupoErrorException();
+			throw new GrupoException();
 		}
 		return am;
     }
