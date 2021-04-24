@@ -47,7 +47,9 @@ public class TitulacionT {
 		try {
 			titulacion.importarTitulacion();
 			Titulacion t = titulacion.leerTitulacion((long) 1041);
-			assertEquals(1041,t);
+			if((long)1041 != t.getCódigo()) {
+				fail("No deberia lanzar excepcion1");
+			}
 		} catch (TitulacionException e) {
 			fail("No debería lanzarse excepción");
 		}

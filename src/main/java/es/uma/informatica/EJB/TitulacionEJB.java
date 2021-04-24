@@ -40,15 +40,18 @@ public class TitulacionEJB implements InterfazTitulacion{
 	@Override
 	public void importarTitulacion() throws TitulacionException {		
 		try {
-			String directorio_de_ejecucion_de_la_aplicacion = new java.io.File( "." ).getCanonicalPath();
+			String directorio_de_ejecucion_de_la_aplicacion; 
+			directorio_de_ejecucion_de_la_aplicacion = new java.io.File( "." ).getCanonicalPath();
 			String sFile = directorio_de_ejecucion_de_la_aplicacion + "/" +"Titulacion.xlsx";
 			XSSFWorkbook workbook = new XSSFWorkbook(sFile);
 	        XSSFSheet sheet = workbook.getSheet("Hoja1");
-	        XSSFRow row = sheet.getRow(0);
-	        XSSFCell cell = null;
-	        Titulacion t = new Titulacion();
+	       
+	       
 	        
-	        for(int fila=1; fila<row.getRowNum(); fila++) {
+	        for(int fila=1; fila<6; fila++) {
+	        	
+	        	Titulacion t = new Titulacion();
+	        	
 	        	Long codigo = (long) sheet.getRow(fila).getCell(0).getNumericCellValue();
 	        	t.setCódigo(codigo);
 	        	String nombre =  sheet.getRow(fila).getCell(1).getStringCellValue();
