@@ -18,11 +18,13 @@ import es.uma.informatica.Entidades.Grupo;
 import es.uma.informatica.Entidades.Matrícula;
 import es.uma.informatica.Entidades.Matrícula.MatriculaId;
 import es.uma.informatica.Entidades.Asignaturas_Matrícula.Asignaturas_MatriculaId;
+import es.uma.informatica.Exception.AlumnoException;
 import es.uma.informatica.Exception.EncuestaException;
 import es.uma.informatica.Exception.GrupoErrorException;
 import es.uma.informatica.Exception.GrupoException;
 import es.uma.informatica.Exception.GrupoExistenteException;
 import es.uma.informatica.Exception.MatriculaException;
+import es.uma.informatica.Interfaces.InterfazAlumno;
 import es.uma.informatica.Interfaces.InterfazEncuesta;
 import es.uma.informatica.Interfaces.InterfazGrupo;
 import es.uma.informatica.Interfaces.InterfazMatricula;
@@ -33,17 +35,17 @@ public class GrupoT {
 	
 	
 	private static final String Grupos_EJB = "java:global/classes/GrupoEJB";
-	private static final String Matricula_EJB = "java:global/classes/MatriculaEJB";
+	private static final String Alumno_EJB = "java:global/classes/AlumnoEJB";
 	private static final String UNIDAD_PERSITENCIA_PRUEBAS = "SecretariaTest";
 	
-	private InterfazMatricula matricula;
+	private InterfazAlumno alumno;
 	private InterfazGrupo grupo;
 	private InterfazEncuesta encuesta;
 
 	@Before
 	public void setUp() throws Exception {
 		grupo = (InterfazGrupo) SuiteTest.ctx.lookup(Grupos_EJB);
-		matricula = (InterfazMatricula) SuiteTest.ctx.lookup(Matricula_EJB);
+		alumno = (InterfazAlumno) SuiteTest.ctx.lookup(Alumno_EJB);
 		BaseDatos.inicializaBaseDatos(UNIDAD_PERSITENCIA_PRUEBAS);
 	}
 
@@ -110,12 +112,13 @@ public class GrupoT {
 	@Test
 	public void testSolicitarCambioDeGrupo() {
 		try {
-			 
-			Encuesta en=new Encuesta((long)14);
-			String causa="Coincide con otra asignatura";
-			encuesta.responderEncuesta(causa, en);
+			Grupo A = new Grupo((long) 1, (long) 1, "A", "tarde", "si", (long) 8, (long) 75, (long) 80);
+			Alumno Juan = alumno.leerAlumno((long)9);			
+			grupo.solicitarGrupo(A,Juan);
 			
-		} catch (EncuestaException e) {
+		}catch(GrupoException e) {
+			fail("No debería lanzarse excepción");
+		} catch (AlumnoException e) {
 			fail("No debería lanzarse excepción");
 		}
 	}
@@ -124,24 +127,36 @@ public class GrupoT {
 	public void testSolicitarGrupo() {
 		try {
 			Grupo A = new Grupo((long) 1, (long) 1, "A", "tarde", "si", (long) 8, (long) 75, (long) 80);
-			Expediente e1 = new Expediente ( (long) 12, "activo", (float)8.75, (long) 120, (long) 60, (long) 60, (long) 0, (long) 0, (long) 0, (long)0);
-			Matrícula m1 = new Matrícula ("Primero", "activo", (long) 5, "tarde", new Date(14/03/2020), "si", "Cálculo, Matemáticas Discretas, Álgebra",e1);
-			
-			grupo.solicitarGrupo(A, m1);
+			Alumno Juan = alumno.leerAlumno((long)9);			
+			grupo.solicitarGrupo(A,Juan);
 			
 		}catch(GrupoException e) {
+			fail("No debería lanzarse excepción");
+		} catch (AlumnoException e) {
 			fail("No debería lanzarse excepción");
 		}
 	}
 	
 	@Test
 	public void testAsignarGrupo() {
-		
-		
 		try {
+			Alumno Juan = alumno.leerAlumno((long)9);
+			grupo.asignarGrupo(Juan);
+			Expediente e = Juan.getExpedientes().get(0);
+			Matrícula m = e.getMatriculas().get(0);
+			Asignaturas_Matrícula asigM = m.getAsigMatricula().get(0);
+			Grupo g = asigM.getG_AM();
+			assertNotEquals(g,null);
+		} catch (GrupoException e) {
+			fail("No debería lanzarse excepción");
+		} catch (AlumnoException e1) {
+			fail("No debería lanzarse excepción");
+		}
+		
+		/*try {
 			Grupo A = new Grupo((long) 1, (long) 1, "A", "tarde", "si", (long) 8, (long) 75, (long) 80);
 			Expediente e1 = new Expediente ( (long) 12, "activo", (float)8.75, (long) 120, (long) 60, (long) 60, (long) 0, (long) 0, (long) 0, (long)0);
-			Matrícula m1 = new Matrícula ("Primero", "activo", (long) 5, "tarde", new Date(14/03/2020), "si", "Cálculo, Matemáticas Discretas, Álgebra", e1);
+			Matrícula m1 = new Matrícula ("Primero", "activo", (long) 5, "tarde", new Date(14/03/2020), "si", La , e1);
 			
 			grupo.asignarGrupo(A, m1);
 			Grupo B = grupo.leerGrupo(A.getID());
@@ -155,7 +170,7 @@ public class GrupoT {
 			fail("No debería lanzarse excepción");
 		} catch (MatriculaException e) {
 			e.printStackTrace();
-		}
+		}*/
 	}
 	
 	@Test

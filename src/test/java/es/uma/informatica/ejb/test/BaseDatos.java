@@ -1,6 +1,7 @@
 package es.uma.informatica.ejb.test;
 
 import java.util.Date;
+import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -68,14 +69,14 @@ public class BaseDatos {
 		C.setTG(GIC);
 		D.setTG(GIS);
 		
-		
-		
 		A.setGrupos(Stream.of(B).collect(Collectors.toList()));
 		B.setGrupos(Stream.of(C).collect(Collectors.toList()));
 		C.setGrupos(Stream.of(D).collect(Collectors.toList()));
 		
 		
-		
+		for (Grupo grupo: new Grupo [] {A,B,C,D}) {
+			em.persist(grupo);
+		}
 		em.getTransaction().commit();
 		em.getTransaction().begin();
 		
@@ -91,9 +92,9 @@ public class BaseDatos {
 		
 		
 		Asignatura Calculo = new Asignatura((long) 1, (long) 123, (long) 5, (long) 1, (long) 6, "Sí", "Cálculo", (long) 1, "50", "Primer Cuatrimestre", "Español");
-		Asignatura PL = new Asignatura((long) 25, (long) 353, (long) 3, (long) 3, (long) 6, "Sí", "Procesadores de Lenguaje", (long) 3, "70", "Primer Cuatrimestre", "Inglés");
+		Asignatura PL = new Asignatura((long) 25, (long) 353, (long) 3, (long) 3, (long) 6, "Sí", "Procesadores de Lenguaje", (long) 3, "70", "Primer Cuatrimestre", "Ingles");
 		Asignatura IIS = new Asignatura((long) 30, (long) 289, (long) 1, (long) 5, (long) 6, "No", "Introducción a Ingeniería del Software", (long) 2, "40", "Segundo Cuatrimestre", "Español");
-		Asignatura Algebra = new Asignatura((long) 40, (long) 170, (long) 4, (long) 2, (long) 6, "No", "Álgebra", (long) 1, "90", "Segundo Cuatrimestre", "Inglés");
+		Asignatura Algebra = new Asignatura((long) 40, (long) 170, (long) 4, (long) 2, (long) 6, "No", "Álgebra", (long) 1, "90", "Segundo Cuatrimestre", "Ingles");
 
 		Calculo.setTA(GIC);
 		PL.setTA(GISa);
@@ -146,12 +147,12 @@ public class BaseDatos {
 		for (Expediente expediente : new Expediente [] {e1, e2, e3, e4}) {
 			em.persist(expediente);
 		}
+		List<Asignatura> La = Stream.of(Calculo, PL, IIS).collect(Collectors.toList());
 		
-		
-		Matrícula m1 = new Matrícula ("Primero", "activo", (long) 5, "tarde", new Date(14/03/2020), "si", "Cálculo, Matemáticas Discretas, Álgebra", e1);
-		Matrícula m2 = new Matrícula ("Segundo", "inactivo", (long) 54, "mañana", new Date(11/12/2019), "no", "ADA,ED ,Concurrencias", e2);
-		Matrícula m3 = new Matrícula ("Tercero", "activo", (long) 14, "tarde", new Date(22/11/2018), "si", "PL, SII, ABD", e3);
-		Matrícula m4 = new Matrícula ("Primero", "inactivo", (long) 60, "mañana", new Date(13/04/2021), "no", "Física, Electrónica, POO", e4);
+		Matrícula m1 = new Matrícula ("Primero", "activo", (long) 5, "tarde", new Date(14/03/2020), "si", La, e1);
+		Matrícula m2 = new Matrícula ("Segundo", "inactivo", (long) 54, "mañana", new Date(11/12/2019), "no", La, e2);
+		Matrícula m3 = new Matrícula ("Tercero", "activo", (long) 14, "tarde", new Date(22/11/2018), "si", La, e3);
+		Matrícula m4 = new Matrícula ("Primero", "inactivo", (long) 60, "mañana", new Date(13/04/2021), "no", La, e4);
 
 		m1.setEM(e4);
 		m2.setEM(e3);
@@ -205,16 +206,6 @@ public class BaseDatos {
 		am2.setG_AM(B);
 		am3.setG_AM(C);
 		am4.setG_AM(D);
-		
-		A.setAsignaturasMatriculas(Stream.of(am).collect(Collectors.toList()));
-		B.setAsignaturasMatriculas(Stream.of(am2).collect(Collectors.toList()));
-		C.setAsignaturasMatriculas(Stream.of(am3).collect(Collectors.toList()));
-		D.setAsignaturasMatriculas(Stream.of(am4).collect(Collectors.toList()));
-		
-		
-		for (Grupo grupo: new Grupo [] {A,B,C,D}) {
-			em.persist(grupo);
-		}
 		
 		for(Asignaturas_Matrícula asigm: new Asignaturas_Matrícula [] {am, am2, am3, am4}) {
 			em.persist(asigm);

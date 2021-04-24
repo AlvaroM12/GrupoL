@@ -58,14 +58,17 @@ public interface InterfazGrupo {
 	  Este método debe permite solicitar un grupo entre los existentes.
 	  En caso de que el grupo sea null, se lanza la excepción GrupoNullException.
 	 */
-	public void solicitarGrupo(Grupo g, Matrícula m) throws GrupoException;
+	public void solicitarGrupo(Grupo g, Alumno a) throws GrupoException;
 
 	/**
 	  Este método asigna solicitar un grupo entre los existentes.
 	  En caso de que el grupo no haya plazas, se lanza la excepción PlazasException.
 	 * @throws PlazasException 
 	 */
-	public void asignarGrupo(Grupo g, Matrícula m) throws GrupoException;
 
 	public Asignaturas_Matrícula leerGrupoAsignatura(Asignaturas_MatriculaId a) throws GrupoException;
+
+	public void asignarGrupo(Alumno a) throws GrupoException;
+
+	
 }
