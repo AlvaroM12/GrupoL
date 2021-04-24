@@ -55,7 +55,7 @@ public class Asignaturas_Matrícula implements Serializable {
 	}
 	
 	@Id
-	@ManyToOne
+	@ManyToOne 
 	@JoinColumns({
 		@JoinColumn(name="Curso_Academico", referencedColumnName="Curso_Academico"),
 		@JoinColumn(name="EM", referencedColumnName="EM")

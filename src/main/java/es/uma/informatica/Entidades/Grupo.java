@@ -32,7 +32,7 @@ public class Grupo implements Serializable {
 	@ManyToOne
 	private Titulacion TG;
 	
-	@OneToMany(mappedBy = "G_AM")
+	@OneToMany(mappedBy = "G_AM" , cascade = CascadeType.REMOVE)
 	private List<Asignaturas_Matrícula> asignaturasMatriculas;
 	
 	@OneToMany(mappedBy = "GG")
@@ -166,13 +166,10 @@ public class Grupo implements Serializable {
 		result = prime * result + ((Ingles == null) ? 0 : Ingles.hashCode());
 		result = prime * result + ((Letra == null) ? 0 : Letra.hashCode());
 		result = prime * result + ((Plazas == null) ? 0 : Plazas.hashCode());
-		result = prime * result + ((TG == null) ? 0 : TG.hashCode());
 		result = prime * result + ((Turno_Mañana_Tarde == null) ? 0 : Turno_Mañana_Tarde.hashCode());
 		result = prime * result + ((Visible == null) ? 0 : Visible.hashCode());
-		result = prime * result + ((asignaturasMatriculas == null) ? 0 : asignaturasMatriculas.hashCode());
 		result = prime * result + ((clases == null) ? 0 : clases.hashCode());
 		result = prime * result + ((grupos == null) ? 0 : grupos.hashCode());
-		result = prime * result + ((gruposPorAsig == null) ? 0 : gruposPorAsig.hashCode());
 		return result;
 	}
 	@Override
@@ -219,11 +216,6 @@ public class Grupo implements Serializable {
 				return false;
 		} else if (!Plazas.equals(other.Plazas))
 			return false;
-		if (TG == null) {
-			if (other.TG != null)
-				return false;
-		} else if (!TG.equals(other.TG))
-			return false;
 		if (Turno_Mañana_Tarde == null) {
 			if (other.Turno_Mañana_Tarde != null)
 				return false;
@@ -234,11 +226,6 @@ public class Grupo implements Serializable {
 				return false;
 		} else if (!Visible.equals(other.Visible))
 			return false;
-		if (asignaturasMatriculas == null) {
-			if (other.asignaturasMatriculas != null)
-				return false;
-		} else if (!asignaturasMatriculas.equals(other.asignaturasMatriculas))
-			return false;
 		if (clases == null) {
 			if (other.clases != null)
 				return false;
@@ -248,11 +235,6 @@ public class Grupo implements Serializable {
 			if (other.grupos != null)
 				return false;
 		} else if (!grupos.equals(other.grupos))
-			return false;
-		if (gruposPorAsig == null) {
-			if (other.gruposPorAsig != null)
-				return false;
-		} else if (!gruposPorAsig.equals(other.gruposPorAsig))
 			return false;
 		return true;
 	}

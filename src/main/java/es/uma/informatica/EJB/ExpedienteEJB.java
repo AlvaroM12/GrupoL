@@ -37,13 +37,15 @@ public class ExpedienteEJB implements InterfazExpediente {
 			XSSFSheet sheet = workbook.getSheet("Hoja1");
 	        
 	        
-	        for(int fila=1; fila<sheet.getLastRowNum(); fila++) {
+	        for(int fila=4; fila<1512; fila++) {
 	        	
 	        	Expediente e = new Expediente();
 		        Alumno a = new Alumno();
 	        	
 	        	String alum = sheet.getRow(fila).getCell(0).getStringCellValue();
-	        	a = em.find(Alumno.class, alum);
+	        	Long id = (long)sheet.getRow(fila).getCell(25).getNumericCellValue();
+	        	a.setID(id);
+	        	a.setDNI(alum);	        	
 	        	e.setAE(a);
 	        	
 	        	String Num_Expediente = sheet.getRow(fila).getCell(4).getStringCellValue();
@@ -53,26 +55,26 @@ public class ExpedienteEJB implements InterfazExpediente {
 	        	e.setNota_Media(Float.parseFloat(Nota_Media));
 	        	
 	        	String Creditos_Superados = sheet.getRow(fila).getCell(18).getStringCellValue();
-	        	e.setCreditos_Superados(Long.parseLong(Creditos_Superados));
+	        	e.setCreditos_Superados(Double.parseDouble(Creditos_Superados));
 	        	
 	        	String Creditos_FB = sheet.getRow(fila).getCell(19).getStringCellValue();
-	        	e.setCreditos_FB(Long.parseLong(Creditos_FB));
+	        	e.setCreditos_FB(Double.parseDouble(Creditos_FB));
 	        	
 	        	String Creditos_OB = sheet.getRow(fila).getCell(20).getStringCellValue();
-	        	e.setCreditos_OB(Long.parseLong(Creditos_OB));
+	        	e.setCreditos_OB(Double.parseDouble(Creditos_OB));
 	        	
 	        	String Creditos_OP = sheet.getRow(fila).getCell(21).getStringCellValue();
-	        	e.setCreditos_OP(Long.parseLong(Creditos_OP));
+	        	e.setCreditos_OP(Double.parseDouble(Creditos_OP));
 	        	
 	        	String Creditos_CF = sheet.getRow(fila).getCell(22).getStringCellValue();
-	        	e.setCreditos_CF(Long.parseLong(Creditos_CF));
+	        	e.setCreditos_CF(Double.parseDouble(Creditos_CF));
 	        	
 	        	String Creditos_PE = sheet.getRow(fila).getCell(23).getStringCellValue();
-	        	e.setCreditos_PE(Long.parseLong(Creditos_PE));
+	        	e.setCreditos_PE(Double.parseDouble(Creditos_PE));
 	        	
 	        	String Creditos_TF = sheet.getRow(fila).getCell(24).getStringCellValue();
 
-	        	e.setCreditos_TF(Long.parseLong(Creditos_TF));
+	        	e.setCreditos_TF(Double.parseDouble(Creditos_TF));
 	        	em.persist(e);
 	        }
 		} catch (IOException e1) {
