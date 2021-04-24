@@ -9,6 +9,7 @@ import org.junit.Test;
 import es.uma.informatica.Entidades.Asignatura;
 import es.uma.informatica.Exception.AsignaturaException;
 import es.uma.informatica.Interfaces.InterfazAsignatura;
+import es.uma.informatica.sii.anotaciones.Requisitos;
 
 public class AsignaturaT {
 	
@@ -26,6 +27,7 @@ public class AsignaturaT {
 	}
 	
 	@Test
+	@Requisitos({"RF2"})
 	public void testImportarAsignatura() throws AsignaturaException {
 		try {
 			asignatura.importarAsignatura();
@@ -39,6 +41,7 @@ public class AsignaturaT {
 	}
 	
 	@Test
+	@Requisitos({"RF26"})
 	public void testLeerAsignatura() throws AsignaturaException {
 		try {
 			Asignatura asig = asignatura.leerAsignatura((long) 1);

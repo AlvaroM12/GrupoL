@@ -21,6 +21,7 @@ import es.uma.informatica.Exception.ExpedienteException;
 import es.uma.informatica.Exception.MatriculaException;
 import es.uma.informatica.Interfaces.InterfazAlumno;
 import es.uma.informatica.Interfaces.InterfazExpediente;
+import es.uma.informatica.sii.anotaciones.Requisitos;
 
 public class ExpedienteT {
 	
@@ -39,6 +40,7 @@ public class ExpedienteT {
 
 
 	@Test
+	@Requisitos({"RF6"})
 	public void testImportarExpediente() {
 		try {
 			expediente.importarExpediente();
@@ -50,6 +52,7 @@ public class ExpedienteT {
 	}
 	
 	@Test
+	@Requisitos({"RF28"})
 	public void testLeerExpediente() {
 		try {
 			Expediente exp = expediente.leerExpediente((long) 12);

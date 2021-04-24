@@ -15,6 +15,7 @@ import es.uma.informatica.Exception.AsignaturaException;
 import es.uma.informatica.Exception.ClaseException;
 import es.uma.informatica.Exception.ExpedienteException;
 import es.uma.informatica.Interfaces.InterfazClase;
+import es.uma.informatica.sii.anotaciones.Requisitos;
 
 public class ClaseT {
 	
@@ -32,6 +33,7 @@ public class ClaseT {
 	}
 
 	@Test
+	@Requisitos({"RF7"})
 	public void testImportarHorario() throws ClaseException {
 		try {
 			clase.Importar_Horario();
@@ -46,6 +48,7 @@ public class ClaseT {
 	}
 	
 	@Test
+	@Requisitos({"RF27"})
 	public void testLeerClase() throws ClaseException {
 		
 		try {
