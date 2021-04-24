@@ -1,20 +1,16 @@
 package es.uma.informatica.ejb.test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.fail;
 
-import java.util.Properties;
-
-import javax.ejb.embeddable.EJBContainer;
-import javax.naming.Context;
+import java.io.IOException;
 
 import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Ignore;
 import org.junit.Test;
 
+import es.uma.informatica.Exception.DatosException;
 import es.uma.informatica.Interfaces.InterfazDatos;
 
-public class DatosT {
+public class DatosT{
 	
 	private static final String Datos_EJB="java:global/classes/DatosEJB";
     private static final String UNIDAD_PERSITENCIA_PRUEBAS = "SecretariaTest";
@@ -28,8 +24,7 @@ public class DatosT {
 	}
 
 	@Test
-	public void testExportarDatos() {
-		fail("Not yet implemented");
+	public void testExportarDatos() throws DatosException, IOException {
+		dato.exportarDatos();
 	}
-
 }

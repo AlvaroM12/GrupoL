@@ -24,12 +24,13 @@ import es.uma.informatica.Entidades.Asignaturas_Matrícula;
 import es.uma.informatica.Entidades.Grupo;
 import es.uma.informatica.Entidades.GruposPorAsignatura;
 import es.uma.informatica.Exception.DatosException;
+import es.uma.informatica.Interfaces.InterfazDatos;
 
 /**
  * Session Bean implementation class DatosEJB
  */
 @Stateless
-public class DatosEJB {
+public class DatosEJB implements InterfazDatos{
 	
 	@PersistenceContext(name="Grupo_L")
 	private EntityManager em;
@@ -69,7 +70,6 @@ public class DatosEJB {
 	        TypedQuery<Asignaturas_Matrícula> query = em.createQuery("SELECT * FROM Asignaturas_Matrícula", Asignaturas_Matrícula.class);
 	        List<Asignaturas_Matrícula> am = query.getResultList();
 	        
-	        
 	        int fila = 0;
 	        for (Asignaturas_Matrícula a : am) {
 	        	XSSFRow dataRow = sheet.createRow(fila + 1);
@@ -86,12 +86,12 @@ public class DatosEJB {
 	        
 	        // Exportacion archivo
 	        System.out.println("Exportando Archivo");
-			try (FileOutputStream file = new FileOutputStream("DatosGrupos.xls")){
+			try (FileOutputStream file = new FileOutputStream("/home/alumno/eclipse-workspace/Grupo_L/DatosGrupos.xls")){
 				workbook.write(file);
 			} catch (FileNotFoundException e) {
 				e.printStackTrace();
 			}   
-			
+			workbook.close();
         }catch (NullPointerException n) {
         	n.printStackTrace();
         }
