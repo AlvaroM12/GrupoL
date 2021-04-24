@@ -3,19 +3,12 @@ package es.uma.informatica.EJB;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-import java.util.Set;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
-import javax.persistence.TypedQuery;
-import javax.persistence.metamodel.EntityType;
 
 import org.apache.poi.ss.usermodel.CellStyle;
 
@@ -25,15 +18,9 @@ import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-import es.uma.informatica.Entidades.Alumno;
 import es.uma.informatica.Entidades.Asignatura;
-import es.uma.informatica.Entidades.Asignaturas_Matrícula;
-import es.uma.informatica.Entidades.Asignaturas_Matrícula.Asignaturas_MatriculaId;
 import es.uma.informatica.Entidades.Expediente;
-import es.uma.informatica.Entidades.Grupo;
 import es.uma.informatica.Entidades.GruposPorAsignatura;
-import es.uma.informatica.Entidades.Matrícula;
-import es.uma.informatica.Entidades.Matrícula.MatriculaId;
 import es.uma.informatica.Entidades.Titulacion;
 import es.uma.informatica.Exception.DatosException;
 import es.uma.informatica.Interfaces.InterfazDatos;
