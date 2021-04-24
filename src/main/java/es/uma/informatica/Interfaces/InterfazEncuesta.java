@@ -1,6 +1,7 @@
 package es.uma.informatica.Interfaces;
 
 import es.uma.informatica.Entidades.Encuesta;
+import es.uma.informatica.Entidades.Encuesta.EncuestaId;
 import es.uma.informatica.Exception.EncuestaException;
 
 public interface InterfazEncuesta {
@@ -12,5 +13,8 @@ public interface InterfazEncuesta {
 	  
 	 */
 	public void responderEncuesta(String campos, Encuesta e)throws EncuestaException;
+	
+	
+	public Encuesta leerEncuesta(EncuestaId id) throws EncuestaException;
 }
 

@@ -36,50 +36,49 @@ public class ClaseEJB implements InterfazClase{
 			String sFile = directorio_de_ejecucion_de_la_aplicacion + "/" +"Oferta asignaturas.xlsx"; 
 			XSSFWorkbook workbook = new XSSFWorkbook(sFile);
 			XSSFSheet sheet = workbook.getSheet("GII");
-	        XSSFRow row = sheet.getRow(0);
-	        XSSFCell cell = null;
 	        
-	        Clase c = new Clase();
-	        Asignatura a = new Asignatura();
-	        Grupo g = new Grupo();
-	        
-	        for(int fila=1; fila<row.getRowNum(); fila++) {
+
+	        for(int fila=1; fila<83; fila++) {
+	        	
+	        	Clase c = new Clase();
+		        Asignatura a = new Asignatura();
+		        Grupo g = new Grupo();
 	        	
 	        	Long ref = (long) sheet.getRow(fila).getCell(3).getNumericCellValue();
-	        	a = em.find(Asignatura.class, ref);
+	        	a.setReferencia(ref);
 	        	c.setAC(a);
 	        	
 	        	String dia = sheet.getRow(fila).getCell(12).getStringCellValue();
 	        	c.setDia(dia);
 	        	
-	        	String hini = sheet.getRow(fila).getCell(13).getStringCellValue();    	
+	        	String hini = sheet.getRow(fila).getCell(22).getStringCellValue();    	
 	        	c.setHoraInicio(hini);
 	        	
-	        	String hfin = sheet.getRow(fila).getCell(14).getStringCellValue();
+	        	String hfin = sheet.getRow(fila).getCell(23).getStringCellValue();
 	        	c.setHoraFin(hfin);
 	        	em.persist(c);
 	        	
 	        	String dia2 = sheet.getRow(fila).getCell(15).getStringCellValue();
 	        	c.setDia(dia2);
 	        	
-	        	String hini2 = sheet.getRow(fila).getCell(16).getStringCellValue();
+	        	String hini2 = sheet.getRow(fila).getCell(24).getStringCellValue();
 	        	c.setHoraInicio(hini2);
 	        	
-	        	String hfin2 = sheet.getRow(fila).getCell(17).getStringCellValue();
+	        	String hfin2 = sheet.getRow(fila).getCell(25).getStringCellValue();
 	        	c.setHoraFin(hfin2);
 	        	em.persist(c);
 	        	
 	        	String dia3 = sheet.getRow(fila).getCell(18).getStringCellValue();
 	        	c.setDia(dia3);
 	        	
-	        	String hini3 = sheet.getRow(fila).getCell(19).getStringCellValue();
+	        	String hini3 = sheet.getRow(fila).getCell(26).getStringCellValue();
 	        	c.setHoraInicio(hini3);
 	        	
-	        	String hfin3 = sheet.getRow(fila).getCell(20).getStringCellValue();
+	        	String hfin3 = sheet.getRow(fila).getCell(27).getStringCellValue();
 	        	c.setHoraFin(hfin3);
 	        	
 	        	Long idGrupo = (long)sheet.getRow(fila).getCell(21).getNumericCellValue();
-	        	g = em.find(Grupo.class, idGrupo);
+	        	g.setID(idGrupo);
 	        	c.setGC(g);
 	        	em.persist(c);
 	        }

@@ -182,11 +182,7 @@ public class Asignatura implements Serializable {
 		result = prime * result + ((Ofertada == null) ? 0 : Ofertada.hashCode());
 		result = prime * result + ((Plazas == null) ? 0 : Plazas.hashCode());
 		result = prime * result + ((Referencia == null) ? 0 : Referencia.hashCode());
-		result = prime * result + ((TA == null) ? 0 : TA.hashCode());
 		result = prime * result + ((Total_Créditos == null) ? 0 : Total_Créditos.hashCode());
-		result = prime * result + ((asignaturasMatricula == null) ? 0 : asignaturasMatricula.hashCode());
-		result = prime * result + ((clases == null) ? 0 : clases.hashCode());
-		result = prime * result + ((gruposPorAsignatura == null) ? 0 : gruposPorAsignatura.hashCode());
 		return result;
 	}
 	@Override
@@ -248,30 +244,10 @@ public class Asignatura implements Serializable {
 				return false;
 		} else if (!Referencia.equals(other.Referencia))
 			return false;
-		if (TA == null) {
-			if (other.TA != null)
-				return false;
-		} else if (!TA.equals(other.TA))
-			return false;
 		if (Total_Créditos == null) {
 			if (other.Total_Créditos != null)
 				return false;
 		} else if (!Total_Créditos.equals(other.Total_Créditos))
-			return false;
-		if (asignaturasMatricula == null) {
-			if (other.asignaturasMatricula != null)
-				return false;
-		} else if (!asignaturasMatricula.equals(other.asignaturasMatricula))
-			return false;
-		if (clases == null) {
-			if (other.clases != null)
-				return false;
-		} else if (!clases.equals(other.clases))
-			return false;
-		if (gruposPorAsignatura == null) {
-			if (other.gruposPorAsignatura != null)
-				return false;
-		} else if (!gruposPorAsignatura.equals(other.gruposPorAsignatura))
 			return false;
 		return true;
 	}

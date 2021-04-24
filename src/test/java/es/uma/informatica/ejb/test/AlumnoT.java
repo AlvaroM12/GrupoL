@@ -3,14 +3,15 @@ package es.uma.informatica.ejb.test;
 import static org.junit.Assert.*;
 
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
 
 import es.uma.informatica.Entidades.Alumno;
 import es.uma.informatica.Exception.AlumnoException;
 import es.uma.informatica.Exception.AlumnoExistenteException;
+import es.uma.informatica.Exception.AlumnoNullException;
 import es.uma.informatica.Interfaces.InterfazAlumno;
+import es.uma.informatica.sii.anotaciones.Requisitos;
 
 
 public class AlumnoT {
@@ -27,6 +28,7 @@ public class AlumnoT {
 	}
 
 	@Test
+	@Requisitos({"RF1"})
 	public void testCrearAlumno() {
 		try {
 			Alumno a = new Alumno((long)4, (long)664184557, "njevpnev","22222222M", "Bruno", "Martin", "Gonzalez", "bruno@uma.es", "brunito@gmail.com", 
@@ -45,7 +47,7 @@ public class AlumnoT {
 	}
 	
 	@Test
-	
+	@Requisitos({"RF1"})
 	public void testLeerAlumno() {
 		try {
             Alumno a = alumno.leerAlumno((long)9);
@@ -59,6 +61,7 @@ public class AlumnoT {
 	}
 	
 	@Test
+	@Requisitos({"RF1"})
 	public void testActualizarAlumno() {
 		try {
 			Alumno a1 = new Alumno ((long)9, (long)664184557, "njevpnev","78456235Q", "Juan", "Caba", "Merino", "jsm@uma.es", "juansm@gmail.com", (long) 654789123, "calle rio duero", "Benalmádena", "Málaga", (long)29561);
@@ -73,18 +76,17 @@ public class AlumnoT {
 	}
 	
 	@Test
-	
+	@Requisitos({"RF1"})
 	public void testEliminarAlumno() {
-		try {
-			Alumno al = alumno.leerAlumno((long) 9);
-			alumno.eliminarAlumno(al);
-			Alumno alumno2 = alumno.leerAlumno(al.getID());
-            if(alumno2 != null) {
-            	fail("Alumno not null");
-            }
+		
+			final Long id = (long) 9;
+			try {
+				alumno.eliminarAlumno(id);
 			
-		} catch (AlumnoException e) {
-			fail("No debería lanzarse excepción");
-		}
+			assertThrows(AlumnoExistenteException.class, ()->alumno.leerAlumno(id));
+			} catch (AlumnoException e) {
+				fail("Lanza excepcion al actualizar");
+			}
+		 
 	}
 }

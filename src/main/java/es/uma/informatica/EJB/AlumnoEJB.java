@@ -6,6 +6,7 @@ import javax.persistence.PersistenceContext;
 
 import es.uma.informatica.Exception.AlumnoException;
 import es.uma.informatica.Exception.AlumnoExistenteException;
+import es.uma.informatica.Exception.AlumnoNullException;
 import es.uma.informatica.Interfaces.InterfazAlumno;
 import es.uma.informatica.Entidades.Alumno;
 
@@ -57,8 +58,11 @@ public class AlumnoEJB implements InterfazAlumno {
 	}
 
 	@Override
-	public void eliminarAlumno(Alumno a) throws AlumnoException{
-		leerAlumno(a.getID());
-		em.remove(em.merge(a));		
+	public void eliminarAlumno(Long id) throws AlumnoException{
+		Alumno a1 = leerAlumno(id);
+		if(a1 == null) {
+			throw new AlumnoNullException();
+		}
+		em.remove(a1);		
 	}
 }

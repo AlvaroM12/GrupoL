@@ -23,34 +23,34 @@ public class Expediente implements Serializable {
 	private String Activo;
 	private Float Nota_Media;
 
-	private Long Creditos_Superados;
-	private Long Creditos_FB;
-	private Long Creditos_OB;
-	private Long Creditos_OP;
-	private Long Creditos_CF;
-	private Long Creditos_PE;
-	private Long Creditos_TF;
+	private Double Creditos_Superados;
+	private Double Creditos_FB;
+	private Double Creditos_OB;
+	private Double Creditos_OP;
+	private Double Creditos_CF;
+	private Double Creditos_PE;
+	private Double Creditos_TF;
 	
 	
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.PERSIST)
 	//@JoinColumn(name="CodTitulacion",foreignKey=@ForeignKey(name="FKTitulacion", foreignKeyDefinition = "FOREIGN KEY (TE) REFERENCES Titulacion (Código)"))
 	private Titulacion TE;
 	
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.PERSIST)
 	//@JoinColumn(name="idAlumno",foreignKey=@ForeignKey(name="FKAlumno", foreignKeyDefinition = "FOREIGN KEY (AE) REFERENCES Alumno (ID)"))
 	private Alumno AE;
 	
 	
-	@OneToMany(mappedBy = "EM")
+	@OneToMany(mappedBy = "EM", cascade = {CascadeType.REMOVE, CascadeType.PERSIST})
 	private List<Matrícula> matriculas;
 	
-	@OneToMany(mappedBy = "EE")
+	@OneToMany(mappedBy = "EE" , cascade = {CascadeType.REMOVE, CascadeType.PERSIST})
 	private List<Encuesta> encuestas;
 	
 	
 
-	public Expediente(Long num_Expediente, String activo, Float nota_Media, Long creditos_Superados, Long creditos_FB,
-			Long creditos_OB, Long creditos_OP, Long creditos_CF, Long creditos_PE, Long creditos_TF) {
+	public Expediente(Long num_Expediente, String activo, Float nota_Media, Double creditos_Superados, Double creditos_FB,
+			Double creditos_OB, Double creditos_OP, Double creditos_CF, Double creditos_PE, Double creditos_TF) {
 		super();
 		Num_Expediente = num_Expediente;
 		Activo = activo;
@@ -93,59 +93,31 @@ public class Expediente implements Serializable {
 		Nota_Media = nota_Media;
 	}
 
-	public Long getCreditos_Superados() {
-		return Creditos_Superados;
-	}
-
-	public void setCreditos_Superados(Long creditos_Superados) {
+	public void setCreditos_Superados(Double creditos_Superados) {
 		Creditos_Superados = creditos_Superados;
 	}
 
-	public Long getCreditos_FB() {
-		return Creditos_FB;
-	}
-
-	public void setCreditos_FB(Long creditos_FB) {
+	public void setCreditos_FB(Double creditos_FB) {
 		Creditos_FB = creditos_FB;
 	}
 
-	public Long getCreditos_OB() {
-		return Creditos_OB;
-	}
-
-	public void setCreditos_OB(Long creditos_OB) {
+	public void setCreditos_OB(Double creditos_OB) {
 		Creditos_OB = creditos_OB;
 	}
 
-	public Long getCreditos_OP() {
-		return Creditos_OP;
-	}
-
-	public void setCreditos_OP(Long creditos_OP) {
+	public void setCreditos_OP(Double creditos_OP) {
 		Creditos_OP = creditos_OP;
 	}
 
-	public Long getCreditos_CF() {
-		return Creditos_CF;
-	}
-
-	public void setCreditos_CF(Long creditos_CF) {
+	public void setCreditos_CF(Double creditos_CF) {
 		Creditos_CF = creditos_CF;
 	}
 
-	public Long getCreditos_PE() {
-		return Creditos_PE;
-	}
-
-	public void setCreditos_PE(Long creditos_PE) {
+	public void setCreditos_PE(Double creditos_PE) {
 		Creditos_PE = creditos_PE;
 	}
 
-	public Long getCreditos_TF() {
-		return Creditos_TF;
-	}
-
-	public void setCreditos_TF(Long creditos_TF) {
+	public void setCreditos_TF(Double creditos_TF) {
 		Creditos_TF = creditos_TF;
 	}
 

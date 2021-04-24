@@ -30,16 +30,16 @@ public class AsignaturaEJB implements InterfazAsignatura {
 	@Override
 	public void importarAsignatura() throws AsignaturaException {
 		try {
-			String directorio_de_ejecucion_de_la_aplicacion = new java.io.File( "." ).getCanonicalPath();
+			String directorio_de_ejecucion_de_la_aplicacion;
+			directorio_de_ejecucion_de_la_aplicacion = new java.io.File( "." ).getCanonicalPath();
 			String sFile = directorio_de_ejecucion_de_la_aplicacion + "/" +"Oferta asignaturas.xlsx"; 
 			XSSFWorkbook workbook = new XSSFWorkbook(sFile);
 	        XSSFSheet sheet = workbook.getSheet("GII");
-	        XSSFRow row = sheet.getRow(0);
-	        XSSFCell cell = null;
-	        
-	        Asignatura a = new Asignatura();
-	        Titulacion t = new Titulacion();
-	        for(int fila=1; fila<row.getRowNum(); fila++) {
+	       	        
+	    	for(int fila=1; fila<83; fila++) {
+	        	
+	        	Asignatura a = new Asignatura();
+	 	        Titulacion t = new Titulacion();
 	        	
 	        	Long tit = (long) sheet.getRow(fila).getCell(0).getNumericCellValue();
 	        	t = em.find(Titulacion.class, tit);

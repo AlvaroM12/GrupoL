@@ -7,25 +7,22 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Base64;
 
-
-
-
 import org.junit.Before;
 
 import org.junit.Test;
 
 import es.uma.informatica.Entidades.Alumno;
-import es.uma.informatica.Entidades.Encuesta;
 import es.uma.informatica.Entidades.Usuario;
 import es.uma.informatica.Exception.AlumnoException;
-import es.uma.informatica.Exception.EncuestaException;
 import es.uma.informatica.Exception.UsuarioException;
 import es.uma.informatica.Interfaces.InterfazAlumno;
 import es.uma.informatica.Interfaces.InterfazUsuario;
+import es.uma.informatica.sii.anotaciones.Requisitos;
 
 public class UsuarioT {
 	
 	private static final String Usuario_EJB="java:global/classes/UsuarioEJB";
+	private static final String Alumno_EJB="java:global/classes/AlumnoEJB";
 	private static final String UNIDAD_PERSITENCIA_PRUEBAS = "SecretariaTest";
 	
 	private InterfazUsuario usuario;
@@ -34,10 +31,12 @@ public class UsuarioT {
 	@Before
 	public void setUp() throws Exception {
 		usuario = (InterfazUsuario) SuiteTest.ctx.lookup(Usuario_EJB);
+		alumno = (InterfazAlumno) SuiteTest.ctx.lookup(Alumno_EJB);
 		BaseDatos.inicializaBaseDatos(UNIDAD_PERSITENCIA_PRUEBAS);
 	}
 
 	@Test
+	@Requisitos({"RF13"})
 	public void testCrearUsuario() {
 		try {
 			Usuario u1 = new Usuario ((long) 1, (long) 664184557, "18752");
@@ -53,6 +52,7 @@ public class UsuarioT {
 	}
 	
 	@Test
+	@Requisitos({"RF215"})
 	public void testLeerUsuario() {
 		try {
             Usuario u = usuario.leerUsuario((long) 9);
@@ -66,11 +66,22 @@ public class UsuarioT {
 	}
 	
 	@Test
+	@Requisitos({"RF12"})
 	public void testValidarAcceso() {
-		fail("Not implemented yet");
+		try {
+			Alumno a = alumno.leerAlumno((long) 9);
+			usuario.validarAcceso(a.getEmail_Personal(),a.getContraseña());
+		} catch (AlumnoException e) {
+			fail("No debería lanzarse excepción");
+		} catch (UsuarioException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 
 	@Test
+	@Requisitos({"RF15"})
 	public void testSolicitarRecuperarContraseña() {
 		try {
 			Alumno a = new Alumno ((long)41, (long)664184557, "njevpnev","45698712R", "Marta", "Molero", "Santiago", "mms@uma.es", "martams@gmail.com",
@@ -83,6 +94,7 @@ public class UsuarioT {
 	}
 	
 	@Test
+	@Requisitos({"RF18"})
 	public void testGenerarNuevaContraseña() {		
 		try {
 			String pass="Hola";

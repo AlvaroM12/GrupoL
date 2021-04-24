@@ -17,6 +17,11 @@ public class Encuesta implements Serializable {
 	public static class EncuestaId implements Serializable{
 		private Long EE;
 		private Long Fecha_De_Envío;
+		
+		public EncuestaId(Long ne, Long f) {
+			EE=ne;
+			Fecha_De_Envío=f;
+		}
 		@Override
 		public int hashCode() {
 			final int prime = 31;

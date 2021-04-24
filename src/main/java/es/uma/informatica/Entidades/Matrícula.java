@@ -74,7 +74,7 @@ public class Matrícula implements Serializable {
 	@JoinColumn(name="EM")
 	private Expediente EM;
 	
-	@OneToMany(mappedBy = "matricula")
+	@OneToMany(mappedBy = "matricula", cascade = CascadeType.REMOVE)
 	private List<Asignaturas_Matrícula> asigMatricula;
 
 	
@@ -159,14 +159,11 @@ public class Matrícula implements Serializable {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((Curso_Academico == null) ? 0 : Curso_Academico.hashCode());
-		result = prime * result + ((EM == null) ? 0 : EM.hashCode());
 		result = prime * result + ((Estado == null) ? 0 : Estado.hashCode());
 		result = prime * result + ((Fecha_De_Matrícula == null) ? 0 : Fecha_De_Matrícula.hashCode());
 		result = prime * result + ((Nuevo_Ingreso == null) ? 0 : Nuevo_Ingreso.hashCode());
 		result = prime * result + ((Num_Archivo == null) ? 0 : Num_Archivo.hashCode());
 		result = prime * result + ((Turno_Preferente == null) ? 0 : Turno_Preferente.hashCode());
-		result = prime * result + ((a == null) ? 0 : a.hashCode());
-		result = prime * result + ((asigMatricula == null) ? 0 : asigMatricula.hashCode());
 		return result;
 	}
 	@Override
@@ -182,11 +179,6 @@ public class Matrícula implements Serializable {
 			if (other.Curso_Academico != null)
 				return false;
 		} else if (!Curso_Academico.equals(other.Curso_Academico))
-			return false;
-		if (EM == null) {
-			if (other.EM != null)
-				return false;
-		} else if (!EM.equals(other.EM))
 			return false;
 		if (Estado == null) {
 			if (other.Estado != null)
@@ -212,16 +204,6 @@ public class Matrícula implements Serializable {
 			if (other.Turno_Preferente != null)
 				return false;
 		} else if (!Turno_Preferente.equals(other.Turno_Preferente))
-			return false;
-		if (a == null) {
-			if (other.a != null)
-				return false;
-		} else if (!a.equals(other.a))
-			return false;
-		if (asigMatricula == null) {
-			if (other.asigMatricula != null)
-				return false;
-		} else if (!asigMatricula.equals(other.asigMatricula))
 			return false;
 		return true;
 	}

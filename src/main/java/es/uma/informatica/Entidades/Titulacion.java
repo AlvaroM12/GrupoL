@@ -103,7 +103,6 @@ public class Titulacion implements Serializable {
 		result = prime * result + ((asignaturas == null) ? 0 : asignaturas.hashCode());
 		result = prime * result + ((centros == null) ? 0 : centros.hashCode());
 		result = prime * result + ((expedientes == null) ? 0 : expedientes.hashCode());
-		result = prime * result + ((grupos == null) ? 0 : grupos.hashCode());
 		return result;
 	}
 	@Override
@@ -144,11 +143,6 @@ public class Titulacion implements Serializable {
 			if (other.expedientes != null)
 				return false;
 		} else if (!expedientes.equals(other.expedientes))
-			return false;
-		if (grupos == null) {
-			if (other.grupos != null)
-				return false;
-		} else if (!grupos.equals(other.grupos))
 			return false;
 		return true;
 	}

@@ -34,7 +34,6 @@ public class Clase implements Serializable {
 			final int prime = 31;
 			int result = 1;
 			result = prime * result + ((Dia == null) ? 0 : Dia.hashCode());
-			result = prime * result + ((GC == null) ? 0 : GC.hashCode());
 			result = prime * result + ((HoraInicio == null) ? 0 : HoraInicio.hashCode());
 			return result;
 		}
@@ -51,11 +50,6 @@ public class Clase implements Serializable {
 				if (other.Dia != null)
 					return false;
 			} else if (!Dia.equals(other.Dia))
-				return false;
-			if (GC == null) {
-				if (other.GC != null)
-					return false;
-			} else if (!GC.equals(other.GC))
 				return false;
 			if (HoraInicio == null) {
 				if (other.HoraInicio != null)
@@ -74,11 +68,11 @@ public class Clase implements Serializable {
 	private String HoraFin;
 	private static final long serialVersionUID = 1L;
 	
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.PERSIST)
 	private Asignatura AC;
 	
 	@Id
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.PERSIST)
 	private Grupo GC;
 
 	public Clase(String dia, String horaInicio, String horaFin) {

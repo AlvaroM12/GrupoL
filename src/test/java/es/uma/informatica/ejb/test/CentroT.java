@@ -2,18 +2,13 @@ package es.uma.informatica.ejb.test;
 
 import static org.junit.Assert.*;
 
-import java.util.Properties;
-
-
-
 import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import es.uma.informatica.Entidades.Centro;
 import es.uma.informatica.Exception.CentroException;
 import es.uma.informatica.Interfaces.InterfazCentro;
+import es.uma.informatica.sii.anotaciones.Requisitos;
 
 public class CentroT {
 	
@@ -28,7 +23,8 @@ public class CentroT {
 		BaseDatos.inicializaBaseDatos(UNIDAD_PERSITENCIA_PRUEBAS);
 	}
 
-	@Test	
+	@Test
+	@Requisitos({"RF16"})
 	public void testConsultarCentro() {
 		try {
 			Centro c = centro.ConsultarCentro((long) 1);

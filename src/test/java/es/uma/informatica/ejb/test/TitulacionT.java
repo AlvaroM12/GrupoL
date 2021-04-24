@@ -6,15 +6,13 @@ import static org.junit.Assert.*;
 
 import org.junit.Before;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
-import es.uma.informatica.Entidades.Grupo;
 import es.uma.informatica.Entidades.Titulacion;
-import es.uma.informatica.Exception.GrupoException;
 import es.uma.informatica.Exception.TitulacionException;
 
 import es.uma.informatica.Interfaces.InterfazTitulacion;
+import es.uma.informatica.sii.anotaciones.Requisitos;
 
 public class TitulacionT {
 	
@@ -32,6 +30,7 @@ public class TitulacionT {
 	}
 
 	@Test
+	@Requisitos({"RF8"})
 	public void testConsultarTitulacion() {
 		try {
 			Titulacion t = titulacion.consultarTitulacion((long) 1);
@@ -43,17 +42,21 @@ public class TitulacionT {
 	
 
 	@Test
+	@Requisitos({"RF23"})
 	public void testImportarTitulacion() {
 		try {
 			titulacion.importarTitulacion();
 			Titulacion t = titulacion.leerTitulacion((long) 1041);
-			assertEquals(1041,t);
+			if((long)1041 != t.getCódigo()) {
+				fail("No deberia lanzar excepcion1");
+			}
 		} catch (TitulacionException e) {
 			fail("No debería lanzarse excepción");
 		}
 	}
 	
 	@Test
+	@Requisitos({"RF24"})
 	public void testLeerTitulacion() throws TitulacionException {
 		try {
             Titulacion t = titulacion.leerTitulacion((long) 1);

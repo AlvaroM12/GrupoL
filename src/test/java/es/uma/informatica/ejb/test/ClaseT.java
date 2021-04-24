@@ -15,6 +15,7 @@ import es.uma.informatica.Exception.AsignaturaException;
 import es.uma.informatica.Exception.ClaseException;
 import es.uma.informatica.Exception.ExpedienteException;
 import es.uma.informatica.Interfaces.InterfazClase;
+import es.uma.informatica.sii.anotaciones.Requisitos;
 
 public class ClaseT {
 	
@@ -32,12 +33,13 @@ public class ClaseT {
 	}
 
 	@Test
+	@Requisitos({"RF7"})
 	public void testImportarHorario() throws ClaseException {
 		try {
 			clase.Importar_Horario();
-			ClaseId clase1 = new ClaseId("Lunes","08:45:00",(long)1);
+			ClaseId clase1 = new ClaseId("Lunes","08:45",(long)4000);
 			Clase c = clase.leerClase(clase1);
-			if((long)1 != c.getGC().getID()) {
+			if((long)4000 != c.getGC().getID()) {
 				fail("No deberia lanzar excepcion");
 			}
 		} catch (ClaseException e) {
@@ -46,6 +48,7 @@ public class ClaseT {
 	}
 	
 	@Test
+	@Requisitos({"RF27"})
 	public void testLeerClase() throws ClaseException {
 		
 		try {

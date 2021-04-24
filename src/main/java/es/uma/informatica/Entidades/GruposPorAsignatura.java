@@ -123,7 +123,6 @@ public class GruposPorAsignatura implements Serializable {
 		int result = 1;
 		result = prime * result + ((A_GPA == null) ? 0 : A_GPA.hashCode());
 		result = prime * result + ((Curso_Academico == null) ? 0 : Curso_Academico.hashCode());
-		result = prime * result + ((E_GPA == null) ? 0 : E_GPA.hashCode());
 		result = prime * result + ((G_GPA == null) ? 0 : G_GPA.hashCode());
 		result = prime * result + ((Oferta == null) ? 0 : Oferta.hashCode());
 		return result;
@@ -146,11 +145,6 @@ public class GruposPorAsignatura implements Serializable {
 			if (other.Curso_Academico != null)
 				return false;
 		} else if (!Curso_Academico.equals(other.Curso_Academico))
-			return false;
-		if (E_GPA == null) {
-			if (other.E_GPA != null)
-				return false;
-		} else if (!E_GPA.equals(other.E_GPA))
 			return false;
 		if (G_GPA == null) {
 			if (other.G_GPA != null)
