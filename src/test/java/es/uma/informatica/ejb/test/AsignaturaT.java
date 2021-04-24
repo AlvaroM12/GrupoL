@@ -31,7 +31,7 @@ public class AsignaturaT {
 		try {
 			asignatura.importarAsignatura();
 			Asignatura a = asignatura.leerAsignatura((long)50658);
-			if(50658 != a.getReferencia()) {
+			if((long)50658 != a.getReferencia()) {
 				fail("No coinciden las referencias");
 			}
 		} catch (AsignaturaException e) {

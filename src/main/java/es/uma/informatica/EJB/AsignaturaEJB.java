@@ -36,32 +36,45 @@ public class AsignaturaEJB implements InterfazAsignatura {
 	        XSSFSheet sheet = workbook.getSheet("GII");
 	        XSSFRow row = sheet.getRow(0);
 	        XSSFCell cell = null;
+	        
 	        Asignatura a = new Asignatura();
 	        Titulacion t = new Titulacion();
 	        for(int fila=1; fila<row.getRowNum(); fila++) {
+	        	
 	        	Long tit = (long) sheet.getRow(fila).getCell(0).getNumericCellValue();
 	        	t = em.find(Titulacion.class, tit);
 	        	a.setTA(t);
+	        	
 	        	String ofertada = sheet.getRow(fila).getCell(1).getStringCellValue();
 	        	a.setOfertada(ofertada);
+	        	
 	        	Long cod = (long) sheet.getRow(fila).getCell(2).getNumericCellValue();
 	        	a.setCodigo(cod);
+	        	
 	        	Long ref = (long) sheet.getRow(fila).getCell(3).getNumericCellValue();
 	        	a.setReferencia(ref);
+	        	
 	        	String nombre = sheet.getRow(fila).getCell(4).getStringCellValue();
 	        	a.setNombre(nombre);
+	        	
 	        	Long curso = (long) sheet.getRow(fila).getCell(5).getNumericCellValue();
 	        	a.setCurso(curso);
+	        	
 	        	Long credt = (long) sheet.getRow(fila).getCell(6).getNumericCellValue();
 	        	a.setCréditos_Teoricos(credt);
+	        	
 	        	Long credp = (long) sheet.getRow(fila).getCell(7).getNumericCellValue();
 	        	a.setCréditos_Practicos(credp);
+	        	
 	        	Long cred = (long) sheet.getRow(fila).getCell(8).getNumericCellValue();
 	        	a.setTotal_Créditos(cred);
+	        	
 	        	String cuatri = sheet.getRow(fila).getCell(9).getStringCellValue();
 	        	a.setCuatrimestre(cuatri);
+	        	
 	        	String plazas = sheet.getRow(fila).getCell(10).getStringCellValue();
 	        	a.setPlazas(plazas);
+	        	
 	        	String idioma = sheet.getRow(fila).getCell(11).getStringCellValue();
 	        	a.setIdioma_de_imparticion(idioma);
 	        	em.persist(a);        

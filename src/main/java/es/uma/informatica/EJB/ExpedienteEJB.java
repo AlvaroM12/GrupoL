@@ -42,7 +42,7 @@ public class ExpedienteEJB implements InterfazExpediente {
 	        	Expediente e = new Expediente();
 		        Alumno a = new Alumno();
 	        	
-	        	Long alum = (long) sheet.getRow(fila).getCell(0).getNumericCellValue();
+	        	String alum = sheet.getRow(fila).getCell(0).getStringCellValue();
 	        	a = em.find(Alumno.class, alum);
 	        	e.setAE(a);
 	        	
