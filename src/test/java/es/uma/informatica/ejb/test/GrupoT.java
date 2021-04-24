@@ -110,11 +110,12 @@ public class GrupoT {
 	
 	
 	@Test
-	public void testSolicitarCambioDeGrupo() {
+	public void testSolicitarCambioGrupo() {
 		try {
-			Grupo A = new Grupo((long) 1, (long) 1, "A", "tarde", "si", (long) 8, (long) 75, (long) 80);
-			Alumno Juan = alumno.leerAlumno((long)9);			
-			grupo.solicitarGrupo(A,Juan);
+			Grupo A = grupo.leerGrupo((long)1);
+			Alumno Juan = alumno.leerAlumno((long)9);	
+			Asignatura Calculo = new Asignatura((long) 89, (long) 123, (long) 5, (long) 1, (long) 6, "Sí", "Cálculo", (long) 1, "50", "Primer Cuatrimestre", "Español");
+			grupo.solicitarCambioGrupo("Hola", A, Juan, Calculo);
 			
 		}catch(GrupoException e) {
 			fail("No debería lanzarse excepción");
