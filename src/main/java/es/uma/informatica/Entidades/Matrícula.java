@@ -66,7 +66,7 @@ public class Matrícula implements Serializable {
 	@Temporal(TemporalType.DATE)
 	private Date Fecha_De_Matrícula;
 	private String Nuevo_Ingreso;
-	private String Listado_Asignaturas;
+	private List<Asignatura> a;
 	private static final long serialVersionUID = 1L;
 	
 	@Id
@@ -79,7 +79,7 @@ public class Matrícula implements Serializable {
 
 	
 	public Matrícula(String curso_Academico, String estado, Long num_Archivo, String turno_Preferente,
-			Date fecha_De_Matrícula, String nuevo_Ingreso, String listado_Asignaturas, Expediente E) {
+			Date fecha_De_Matrícula, String nuevo_Ingreso, List<Asignatura> listado_Asignaturas, Expediente E) {
 		super();
 		Curso_Academico = curso_Academico;
 		Estado = estado;
@@ -87,7 +87,7 @@ public class Matrícula implements Serializable {
 		Turno_Preferente = turno_Preferente;
 		Fecha_De_Matrícula = fecha_De_Matrícula;
 		Nuevo_Ingreso = nuevo_Ingreso;
-		Listado_Asignaturas = listado_Asignaturas;
+		a = listado_Asignaturas;
 		EM = E;
 		
 	}
@@ -136,15 +136,12 @@ public class Matrícula implements Serializable {
 	public void setNuevo_Ingreso(String Nuevo_Ingreso) {
 		this.Nuevo_Ingreso = Nuevo_Ingreso;
 	}   
-	public String getListado_Asignaturas() {
-		return this.Listado_Asignaturas;
+	public List<Asignatura> getA() {
+		return a;
 	}
-
-	public void setListado_Asignaturas(String Listado_Asignaturas) {
-		this.Listado_Asignaturas = Listado_Asignaturas;
+	public void setA(List<Asignatura> a) {
+		this.a = a;
 	}
-	
-	
 	public Expediente getEM() {
 		return EM;
 	}
@@ -165,10 +162,10 @@ public class Matrícula implements Serializable {
 		result = prime * result + ((EM == null) ? 0 : EM.hashCode());
 		result = prime * result + ((Estado == null) ? 0 : Estado.hashCode());
 		result = prime * result + ((Fecha_De_Matrícula == null) ? 0 : Fecha_De_Matrícula.hashCode());
-		result = prime * result + ((Listado_Asignaturas == null) ? 0 : Listado_Asignaturas.hashCode());
 		result = prime * result + ((Nuevo_Ingreso == null) ? 0 : Nuevo_Ingreso.hashCode());
 		result = prime * result + ((Num_Archivo == null) ? 0 : Num_Archivo.hashCode());
 		result = prime * result + ((Turno_Preferente == null) ? 0 : Turno_Preferente.hashCode());
+		result = prime * result + ((a == null) ? 0 : a.hashCode());
 		result = prime * result + ((asigMatricula == null) ? 0 : asigMatricula.hashCode());
 		return result;
 	}
@@ -201,11 +198,6 @@ public class Matrícula implements Serializable {
 				return false;
 		} else if (!Fecha_De_Matrícula.equals(other.Fecha_De_Matrícula))
 			return false;
-		if (Listado_Asignaturas == null) {
-			if (other.Listado_Asignaturas != null)
-				return false;
-		} else if (!Listado_Asignaturas.equals(other.Listado_Asignaturas))
-			return false;
 		if (Nuevo_Ingreso == null) {
 			if (other.Nuevo_Ingreso != null)
 				return false;
@@ -221,6 +213,11 @@ public class Matrícula implements Serializable {
 				return false;
 		} else if (!Turno_Preferente.equals(other.Turno_Preferente))
 			return false;
+		if (a == null) {
+			if (other.a != null)
+				return false;
+		} else if (!a.equals(other.a))
+			return false;
 		if (asigMatricula == null) {
 			if (other.asigMatricula != null)
 				return false;
@@ -232,8 +229,8 @@ public class Matrícula implements Serializable {
 	public String toString() {
 		return "Matrícula [Curso_Academico=" + Curso_Academico + ", Estado=" + Estado + ", Num_Archivo=" + Num_Archivo
 				+ ", Turno_Preferente=" + Turno_Preferente + ", Fecha_De_Matrícula=" + Fecha_De_Matrícula
-				+ ", Nuevo_Ingreso=" + Nuevo_Ingreso + ", Listado_Asignaturas=" + Listado_Asignaturas + ", EM=" + EM
-				+ ", asigMatricula=" + asigMatricula + "]";
+				+ ", Nuevo_Ingreso=" + Nuevo_Ingreso + ", a=" + a + ", EM=" + EM + ", asigMatricula=" + asigMatricula
+				+ "]";
 	}
 	   
 }

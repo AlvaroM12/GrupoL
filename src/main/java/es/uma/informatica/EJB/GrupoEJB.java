@@ -127,7 +127,7 @@ public class GrupoEJB implements InterfazGrupo {
     }
 
     @Override
-    public void solicitarGrupo(Grupo g, Matrícula m) throws GrupoException {
+    public void solicitarGrupo(Grupo g, Alumno a) throws GrupoException {
 
     	if(g==null) {
 			throw new GrupoNullException();
@@ -136,20 +136,55 @@ public class GrupoEJB implements InterfazGrupo {
     	if(grupoPref==null) {
     		throw new GrupoNullException();
     	}
-    	asignarGrupo(g,m);
+    	asignarGrupo(a);
     }
 
     @Override
-    public void asignarGrupo(Grupo g, Matrícula m) throws GrupoException{
-    	Grupo grupoPref = em.find(Grupo.class, g.getID());
+    public void asignarGrupo(Alumno a) throws GrupoException{
+    	List<Expediente> e = a.getExpedientes();
+    	int contador = 0;
+    	for (Expediente expediente : e) {
+			if(expediente.getActivo().equalsIgnoreCase("activo")) {
+				List<Matrícula> m = expediente.getMatriculas();
+				for (Matrícula matricula : m) {
+					if(matricula.getEstado().equalsIgnoreCase("activo")) {
+						List<Asignatura> asig = matricula.getA();
+						for (Asignatura asignatura : asig) {
+							if(asignatura.getIdioma_de_imparticion().equalsIgnoreCase("Español")) {
+								List<Asignaturas_Matrícula> asigM = asignatura.getAsignaturasMatricula();
+								Grupo grupo = asigM.get(contador).getG_AM();
+								while(grupo.getIngles().equalsIgnoreCase("si") || grupo.getPlazas()==0) {
+									contador++;
+								}
+								asigM.get(contador).setG_AM(grupo);
+							}else {
+								List<Asignaturas_Matrícula> asigM = asignatura.getAsignaturasMatricula();
+								Grupo grupo = asigM.get(contador).getG_AM();
+								while(grupo.getIngles().equalsIgnoreCase("no") || grupo.getPlazas()==0) {
+									contador++;
+								}
+								asigM.get(contador).setG_AM(grupo);
+							}
+							break;
+						}
+					}
+					break;
+				}
+				break;
+			}
+		}
+    	
+    	
+    	/*Grupo grupoPref = em.find(Grupo.class, g.getID());
         if(grupoPref.getAsignar()==0){
             throw new PlazasException();
         }
         grupoPref.setAsignar(grupoPref.getAsignar()-1);               
         List <Asignaturas_Matrícula> am =  grupoPref.getAsignaturasMatriculas();
         m.setAsigMatricula(am); 
-        actualizarGrupo(grupoPref);        
+        actualizarGrupo(grupoPref);  */      
     }
+
     
     @Override
     public Asignaturas_Matrícula leerGrupoAsignatura(Asignaturas_MatriculaId a) throws GrupoException{

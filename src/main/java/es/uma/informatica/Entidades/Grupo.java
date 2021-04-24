@@ -32,7 +32,7 @@ public class Grupo implements Serializable {
 	@ManyToOne
 	private Titulacion TG;
 	
-	@OneToMany(mappedBy = "G_AM", cascade = { CascadeType.REMOVE})
+	@OneToMany(mappedBy = "G_AM")
 	private List<Asignaturas_Matrícula> asignaturasMatriculas;
 	
 	@OneToMany(mappedBy = "GG")
