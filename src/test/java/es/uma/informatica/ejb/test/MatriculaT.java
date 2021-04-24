@@ -33,7 +33,8 @@ public class MatriculaT {
 	public void testImportarMatricula() {
 		try {
 			matricula.importarMatricula();
-			Matrícula m= matricula.leerMatricula("Primero");
+			MatriculaId matricula1 = new MatriculaId("Primero",(long)33);
+			Matrícula m= matricula.leerMatricula(matricula1);
 			assertEquals("Primero",m.getCurso_Academico());
 		} catch (MatriculaException e) {
 			fail("No debería lanzarse excepción");
@@ -42,7 +43,14 @@ public class MatriculaT {
 	
 	@Test
 	public void testLeerMatricula() {
-		MatriculaId mi = new MatriculaId("Primero", null);
-       
+		try {
+			MatriculaId matricula1 = new MatriculaId("Primero",(long)33);
+			Matrícula ma = matricula.leerMatricula(matricula1);
+			if(((long)33 != ma.getEM().getNum_Expediente())){
+				fail("No deberia lanzar excepcion");
+			}
+		}catch(MatriculaException m){
+			fail("No deberia lanzar excepcion");
+		}
 	}
 }
