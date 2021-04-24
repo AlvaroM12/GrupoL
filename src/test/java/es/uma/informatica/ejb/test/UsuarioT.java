@@ -26,6 +26,7 @@ import es.uma.informatica.Interfaces.InterfazUsuario;
 public class UsuarioT {
 	
 	private static final String Usuario_EJB="java:global/classes/UsuarioEJB";
+	private static final String Alumno_EJB="java:global/classes/AlumnoEJB";
 	private static final String UNIDAD_PERSITENCIA_PRUEBAS = "SecretariaTest";
 	
 	private InterfazUsuario usuario;
@@ -34,6 +35,7 @@ public class UsuarioT {
 	@Before
 	public void setUp() throws Exception {
 		usuario = (InterfazUsuario) SuiteTest.ctx.lookup(Usuario_EJB);
+		alumno = (InterfazAlumno) SuiteTest.ctx.lookup(Alumno_EJB);
 		BaseDatos.inicializaBaseDatos(UNIDAD_PERSITENCIA_PRUEBAS);
 	}
 
@@ -67,7 +69,16 @@ public class UsuarioT {
 	
 	@Test
 	public void testValidarAcceso() {
-		fail("Not implemented yet");
+		try {
+			Alumno a = alumno.leerAlumno((long) 9);
+			usuario.validarAcceso(a.getEmail_Personal(),a.getContraseña());
+		} catch (AlumnoException e) {
+			fail("No debería lanzarse excepción");
+		} catch (UsuarioException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 
 	@Test

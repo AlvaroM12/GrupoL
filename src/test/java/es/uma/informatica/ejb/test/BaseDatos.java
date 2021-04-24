@@ -123,16 +123,20 @@ public class BaseDatos {
 		}
 		
 		
-		Encuesta EleccionGrupo = new Encuesta ((long) 14);
-		Encuesta EleccionCurso = new Encuesta ((long) 1);
-		Encuesta EleccionTurno = new Encuesta ((long) 30);
-		Encuesta EleccionClase = new Encuesta ((long) 26);
+		
 		
 	
 		Expediente e1 = new Expediente ( (long) 12, "activo", (float)8.75, (long) 120, (long) 60, (long) 60, (long) 0, (long) 0, (long) 0, (long)0);
 		Expediente e2 = new Expediente ( (long) 80, "inactivo", (float)4.75, (long) 360, (long) 120, (long) 60, (long) 60, (long) 60, (long) 60, (long)0);
 		Expediente e3 = new Expediente ( (long) 2, "activo", (float)5.32, (long) 240, (long) 120, (long) 60, (long) 60, (long) 0, (long) 0, (long)0);
 		Expediente e4 = new Expediente ( (long) 33, "inactivo", (float)7.01, (long) 300, (long) 120, (long) 60, (long) 60, (long) 60, (long) 0, (long)0);
+		
+		
+		Encuesta EleccionGrupo = new Encuesta ((long) 14);
+		Encuesta EleccionCurso = new Encuesta ((long) 1);
+		Encuesta EleccionTurno = new Encuesta ((long) 30);
+		Encuesta EleccionClase = new Encuesta ((long) 26);
+		
 		
 		e1.setAE(Rocío);
 		e2.setAE(Pedro);

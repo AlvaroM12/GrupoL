@@ -12,7 +12,11 @@ import org.junit.BeforeClass;
 import org.junit.Ignore;
 import org.junit.Test;
 
+import es.uma.informatica.Entidades.Alumno;
 import es.uma.informatica.Entidades.Encuesta;
+import es.uma.informatica.Entidades.Encuesta.EncuestaId;
+import es.uma.informatica.Exception.AlumnoException;
+import es.uma.informatica.Exception.AlumnoExistenteException;
 import es.uma.informatica.Exception.EncuestaException;
 import es.uma.informatica.Interfaces.InterfazAlumno;
 import es.uma.informatica.Interfaces.InterfazEncuesta;
@@ -33,10 +37,25 @@ public class EncuestaT {
 	@Test
 	public void testResponderEncuesta() {
 		try {
-			Encuesta EleccionGrupo = new Encuesta ((long) 14);
+			
+			EncuestaId id = new EncuestaId((long) 12,(long)14);
+			Encuesta EleccionGrupo = encuesta.leerEncuesta(id);
 			String texto = "Hola";
 			encuesta.responderEncuesta(texto, EleccionGrupo);
 		}catch(EncuestaException e){
+			fail("No debería lanzarse excepción");
+		}
+	}
+	
+	@Test	
+	public void testLeerEncuesta() {
+		try {
+			EncuestaId id = new EncuestaId((long) 12,(long)14);
+			Encuesta EleccionGrupo = encuesta.leerEncuesta(id);
+            if((long)14 != EleccionGrupo.getFecha_De_Envío()) {
+            	fail("No esta");
+            }
+		} catch (EncuestaException e) {
 			fail("No debería lanzarse excepción");
 		}
 	}
