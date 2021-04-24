@@ -93,15 +93,13 @@ public class GrupoT {
 	@Test
 	public void testEliminarGrupo() {
 		try {
-			Grupo gr = grupo.leerGrupo((long)1);
+			Grupo gr = grupo.leerGrupo((long)78);
 			grupo.eliminarGrupo(gr);
-			Grupo gr2 = grupo.leerGrupo((long)1);
+			
 			//MatriculaId m = new MatriculaId("Primero", (long) 33);
 			//Asignaturas_MatriculaId a = new Asignaturas_MatriculaId ((long) 1, m);
 			//Asignaturas_Matrícula gr3 = grupo.leerGrupoAsignatura(a);
-			if(gr2==null) {
-            	fail("No deberia lanzar una excepcion2");
-            }
+			assertEquals(null,gr.getID());
 			
 		} catch (GrupoException e) {
 			fail("No debería lanzarse excepción");

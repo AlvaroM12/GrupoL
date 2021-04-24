@@ -70,7 +70,9 @@ public class GrupoEJB implements InterfazGrupo {
 		if(gr==null) {
 			throw new GrupoNullException();
 		}
-		em.remove(em.merge(gr));
+		
+		
+		em.remove(gr);
 			/*for(Iterator<Asignaturas_Matrícula>iterator = gr.getAsignaturasMatriculas().iterator();iterator.hasNext();) {
 				Asignaturas_Matrícula am = iterator.next();
 				em.remove(am);
@@ -172,17 +174,7 @@ public class GrupoEJB implements InterfazGrupo {
 				}
 				break;
 			}
-		}
-    	
-    	
-    	/*Grupo grupoPref = em.find(Grupo.class, g.getID());
-        if(grupoPref.getAsignar()==0){
-            throw new PlazasException();
-        }
-        grupoPref.setAsignar(grupoPref.getAsignar()-1);               
-        List <Asignaturas_Matrícula> am =  grupoPref.getAsignaturasMatriculas();
-        m.setAsigMatricula(am); 
-        actualizarGrupo(grupoPref);  */      
+		}      
     }
 
     
