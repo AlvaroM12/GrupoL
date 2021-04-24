@@ -74,11 +74,11 @@ public class Clase implements Serializable {
 	private String HoraFin;
 	private static final long serialVersionUID = 1L;
 	
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.PERSIST)
 	private Asignatura AC;
 	
 	@Id
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.PERSIST)
 	private Grupo GC;
 
 	public Clase(String dia, String horaInicio, String horaFin) {

@@ -37,9 +37,9 @@ public class ClaseT {
 	public void testImportarHorario() throws ClaseException {
 		try {
 			clase.Importar_Horario();
-			ClaseId clase1 = new ClaseId("Lunes","08:45:00",(long)1);
+			ClaseId clase1 = new ClaseId("Lunes","08:45",(long)4000);
 			Clase c = clase.leerClase(clase1);
-			if((long)1 != c.getGC().getID()) {
+			if((long)4000 != c.getGC().getID()) {
 				fail("No deberia lanzar excepcion");
 			}
 		} catch (ClaseException e) {
