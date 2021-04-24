@@ -7,21 +7,17 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Base64;
 
-
-
-
 import org.junit.Before;
 
 import org.junit.Test;
 
 import es.uma.informatica.Entidades.Alumno;
-import es.uma.informatica.Entidades.Encuesta;
 import es.uma.informatica.Entidades.Usuario;
 import es.uma.informatica.Exception.AlumnoException;
-import es.uma.informatica.Exception.EncuestaException;
 import es.uma.informatica.Exception.UsuarioException;
 import es.uma.informatica.Interfaces.InterfazAlumno;
 import es.uma.informatica.Interfaces.InterfazUsuario;
+import es.uma.informatica.sii.anotaciones.Requisitos;
 
 public class UsuarioT {
 	
@@ -40,6 +36,7 @@ public class UsuarioT {
 	}
 
 	@Test
+	@Requisitos({"RF13"})
 	public void testCrearUsuario() {
 		try {
 			Usuario u1 = new Usuario ((long) 1, (long) 664184557, "18752");
@@ -55,6 +52,7 @@ public class UsuarioT {
 	}
 	
 	@Test
+	@Requisitos({"RF215"})
 	public void testLeerUsuario() {
 		try {
             Usuario u = usuario.leerUsuario((long) 9);
@@ -68,6 +66,7 @@ public class UsuarioT {
 	}
 	
 	@Test
+	@Requisitos({"RF12"})
 	public void testValidarAcceso() {
 		try {
 			Alumno a = alumno.leerAlumno((long) 9);
@@ -82,6 +81,7 @@ public class UsuarioT {
 	}
 
 	@Test
+	@Requisitos({"RF15"})
 	public void testSolicitarRecuperarContraseña() {
 		try {
 			Alumno a = new Alumno ((long)41, (long)664184557, "njevpnev","45698712R", "Marta", "Molero", "Santiago", "mms@uma.es", "martams@gmail.com",
@@ -94,6 +94,7 @@ public class UsuarioT {
 	}
 	
 	@Test
+	@Requisitos({"RF18"})
 	public void testGenerarNuevaContraseña() {		
 		try {
 			String pass="Hola";

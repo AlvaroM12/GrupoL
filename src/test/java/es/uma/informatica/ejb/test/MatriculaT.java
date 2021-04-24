@@ -4,15 +4,13 @@ import static org.junit.Assert.*;
 
 
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import es.uma.informatica.Entidades.Matrícula;
 import es.uma.informatica.Entidades.Matrícula.MatriculaId;
-import es.uma.informatica.Entidades.Titulacion;
 import es.uma.informatica.Exception.MatriculaException;
-import es.uma.informatica.Exception.TitulacionException;
 import es.uma.informatica.Interfaces.InterfazMatricula;
+import es.uma.informatica.sii.anotaciones.Requisitos;
 
 public class MatriculaT {
 	
@@ -30,6 +28,7 @@ public class MatriculaT {
 	}
 
 	@Test
+	@Requisitos({"RF3"})
 	public void testImportarMatricula() {
 		try {
 			matricula.importarMatricula();
@@ -42,6 +41,7 @@ public class MatriculaT {
 	}
 	
 	@Test
+	@Requisitos({"RF22"})
 	public void testLeerMatricula() {
 		try {
 			MatriculaId matricula1 = new MatriculaId("Primero",(long)33);

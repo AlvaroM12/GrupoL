@@ -2,32 +2,23 @@ package es.uma.informatica.ejb.test;
 
 import static org.junit.Assert.*;
 
-import java.util.Date;
-import java.util.List;
-
-
 import org.junit.Before;
 import org.junit.Test;
 
 import es.uma.informatica.Entidades.Alumno;
 import es.uma.informatica.Entidades.Asignatura;
 import es.uma.informatica.Entidades.Asignaturas_Matrícula;
-import es.uma.informatica.Entidades.Encuesta;
 import es.uma.informatica.Entidades.Expediente;
 import es.uma.informatica.Entidades.Grupo;
 import es.uma.informatica.Entidades.Matrícula;
 import es.uma.informatica.Entidades.Matrícula.MatriculaId;
 import es.uma.informatica.Entidades.Asignaturas_Matrícula.Asignaturas_MatriculaId;
 import es.uma.informatica.Exception.AlumnoException;
-import es.uma.informatica.Exception.EncuestaException;
-import es.uma.informatica.Exception.GrupoErrorException;
 import es.uma.informatica.Exception.GrupoException;
 import es.uma.informatica.Exception.GrupoExistenteException;
-import es.uma.informatica.Exception.MatriculaException;
 import es.uma.informatica.Interfaces.InterfazAlumno;
-import es.uma.informatica.Interfaces.InterfazEncuesta;
 import es.uma.informatica.Interfaces.InterfazGrupo;
-import es.uma.informatica.Interfaces.InterfazMatricula;
+import es.uma.informatica.sii.anotaciones.Requisitos;
 
 
 public class GrupoT {
@@ -40,7 +31,6 @@ public class GrupoT {
 	
 	private InterfazAlumno alumno;
 	private InterfazGrupo grupo;
-	private InterfazEncuesta encuesta;
 
 	@Before
 	public void setUp() throws Exception {
@@ -50,6 +40,7 @@ public class GrupoT {
 	}
 
 	@Test
+	@Requisitos({"RF5"})
 	public void testCrearGrupo(){
 		try {
 			Grupo g = new Grupo((long) 13, (long) 3, "A", "tarde", "no", (long) 5, (long) 6, (long) 30);
@@ -66,6 +57,7 @@ public class GrupoT {
 	}
 	
 	@Test
+	@Requisitos({"RF5"})
 	public void testLeerGrupo(){
 		try {
             Grupo g = grupo.leerGrupo((long) 1);
@@ -77,6 +69,7 @@ public class GrupoT {
 	}
 	
 	@Test
+	@Requisitos({"RF5"})
 	public void testActualizarGrupo(){
 		try {
 			Grupo g1 = new Grupo ((long) 1, (long) 1, "A", "tarde", "si", (long) 8, (long) 75, (long) 80);
@@ -91,6 +84,7 @@ public class GrupoT {
 	}
 	
 	@Test
+	@Requisitos({"RF5"})
 	public void testEliminarGrupo() {
 		try {
 			Grupo gr = grupo.leerGrupo((long)78);
@@ -108,6 +102,7 @@ public class GrupoT {
 	
 	
 	@Test
+	@Requisitos({"RF9"})
 	public void testSolicitarCambioGrupo() {
 		try {
 			Grupo A = grupo.leerGrupo((long)1);
@@ -123,6 +118,7 @@ public class GrupoT {
 	}
 	
 	@Test
+	@Requisitos({"RF10"})
 	public void testSolicitarGrupo() {
 		try {
 			Grupo A = new Grupo((long) 1, (long) 1, "A", "tarde", "si", (long) 8, (long) 75, (long) 80);
@@ -137,6 +133,7 @@ public class GrupoT {
 	}
 	
 	@Test
+	@Requisitos({"RF11"})
 	public void testAsignarGrupo() {
 		try {
 			Alumno Juan = alumno.leerAlumno((long)9);
@@ -173,6 +170,7 @@ public class GrupoT {
 	}
 	
 	@Test
+	@Requisitos({"RF21"})
 	public void testLeerAsignaturaMatricula(){
 		try {
 			//Expediente e1 = new Expediente ( (long) 12, "activo", (float)8.75, (long) 120, (long) 60, (long) 60, (long) 0, (long) 0, (long) 0, (long)0);

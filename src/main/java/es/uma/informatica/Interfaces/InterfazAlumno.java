@@ -39,5 +39,5 @@ public interface InterfazAlumno {
 	 * @throws AlumnoErrorException 
 	  
 	 */
-	public void eliminarAlumno(Alumno a) throws AlumnoException;
+	public void eliminarAlumno(Long id) throws AlumnoException;
 }
