@@ -37,7 +37,8 @@ public class ClaseT {
 			clase.Importar_Horario();
 			ClaseId clase1 = new ClaseId("Lunes","08:45:00",(long)1);
 			Clase c = clase.leerClase(clase1);
-			assertEquals("Lunes",c.getDia());
+			//assertEquals("Lunes",c.getDia());
+			assertEquals((long)1,c.getGC());
 		} catch (ClaseException e) {
 			fail("No debería lanzarse excepción");
 		}
@@ -49,9 +50,10 @@ public class ClaseT {
 		try {
 			ClaseId clase1 = new ClaseId("Lunes","08:45:00",(long)1);
 			Clase cl = clase.leerClase(clase1);
-			if(cl == null) {
+			/*if(cl == null) {
 				fail("No deberia lanzar excepcion");
-			} 
+			} */
+			assertEquals((long)1, cl.getGC());
 		} catch (ClaseException e) {
 				fail("No deberia lanzar excepcion2");
 		}

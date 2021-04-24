@@ -23,6 +23,7 @@ import es.uma.informatica.Interfaces.InterfazMatricula;
 import es.uma.informatica.Entidades.Alumno;
 import es.uma.informatica.Entidades.Expediente;
 import es.uma.informatica.Entidades.Matrícula;
+import es.uma.informatica.Entidades.Matrícula.MatriculaId;
 
 /**
  * Session Bean implementation class Matrícula
@@ -71,8 +72,8 @@ public class MatriculaEJB implements InterfazMatricula {
 	}
 	
 	@Override
-	public Matrícula leerMatricula (String Curso_Academico) throws MatriculaException {
-		Matrícula m = em.find(Matrícula.class, Curso_Academico );
+	public Matrícula leerMatricula (MatriculaId ma) throws MatriculaException {
+		Matrícula m = em.find(Matrícula.class, ma);
 		if(m==null) {
 			throw new MatriculaException();
 		}
