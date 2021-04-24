@@ -7,8 +7,11 @@ import java.io.IOException;
 import org.junit.Before;
 import org.junit.Test;
 
+import es.uma.informatica.Entidades.Grupo;
+import es.uma.informatica.Entidades.Titulacion;
 import es.uma.informatica.Exception.DatosException;
 import es.uma.informatica.Interfaces.InterfazDatos;
+import es.uma.informatica.sii.anotaciones.Requisitos;
 
 public class DatosT{
 	
@@ -24,7 +27,10 @@ public class DatosT{
 	}
 
 	@Test
+	@Requisitos({"RF19"})
 	public void testExportarDatos() throws DatosException, IOException {
-		dato.exportarDatos();
+		Titulacion GII = new Titulacion((long)1, "Grado de Ingeniería Informática", (long) 240);
+		//Titulacion GIS = new Titulacion((long)52, "Grado de Ingeniería del Software", (long) 240);
+		dato.exportarDatos(GII);
 	}
 }
