@@ -36,14 +36,13 @@ public class ClaseEJB implements InterfazClase{
 			String sFile = directorio_de_ejecucion_de_la_aplicacion + "/" +"Oferta asignaturas.xlsx"; 
 			XSSFWorkbook workbook = new XSSFWorkbook(sFile);
 			XSSFSheet sheet = workbook.getSheet("GII");
-	        XSSFRow row = sheet.getRow(0);
-	        XSSFCell cell = null;
 	        
-	        Clase c = new Clase();
-	        Asignatura a = new Asignatura();
-	        Grupo g = new Grupo();
-	        
+
 	        for(int fila=1; fila<83; fila++) {
+	        	
+	        	Clase c = new Clase();
+		        Asignatura a = new Asignatura();
+		        Grupo g = new Grupo();
 	        	
 	        	Long ref = (long) sheet.getRow(fila).getCell(3).getNumericCellValue();
 	        	a.setReferencia(ref);
