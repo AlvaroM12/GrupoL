@@ -84,7 +84,7 @@ public class GrupoEJB implements InterfazGrupo {
             throw new GrupoNullException();
         }
 		
-        if(causa.length() < 75){
+        if(causa.length() < 3){
             throw new GrupoErrorException();
         }
         if(g == null) {
