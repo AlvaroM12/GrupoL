@@ -126,10 +126,10 @@ public class BaseDatos {
 		
 		
 	
-		Expediente e1 = new Expediente ( (long) 12, "activo", (float)8.75, (long) 120, (long) 60, (long) 60, (long) 0, (long) 0, (long) 0, (long)0);
-		Expediente e2 = new Expediente ( (long) 80, "inactivo", (float)4.75, (long) 360, (long) 120, (long) 60, (long) 60, (long) 60, (long) 60, (long)0);
-		Expediente e3 = new Expediente ( (long) 2, "activo", (float)5.32, (long) 240, (long) 120, (long) 60, (long) 60, (long) 0, (long) 0, (long)0);
-		Expediente e4 = new Expediente ( (long) 33, "inactivo", (float)7.01, (long) 300, (long) 120, (long) 60, (long) 60, (long) 60, (long) 0, (long)0);
+		Expediente e1 = new Expediente ( (long) 12, "activo", (float)8.75, (double) 120, (double) 60, (double) 60, (double) 0, (double) 0, (double) 0, (double)0);
+		Expediente e2 = new Expediente ( (long) 80, "inactivo", (float)4.75, (double) 360, (double) 120, (double) 60, (double) 60, (double) 60, (double) 60, (double)0);
+		Expediente e3 = new Expediente ( (long) 2, "activo", (float)5.32, (double) 240, (double) 120, (double) 60, (double) 60, (double) 0, (double) 0, (double)0);
+		Expediente e4 = new Expediente ( (long) 33, "inactivo", (float)7.01, (double) 300, (double) 120, (double) 60, (double) 60, (double) 60, (double) 0, (double)0);
 		
 		
 		Encuesta EleccionGrupo = new Encuesta ((long) 14);

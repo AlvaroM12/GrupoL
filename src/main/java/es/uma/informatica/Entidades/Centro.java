@@ -82,7 +82,6 @@ public class Centro implements Serializable {
 		result = prime * result + ((Direccion == null) ? 0 : Direccion.hashCode());
 		result = prime * result + ((ID == null) ? 0 : ID.hashCode());
 		result = prime * result + ((Nombre == null) ? 0 : Nombre.hashCode());
-		result = prime * result + ((TC == null) ? 0 : TC.hashCode());
 		result = prime * result + ((TLF_Conserjeria == null) ? 0 : TLF_Conserjeria.hashCode());
 		return result;
 	}
@@ -109,11 +108,6 @@ public class Centro implements Serializable {
 			if (other.Nombre != null)
 				return false;
 		} else if (!Nombre.equals(other.Nombre))
-			return false;
-		if (TC == null) {
-			if (other.TC != null)
-				return false;
-		} else if (!TC.equals(other.TC))
 			return false;
 		if (TLF_Conserjeria == null) {
 			if (other.TLF_Conserjeria != null)

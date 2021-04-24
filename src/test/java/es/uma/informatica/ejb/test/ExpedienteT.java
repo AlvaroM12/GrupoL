@@ -45,7 +45,9 @@ public class ExpedienteT {
 		try {
 			expediente.importarExpediente();
 			Expediente ex = expediente.leerExpediente((long) 104200001);
-			assertEquals(1,ex);
+			if((long)104200001 != ex.getNum_Expediente()) {
+				fail("No deberia lanzar excepcion1");
+			}
 		} catch (ExpedienteException e) {
 			fail("No debería lanzarse excepción");
 		}

@@ -29,7 +29,7 @@ public class Alumno extends Usuario implements Serializable {
 	private Long CP;
 	private static final long serialVersionUID = 1L;
 	
-	@OneToMany(mappedBy = "AE")
+	@OneToMany(mappedBy = "AE", cascade = CascadeType.REMOVE)
 	private List<Expediente> expedientes;
 	
 	
@@ -133,6 +133,8 @@ public class Alumno extends Usuario implements Serializable {
 	public void setCP(Long cP) {
 		CP = cP;
 	}
+	
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -185,7 +187,6 @@ public class Alumno extends Usuario implements Serializable {
 				return false;
 		} else if (!Direccion.equals(other.Direccion))
 			return false;
-		
 		if (Email_Institucional == null) {
 			if (other.Email_Institucional != null)
 				return false;

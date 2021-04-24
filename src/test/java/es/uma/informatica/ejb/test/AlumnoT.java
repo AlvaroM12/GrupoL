@@ -9,6 +9,7 @@ import org.junit.Test;
 import es.uma.informatica.Entidades.Alumno;
 import es.uma.informatica.Exception.AlumnoException;
 import es.uma.informatica.Exception.AlumnoExistenteException;
+import es.uma.informatica.Exception.AlumnoNullException;
 import es.uma.informatica.Interfaces.InterfazAlumno;
 import es.uma.informatica.sii.anotaciones.Requisitos;
 
@@ -77,14 +78,15 @@ public class AlumnoT {
 	@Test
 	@Requisitos({"RF1"})
 	public void testEliminarAlumno() {
-		try {
+		
 			final Long id = (long) 9;
-			alumno.eliminarAlumno(id);
-			Alumno a2 = alumno.leerAlumno(id);
-			//assertThrows(AlumnoNullException.class, ()->alumno.leerAlumno(id));
-			assertEquals(null, a2.getID());
-		} catch (AlumnoException e) {
-			fail("No debería lanzarse excepción");
-		}
+			try {
+				alumno.eliminarAlumno(id);
+			
+			assertThrows(AlumnoExistenteException.class, ()->alumno.leerAlumno(id));
+			} catch (AlumnoException e) {
+				fail("Lanza excepcion al actualizar");
+			}
+		 
 	}
 }

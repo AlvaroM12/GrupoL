@@ -43,7 +43,7 @@ public class GrupoT {
 	@Requisitos({"RF5"})
 	public void testCrearGrupo(){
 		try {
-			Grupo g = new Grupo((long) 13, (long) 3, "A", "tarde", "no", (long) 5, (long) 6, (long) 30);
+			Grupo g = new Grupo((long) 13, (long) 5, "F", "tarde", "no", (long) 5, (long) 6, (long) 30);
 			grupo.crearGrupo(g);
 			Grupo gr = grupo.leerGrupo(g.getID());
 			if((long)13 != gr.getID()) {
