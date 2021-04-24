@@ -2,24 +2,11 @@ package es.uma.informatica.ejb.test;
 
 import static org.junit.Assert.*;
 
-import java.util.Properties;
-
-import javax.ejb.embeddable.EJBContainer;
-import javax.naming.Context;
-
-
 import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Ignore;
 import org.junit.Test;
 
-import es.uma.informatica.Entidades.Asignatura;
 import es.uma.informatica.Entidades.Expediente;
-import es.uma.informatica.Entidades.Matrícula;
-import es.uma.informatica.Exception.AsignaturaException;
 import es.uma.informatica.Exception.ExpedienteException;
-import es.uma.informatica.Exception.MatriculaException;
-import es.uma.informatica.Interfaces.InterfazAlumno;
 import es.uma.informatica.Interfaces.InterfazExpediente;
 import es.uma.informatica.sii.anotaciones.Requisitos;
 

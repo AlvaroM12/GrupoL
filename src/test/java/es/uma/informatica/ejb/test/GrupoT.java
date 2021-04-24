@@ -22,9 +22,6 @@ import es.uma.informatica.sii.anotaciones.Requisitos;
 
 
 public class GrupoT {
-	
-	
-	
 	private static final String Grupos_EJB = "java:global/classes/GrupoEJB";
 	private static final String Alumno_EJB = "java:global/classes/AlumnoEJB";
 	private static final String UNIDAD_PERSITENCIA_PRUEBAS = "SecretariaTest";

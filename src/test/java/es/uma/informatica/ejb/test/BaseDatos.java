@@ -22,7 +22,6 @@ import es.uma.informatica.Entidades.Matrícula;
 import es.uma.informatica.Entidades.Optativa;
 import es.uma.informatica.Entidades.Personal_de_secretaria;
 import es.uma.informatica.Entidades.Titulacion;
-import es.uma.informatica.Entidades.Usuario;
 
 public class BaseDatos {
 	public static void inicializaBaseDatos(String nombreUnidadPersistencia) {

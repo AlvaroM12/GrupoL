@@ -1,12 +1,11 @@
 package es.uma.informatica.EJB;
+
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import es.uma.informatica.Entidades.Asignatura;
 import es.uma.informatica.Entidades.Encuesta;
 import es.uma.informatica.Entidades.Encuesta.EncuestaId;
-import es.uma.informatica.Exception.AsignaturaException;
 import es.uma.informatica.Exception.EncuestaException;
 import es.uma.informatica.Exception.EncuestaExistenteException;
 import es.uma.informatica.Interfaces.InterfazEncuesta;

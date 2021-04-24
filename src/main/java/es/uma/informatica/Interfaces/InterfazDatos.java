@@ -2,7 +2,6 @@ package es.uma.informatica.Interfaces;
 
 import java.io.IOException;
 
-import es.uma.informatica.Entidades.Grupo;
 import es.uma.informatica.Entidades.Titulacion;
 import es.uma.informatica.Exception.DatosException;
 

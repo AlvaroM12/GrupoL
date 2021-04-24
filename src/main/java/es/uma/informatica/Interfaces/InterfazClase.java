@@ -1,7 +1,5 @@
 package es.uma.informatica.Interfaces;
 
-import java.util.Date;
-
 import es.uma.informatica.Entidades.Clase;
 import es.uma.informatica.Entidades.Clase.ClaseId;
 import es.uma.informatica.Exception.ClaseException;

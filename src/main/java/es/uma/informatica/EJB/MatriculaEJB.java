@@ -2,7 +2,6 @@ package es.uma.informatica.EJB;
 
 import java.io.IOException;
 import java.sql.Date;
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
 import javax.ejb.Stateless;
@@ -14,13 +13,8 @@ import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-import com.sun.tools.example.debug.expr.ParseException;
-
-import es.uma.informatica.Exception.AlumnoException;
-import es.uma.informatica.Exception.AlumnoExistenteException;
 import es.uma.informatica.Exception.MatriculaException;
 import es.uma.informatica.Interfaces.InterfazMatricula;
-import es.uma.informatica.Entidades.Alumno;
 import es.uma.informatica.Entidades.Expediente;
 import es.uma.informatica.Entidades.Matrícula;
 import es.uma.informatica.Entidades.Matrícula.MatriculaId;

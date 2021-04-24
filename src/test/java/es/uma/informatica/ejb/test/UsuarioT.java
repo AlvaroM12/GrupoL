@@ -20,7 +20,6 @@ import es.uma.informatica.Interfaces.InterfazUsuario;
 import es.uma.informatica.sii.anotaciones.Requisitos;
 
 public class UsuarioT {
-	
 	private static final String Usuario_EJB="java:global/classes/UsuarioEJB";
 	private static final String Alumno_EJB="java:global/classes/AlumnoEJB";
 	private static final String UNIDAD_PERSITENCIA_PRUEBAS = "SecretariaTest";

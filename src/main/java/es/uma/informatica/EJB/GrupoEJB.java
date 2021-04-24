@@ -1,6 +1,5 @@
 package es.uma.informatica.EJB;
 
-import java.util.Iterator;
 import java.util.List;
 
 import javax.ejb.Stateless;
@@ -12,7 +11,6 @@ import es.uma.informatica.Exception.GrupoErrorException;
 import es.uma.informatica.Exception.GrupoException;
 import es.uma.informatica.Exception.GrupoExistenteException;
 import es.uma.informatica.Exception.GrupoNullException;
-import es.uma.informatica.Exception.PlazasException;
 import es.uma.informatica.Interfaces.InterfazGrupo;
 import es.uma.informatica.Entidades.Alumno;
 import es.uma.informatica.Entidades.Asignatura;

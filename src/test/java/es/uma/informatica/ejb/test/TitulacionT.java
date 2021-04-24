@@ -15,9 +15,6 @@ import es.uma.informatica.Interfaces.InterfazTitulacion;
 import es.uma.informatica.sii.anotaciones.Requisitos;
 
 public class TitulacionT {
-	
-	
-	
 	private static final String Titulacion_EJB="java:global/classes/TitulacionEJB";
     private static final String UNIDAD_PERSITENCIA_PRUEBAS = "SecretariaTest";
 	

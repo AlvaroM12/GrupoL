@@ -8,8 +8,6 @@ import java.util.List;
 
 import javax.persistence.*;
 
-import es.uma.informatica.Entidades.Matrícula.MatriculaId;
-
 /**
  * Entity implementation class for Entity: Matrícula
  *

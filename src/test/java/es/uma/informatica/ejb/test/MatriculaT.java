@@ -13,9 +13,6 @@ import es.uma.informatica.Interfaces.InterfazMatricula;
 import es.uma.informatica.sii.anotaciones.Requisitos;
 
 public class MatriculaT {
-	
-	
-	
 	private static final String Matricula_EJB="java:global/classes/MatriculaEJB";
     private static final String UNIDAD_PERSITENCIA_PRUEBAS = "SecretariaTest";
 	

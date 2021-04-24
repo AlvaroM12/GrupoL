@@ -1,6 +1,5 @@
 package es.uma.informatica.Interfaces;
 
-import es.uma.informatica.EJB.ExpedienteEJB;
 import es.uma.informatica.Entidades.Expediente;
 import es.uma.informatica.Exception.ExpedienteException;
 
