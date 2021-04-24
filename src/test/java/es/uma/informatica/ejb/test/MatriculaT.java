@@ -46,10 +46,11 @@ public class MatriculaT {
 		try {
 			MatriculaId matricula1 = new MatriculaId("Primero",(long)33);
 			Matrícula ma = matricula.leerMatricula(matricula1);
-			assertEquals((long)33, ma.getEM());
+			if(((long)33 != ma.getEM().getNum_Expediente())){
+				fail("No deberia lanzar excepcion");
+			}
 		}catch(MatriculaException m){
 			fail("No deberia lanzar excepcion");
 		}
-       
 	}
 }
