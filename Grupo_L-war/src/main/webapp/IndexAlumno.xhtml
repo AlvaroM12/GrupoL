@@ -10,6 +10,7 @@
 	<title>FLM SECRETARIA</title>
 
 	<style type="text/css">
+	
 #titulo {
 	display: flex;
 	justify-content: center;
@@ -21,6 +22,7 @@
 	text-transform: uppercase;
 	margin-bottom: 25px;
 	margin-top: 25px;
+	padding-left:115px;
 }
 
 #pie {
@@ -38,55 +40,62 @@
 	right: 0%;
 	bottom: 0px; 
 	margin-bottom: 25px;
-	}
+}
 
 #izquierda{
 	padding-top: 20px;
 	padding-right: 15px;
 	padding-bottom: 20px;
 	padding-left: 15px;
-	margin-left: 25px;
 	background-color: #F7F0F0;
 	border: 3px solid black;
 	float: left;
-	margin-right: 200px;
-	border-radius: 10px;
-	
+	margin-left: 25px;
+	border-radius: 10px;	
 }
 
 #centro{
-	display: grid;
-	justify-content: center;
+	text-align: center;
 	border-radius: 10px;
 	width: 600px;
 	background-color: #F7F0F0;
 	border: 3px solid black;
-	float: left;
-	padding-top: 15px;
-	padding-left: 15px;
-	margin: auto;
-	padding-bottom: 15px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+  	margin-left: auto;
+  	margin-right: auto;
+}
 	
-	
-	}
 #cerrar{
-	border-radius: 10px;
-	margin-right: 25px;
-	margin-left: 25px;
+	padding: 5px;
 	background-color: #F7F0F0;
 	border: 3px solid black;
 	float: right;
-	padding: 5px;
-	
+	margin-right: 25px;
+	margin-top: 25px;
+	border-radius: 10px;
 }
+
+#inicio{
+	padding: 5px;
+	background-color: #F7F0F0;
+	border: 3px solid black;
+	float: left;
+	margin-left: 25px;
+	margin-top: 25px;
+	border-radius: 10px;
+}
+
 </style>
 </h:head>
 
 <h:body>
+	
+	<div id="cerrar">
+		<input type="submit" name="leerEncuesta" value="Cerrar sesion"/>
+	</div>
 
-	<h:h1 id="titulo">
-			FLM-SECRETARIA
-	</h:h1>
+	<h:h1 id="titulo"> FLM-SECRETARIA </h:h1>
 
 	<div id="izquierda"><b>MIS DATOS </b><br></br><br></br>
 		<a href="" style="text-decoration:none">Leer Encuesta</a><br></br>
@@ -100,17 +109,13 @@
 	</div>
 	
 	<div id="centro">
-		<input type="submit" name="leerEncuesta" value="Rellenar encuesta"/> <br></br> 
+		<input type="submit" name="leerEncuesta" value="Rellenar encuesta"/> <br></br><br></br>
 		<input type="submit" name="leerEncuesta" value="Solicitar cambio de grupo"/>
 	</div>
-	
-	<div id="cerrar">
-		<input type="submit" name="leerEncuesta" value="Cerrar sesion"/> <br></br>
-	</div>
-
 
 	<div id="pie"> 
-	Universidad de Málaga · Avda. Cervantes, 2. 29071 MÁLAGA · Tel. 952131000 · info@uma.es	
+		Universidad de Málaga · Avda. Cervantes, 2. 29071 MÁLAGA · Tel. 952131000 · info@uma.es	
 	</div>
+	
 </h:body>
 </html>
