@@ -8,117 +8,95 @@
 
 <h:head>
 	<title>Alumno</title>
-
-	<style type="text/css">
-	
-#titulo {
-	display: flex;
-	justify-content: center;
-	font-family: Verdana, Geneva, sans-serif;
-	font-size: 36px;
-	font-weight: bold;
-	font-variant: normal;
-	color: #00DFA4;
-	text-transform: uppercase;
-	margin-bottom: 25px;
-	margin-top: 25px;
-}
-
-#pie {
-	display: flex;
-	justify-content: center;
-	padding: 0px;
-	height: auto;
-	width: 850px;
-	margin-top: 0px;
-	margin-bottom: 0px;
-	margin-right: auto;
-	margin-left: auto;
-	position: absolute;
-	left: 0%;
-	right: 0%;
-	bottom: 0px; 
-	margin-bottom: 25px;
-}
-
-#izquierda{
-	padding-top: 20px;
-	padding-right: 15px;
-	padding-bottom: 20px;
-	padding-left: 15px;
-	background-color: #F7F0F0;
-	border: 3px solid black;
-	float: left;
-	margin-left: 25px;
-	border-radius: 10px;	
-}
-
-#centro{
-	text-align: center;
-	border-radius: 10px;
-	width: 600px;
-	background-color: #F7F0F0;
-	border: 3px solid black;
-	padding-top: 20px;
-	padding-bottom: 20px;
-  	margin-left: auto;
-  	margin-right: auto;
-}
-	
-#cerrar{
-	padding: 5px;
-	background-color: #F7F0F0;
-	border: 3px solid black;
-	float: right;
-	margin-right: 25px;
-	margin-top: 25px;
-	border-radius: 10px;
-}
-
-#inicio{
-	padding: 5px;
-	background-color: #F7F0F0;
-	border: 3px solid black;
-	float: left;
-	margin-left: 25px;
-	margin-top: 25px;
-	border-radius: 10px;
-}
-
-</style>
 </h:head>
 
 <h:body>
-	
-	<div id="inicio">
-		<input type="submit" name="leerEncuesta" value="INICIO"/>
-	</div>
-	
-	<div id="cerrar">
-		<input type="submit" name="leerEncuesta" value="Cerrar sesion"/>
+
+	<div> <input type="submit" name="leerEncuesta" value="INICIO" /> </div>
+
+	<div> <input type="submit" name="leerEncuesta" value="Cerrar sesion" /> </div>
+
+	<h1> FLM-SECRETARIA </h1>
+
+	<div>
+		<b>MIS DATOS </b><br></br>
+		<br></br> <a href="#" style="text-decoration: none">Leer Encuesta</a><br></br>
+		<a href="#" style="text-decoration: none">Leer Asignatura Matricula</a><br></br>
+		<a href="#" style="text-decoration: none">Leer Matricula</a><br></br> <a
+			href="#" style="text-decoration: none">Leer Titulacion</a><br></br> <a
+			href="#" style="text-decoration: none">Leer Usuario</a><br></br> <a
+			href="#" style="text-decoration: none">Leer Asignatura</a><br></br> <a
+			href="#" style="text-decoration: none">Leer Clase</a><br></br> <a
+			href="#" style="text-decoration: none">Leer Expediente</a>
 	</div>
 
-	<h:h1 id="titulo"> FLM-SECRETARIA </h:h1>
+	<div>
+		<div>
+			<b>Alumnos: </b>
+			<br></br>
+		</div>
+		<div>
+			<h:form id="alumnos">
+				<h:dataTable value="#{AlumnoBB.listaAlumno()}" var="a">
+					<h:column>
+						<f:facet name="header">DNI</f:facet>
+						<h:outputText value="#{a.dNI}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header" filterBy="#{a.nombre}" filterMatchCode="contains">Nombre</f:facet>
+						<h:outputText value="#{a.nombre}" />
+					</h:column>
 
-	<div id="izquierda"><b>MIS DATOS </b><br></br><br></br>
-		<a href="" style="text-decoration:none">Leer Encuesta</a><br></br>
-		<a href="" style="text-decoration:none">Leer Asignatura Matricula</a><br></br>
-		<a href="" style="text-decoration:none">Leer Matricula</a><br></br>
-		<a href="" style="text-decoration:none">Leer Titulacion</a><br></br>
-		<a href="" style="text-decoration:none">Leer Usuario</a><br></br>
-		<a href="" style="text-decoration:none">Leer Asignatura</a><br></br>
-		<a href="" style="text-decoration:none">Leer Clase</a><br></br>
-		<a href="" style="text-decoration:none">Leer Expediente</a>
+					<h:column>
+						<f:facet name="header">Apellido 1</f:facet>
+						<h:outputText value="#{a.apellido1}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">Apellido 2</f:facet>
+						<h:outputText value="#{a.apellido2}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">Email_Institucional</f:facet>
+						<h:outputText value="#{a.email_Institucional}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">Email_Personal</f:facet>
+						<h:outputText value="#{a.email_Personal}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">Móvil</f:facet>
+						<h:outputText value="#{a.móvil}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">Dirección</f:facet>
+						<h:outputText value="#{a.direccion}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">Localidad</f:facet>
+						<h:outputText value="#{a.localidad}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">Provincia</f:facet>
+						<h:outputText value="#{a.provincia}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">CP</f:facet>
+						<h:outputText value="#{a.cP}" />
+					</h:column>
+					<h:column>
+						<h:commandButton value="Modificar"
+							action="#{alumnos.modificar(a)}" />
+					</h:column>
+					<h:column>
+						<h:commandButton value="Eliminar"
+							action="#{alumnos.eliminar(a)}" />
+					</h:column>
+				</h:dataTable>
+			</h:form>
+		</div>
 	</div>
 	
-	<div id="centro">
-		<input type="submit" name="leerEncuesta" value="Rellenar encuesta"/> <br></br><br></br>
-		<input type="submit" name="leerEncuesta" value="Solicitar cambio de grupo"/>
-	</div>
+	<div> Universidad de Málaga · Avda. Cervantes, 2. 29071 MÁLAGA · Tel. 952131000 · info@uma.es </div>
 
-	<div id="pie"> 
-		Universidad de Málaga · Avda. Cervantes, 2. 29071 MÁLAGA · Tel. 952131000 · info@uma.es	
-	</div>
-	
 </h:body>
 </html>

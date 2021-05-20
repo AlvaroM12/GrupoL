@@ -1,14 +1,19 @@
 package es.uma.informatica.EJB;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 import es.uma.informatica.Exception.AlumnoException;
 import es.uma.informatica.Exception.AlumnoExistenteException;
 import es.uma.informatica.Exception.AlumnoNullException;
 import es.uma.informatica.Interfaces.InterfazAlumno;
 import es.uma.informatica.Entidades.Alumno;
+import es.uma.informatica.Entidades.Asignatura;
 
 /**
  * Session Bean implementation class Alumno
@@ -38,7 +43,15 @@ public class AlumnoEJB implements InterfazAlumno {
 		}
 		return al;
 	}
-
+	
+	@Override
+	public List<Alumno> listaAlumno() throws AlumnoException {
+    	Query queryAl = em.createQuery("SELECT a FROM Alumno a");
+    	List<Alumno> list = queryAl.getResultList();
+		
+		return list;
+	}
+	
 	@Override
 	public void actualizarAlumno(Alumno a) throws AlumnoException{
 		Alumno al = leerAlumno(a.getID());

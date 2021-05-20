@@ -1,0 +1,90 @@
+.titulo {
+	display: flex;
+	justify-content: center;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 36px;
+	font-weight: bold;
+	font-variant: normal;
+	color: #00DFA4;
+	text-transform: uppercase;
+	margin-bottom: 25px;
+	margin-top: 25px;
+}
+
+.pie {
+	display: flex;
+	justify-content: center;
+	padding: 0px;
+	height: auto;
+	width: 850px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	margin-right: auto;
+	margin-left: auto;
+	position: absolute;
+	left: 0%;
+	right: 0%;
+	bottom: 0px;
+	margin-bottom: 25px;
+}
+
+.page{
+	flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.colIzquierda {
+	padding-top: 20px;
+	padding-right: 15px;
+	padding-bottom: 20px;
+	padding-left: 15px;
+	background-color: #F7F0F0;
+	border: 3px solid black;
+	margin-left: 25px;
+	margin-right: 60px;
+	border-radius: 10px;
+    max-width: 50%;
+    float: left;
+}
+
+.colDerecha {
+	padding-top: 20px;
+	padding-right: 15px;
+	padding-bottom: 20px;
+	padding-left: 15px;
+	background-color: #F7F0F0;
+	border: 3px solid black;
+	margin-right: 50px;
+	margin-left: 100 px;
+	border-radius: 10px;
+	float:right;
+    max-width: 70%;
+}
+
+.cerrar {
+	padding: 5px;
+	background-color: #F7F0F0;
+	border: 3px solid black;
+	float: right;
+	margin-right: 25px;
+	margin-top: 25px;
+	border-radius: 10px;
+}
+
+.inicio {
+	padding: 5px;
+	background-color: #F7F0F0;
+	border: 3px solid black;
+	float: left;
+	margin-left: 25px;
+	margin-top: 25px;
+	border-radius: 10px;
+}
+
+.izquierdaCentro{
+	margin-left: 25px;
+	text-align: left;
+}
+
+
