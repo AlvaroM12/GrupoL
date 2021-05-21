@@ -24,7 +24,7 @@ public interface InterfazUsuario {
 	 */
 	public String validarAcceso(String email, String pass) throws UsuarioException;
 	
-	public Alumno loginUsuario(String email, String pass) throws UsuarioException;
+	public Alumno loginAlumno(String email, String pass) throws UsuarioException;
 	public Personal_de_secretaria loginPersonal(String email, String pass) throws UsuarioException;
 	
 
@@ -46,4 +46,7 @@ public interface InterfazUsuario {
 	 * @throws UsuarioNullException 
 	 */
 	public void generarNuevaContraseña(Usuario u, String contraseña) throws UsuarioException;
+
+
+	
 }

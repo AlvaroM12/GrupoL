@@ -84,7 +84,7 @@ public class UsuarioEJB implements InterfazUsuario{
 		return rol;        
 	}
 	@Override
-	public Alumno loginUsuario(String email, String pass) throws UsuarioException{
+	public Alumno loginAlumno(String email, String pass) throws UsuarioException{
 		
         TypedQuery <Alumno> query = em.createQuery("SELECT a FROM Alumno a "
 	            + "WHERE a.Email_Personal LIKE :correo", Alumno.class);
