@@ -4,27 +4,39 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
-	xmlns:f="http://xmlns.jcp.org/jsf/core">
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	 xmlns:p="http://primefaces.org/ui">
 
 <h:head>
-	<title>IMPORTAR HORARIO</title>
-	<h:outputStylesheet library="css" name="Layout.css"/>
+	<title>Importar horario</title>
+	<h:outputStylesheet library="css" name="Estilos.css"  />
+	<h:outputStylesheet library="css" name="Layout.css"  />
 </h:head>
 
 <h:body>
-
 	<div class="cerrar"> <h:button value="Cerrar sesion" outcome="index.xhtml" /> </div>
 	<div class="inicio"> <h:button value="INICIO" outcome="Principal.xhtml" /> </div>
-	<div> <p>Hola, <h:outputText value="#{infoSesion.usuario.nombre}"/>.</p></div>
 
-	<h1 class="titulo"> Importar horario </h1>
+	<h1 class="titulo"> IMPORTAR HORARIO </h1>
 
-	<div class="centro">
+	
+	
+	<div class="centrado">	
+	<div class="card">
+    <h:form>
+      		  <p:fileUpload listener="#{fileUploadView.handleFileUpload}" mode="advanced" dragDropSupport="true" update="messages" sizeLimit="100000" allowTypes="/(\.|\/)(csv|xls)$/"/>
+
+       		 <p:growl id="messages" showDetail="true"/>
+    		</h:form>
+		</div>
+	
 		<input type="submit" name="leerEncuesta" value="Cancelar"/>
 		<input type="submit" name="leerEncuesta" value="Aceptar"/>
 	</div>
-	
-	<div class="pie"> Universidad de Málaga · Avda. Cervantes, 2. 29071 MÁLAGA · Tel. 952131000 · info@uma.es </div>
 
+	<div class="pie"> 
+		Universidad de Málaga · Avda. Cervantes, 2. 29071 MÁLAGA · Tel. 952131000 · info@uma.es	
+	</div>
+	
 </h:body>
 </html>
