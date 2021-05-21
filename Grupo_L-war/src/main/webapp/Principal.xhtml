@@ -6,19 +6,17 @@
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/core">
 
-
 <h:head>
-	<title>Titulación</title>
-	<h:outputStylesheet library="css" name="Layout.css"/>
+	<title>FLM SECRETARIA</title>
+	<h:outputStylesheet library="css" name="Layout.css"  />
 </h:head>
 
 <h:body>
-	
-	<div class="cerrar"> <h:button value="Cerrar sesion" outcome="index.xhtml" /> </div>
-	<div class="inicio"> <h:button value="INICIO" outcome="Principal.xhtml" /> </div>
 
-	<h1 class="titulo"> Titulacion </h1>
+	<div class="cerrar"> <h:button value="Cerrar sesion" outcome="index.xhtml" /> </div>
 	
+	<h1 class="titulo"> Principal </h1>
+
 	<div class="izquierda">
 		<b>MIS DATOS </b><br></br><br></br> 
 		<a href="#" style="text-decoration: none">Leer Encuesta</a><br></br>
@@ -31,29 +29,10 @@
 		<a href="LeerExpediente.xhtml" style="text-decoration: none">Leer Expediente</a>
 	</div>
 	
-	 <div class="centro">
-	 	<div class="isquierdaCentro">
-			<b>Titulacines: </b> <br></br>
-		</div>
-		
-        <h:form id="expediente">
-            <h:dataTable value="#{TitulacionBB.leerTitulacion()}" var="t">
-                <h:column>
-                    <f:facet name="header">Codigo  </f:facet>
-                    <h:outputText value="#{c.Código}"/>
-                </h:column>
-                <h:column>
-                    <f:facet name="header">Nombre de Titulacion</f:facet>
-                    <h:outputText value="#{c.Nombre}"/>
-                </h:column>
-                
-                <h:column>
-                    <f:facet name="header">  Creditos</f:facet>
-                    <h:outputText value="#{c.Créditos}"/>
-                </h:column>
-           </h:dataTable>
-        </h:form>
-	 </div>
+	<div class="centro">
+		<h:button value="Rellenar encuesta" outcome="index.xhtml" /> <br></br><br></br>
+		<h:button value="Solicitar cambio de grupo" outcome="index.xhtml" />
+	</div>
 
 	<div class="pie"> 
 		Universidad de Málaga · Avda. Cervantes, 2. 29071 MÁLAGA · Tel. 952131000 · info@uma.es	

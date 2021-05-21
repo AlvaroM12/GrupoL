@@ -1,22 +1,21 @@
-<<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/core">
-
 <h:head>
-	<title>Expediente</title>
-	<h:outputStylesheet library="css" name="Layout.css"/>
+	<title>FLM SECRETARIA</title>
+	<h:outputStylesheet library="css" name="Layout.css"  />
 </h:head>
 
 <h:body>
-
+	
 	<div class="cerrar"> <h:button value="Cerrar sesion" outcome="index.xhtml" /> </div>
 	<div class="inicio"> <h:button value="INICIO" outcome="Principal.xhtml" /> </div>
-
-	<h1 class="titulo"> Expediente </h1>
+	
+	<h1 class="titulo"> Asignaturas </h1>
 
 	<div class="izquierda">
 		<b>MIS DATOS </b><br></br><br></br> 
@@ -29,34 +28,15 @@
 		<a href="#" style="text-decoration: none">Leer Clase</a><br></br> 
 		<a href="LeerExpediente.xhtml" style="text-decoration: none">Leer Expediente</a>
 	</div>
+	
+	<div class="centro" rendered=a>
+		<h1> ASIGNATURAS </h1>
 
-	<div class="centro">
-		<div class="centroIzquierda">
-			<b>Expediente: </b>
-			<br></br>
-		</div>
-		<div>
-			<h:form id="alumnos">
-				<h:dataTable value="#{AlumnoBB.listaAlumno()}" var="a">
-					<h:column>
-                            <f:facet name="header">Codigo  </f:facet>
-                            <h:outputText value="#{c.codigo}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">Nombre de Titulacion</f:facet>
-                            <h:outputText value="#{c.nombre_tit}"/>
-                        </h:column>
-                        
-                        <h:column>
-                            <f:facet name="header">  Creditos</f:facet>
-                            <h:outputText value="#{c.creditos}"/>
-                        </h:column>
-				</h:dataTable>
-			</h:form>
-		</div>
+	</div>
+
+	<div class="pie"> 
+		Universidad de Málaga · Avda. Cervantes, 2. 29071 MÁLAGA · Tel. 952131000 · info@uma.es	
 	</div>
 	
-	<div class="pie"> Universidad de Málaga · Avda. Cervantes, 2. 29071 MÁLAGA · Tel. 952131000 · info@uma.es </div>
-
 </h:body>
 </html>

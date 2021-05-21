@@ -5,46 +5,42 @@
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/core">
-	
+
 <h:head>
-        <title>Login de usuario</title>
-        <h:outputStylesheet library="css" name="Layout.css"/>
-    </h:head>
+	<title>Login de usuario</title>
+	<h:outputStylesheet library="css" name="Layout.css" />
+</h:head>
 
-    <h:body>
+<h:body>
 
-        <h:commandButton styleClass="inicio" value="INICIO" action="LeerAlumnos.xhtml"/>
-        <h:commandButton styleClass="cerrar" value="Cerrar sesion" action="LeerAlumnos.xhtml"/>
+	<h1 class="titulo">FLM-SECRETARIA</h1>
 
-        <h1 class="titulo"> FLM-SECRETARIA </h1>
+	<div class="izquierda"> <img src="resources/imagenes/logo.jpg" width="400" /> </div>
 
-        <div class="izquierda">
-        	<img src="resources/imagenes/logo.jpg" width="400" />
-        </div>
+	<div class="centro">
+		<h:form>
+			<img src="resources/imagenes/uma.png" width="200" />
 
-		<div class="centro">
-			 <h:form>
-                <img src="resources/imagenes/uma.png" width="200" />
+			<h:panelGrid columns="3">
+				<h:outputText value="Nombre de usuario:" />
+				<h:inputText id="user" required="true"
+					value="#{login.usuario.cuenta}" />
+				<h:message for="user" />
 
-                    <h:panelGrid columns="3">
-                        <h:outputText value="Nombre de usuario:"/>
-                        <h:inputText id="user" required="true" value="#{login.usuario.cuenta}"/>
-                        <h:message for="user"/>
+				<h:outputText value="Contraseña:" />
+				<h:inputSecret id="pass" required="true"
+					value="#{login.usuario.contrasenia}" />
+				<h:message for="pass" />
 
-                        <h:outputText value="Contraseña:"/>
-                        <h:inputSecret id="pass" required="true" value="#{login.usuario.contrasenia}"/>
-                        <h:message for="pass"/>
+				<h:button value="Entrar" outcome="Principal.xhtml" /> 
 
-                        <h:commandButton value="Entrar" action="#{login.entrar()}"/>
+			</h:panelGrid>
+			<a href="GenerarNuevaContrasena.xhtml">¿Has olvidado tu
+				contraseña?</a>
+		</h:form>
+	</div>
 
-                    </h:panelGrid>
-				<a href="GenerarNuevaContrasena.xhtml">¿Has olvidado tu contraseña?</a>
-                    
-                    
-        </h:form>
-		</div>
-       
-       	<div class="pie"> Universidad de Málaga · Avda. Cervantes, 2. 29071 MÁLAGA · Tel. 952131000 · info@uma.es </div>
-        
+	<div class="pie">Universidad de Málaga · Avda. Cervantes, 2. 29071 MÁLAGA · Tel. 952131000 · info@uma.es</div>
+
 </h:body>
 </html>

@@ -17,6 +17,7 @@ public class UsuarioBB {
 	@Inject
     private UsuarioEJB usuejb;
     
+	private String rol;
     private Usuario usu;
     
     public UsuarioBB() {
@@ -24,14 +25,14 @@ public class UsuarioBB {
     }
 
     /*
-     * public String validar(Usuario u) {
+     * public String validar() {
         try{
-            usuejb.validarAcceso(email, u.getContraseña());
+            rol = usuejb.validarAcceso(email, usu.getContraseña());
             
         }catch (AlumnoException e) {
             return "IndexAlumno.xhtml";
         }
-        return null;
-    }
+        return rol;
+    } 
      */
 }
