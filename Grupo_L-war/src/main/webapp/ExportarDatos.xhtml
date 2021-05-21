@@ -7,18 +7,18 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core">
 
 <h:head>
-	<title>Alumno</title>
+	<title>Exportar Datos</title>
 	<h:outputStylesheet library="css" name="Layout.css"/>
 </h:head>
 
 <h:body>
 	
-	<h:commandButton styleClass="inicio" value="INICIO" action="LeerAlumnos.xhtml"/>
-	<h:commandButton styleClass="cerrar" value="Cerrar sesion" action="LeerAlumnos.xhtml"/>
+	<div class="cerrar"> <h:button value="Cerrar sesion" outcome="index.xhtml" /> </div>
+	<div class="inicio"> <h:button value="INICIO" outcome="Principal.xhtml" /> </div>
 
 	<h1 class="titulo"> FLM-SECRETARIA </h1>
 
-	<div id="centro">
+	<div class="Exportar">
 		<b>Exportar Datos</b> <br></br><br></br>
 		
 		<select class="so" name="so">
@@ -30,7 +30,7 @@
 			 <option value="1073">Ingeniería Informatica y Matemáticas</option>
 		</select>
 		<br></br><br></br>
-		<h:commandButton value="EXPORTAR" action="@{}"/>
+		<h:commandButton value="EXPORTAR" action="@{}" />
 	</div>
 
 	<div class="pie"> 

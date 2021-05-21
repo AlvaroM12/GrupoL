@@ -7,109 +7,24 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core">
 
 <h:head>
-	<title>Alumno</title>
-
-	<style type="text/css">
-	
-#titulo {
-	display: flex;
-	justify-content: center;
-	font-family: Verdana, Geneva, sans-serif;
-	font-size: 36px;
-	font-weight: bold;
-	font-variant: normal;
-	color: #00DFA4;
-	text-transform: uppercase;
-	margin-bottom: 25px;
-	margin-top: 25px;
-}
-
-#pie {
-	display: flex;
-	justify-content: center;
-	padding: 0px;
-	height: auto;
-	width: 850px;
-	margin-top: 0px;
-	margin-bottom: 0px;
-	margin-right: auto;
-	margin-left: auto;
-	position: absolute;
-	left: 0%;
-	right: 0%;
-	bottom: 0px; 
-	margin-bottom: 25px;
-}
-
-#izquierda{
-	padding-top: 20px;
-	padding-right: 15px;
-	padding-bottom: 20px;
-	padding-left: 15px;
-	background-color: #F7F0F0;
-	border: 3px solid black;
-	float: left;
-	margin-left: 25px;
-	border-radius: 10px;	
-}
-
-#centro{
-	text-align: center;
-	border-radius: 10px;
-	width: 600px;
-	background-color: #F7F0F0;
-	border: 3px solid black;
-	padding-top: 20px;
-	padding-bottom: 20px;
-  	margin-left: auto;
-  	margin-right: auto;
-}
-	
-#cerrar{
-	padding: 5px;
-	background-color: #F7F0F0;
-	border: 3px solid black;
-	float: right;
-	margin-right: 25px;
-	margin-top: 25px;
-	border-radius: 10px;
-}
-
-#inicio{
-	padding: 5px;
-	background-color: #F7F0F0;
-	border: 3px solid black;
-	float: left;
-	margin-left: 25px;
-	margin-top: 25px;
-	border-radius: 10px;
-}
-
-</style>
+	<title>Importar Asignatura</title>
+	<h:outputStylesheet library="css" name="Layout.css"  />
 </h:head>
 
 <h:body>
-	
-	<div id="inicio">
-		<input type="submit" name="leerEncuesta" value="INICIO"/>
-	</div>
-	
-	<div id="cerrar">
-		<input type="submit" name="leerEncuesta" value="Cerrar sesion"/>
-	</div>
+	<div class="cerrar"> <h:button value="Cerrar sesion" outcome="index.xhtml" /> </div>
+	<div class="inicio"> <h:button value="INICIO" outcome="Principal.xhtml" /> </div>
 
-	<h:h1 id="titulo"> FLM-SECRETARIA </h:h1>
+	<h1 class="titulo"> FLM-SECRETARIA </h1>
 
 	
 	
-	<div id="centro">
-	<b>Importar Asignatura</b>
-	<br></br><br></br><br></br>
-		<input type="submit" name="leerEncuesta" value="Aceptar"/>
+	<div class="centro">
 		<input type="submit" name="leerEncuesta" value="Cancelar"/>
+		<input type="submit" name="leerEncuesta" value="Aceptar"/>
 	</div>
 
-	<div id="pie"> 
+	<div class="pie"> 
 		Universidad de Málaga · Avda. Cervantes, 2. 29071 MÁLAGA · Tel. 952131000 · info@uma.es	
 	</div>
 	

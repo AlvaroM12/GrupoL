@@ -1,4 +1,4 @@
-<<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml"
@@ -37,20 +37,44 @@
 		</div>
 		<div>
 			<h:form id="alumnos">
-				<h:dataTable value="#{AlumnoBB.listaAlumno()}" var="a">
+				<h:dataTable value="#{ExpedienteBB.leerExpediente()}" var="e" border="2">
 					<h:column>
-                            <f:facet name="header">Codigo  </f:facet>
-                            <h:outputText value="#{c.codigo}"/>
+                            <f:facet name="header">Num_Expediente  </f:facet>
+                            <h:outputText value="#{e.Num_Expediente}"/>
                         </h:column>
                         <h:column>
-                            <f:facet name="header">Nombre de Titulacion</f:facet>
-                            <h:outputText value="#{c.nombre_tit}"/>
+                            <f:facet name="header">Activo</f:facet>
+                            <h:outputText value="#{e.Activo}"/>
                         </h:column>
                         
                         <h:column>
-                            <f:facet name="header">  Creditos</f:facet>
-                            <h:outputText value="#{c.creditos}"/>
+                            <f:facet name="header">  Nota_Media</f:facet>
+                            <h:outputText value="#{e.Nota_Media}"/>
                         </h:column>
+                        <h:column>
+                            <f:facet name="header">  Creditos_Superados</f:facet>
+                            <h:outputText value="#{e.Creditos_Superados}"/>
+                        </h:column><h:column>
+                            <f:facet name="header">  Creditos_FB</f:facet>
+                            <h:outputText value="#{e.Creditos_FB}"/>
+                        </h:column><h:column>
+                            <f:facet name="header">  Creditos_OB</f:facet>
+                            <h:outputText value="#{e.Creditos_OB}"/>
+                        </h:column><h:column>
+                            <f:facet name="header">  Creditos_OP</f:facet>
+                            <h:outputText value="#{e.Creditos_OP}"/>
+                        </h:column><h:column>
+                            <f:facet name="header">  Creditos_CF</f:facet>
+                            <h:outputText value="#{e.Creditos_CF}"/>
+                        </h:column><h:column>
+                            <f:facet name="header">  Creditos_PE</f:facet>
+                            <h:outputText value="#{e.Creditos_PE}"/>
+                        </h:column><h:column>
+                            <f:facet name="header">  Creditos_TF</f:facet>
+                            <h:outputText value="#{e.Creditos_TF}"/>
+                        </h:column>
+                        
+                        
 				</h:dataTable>
 			</h:form>
 		</div>

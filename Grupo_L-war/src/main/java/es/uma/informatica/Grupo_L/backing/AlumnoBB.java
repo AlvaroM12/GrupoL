@@ -23,6 +23,7 @@ public class AlumnoBB {
     
     public AlumnoBB() {
         al = new Alumno();
+        
     }
 	
     public String eliminar(Alumno a) {

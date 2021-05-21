@@ -22,6 +22,7 @@ public class TitulacionBB {
 
     public TitulacionBB() {
         tit = new Titulacion();
+        
     }
 
 

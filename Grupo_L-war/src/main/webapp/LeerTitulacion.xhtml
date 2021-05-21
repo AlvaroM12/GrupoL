@@ -37,20 +37,21 @@
 		</div>
 		
         <h:form id="expediente">
-            <h:dataTable value="#{TitulacionBB.leerTitulacion()}" var="t">
+            <h:dataTable value="#{TitulacionBB.leerTitulacion()}" var="t" border="2">
                 <h:column>
                     <f:facet name="header">Codigo  </f:facet>
-                    <h:outputText value="#{c.Código}"/>
+                    <h:outputText value="#{t.Código}"/>
                 </h:column>
                 <h:column>
                     <f:facet name="header">Nombre de Titulacion</f:facet>
-                    <h:outputText value="#{c.Nombre}"/>
+                    <h:outputText value="#{t.Nombre}"/>
                 </h:column>
                 
                 <h:column>
                     <f:facet name="header">  Creditos</f:facet>
-                    <h:outputText value="#{c.Créditos}"/>
+                    <h:outputText value="#{t.Créditos}"/>
                 </h:column>
+                
            </h:dataTable>
         </h:form>
 	 </div>
