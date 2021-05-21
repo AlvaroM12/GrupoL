@@ -7,6 +7,14 @@
   </parent>
   <artifactId>Grupo_L-war</artifactId>
   <packaging>war</packaging>
+  
+  <repositories>
+		<repository>
+		    <id>jitpack.io</id>
+		    <url>https://jitpack.io</url>
+		</repository>
+	</repositories>
+  
   <dependencies>
 	<dependency>
 	  		<groupId>javax</groupId>
@@ -21,6 +29,12 @@
 	  		<scope>provided</scope>
 	  	</dependency>
 	  	
+	  	<dependency>
+	    <groupId>org.primefaces</groupId>
+	    <artifactId>primefaces</artifactId>
+	    <version>10.0.0</version>
+		</dependency>
+		
 	  	<dependency>
 	  		<groupId>es.uma.informatica.es</groupId>
 	  		<artifactId>Grupo_L-ejb</artifactId>
