@@ -7,22 +7,16 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core">
 
 <h:head>
-	<title>FLM SECRETARIA</title>
-<<<<<<< HEAD
-	<h:outputStylesheet library="css" name="Layout.css"  />	
-	<h:outputStylesheet library="css" name="Estilos.css" />
-=======
+	<title>LEER ASIGNATURA-MATRICULA</title>
 	<h:outputStylesheet library="css" name="Layout.css"  />
 	<h:outputStylesheet library="css" name="Estilos.css"  />
->>>>>>> branch 'Facets' of https://github.com/AlvaroM12/GrupoL
 </h:head>
 
 <h:body>
 
-	<div class="inicio"><p>Hola, <h:outputText value="#"/>.</p></div>
 	<div class="cerrar"> <h:button value="Cerrar sesion" outcome="index.xhtml" /> </div>
 	
-	<h1 class="titulo"> Principal </h1>
+	<h1 class="titulo"> Leer Asignatura-Matricula </h1>
 
 	<ui:fragment rendered="#{InfoSension.alumno != null eq true}">
 		<div class="izquierda"   >
@@ -38,24 +32,11 @@
 		</div>
 	
 	
-	<div class="centro">
-		<h:button value="Rellenar encuesta" outcome="index.xhtml" /> <br></br><br></br>
-		<h:button value="Solicitar cambio de grupo" outcome="index.xhtml" />
-	</div>
+	
 	</ui:fragment>
 	
 	<ui:fragment rendered="#{InfoSension.personal != null eq true}">			
-		<div class="centrado" >
-			<h:button value="Alumnos" outcome="index.xhtml" /> <br></br><br></br>
-			<h:button value="Matricula" outcome="index.xhtml" /> <br></br><br></br>
-			<h:button value="Grupos" outcome="index.xhtml" /> <br></br><br></br>
-			<h:button value="Expediente" outcome="index.xhtml" /> <br></br><br></br>
-			<h:button value="Titulacion" outcome="index.xhtml" /> <br></br><br></br>
-			<h:button value="Encuesta" outcome="index.xhtml" /> <br></br><br></br>
-			<h:button value="Asignaturas" outcome="index.xhtml" /> <br></br><br></br>
-			<h:button value="Centro" outcome="index.xhtml" /> <br></br><br></br>
-			<h:button value="Asignatura-Matricula" outcome="index.xhtml" />
-		</div>
+		
 	</ui:fragment>
 	
 

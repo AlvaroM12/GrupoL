@@ -4,100 +4,140 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
-	xmlns:f="http://xmlns.jcp.org/jsf/core">
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
 	<title>Alumno</title>
-	<h:outputStylesheet library="css" name="Layout.css"/>
+	<h:outputStylesheet library="css" name="Layout.css" />
+	<h:outputStylesheet library="css" name="Estilos.css" />
 </h:head>
 
 <h:body>
-	
-	<div class="inicio"> <h:button value="INICIO" outcome="Principal.xhtml" /> </div>
-	<div class="cerrar"> <h:button value="Cerrar sesion" outcome="index.xhtml" /> </div>
-	
-	<h1 class="titulo"> FLM-SECRETARIA </h1>
+
+	<div class="inicio">
+		<h:button value="INICIO" outcome="Principal.xhtml" />
+	</div>
+	<div>
+		<p>
+			Hola,
+			<h:outputText value="#" />
+			.
+		</p>
+	</div>
+	<div class="cerrar">
+		<h:button value="Cerrar sesion" outcome="index.xhtml" />
+	</div>
+
+	<h1 class="titulo">ALUMNOS</h1>
 
 	<div class="izquierda">
-		<b>MIS DATOS </b><br></br><br></br> 
-		<a href="#" style="text-decoration: none">Leer Encuesta</a><br></br>
-		<a href="#" style="text-decoration: none">Leer Asignatura Matricula</a><br></br>
-		<a href="LeerMatricula.xhtml" style="text-decoration: none">Leer Matricula</a><br></br> 
-		<a href="LeerTitulacion.xhtml" style="text-decoration: none">Leer Titulacion</a><br></br> 
-		<a href="LeerAlumnos.xhtml" style="text-decoration: none">Leer Usuario</a><br></br> 
-		<a href="LeerAsignaturas.xhtml" style="text-decoration: none">Leer Asignatura</a><br></br> 
-		<a href="#" style="text-decoration: none">Leer Clase</a><br></br> 
-		<a href="LeerExpediente.xhtml" style="text-decoration: none">Leer Expediente</a>
-	</div>
-
-	<div class="centro">
-		<div class="izquierdaCentro">
-			<b>Alumnos: </b>
-			<br></br><br></br>
-		</div>
-		
-		<div>
-			<h:form id="alumnos">
-				<h:dataTable value="#{AlumnoBB.listaAl}" var="a" border="2" >
-					<h:column>
-						<f:facet name="header">DNI</f:facet> 
-						<h:inputText value="#{a.DNI}" />
-					</h:column>
-					<h:column>
-						<f:facet name="header" filterBy="#{a.nombre}" filterMatchCode="contains">Nombre</f:facet>
-						<h:inputText value="#{a.nombre}" />
-					</h:column>
-
-					<h:column>
-						<f:facet name="header">Apellido 1</f:facet>
-						<h:inputText value="#{a.apellido1}" />
-					</h:column>
-					<h:column>
-						<f:facet name="header">Apellido 2</f:facet>
-						<h:inputText value="#{a.apellido2}" />
-					</h:column>
-					<h:column>
-						<f:facet name="header">Email_Institucional</f:facet>
-						<h:inputText value="#{a.email_Institucional}" />
-					</h:column>
-					<h:column>
-						<f:facet name="header">Email_Personal</f:facet>
-						<h:inputText value="#{a.email_Personal}" />
-					</h:column>
-					<h:column>
-						<f:facet name="header">Móvil</f:facet>
-						<h:inputText value="#{a.móvil}" />
-					</h:column>
-					<h:column>
-						<f:facet name="header">Dirección</f:facet>
-						<h:inputText value="#{a.direccion}" />
-					</h:column>
-					<h:column>
-						<f:facet name="header">Localidad</f:facet>
-						<h:inputText value="#{a.localidad}" />
-					</h:column>
-					<h:column>
-						<f:facet name="header">Provincia</f:facet>
-						<h:inputText value="#{a.provincia}" />
-					</h:column>
-					<h:column>
-						<f:facet name="header">CP</f:facet>
-						<h:inputText value="#{a.cP}" />
-					</h:column>
-					<h:column>
-						<h:commandButton value="Modificar"
-							action="#{alumnos.modificar(a)}" />
-					</h:column>
-					<h:column>
-						<h:commandButton value="Eliminar"
-							action="#{alumnos.eliminar(a)}" />
-					</h:column>
-				</h:dataTable>
-			</h:form>
-		</div>
+		<b>MIS DATOS </b><br></br>
+		<br></br> <a href="#" style="text-decoration: none">Leer Encuesta</a><br></br>
+		<a href="#" style="text-decoration: none">Leer Asignatura
+			Matricula</a><br></br> <a href="LeerMatricula.xhtml"
+			style="text-decoration: none">Leer Matricula</a><br></br> <a
+			href="LeerTitulacion.xhtml" style="text-decoration: none">Leer
+			Titulacion</a><br></br> <a href="LeerAlumnos.xhtml"
+			style="text-decoration: none">Leer Usuario</a><br></br> <a
+			href="LeerAsignaturas.xhtml" style="text-decoration: none">Leer
+			Asignatura</a><br></br> <a href="#" style="text-decoration: none">Leer
+			Clase</a><br></br> <a href="LeerExpediente.xhtml"
+			style="text-decoration: none">Leer Expediente</a>
 	</div>
 	
-	<div class="pie"> Universidad de Málaga · Avda. Cervantes, 2. 29071 MÁLAGA · Tel. 952131000 · info@uma.es </div>
+	<table>
+	    <tr>
+	        <td>DNI: </td>
+	        <td><h:inputText  value="#{AlumnoBB.al.DNI}"></h:inputText></td>
+	    </tr>
+	    
+	    <tr>
+	        <td>Nombre: </td>
+	 		<td><h:inputText  value="#{AlumnoBB.al.Nombre}"></h:inputText></td>
+	 	</tr>
+	 		<p:commandButton value="Añadir" actionListener="#{AlumnoBB.añadirAlumno()}"/>
+	 	<tr>
+	       
+	 	</tr>
+    </table>
+
+	<h:form>
+		<p:commandButton value="Mostar" actionListener="#{alumnos.listasAlumnos()}" update="dtAlumnos" />
+
+		<p:dataTable id="dtAlumnos" value="#{AlumnoBB.listaAl}" var="a">
+			<p:column headerText="DNI" filterBy="#{a.DNI}"
+				filterMatchMode="contains">
+				<p:outputLabel value="#{a.DNI}" />
+			</p:column>
+
+			<p:column headerText="Nombre" filterBy="#{a.Nombre}"
+				filterMatchMode="contains">
+				<p:outputLabel value="#{a.Nombre}" />
+			</p:column>
+
+			<p:column headerText="Apellido1" filterBy="#{a.Apellido1}"
+				filterMatchMode="contains">
+				<p:outputLabel value="#{a.Apellido1}" />
+			</p:column>
+
+			<p:column headerText="Apellido2" filterBy="#{a.Apellido2}"
+				filterMatchMode="contains">
+				<p:outputLabel value="#{a.Apellido2}" />
+			</p:column>
+
+			<p:column headerText="Email_Institucional"
+				filterBy="#{a.Email_Institucional}" filterMatchMode="contains">
+				<p:outputLabel value="#{a.Email_Institucional}" />
+			</p:column>
+
+			<p:column headerText="Email_Personal" filterBy="#{a.Email_Personal}"
+				filterMatchMode="contains">
+				<p:outputLabel value="#{a.Email_Personal}" />
+			</p:column>
+
+			<p:column headerText="Móvil" filterBy="#{a.Móvil}"
+				filterMatchMode="contains">
+				<p:outputLabel value="#{a.Móvil}" />
+			</p:column>
+
+			<p:column headerText="Direccion" filterBy="#{a.Direccion}"
+				filterMatchMode="contains">
+				<p:outputLabel value="#{a.Direccion}" />
+			</p:column>
+
+			<p:column headerText="Localidad" filterBy="#{a.Localidad}"
+				filterMatchMode="contains">
+				<p:outputLabel value="#{a.Localidad}" />
+			</p:column>
+
+			<p:column headerText="Provincia" filterBy="#{a.Provincia}"
+				filterMatchMode="contains">
+				<p:outputLabel value="#{a.Provincia}" />
+			</p:column>
+
+			<p:column headerText="CP" filterBy="#{a.CP}"
+				filterMatchMode="contains">
+				<p:outputLabel value="#{a.CP}" />
+			</p:column>
+
+			<p:column headerText="CAMBIOS" sortBy="#{a.DNI}">
+				<p:cellEditor>
+					<f:facet name="output">
+						<h:outputText value="#{a.DNI}" />
+					</f:facet>
+					<f:facet name="input">
+						<p:inputText id="name" value="#{a.DNI}"
+							label="CAMBIOS" />
+					</f:facet>
+				</p:cellEditor>
+			</p:column>
+
+		</p:dataTable>
+	</h:form>
+
+	<div class="pie">Universidad de Málaga · Avda. Cervantes, 2.
+		29071 MÁLAGA · Tel. 952131000 · info@uma.es</div>
 
 </h:body>
 </html>

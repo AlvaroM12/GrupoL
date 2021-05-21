@@ -14,41 +14,55 @@ import es.uma.informatica.Exception.AlumnoException;
 @Named(value = "alumnos")
 @RequestScoped
 public class AlumnoBB {
-	
-    @Inject
-    private AlumnoEJB alejb;
-    
-    private List<Alumno> listaAl = new ArrayList<Alumno>();
-    private Alumno al;
-    
-    public AlumnoBB() {
-        al = new Alumno();
-        
-    }
-	
-    public String eliminar(Alumno a) {
-        try {
-            alejb.eliminarAlumno(a.getID());
-            
-        }catch (AlumnoException e) {
-            return "IndexAlumno.xhtml";
-        }
-        return null;
-    }
-    
-    public String modificar(Alumno a) {
-        al = a;
-        //setModo(Modo.MODIFICAR);
-        return "edicionAlumno.xhtml";
-    }
-    
-    public List<Alumno> listaAlumno() {
-    	try {
-    		listaAl =  alejb.listaAlumno();
-    	
+
+	@Inject
+	private AlumnoEJB alejb;
+
+	private List<Alumno> listaAl = new ArrayList();
+	private Alumno al;
+
+	public AlumnoBB() {
+		al = new Alumno();
+	}
+
+	public String eliminar(Alumno a) {
+		try {
+			alejb.eliminarAlumno(a.getID());
+
 		} catch (AlumnoException e) {
-			e.printStackTrace();
+			return "IndexAlumno.xhtml";
 		}
-		return listaAl;
-    }
+		return null;
+	}
+
+	public String modificar(Alumno a) {
+		al = a;
+		// setModo(Modo.MODIFICAR);
+		return "edicionAlumno.xhtml";
+	}
+
+	public void listarAlumnos() throws AlumnoException {
+		for (Alumno alumno : alejb.listaAlumno()) {
+			al.setDNI(alumno.getDNI());
+			al.setNombre(alumno.getNombre());
+			al.setApellido1(alumno.getApellido1());
+			al.setApellido2(alumno.getApellido2());
+			al.setEmail_Institucional(alumno.getEmail_Institucional());
+			al.setEmail_Personal(alumno.getEmail_Personal());
+			al.setMóvil(alumno.getMóvil());
+			al.setDireccion(alumno.getDireccion());
+			al.setLocalidad(alumno.getLocalidad());
+			al.setProvincia(alumno.getProvincia());
+			al.setCP(alumno.getCP());
+
+			listaAl.add(al);
+		}
+	}
+	
+	public void añadirAlumno() {
+		al.setDNI(al.getDNI());
+		al.setNombre(al.getNombre());
+		
+		listaAl.add(al);
+	}
 }
