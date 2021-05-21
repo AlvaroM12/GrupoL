@@ -42,24 +42,30 @@
 		</div>
 		
         <h:form id="expediente">
-            <h:dataTable value="#{TitulacionBB.leerTitulacion()}" var="t" border="2">
-                <h:column>
-                    <f:facet name="header">Codigo  </f:facet>
-                    <h:outputText value="#{t.Código}"/>
-                </h:column>
-                <h:column>
-                    <f:facet name="header">Nombre de Titulacion</f:facet>
-                    <h:outputText value="#{t.Nombre}"/>
-                </h:column>
-                
-                <h:column>
-                    <f:facet name="header">  Creditos</f:facet>
-                    <h:outputText value="#{t.Créditos}"/>
-                </h:column>
-                
-           </h:dataTable>
+            <p:commandButton value="Mostar" actionListener="#{titulacion.listasTitulaciones()}" update="dtTitulacion" />
+
+		<p:dataTable id="dtTitulacion" value="#{TitulacionBB.lista}" var="t">
+		
+			<p:column headerText="Codigo" filterBy="#{t.Codigo}"
+				filterMatchMode="contains">
+				<p:outputLabel value="#{t.Codigo}" />
+			</p:column>
+			
+			<p:column headerText="Nombre" filterBy="#{t.Nombre}"
+				filterMatchMode="contains">
+				<p:outputLabel value="#{t.Nombre}" />
+			</p:column>
+			
+			<p:column headerText="Créditos" filterBy="#{t.Créditos}"
+				filterMatchMode="contains">
+				<p:outputLabel value="#{t.Créditos}" />
+			</p:column>
+	 	</p:dataTable>
         </h:form>
 	 </div>
+	 
+	 
+	 
 
 	<div class="pie"> 
 		Universidad de Málaga · Avda. Cervantes, 2. 29071 MÁLAGA · Tel. 952131000 · info@uma.es	
