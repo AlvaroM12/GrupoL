@@ -16,13 +16,15 @@ public class Usuario implements Serializable {
 	@Id @GeneratedValue
 	private Long ID;
 	private Long Telefono;
+	private String Email_Institucional;
 	private String contraseña;
 	private static final long serialVersionUID = 1L;
 
-	public Usuario(Long iD, Long telefono, String contraseña) {
+	public Usuario(Long iD, Long telefono, String Email, String contraseña) {
 		super();
 		ID = iD;
 		Telefono = telefono;
+		Email_Institucional = Email;
 		this.contraseña = contraseña;
 	}
 	public Usuario() {
@@ -43,6 +45,12 @@ public class Usuario implements Serializable {
 		this.Telefono = Telefono;
 	}
 	
+	public String getEmail_Institucional() {
+		return Email_Institucional;
+	}
+	public void setEmail_Institucional(String email_Institucional) {
+		Email_Institucional = email_Institucional;
+	}
 	public String getContraseña() {
 		return contraseña;
 	}

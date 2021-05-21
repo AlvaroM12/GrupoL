@@ -16,8 +16,8 @@ public class Personal_de_secretaria extends Usuario implements Serializable {
 	private String Rango;
 	private static final long serialVersionUID = 1L;
 
-	public Personal_de_secretaria(Long id, Long telefono, String Contraseña ,String rango) {
-		super(id,telefono,Contraseña);
+	public Personal_de_secretaria(Long id, Long telefono, String Email, String Contraseña ,String rango) {
+		super(id,telefono,Email,Contraseña);
 		Rango = rango;
 	}
 	public Personal_de_secretaria() {
@@ -56,7 +56,10 @@ public class Personal_de_secretaria extends Usuario implements Serializable {
 	}
 	@Override
 	public String toString() {
-		return "Personal_de_secretaria [Rango=" + Rango + "]";
+		return "Personal_de_secretaria [Rango=" + Rango + ", getID()=" + getID() + ", getTelefono()=" + getTelefono()
+				+ ", getEmail_Institucional()=" + getEmail_Institucional() + ", getContraseña()=" + getContraseña()
+				+ "]";
 	}
+	
    
 }

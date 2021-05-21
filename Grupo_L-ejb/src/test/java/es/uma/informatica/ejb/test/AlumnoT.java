@@ -30,7 +30,7 @@ public class AlumnoT {
 	public void testCrearAlumno() {
 		try {
 			Alumno a = new Alumno((long)4, (long)664184557, "njevpnev","22222222M", "Bruno", "Martin", "Gonzalez", "bruno@uma.es", "brunito@gmail.com", 
-					(long) 666666666, "Calle Florencia", "Torremolinos", "Malaga", (long) 29620);
+					 (long) 666666666, "Calle Florencia", "Torremolinos", "Malaga", (long) 29620);
 			alumno.crearAlumno(a);
 			Alumno al = alumno.leerAlumno(a.getID());
 			if((long)4 != al.getID()) {

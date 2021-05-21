@@ -45,18 +45,43 @@ public class UsuarioEJB implements InterfazUsuario{
 	}
 
 	@Override
-	public void validarAcceso(String email, String pass) throws UsuarioException{
+	public String validarAcceso(String email, String pass) throws UsuarioException{
+		String rol=null;
 		
         if( email== null) {
             throw new UsuarioExistenteException();
         }
+        
         TypedQuery <Alumno> query = em.createQuery("SELECT a FROM Alumno a "
-	            + "WHERE a.Email_Personal LIKE :correo", Alumno.class);
+	            + "WHERE a.Email_Institucional LIKE :correo", Alumno.class);
+        TypedQuery <Personal_de_secretaria> query2 = em.createQuery("SELECT p FROM Personal_de_secretaria p "
+	            + "WHERE p.Email_Institucional LIKE :correo", Personal_de_secretaria.class);
+        
 		query.setParameter("correo", email);
-		Alumno a = query.getSingleResult();
-		if(!a.getContraseña().equalsIgnoreCase(pass)) {
+		query2.setParameter("correo", email);
+		
+		if(query.getResultList().size()==1) {
+			
+			Alumno a = query.getSingleResult();
+			
+			if(!a.getContraseña().equalsIgnoreCase(pass)) {
 			throw new UsuarioErrorException();
-		}        
+			}else {
+				rol="ALUMNO";
+			}
+		}
+		
+		if(query2.getResultList().size()==1){
+			Personal_de_secretaria p = query2.getSingleResult();
+			
+			if(!p.getContraseña().equalsIgnoreCase(pass)) {
+				throw new UsuarioErrorException();
+			}else {
+				rol="SECRETARIO";
+			}
+		}
+	
+		return rol;        
 	}
 
 	@Override
