@@ -8,80 +8,80 @@
 
 <h:head>
 	<title>Alumno</title>
+	<h:outputStylesheet library="css" name="ListadoAlumnos.css"/>
 </h:head>
 
 <h:body>
 
-	<div> <input type="submit" name="leerEncuesta" value="INICIO" /> </div>
+	<h:commandButton styleClass="inicio" value="INICIO" action="IndexAlumno.xhtml"/>
+	<h:commandButton styleClass="cerrar" value="Cerrar sesion" action="IndexAlumno.xhtml"/>
 
-	<div> <input type="submit" name="leerEncuesta" value="Cerrar sesion" /> </div>
+	<h1 class="titulo"> FLM-SECRETARIA </h1>
 
-	<h1> FLM-SECRETARIA </h1>
-
-	<div>
-		<b>MIS DATOS </b><br></br>
-		<br></br> <a href="#" style="text-decoration: none">Leer Encuesta</a><br></br>
+	<div class="izquierda">
+		<b>MIS DATOS </b><br></br><br></br> 
+		<a href="#" style="text-decoration: none">Leer Encuesta</a><br></br>
 		<a href="#" style="text-decoration: none">Leer Asignatura Matricula</a><br></br>
-		<a href="#" style="text-decoration: none">Leer Matricula</a><br></br> <a
-			href="#" style="text-decoration: none">Leer Titulacion</a><br></br> <a
-			href="#" style="text-decoration: none">Leer Usuario</a><br></br> <a
-			href="#" style="text-decoration: none">Leer Asignatura</a><br></br> <a
-			href="#" style="text-decoration: none">Leer Clase</a><br></br> <a
-			href="#" style="text-decoration: none">Leer Expediente</a>
+		<a href="#" style="text-decoration: none">Leer Matricula</a><br></br> 
+		<a href="#" style="text-decoration: none">Leer Titulacion</a><br></br> 
+		<a href="#" style="text-decoration: none">Leer Usuario</a><br></br> 
+		<a href="#" style="text-decoration: none">Leer Asignatura</a><br></br> 
+		<a href="#" style="text-decoration: none">Leer Clase</a><br></br> 
+		<a href="#" style="text-decoration: none">Leer Expediente</a>
 	</div>
 
-	<div>
-		<div>
+	<div class="centro">
+		<div class="izquierdaCentro">
 			<b>Alumnos: </b>
-			<br></br>
+			<br></br><br></br>
 		</div>
 		<div>
 			<h:form id="alumnos">
-				<h:dataTable value="#{AlumnoBB.listaAlumno()}" var="a">
+				<h:dataTable value="#{AlumnoBB.listaAl}" var="a" border="2" >
 					<h:column>
-						<f:facet name="header">DNI</f:facet>
-						<h:outputText value="#{a.dNI}" />
+						<f:facet name="header">DNI</f:facet> 
+						<h:inputText value="#{a.DNI}" />
 					</h:column>
 					<h:column>
 						<f:facet name="header" filterBy="#{a.nombre}" filterMatchCode="contains">Nombre</f:facet>
-						<h:outputText value="#{a.nombre}" />
+						<h:inputText value="#{a.nombre}" />
 					</h:column>
 
 					<h:column>
 						<f:facet name="header">Apellido 1</f:facet>
-						<h:outputText value="#{a.apellido1}" />
+						<h:inputText value="#{a.apellido1}" />
 					</h:column>
 					<h:column>
 						<f:facet name="header">Apellido 2</f:facet>
-						<h:outputText value="#{a.apellido2}" />
+						<h:inputText value="#{a.apellido2}" />
 					</h:column>
 					<h:column>
 						<f:facet name="header">Email_Institucional</f:facet>
-						<h:outputText value="#{a.email_Institucional}" />
+						<h:inputText value="#{a.email_Institucional}" />
 					</h:column>
 					<h:column>
 						<f:facet name="header">Email_Personal</f:facet>
-						<h:outputText value="#{a.email_Personal}" />
+						<h:inputText value="#{a.email_Personal}" />
 					</h:column>
 					<h:column>
 						<f:facet name="header">Móvil</f:facet>
-						<h:outputText value="#{a.móvil}" />
+						<h:inputText value="#{a.móvil}" />
 					</h:column>
 					<h:column>
 						<f:facet name="header">Dirección</f:facet>
-						<h:outputText value="#{a.direccion}" />
+						<h:inputText value="#{a.direccion}" />
 					</h:column>
 					<h:column>
 						<f:facet name="header">Localidad</f:facet>
-						<h:outputText value="#{a.localidad}" />
+						<h:inputText value="#{a.localidad}" />
 					</h:column>
 					<h:column>
 						<f:facet name="header">Provincia</f:facet>
-						<h:outputText value="#{a.provincia}" />
+						<h:inputText value="#{a.provincia}" />
 					</h:column>
 					<h:column>
 						<f:facet name="header">CP</f:facet>
-						<h:outputText value="#{a.cP}" />
+						<h:inputText value="#{a.cP}" />
 					</h:column>
 					<h:column>
 						<h:commandButton value="Modificar"
@@ -96,7 +96,7 @@
 		</div>
 	</div>
 	
-	<div> Universidad de Málaga · Avda. Cervantes, 2. 29071 MÁLAGA · Tel. 952131000 · info@uma.es </div>
+	<div class="pie"> Universidad de Málaga · Avda. Cervantes, 2. 29071 MÁLAGA · Tel. 952131000 · info@uma.es </div>
 
 </h:body>
 </html>
