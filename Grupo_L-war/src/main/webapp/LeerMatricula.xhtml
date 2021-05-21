@@ -14,26 +14,136 @@
 <h:body>
 
 	<div class="cerrar"> <h:button value="Cerrar sesion" outcome="index.xhtml" /> </div>
-	<div class="inicio"> <h:button value="INICIO" outcome="Principal.xhtml" /> </div>
+	<div class="inicio"> <h:button value="Inicio" outcome="Principal.xhtml" /> </div>
 
 	<h1 class="titulo"> Matricula </h1>
 
-	<div class="izquierda">
-		<b>MIS DATOS </b><br></br><br></br> 
-		<a href="#" style="text-decoration: none">Leer Encuesta</a><br></br>
-		<a href="#" style="text-decoration: none">Leer Asignatura Matricula</a><br></br>
-		<a href="LeerMatricula.xhtml" style="text-decoration: none">Leer Matricula</a><br></br> 
-		<a href="LeerTitulacion.xhtml" style="text-decoration: none">Leer Titulacion</a><br></br> 
-		<a href="LeerAlumnos.xhtml" style="text-decoration: none">Leer Usuario</a><br></br> 
-		<a href="LeerAsignaturas.xhtml" style="text-decoration: none">Leer Asignatura</a><br></br> 
-		<a href="#" style="text-decoration: none">Leer Clase</a><br></br> 
-		<a href="LeerExpediente.xhtml" style="text-decoration: none">Leer Expediente</a>
-	</div>
+	<ui:fragment rendered="#{InfoSension.alumno != null eq true}">
+		<div class="izquierda">
+			<b>MIS DATOS </b><br></br><br></br> 
+			<a href="#" style="text-decoration: none">Leer Encuesta</a><br></br>
+			<a href="#" style="text-decoration: none">Leer Asignatura Matricula</a><br></br>
+			<a href="LeerMatricula.xhtml" style="text-decoration: none">Leer Matricula</a><br></br> 
+			<a href="LeerTitulacion.xhtml" style="text-decoration: none">Leer Titulacion</a><br></br> 
+			<a href="LeerAlumnos.xhtml" style="text-decoration: none">Leer Usuario</a><br></br> 
+			<a href="LeerAsignaturas.xhtml" style="text-decoration: none">Leer Asignatura</a><br></br> 
+			<a href="#" style="text-decoration: none">Leer Clase</a><br></br> 
+			<a href="LeerExpediente.xhtml" style="text-decoration: none">Leer Expediente</a>
+		</div>
+		<div>
+			<h:form id="matricula">
+				<h:dataTable value="#{AlumnoBB.listaAl}" var="a" border="2" >
+						<h:column>
+							<f:facet name="header">DNI</f:facet> 
+							<h:inputText value="#{a.DNI}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header" filterBy="#{a.nombre}" filterMatchCode="contains">Nombre</f:facet>
+							<h:inputText value="#{a.nombre}" />
+						</h:column>
 	
-	<div class="centro">
-		<h1> MATRICULA </h1>
-
-	</div>
+						<h:column>
+							<f:facet name="header">Apellido 1</f:facet>
+							<h:inputText value="#{a.apellido1}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">Apellido 2</f:facet>
+							<h:inputText value="#{a.apellido2}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">Email_Institucional</f:facet>
+							<h:inputText value="#{a.email_Institucional}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">Email_Personal</f:facet>
+							<h:inputText value="#{a.email_Personal}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">Móvil</f:facet>
+							<h:inputText value="#{a.móvil}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">Dirección</f:facet>
+							<h:inputText value="#{a.direccion}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">Localidad</f:facet>
+							<h:inputText value="#{a.localidad}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">Provincia</f:facet>
+							<h:inputText value="#{a.provincia}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">CP</f:facet>
+							<h:inputText value="#{a.cP}" />
+						</h:column>
+				</h:dataTable>
+			</h:form>
+		</div>
+	</ui:fragment>
+	
+	
+	
+	<ui:fragment rendered="#{InfoSension.personal != null eq true}">	
+		<div class="centro">
+			<div class="izquierdaCentro">
+				<b>Matricula: </b> <br></br><br></br>
+			</div>
+		</div>
+		<div>
+			<h:form id="matricula">
+				<h:dataTable value="#{AlumnoBB.listaAl}" var="a" border="2" >
+						<h:column>
+							<f:facet name="header">DNI</f:facet> 
+							<h:inputText value="#{a.DNI}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header" filterBy="#{a.nombre}" filterMatchCode="contains">Nombre</f:facet>
+							<h:inputText value="#{a.nombre}" />
+						</h:column>
+	
+						<h:column>
+							<f:facet name="header">Apellido 1</f:facet>
+							<h:inputText value="#{a.apellido1}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">Apellido 2</f:facet>
+							<h:inputText value="#{a.apellido2}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">Email_Institucional</f:facet>
+							<h:inputText value="#{a.email_Institucional}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">Email_Personal</f:facet>
+							<h:inputText value="#{a.email_Personal}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">Móvil</f:facet>
+							<h:inputText value="#{a.móvil}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">Dirección</f:facet>
+							<h:inputText value="#{a.direccion}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">Localidad</f:facet>
+							<h:inputText value="#{a.localidad}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">Provincia</f:facet>
+							<h:inputText value="#{a.provincia}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">CP</f:facet>
+							<h:inputText value="#{a.cP}" />
+						</h:column>
+				</h:dataTable>
+			</h:form>
+		</div>
+		<div class="importarMatricula"> <h:button value="Importar Matricula" outcome="ImportarMatricula.xhtml" /> </div>
+	</ui:fragment>
 
 	<div class="pie"> 
 		Universidad de Málaga · Avda. Cervantes, 2. 29071 MÁLAGA · Tel. 952131000 · info@uma.es	
