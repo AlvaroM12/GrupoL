@@ -8,13 +8,13 @@
 
 <h:head>
 	<title>Alumno</title>
-	<h:outputStylesheet library="css" name="ListadoAlumnos.css"/>
+	<h:outputStylesheet library="css" name="Layout.css"/>
 </h:head>
 
 <h:body>
 
-	<h:commandButton styleClass="inicio" value="INICIO" action="IndexAlumno.xhtml"/>
-	<h:commandButton styleClass="cerrar" value="Cerrar sesion" action="IndexAlumno.xhtml"/>
+	<h:commandButton styleClass="inicio" value="INICIO" action="LeerAlumnos.xhtml"/>
+	<h:commandButton styleClass="cerrar" value="Cerrar sesion" action="LeerAlumnos.xhtml"/>
 
 	<h1 class="titulo"> FLM-SECRETARIA </h1>
 
@@ -35,6 +35,7 @@
 			<b>Alumnos: </b>
 			<br></br><br></br>
 		</div>
+		
 		<div>
 			<h:form id="alumnos">
 				<h:dataTable value="#{AlumnoBB.listaAl}" var="a" border="2" >

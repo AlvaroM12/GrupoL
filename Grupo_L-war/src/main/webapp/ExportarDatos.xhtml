@@ -8,117 +8,31 @@
 
 <h:head>
 	<title>Alumno</title>
-
-	<style type="text/css">
-	
-#titulo {
-	display: flex;
-	justify-content: center;
-	font-family: Verdana, Geneva, sans-serif;
-	font-size: 36px;
-	font-weight: bold;
-	font-variant: normal;
-	color: #00DFA4;
-	text-transform: uppercase;
-	margin-bottom: 25px;
-	margin-top: 25px;
-}
-
-#pie {
-	display: flex;
-	justify-content: center;
-	padding: 0px;
-	height: auto;
-	width: 850px;
-	margin-top: 0px;
-	margin-bottom: 0px;
-	margin-right: auto;
-	margin-left: auto;
-	position: absolute;
-	left: 0%;
-	right: 0%;
-	bottom: 0px; 
-	margin-bottom: 25px;
-}
-
-#izquierda{
-	padding-top: 20px;
-	padding-right: 15px;
-	padding-bottom: 20px;
-	padding-left: 15px;
-	background-color: #F7F0F0;
-	border: 3px solid black;
-	float: left;
-	margin-left: 25px;
-	border-radius: 10px;	
-}
-
-#centro{
-	text-align: center;
-	border-radius: 10px;
-	width: 600px;
-	background-color: #F7F0F0;
-	border: 3px solid black;
-	padding-top: 20px;
-	padding-bottom: 20px;
-  	margin-left: auto;
-  	margin-right: auto;
-}
-	
-#cerrar{
-	padding: 5px;
-	background-color: #F7F0F0;
-	border: 3px solid black;
-	float: right;
-	margin-right: 25px;
-	margin-top: 25px;
-	border-radius: 10px;
-}
-
-#inicio{
-	padding: 5px;
-	background-color: #F7F0F0;
-	border: 3px solid black;
-	float: left;
-	margin-left: 25px;
-	margin-top: 25px;
-	border-radius: 10px;
-}
-
-</style>
 </h:head>
 
 <h:body>
 	
-	<div id="inicio">
-		<input type="submit" name="leerEncuesta" value="INICIO"/>
-	</div>
-	
-	<div id="cerrar">
-		<input type="submit" name="leerEncuesta" value="Cerrar sesion"/>
-	</div>
+	<h:commandButton styleClass="inicio" value="INICIO" action="LeerAlumnos.xhtml"/>
+	<h:commandButton styleClass="cerrar" value="Cerrar sesion" action="LeerAlumnos.xhtml"/>
 
-	<h:h1 id="titulo"> FLM-SECRETARIA </h:h1>
+	<h1 class="titulo"> FLM-SECRETARIA </h1>
 
-	
-	
 	<div id="centro">
-	<b>Exportar Datos</b>
-	<br></br><br></br>
-	<select id="so" name="so">
- 		 <option value="" selected="selected">Titulaciones</option>
-		  <option value="1041">Ingeniería Informática</option>
-		  <option value="1042">Ingeniería del Software</option>
-		  <option value="1043">Ingeniería de la Salud</option>
-		  <option value="1056">Ingeniería de Computadores</option>
-		  <option value="1073">Ingeniería Informatica y Matemáticas</option>
-	</select>
-	<br></br><br></br>
-		<input type="submit" name="exportarDatos" value="EXPORTAR"/>
+		<b>Exportar Datos</b> <br></br><br></br>
 		
+		<select class="so" name="so">
+	 		 <option value="" selected="selected">Titulaciones</option>
+			 <option value="1041">Ingeniería Informática</option>
+			 <option value="1042">Ingeniería del Software</option>
+			 <option value="1043">Ingeniería de la Salud</option>
+			 <option value="1056">Ingeniería de Computadores</option>
+			 <option value="1073">Ingeniería Informatica y Matemáticas</option>
+		</select>
+		<br></br><br></br>
+		<h:commandButton value="EXPORTAR" action="@{}"/>
 	</div>
 
-	<div id="pie"> 
+	<div class="pie"> 
 		Universidad de Málaga · Avda. Cervantes, 2. 29071 MÁLAGA · Tel. 952131000 · info@uma.es	
 	</div>
 	

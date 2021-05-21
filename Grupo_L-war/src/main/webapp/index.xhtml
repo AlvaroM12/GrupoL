@@ -8,14 +8,21 @@
 
 <h:head>
 	<title>FLM SECRETARIA</title>
-	<link rel="stylesheet" type="text/css" href="resources/css/ListadoAlumnos.css"  media="screen" />
+	<h:outputStylesheet library="css" name="Layout.css"  />
 </h:head>
 
 <h:body>
+	<h:commandButton styleClass="cerrar" value="Cerrar sesion" action="LeerAlumnos.xhtml"/>
 
-	<h1 class=titulo>
-			FLM-SECRETARIA
-	</h1>
+	<h1 class="titulo"> FLM-SECRETARIA </h1>
+	
+	<div class="centro">
+		<h1> BIENVENIDO </h1>
+	</div>
 
+	<div class="pie"> 
+		Universidad de Málaga · Avda. Cervantes, 2. 29071 MÁLAGA · Tel. 952131000 · info@uma.es	
+	</div>
+	
 </h:body>
 </html>
