@@ -5,6 +5,8 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 
 import es.uma.informatica.Exception.GrupoAsigErrorException;
 import es.uma.informatica.Exception.GrupoErrorException;
@@ -184,4 +186,32 @@ public class GrupoEJB implements InterfazGrupo {
 		}
 		return am;
     }
+    
+    public List<Asignaturas_Matrícula> leerAsignaturasMatricula() throws GrupoException{
+    	
+    	TypedQuery <Asignaturas_Matrícula> query = em.createQuery("SELECT a FROM Asignatura_Matrícula a ", Asignaturas_Matrícula.class);
+    	List<Asignaturas_Matrícula> list = query.getResultList();
+		
+		return list;    	
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }
