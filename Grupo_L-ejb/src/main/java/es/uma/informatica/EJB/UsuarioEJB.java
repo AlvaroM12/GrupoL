@@ -83,6 +83,26 @@ public class UsuarioEJB implements InterfazUsuario{
 	
 		return rol;        
 	}
+	@Override
+	public Alumno loginUsuario(String email, String pass) throws UsuarioException{
+		
+        TypedQuery <Alumno> query = em.createQuery("SELECT a FROM Alumno a "
+	            + "WHERE a.Email_Personal LIKE :correo", Alumno.class);
+		query.setParameter("correo", email);
+		Alumno a = query.getSingleResult();
+		
+		return a;        
+	}
+	@Override
+	public Personal_de_secretaria loginPersonal(String email, String pass) throws UsuarioException{
+	
+        TypedQuery <Personal_de_secretaria> query2 = em.createQuery("SELECT p FROM Personal_de_secretaria p "
+	            + "WHERE p.Email_Institucional LIKE :correo", Personal_de_secretaria.class);
+        query2.setParameter("correo", email);
+		Personal_de_secretaria p = query2.getSingleResult();
+		
+		return p;        
+	}
 
 	@Override
 	public void solicitarRecuperarContraseña(String email) throws UsuarioException{

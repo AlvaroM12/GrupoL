@@ -24,6 +24,9 @@ public interface InterfazUsuario {
 	 */
 	public String validarAcceso(String email, String pass) throws UsuarioException;
 	
+	public Alumno loginUsuario(String email, String pass) throws UsuarioException;
+	public Personal_de_secretaria loginPersonal(String email, String pass) throws UsuarioException;
+	
 
 	/**
 	  Este método solicita una recuperacion de contraseña de un usuario de la plataforma.
