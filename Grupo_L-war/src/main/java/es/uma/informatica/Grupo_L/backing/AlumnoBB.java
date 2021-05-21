@@ -45,7 +45,7 @@ public class AlumnoBB {
     public List<Alumno> listaAlumno() {
     	try {
     		listaAl =  alejb.listaAlumno();
-    		
+    	
 		} catch (AlumnoException e) {
 			e.printStackTrace();
 		}
