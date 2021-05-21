@@ -35,6 +35,7 @@
 	padding-left: 15px;
 	background-color: #F7F0F0;
 	border: 3px solid black;
+	margin-top:30px;
 	margin-left: 25px;
 	margin-right: 60px;
 	border-radius: 10px;
@@ -49,6 +50,7 @@
 	padding-left: 15px;
 	background-color: #F7F0F0;
 	border: 3px solid black;
+	margin-top:30px;
 	margin-right: 50px;
 	margin-left: 100 px;
 	border-radius: 10px;
@@ -80,5 +82,3 @@
 	margin-left: 25px;
 	text-align: left;
 }
-
-
