@@ -20,7 +20,6 @@ public class Alumno extends Usuario implements Serializable {
 	private String Nombre;
 	private String Apellido1;
 	private String Apellido2;
-	private String Email_Institucional;
 	private String Email_Personal;
 	private Long Móvil;
 	private String Direccion;
@@ -34,14 +33,13 @@ public class Alumno extends Usuario implements Serializable {
 	
 	
 
-	public Alumno(Long id, Long telefono, String Contraseña ,String dNI, String nombre, String apellido1, String apellido2, String email_Institucional,
+	public Alumno(Long id, Long telefono, String Contraseña , String dNI, String nombre, String apellido1, String apellido2, String email_Institucional,
 			String email_Personal, Long móvil, String direccion, String localidad, String provincia, Long cP) {
-		super(id,telefono,Contraseña);
+		super(id,telefono,email_Institucional,Contraseña);
 		DNI = dNI;
 		Nombre = nombre;
 		Apellido1 = apellido1;
 		Apellido2 = apellido2;
-		Email_Institucional = email_Institucional;
 		Email_Personal = email_Personal;
 		Móvil = móvil;
 		Direccion = direccion;
@@ -60,14 +58,7 @@ public class Alumno extends Usuario implements Serializable {
 	public void setDNI(String DNI) {
 		this.DNI = DNI;
 	}   
-	  
-	public String getEmail_Institucional() {
-		return this.Email_Institucional;
-	}
-
-	public void setEmail_Institucional(String Email_Institucional) {
-		this.Email_Institucional = Email_Institucional;
-	}   
+	
 	public String getEmail_Personal() {
 		return this.Email_Personal;
 	}
@@ -144,7 +135,6 @@ public class Alumno extends Usuario implements Serializable {
 		result = prime * result + ((CP == null) ? 0 : CP.hashCode());
 		result = prime * result + ((DNI == null) ? 0 : DNI.hashCode());
 		result = prime * result + ((Direccion == null) ? 0 : Direccion.hashCode());
-		result = prime * result + ((Email_Institucional == null) ? 0 : Email_Institucional.hashCode());
 		result = prime * result + ((Email_Personal == null) ? 0 : Email_Personal.hashCode());
 		result = prime * result + ((Localidad == null) ? 0 : Localidad.hashCode());
 		result = prime * result + ((Móvil == null) ? 0 : Móvil.hashCode());
@@ -187,11 +177,6 @@ public class Alumno extends Usuario implements Serializable {
 				return false;
 		} else if (!Direccion.equals(other.Direccion))
 			return false;
-		if (Email_Institucional == null) {
-			if (other.Email_Institucional != null)
-				return false;
-		} else if (!Email_Institucional.equals(other.Email_Institucional))
-			return false;
 		if (Email_Personal == null) {
 			if (other.Email_Personal != null)
 				return false;
@@ -227,7 +212,7 @@ public class Alumno extends Usuario implements Serializable {
 	@Override
 	public String toString() {
 		return "Alumno [DNI=" + DNI + ", Nombre=" + Nombre + ", Apellido1=" + Apellido1 + ", Apellido2=" + Apellido2
-				+ ", Email_Institucional=" + Email_Institucional + ", Email_Personal=" + Email_Personal + ", Móvil=" + Móvil + ", Direccion=" + Direccion + ", Localidad=" + Localidad
+				+ ", Email_Institucional="  + ", Email_Personal=" + Email_Personal + ", Móvil=" + Móvil + ", Direccion=" + Direccion + ", Localidad=" + Localidad
 				+ ", Provincia=" + Provincia + ", CP=" + CP + ", expedientes=" + expedientes + "]";
 	}
 	

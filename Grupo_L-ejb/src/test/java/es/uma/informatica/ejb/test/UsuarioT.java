@@ -38,7 +38,7 @@ public class UsuarioT {
 	@Requisitos({"RF13"})
 	public void testCrearUsuario() {
 		try {
-			Usuario u1 = new Usuario ((long) 1, (long) 664184557, "18752");
+			Usuario u1 = new Usuario ((long) 1, (long) 664184557, "pepe@uma.es", "18752");
 			usuario.crearUsuario(u1);
 			Usuario al = usuario.leerUsuario(u1.getID()); 
 			if((long)1 != al.getID()) {
@@ -69,7 +69,12 @@ public class UsuarioT {
 	public void testValidarAcceso() {
 		try {
 			Alumno a = alumno.leerAlumno((long) 9);
-			usuario.validarAcceso(a.getEmail_Personal(),a.getContraseña());
+			
+			String rol = usuario.validarAcceso(a.getEmail_Institucional(),a.getContraseña());
+			
+			if(!rol.equals("ALUMNO")) {
+				fail("Falla rol");
+			}
 		} catch (AlumnoException e) {
 			fail("No debería lanzarse excepción");
 		} catch (UsuarioException e) {
@@ -106,7 +111,7 @@ public class UsuarioT {
 		        e.printStackTrace();
 		    }
 		    String encriptado = Base64.getEncoder().encodeToString(newPassword);
-			Usuario u = new Usuario((long)9, (long)664184557, "njevpnev");
+			Usuario u = new Usuario((long)9, (long)664184557, "popa@uma.es" ,"njevpnev");
 			usuario.generarNuevaContraseña(u, pass);
 			Usuario u2=usuario.leerUsuario(u.getID());
 			if(!encriptado.equals(u2.getContraseña())) {
