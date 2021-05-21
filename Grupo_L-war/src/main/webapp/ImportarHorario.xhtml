@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+	<title>IMPORTAR HORARIO</title>
+	<h:outputStylesheet library="css" name="Layout.css"/>
+	<h:outputStylesheet library="css" name="Estilos.css"/>
+</h:head>
+
+<h:body>
+
+	<div class="cerrar"> <h:button value="Cerrar sesion" outcome="index.xhtml" /> </div>
+	<div class="inicio"> <h:button value="INICIO" outcome="Principal.xhtml" /> </div>
+	<div class= "hola"> <p>Hola, <h:outputText value="#{infoSesion.usuario.nombre}"/>.</p></div>
+
+	<h1 class="titulo"> Importar horario </h1>
+
+	<div class="centro">
+		<input type="submit" name="leerEncuesta" value="Cancelar"/>
+		<input type="submit" name="leerEncuesta" value="Aceptar"/>
+	</div>
+	
+	<div class="pie"> Universidad de Málaga · Avda. Cervantes, 2. 29071 MÁLAGA · Tel. 952131000 · info@uma.es </div>
+
+</h:body>
+</html>

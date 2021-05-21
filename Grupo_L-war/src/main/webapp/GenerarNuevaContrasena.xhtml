@@ -6,15 +6,45 @@
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/core">
 
-<ui:composition template="">
-	<ui:define name="header">
-	    Add your header here or delete to use the default
-	</ui:define>
-	<ui:define name="content">
-	    Add your content here or delete to use the default
-	</ui:define>
-	<ui:define name="footer">
-	    Add your footer here or delete to use the default
-	</ui:define>
-</ui:composition>
+<h:head>
+	<title>Recuperar contraseña</title>
+	<h:outputStylesheet library="css" name="Layout.css" />
+	<h:outputStylesheet library="css" name="Estilos.css" />
+</h:head>
+
+<h:body>
+
+	<h1 class="titulo">Recuperar contraseña</h1>
+
+	<div class="izquierda"> <img src="resources/imagenes/logo.jpg" width="400" /> </div>
+
+	<div class="centrado">
+		<h:form>
+			<img src="resources/imagenes/uma.png" width="200" />
+
+			<h:panelGrid columns="3">
+				<h:outputText value="Email:" />
+				<h:inputText id="user" required="true"
+					value="#{login.usuario.cuenta}" />
+				<h:message for="user" />
+
+				<h:outputText value="Nueva contraseña:" />
+				<h:inputSecret id="pass" required="true"
+					value="#{login.usuario.contrasenia}" />
+				<h:message for="pass" />
+				
+				<h:outputText value="Repetir nueva contraseña:" />
+				<h:inputSecret id="pass" required="true"
+					value="#{login.usuario.contrasenia}" />
+				<h:message for="pass" />
+				
+				<h:button value="Guardar Cambios" outcome="Login.xhtml" /> 
+
+			</h:panelGrid>
+		</h:form>
+	</div>
+
+	<div class="pie">Universidad de Málaga · Avda. Cervantes, 2. 29071 MÁLAGA · Tel. 952131000 · info@uma.es</div>
+
+</h:body>
 </html>
