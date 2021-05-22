@@ -12,7 +12,7 @@ import es.uma.informatica.Exception.UsuarioErrorException;
 import es.uma.informatica.Exception.UsuarioException;
 import es.uma.informatica.Exception.UsuarioExistenteException;
 
-@Named(value = "Login")
+@Named
 @RequestScoped
 public class LoginBB {
 	
@@ -31,10 +31,11 @@ public class LoginBB {
     public LoginBB() {
         usuario = new Usuario();
     }
-
+    
     public Usuario getUsuario() {
         return usuario;
     }
+    
 
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
@@ -49,7 +50,7 @@ public class LoginBB {
             if(rol.equalsIgnoreCase("SECRETARIO")){
             	sesion.setPersonal(usuEJB.loginPersonal(usuario.getEmail_Institucional(), usuario.getContraseña()));
             }
-            return "Principal.xhtml";
+            
 
         } catch (UsuarioExistenteException e) {
             FacesMessage fm = new FacesMessage("Email no introducido");
@@ -61,6 +62,6 @@ public class LoginBB {
             FacesMessage fm = new FacesMessage("Error");
             FacesContext.getCurrentInstance().addMessage("login:user", fm);
         }
-        return null;
+        return "Principal.xhtml";
     }
 }

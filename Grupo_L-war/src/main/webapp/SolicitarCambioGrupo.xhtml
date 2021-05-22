@@ -7,7 +7,7 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core">
 
 <h:head>
-	<title>Alumno</title>
+	<title>Solicitar cambio de grupo</title>
 	<h:outputStylesheet library="css" name="Layout.css"/>
 </h:head>
 
@@ -31,70 +31,15 @@
 	</div>
 
 	<div class="centro">
-		<div class="izquierdaCentro">
-			<b>Alumnos: </b>
-			<br></br><br></br>
-		</div>
 		
-		<div>
-			<h:form id="alumnos">
-				<h:dataTable value="#{AlumnoBB.listaAl}" var="a" border="2" >
-					<h:column>
-						<f:facet name="header">DNI</f:facet> 
-						<h:inputText value="#{a.DNI}" />
-					</h:column>
-					<h:column>
-						<f:facet name="header" filterBy="#{a.nombre}" filterMatchCode="contains">Nombre</f:facet>
-						<h:inputText value="#{a.nombre}" />
-					</h:column>
-
-					<h:column>
-						<f:facet name="header">Apellido 1</f:facet>
-						<h:inputText value="#{a.apellido1}" />
-					</h:column>
-					<h:column>
-						<f:facet name="header">Apellido 2</f:facet>
-						<h:inputText value="#{a.apellido2}" />
-					</h:column>
-					<h:column>
-						<f:facet name="header">Email_Institucional</f:facet>
-						<h:inputText value="#{a.email_Institucional}" />
-					</h:column>
-					<h:column>
-						<f:facet name="header">Email_Personal</f:facet>
-						<h:inputText value="#{a.email_Personal}" />
-					</h:column>
-					<h:column>
-						<f:facet name="header">Móvil</f:facet>
-						<h:inputText value="#{a.móvil}" />
-					</h:column>
-					<h:column>
-						<f:facet name="header">Dirección</f:facet>
-						<h:inputText value="#{a.direccion}" />
-					</h:column>
-					<h:column>
-						<f:facet name="header">Localidad</f:facet>
-						<h:inputText value="#{a.localidad}" />
-					</h:column>
-					<h:column>
-						<f:facet name="header">Provincia</f:facet>
-						<h:inputText value="#{a.provincia}" />
-					</h:column>
-					<h:column>
-						<f:facet name="header">CP</f:facet>
-						<h:inputText value="#{a.cP}" />
-					</h:column>
-					<h:column>
-						<h:commandButton value="Modificar"
-							action="#{alumnos.modificar(a)}" />
-					</h:column>
-					<h:column>
-						<h:commandButton value="Eliminar"
-							action="#{alumnos.eliminar(a)}" />
-					</h:column>
-				</h:dataTable>
-			</h:form>
-		</div>
+		<select name="so">
+			 <option value="1041">Ingeniería Informática</option>
+			 <option value="1042">Ingeniería del Software</option>
+			 <option value="1043">Ingeniería de la Salud</option>
+			 <option value="1056">Ingeniería de Computadores</option>
+			 <option value="1073">Ingeniería Informatica y Matemáticas</option>
+		</select>
+		
 	</div>
 	
 	<div class="pie"> Universidad de Málaga · Avda. Cervantes, 2. 29071 MÁLAGA · Tel. 952131000 · info@uma.es </div>
