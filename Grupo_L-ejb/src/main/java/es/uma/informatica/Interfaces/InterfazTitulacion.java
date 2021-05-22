@@ -1,6 +1,10 @@
 package es.uma.informatica.Interfaces;
 
+import java.util.List;
+
+import es.uma.informatica.Entidades.Asignaturas_Matrícula;
 import es.uma.informatica.Entidades.Titulacion;
+import es.uma.informatica.Exception.GrupoException;
 import es.uma.informatica.Exception.TitulacionException;
 
 public interface InterfazTitulacion {
@@ -15,4 +19,5 @@ public interface InterfazTitulacion {
 	 */
 	public void importarTitulacion() throws TitulacionException;
 	Titulacion leerTitulacion(Long cod) throws TitulacionException;
+	public List<Titulacion> leerTitulaciones() throws TitulacionException;
 }
