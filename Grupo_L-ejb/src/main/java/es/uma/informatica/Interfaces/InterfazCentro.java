@@ -1,5 +1,7 @@
 package es.uma.informatica.Interfaces;
 
+import java.util.List;
+
 import javax.ejb.Local;
 
 import es.uma.informatica.Entidades.Centro;
@@ -11,4 +13,6 @@ public interface InterfazCentro {
 	  En caso de que el centro sea null, se lanza la excepción CentroNullException.
 	 */
 	public Centro ConsultarCentro(Long id) throws CentroException;
+
+	public List<Centro> leerCentros() throws CentroException;
 }

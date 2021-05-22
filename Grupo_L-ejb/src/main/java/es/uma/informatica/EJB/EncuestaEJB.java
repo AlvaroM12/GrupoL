@@ -1,13 +1,18 @@
 package es.uma.informatica.EJB;
 
+import java.util.List;
+
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 
 import es.uma.informatica.Entidades.Encuesta;
+import es.uma.informatica.Entidades.Grupo;
 import es.uma.informatica.Entidades.Encuesta.EncuestaId;
 import es.uma.informatica.Exception.EncuestaException;
 import es.uma.informatica.Exception.EncuestaExistenteException;
+import es.uma.informatica.Exception.GrupoException;
 import es.uma.informatica.Interfaces.InterfazEncuesta;
 
 /**
@@ -40,4 +45,13 @@ public class EncuestaEJB implements InterfazEncuesta {
 		return e;
 		
 	}
+	
+	 @Override
+	    public List<Encuesta> leerEncuestas() throws EncuestaException{
+	    	
+	    	TypedQuery <Encuesta> query = em.createQuery("SELECT a FROM Encuesta a ", Encuesta.class);
+	    	List<Encuesta> list = query.getResultList();
+			
+			return list;    	
+	    }
 }
