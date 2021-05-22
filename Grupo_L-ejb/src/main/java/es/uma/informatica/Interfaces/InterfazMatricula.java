@@ -1,5 +1,7 @@
 package es.uma.informatica.Interfaces;
 
+import java.util.List;
+
 import es.uma.informatica.Entidades.Matrícula;
 import es.uma.informatica.Entidades.Matrícula.MatriculaId;
 import es.uma.informatica.Exception.MatriculaException;
@@ -11,6 +13,8 @@ public interface InterfazMatricula {
 	 */
 	public void importarMatricula() throws MatriculaException;
 
-	Matrícula leerMatricula(MatriculaId ma) throws MatriculaException;
+	public Matrícula leerMatricula(MatriculaId ma) throws MatriculaException;
+
+	public List<Matrícula> leerMatriculas() throws MatriculaException;
 	
 }

@@ -3,18 +3,22 @@ package es.uma.informatica.EJB;
 import java.io.IOException;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
+import java.util.List;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
+import es.uma.informatica.Exception.GrupoException;
 import es.uma.informatica.Exception.MatriculaException;
 import es.uma.informatica.Interfaces.InterfazMatricula;
+import es.uma.informatica.Entidades.Asignaturas_Matrícula;
 import es.uma.informatica.Entidades.Expediente;
 import es.uma.informatica.Entidades.Matrícula;
 import es.uma.informatica.Entidades.Matrícula.MatriculaId;
@@ -73,4 +77,13 @@ public class MatriculaEJB implements InterfazMatricula {
 		}
 		return m;
 	}
+	
+	@Override
+    public List<Matrícula> leerMatriculas() throws MatriculaException{
+ 
+    	TypedQuery <Matrícula> query = em.createQuery("SELECT a FROM Matrícula a ", Matrícula.class);
+    	List<Matrícula> list = query.getResultList();
+		
+		return list;    	
+    }
 }
