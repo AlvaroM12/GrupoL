@@ -50,7 +50,7 @@ public class AlumnoBB {
 			al.setApellido2(alumno.getApellido2());
 			al.setEmail_Institucional(alumno.getEmail_Institucional());
 			al.setEmail_Personal(alumno.getEmail_Personal());
-			al.setMóvil(alumno.getMóvil());
+			al.setMovil(alumno.getMovil());
 			al.setDireccion(alumno.getDireccion());
 			al.setLocalidad(alumno.getLocalidad());
 			al.setProvincia(alumno.getProvincia());

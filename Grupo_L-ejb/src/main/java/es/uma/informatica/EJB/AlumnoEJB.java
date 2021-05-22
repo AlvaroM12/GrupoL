@@ -57,13 +57,13 @@ public class AlumnoEJB implements InterfazAlumno {
 		Alumno al = leerAlumno(a.getID());
 		al.setApellido1(a.getApellido1());
 		al.setApellido2(a.getApellido2());
-		al.setContraseña(a.getContraseña());
+		al.setContrasenia(a.getContrasenia());
 		al.setCP(a.getCP());
 		al.setDireccion(a.getDireccion());
 		al.setEmail_Institucional(a.getEmail_Institucional());
 		al.setEmail_Personal(a.getEmail_Personal());
 		al.setLocalidad(a.getLocalidad());
-		al.setMóvil(a.getMóvil());
+		al.setMovil(a.getMovil());
 		al.setNombre(a.getNombre());
 		al.setProvincia(a.getProvincia());
 		al.setTelefono(a.getTelefono());

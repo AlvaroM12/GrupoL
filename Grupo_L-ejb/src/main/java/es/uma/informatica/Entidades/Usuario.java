@@ -17,7 +17,7 @@ public class Usuario implements Serializable {
 	private Long ID;
 	private Long Telefono;
 	private String Email_Institucional;
-	private String contraseña;
+	private String contrasenia;
 	private static final long serialVersionUID = 1L;
 
 	public Usuario(Long iD, Long telefono, String Email, String contraseña) {
@@ -25,7 +25,7 @@ public class Usuario implements Serializable {
 		ID = iD;
 		Telefono = telefono;
 		Email_Institucional = Email;
-		this.contraseña = contraseña;
+		this.contrasenia = contraseña;
 	}
 	public Usuario() {
 		super();
@@ -51,11 +51,12 @@ public class Usuario implements Serializable {
 	public void setEmail_Institucional(String email_Institucional) {
 		Email_Institucional = email_Institucional;
 	}
-	public String getContraseña() {
-		return contraseña;
+	
+	public String getContrasenia() {
+		return contrasenia;
 	}
-	public void setContraseña(String contraseña) {
-		this.contraseña = contraseña;
+	public void setContrasenia(String contrasenia) {
+		this.contrasenia = contrasenia;
 	}
 	@Override
 	public int hashCode() {
@@ -63,7 +64,7 @@ public class Usuario implements Serializable {
 		int result = 1;
 		result = prime * result + ((ID == null) ? 0 : ID.hashCode());
 		result = prime * result + ((Telefono == null) ? 0 : Telefono.hashCode());
-		result = prime * result + ((contraseña == null) ? 0 : contraseña.hashCode());
+		result = prime * result + ((contrasenia == null) ? 0 : contrasenia.hashCode());
 		return result;
 	}
 	@Override
@@ -85,10 +86,10 @@ public class Usuario implements Serializable {
 				return false;
 		} else if (!Telefono.equals(other.Telefono))
 			return false;
-		if (contraseña == null) {
-			if (other.contraseña != null)
+		if (contrasenia == null) {
+			if (other.contrasenia != null)
 				return false;
-		} else if (!contraseña.equals(other.contraseña))
+		} else if (!contrasenia.equals(other.contrasenia))
 			return false;
 		return true;
 	}

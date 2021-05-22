@@ -57,7 +57,7 @@ public class Personal_de_secretaria extends Usuario implements Serializable {
 	@Override
 	public String toString() {
 		return "Personal_de_secretaria [Rango=" + Rango + ", getID()=" + getID() + ", getTelefono()=" + getTelefono()
-				+ ", getEmail_Institucional()=" + getEmail_Institucional() + ", getContraseña()=" + getContraseña()
+				+ ", getEmail_Institucional()=" + getEmail_Institucional() + ", getContraseña()=" + getContrasenia()
 				+ "]";
 	}
 	

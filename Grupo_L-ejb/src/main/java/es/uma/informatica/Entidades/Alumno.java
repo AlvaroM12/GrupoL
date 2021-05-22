@@ -21,7 +21,7 @@ public class Alumno extends Usuario implements Serializable {
 	private String Apellido1;
 	private String Apellido2;
 	private String Email_Personal;
-	private Long Móvil;
+	private Long Movil;
 	private String Direccion;
 	private String Localidad;
 	private String Provincia;
@@ -41,7 +41,7 @@ public class Alumno extends Usuario implements Serializable {
 		Apellido1 = apellido1;
 		Apellido2 = apellido2;
 		Email_Personal = email_Personal;
-		Móvil = móvil;
+		Movil = móvil;
 		Direccion = direccion;
 		Localidad = localidad;
 		Provincia = provincia;
@@ -66,14 +66,14 @@ public class Alumno extends Usuario implements Serializable {
 	public void setEmail_Personal(String Email_Personal) {
 		this.Email_Personal = Email_Personal;
 	}   
-	public Long getMóvil() {
-		return this.Móvil;
-	}
-
-	public void setMóvil(Long Móvil) {
-		this.Móvil = Móvil;
-	}
 	
+	
+	public Long getMovil() {
+		return Movil;
+	}
+	public void setMovil(Long movil) {
+		Movil = movil;
+	}
 	public List<Expediente> getExpedientes() {
 		return expedientes;
 	}
@@ -137,7 +137,7 @@ public class Alumno extends Usuario implements Serializable {
 		result = prime * result + ((Direccion == null) ? 0 : Direccion.hashCode());
 		result = prime * result + ((Email_Personal == null) ? 0 : Email_Personal.hashCode());
 		result = prime * result + ((Localidad == null) ? 0 : Localidad.hashCode());
-		result = prime * result + ((Móvil == null) ? 0 : Móvil.hashCode());
+		result = prime * result + ((Movil == null) ? 0 : Movil.hashCode());
 		result = prime * result + ((Nombre == null) ? 0 : Nombre.hashCode());
 		result = prime * result + ((Provincia == null) ? 0 : Provincia.hashCode());
 		result = prime * result + ((expedientes == null) ? 0 : expedientes.hashCode());
@@ -187,10 +187,10 @@ public class Alumno extends Usuario implements Serializable {
 				return false;
 		} else if (!Localidad.equals(other.Localidad))
 			return false;
-		if (Móvil == null) {
-			if (other.Móvil != null)
+		if (Movil == null) {
+			if (other.Movil != null)
 				return false;
-		} else if (!Móvil.equals(other.Móvil))
+		} else if (!Movil.equals(other.Movil))
 			return false;
 		if (Nombre == null) {
 			if (other.Nombre != null)
@@ -212,7 +212,7 @@ public class Alumno extends Usuario implements Serializable {
 	@Override
 	public String toString() {
 		return "Alumno [DNI=" + DNI + ", Nombre=" + Nombre + ", Apellido1=" + Apellido1 + ", Apellido2=" + Apellido2
-				+ ", Email_Institucional="  + ", Email_Personal=" + Email_Personal + ", Móvil=" + Móvil + ", Direccion=" + Direccion + ", Localidad=" + Localidad
+				+ ", Email_Institucional="  + ", Email_Personal=" + Email_Personal + ", Móvil=" + Movil + ", Direccion=" + Direccion + ", Localidad=" + Localidad
 				+ ", Provincia=" + Provincia + ", CP=" + CP + ", expedientes=" + expedientes + "]";
 	}
 	
