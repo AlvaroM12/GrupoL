@@ -31,10 +31,31 @@
 			<a href="#" style="text-decoration: none">Leer Clase</a><br></br> 
 			<a href="LeerExpediente.xhtml" style="text-decoration: none">Leer Expediente</a>
 		</div>
-	
-	
-	
+		
+		<h:form styleClass="centrado" >
+		
+		 <h:dataTable styleClass="card" value="#{grupoBB.asignaturasMatriculasAlumno}" var="asig">
+             <h:column>
+                 <f:facet name="header">Matricula</f:facet>
+                 <h:outputText value="#{asig.matricula}"/>
+             </h:column>
+             
+             <h:column>
+                 <f:facet name="header">Asignatura</f:facet>
+                 <h:outputText value="#{asig.asignatura}"/>
+             </h:column>
+             
+             <h:column>
+                 <f:facet name="header">Grupo</f:facet>
+                 <h:outputText value="#{asig.g_AM}"/>
+             </h:column>
+                          
+         </h:dataTable>
+         
+         <h:commandButton value="Refrescar" action="#{grupoBB.refrescarUsuario}"/>
+	</h:form>
 	</ui:fragment>
+	
 	
 	<ui:fragment >
 	
@@ -55,14 +76,10 @@
                  <f:facet name="header">Grupo</f:facet>
                  <h:outputText value="#{asig.g_AM}"/>
              </h:column>
-             
-             <h:column>
-                 <h:commandButton value="Eliminar" action="#{grupoBB.eliminar(c)}"/>
-             </h:column>
-                          
+        
          </h:dataTable>
          
-         <h:commandButton value="Refrescar" action="#{grupoBB.refrescar}"/>
+         <h:commandButton value="Refrescar" action="#{grupoBB.refrescarUsuario}"/>
 	</h:form>			
 		
 	</ui:fragment>

@@ -187,7 +187,6 @@ public class GrupoEJB implements InterfazGrupo {
 		return am;
     }
     
-    @Override
     public List<Asignaturas_Matrícula> leerAsignaturasMatricula() throws GrupoException{
     	
     	TypedQuery <Asignaturas_Matrícula> query = em.createQuery("SELECT a FROM Asignatura_Matrícula a ", Asignaturas_Matrícula.class);
@@ -197,7 +196,13 @@ public class GrupoEJB implements InterfazGrupo {
     }
     
     
-    
+	 public List<Asignaturas_Matrícula> leerAsignaturasMatriculaAlumno(Alumno a) throws GrupoException{
+	    	
+	    	TypedQuery <Asignaturas_Matrícula> query = em.createQuery("SELECT a FROM Asignatura_Matrícula a ", Asignaturas_Matrícula.class);
+	    	List<Asignaturas_Matrícula> list = query.getResultList();
+			
+			return list;    	
+	}
     
     
     
