@@ -13,7 +13,16 @@
 
 <h:body>
 	
-	<div class="inicio"> <h:button value="INICIO" outcome="Principal.xhtml" /> </div>
+	<div class="inicio">
+		<h:button value="INICIO" outcome="Principal.xhtml" />
+	</div>
+	<div>
+		<p>
+			Hola,
+			<h:outputText value="#" />
+			.
+		</p>
+	</div>
 	<div class="cerrar"> <h:button value="Cerrar sesion" outcome="index.xhtml" /> </div>
 	
 	<h1 class="titulo"> SOLICITAR CAMBIO DE GRUPO </h1>
@@ -50,9 +59,9 @@
 		<select name="asig">
 			 <option value="1041">Calculo</option>
 			 <option value="1042">SII</option>
-		</select><br></br><br></br>
+		</select>
 		
-		<input type="submit" name="leerEncuesta" value="Cancelar"/>
+		<br></br><br></br><input type="submit" name="leerEncuesta" value="Cancelar"/>
 		<input type="submit" name="leerEncuesta" value="Aceptar"/>
 		
 	</div>

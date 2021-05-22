@@ -10,6 +10,7 @@ import javax.inject.Named;
 import es.uma.informatica.Entidades.Alumno;
 import es.uma.informatica.Entidades.Asignaturas_Matrícula;
 import es.uma.informatica.Entidades.Expediente;
+import es.uma.informatica.Entidades.Grupo;
 import es.uma.informatica.Entidades.Matrícula;
 import es.uma.informatica.Entidades.Usuario;
 import es.uma.informatica.Exception.AlumnoException;
@@ -82,6 +83,20 @@ public class GrupoBB {
 		}
 		return null;
 	}
+	
+	
+	//METODO PARA LEER TODAS LOS GRUPOS(S)
+	public  synchronized List<Grupo> getGrupos(){
+		
+		try {
+			return grupo.leerGrupos();
+		} catch (GrupoException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+		
+		
 	
 	public synchronized void refrescarUsuario()
     {
