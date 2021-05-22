@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+	<title>FLM SECRETARIA</title>
+	<h:outputStylesheet library="css" name="Layout.css"  />
+	<h:outputStylesheet library="css" name="Estilos.css"  />
+</h:head>
+
+<h:body>
+
+	<div class="cerrar"> <h:button value="Cerrar sesion" outcome="index.xhtml" /> </div>
+	<div class="inicio"> <h:button value="Inicio" outcome="Principal.xhtml" /> </div>
+
+	<h1 class="titulo"> Clase </h1>
+
+	<ui:fragment rendered="#{InfoSension.alumno != null eq true}">
+		<div class="izquierda">
+			<b>MIS DATOS </b><br></br><br></br> 
+			<a href="#" style="text-decoration: none">Leer Encuesta</a><br></br>
+			<a href="#" style="text-decoration: none">Leer Asignatura Matricula</a><br></br>
+			<a href="LeerMatricula.xhtml" style="text-decoration: none">Leer Matricula</a><br></br> 
+			<a href="LeerTitulacion.xhtml" style="text-decoration: none">Leer Titulacion</a><br></br> 
+			<a href="LeerAlumnos.xhtml" style="text-decoration: none">Leer Usuario</a><br></br> 
+			<a href="LeerAsignaturas.xhtml" style="text-decoration: none">Leer Asignatura</a><br></br> 
+			<a href="#" style="text-decoration: none">Leer Clase</a><br></br> 
+			<a href="LeerExpediente.xhtml" style="text-decoration: none">Leer Expediente</a>
+		</div>
+		
+		<h:form styleClass="centrado">
+			<h:dataTable styleClass="card" value="#{matriculaBB.matriculas}" var="mat">
+				<h:column>
+					<f:facet name="header">Asignatura</f:facet> 
+					<h:outputText value="#{mat.curso_Academico}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Dia</f:facet> 
+					<h:outputText value="#{mat.estado}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Hora Inicio</f:facet> 
+					<h:outputText value="#{mat.num_Archivo}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Hora Fin</f:facet> 
+					<h:outputText value="#{mat.turno_Preferente}" />
+				</h:column>
+			</h:dataTable>
+		</h:form>
+	</ui:fragment>
+
+	<div class="pie"> 
+		Universidad de Málaga · Avda. Cervantes, 2. 29071 MÁLAGA · Tel. 952131000 · info@uma.es	
+	</div>
+	
+</h:body>
+</html>

@@ -57,7 +57,7 @@ public class GrupoBB {
 		this.alum = alum;
 	}
 
-
+	//METODO PARA LEER UNA ASIG_MATRICULA(A)
 	//NO SE SI FUNCIONA PORQUE SON 3 FOREACH ANIDADOS
 	public synchronized List<Asignaturas_Matrícula> getAsignaturasMatriculasAlumno()
     {

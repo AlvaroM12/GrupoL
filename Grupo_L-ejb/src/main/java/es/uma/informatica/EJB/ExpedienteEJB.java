@@ -1,17 +1,21 @@
 package es.uma.informatica.EJB;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import es.uma.informatica.Entidades.Alumno;
 import es.uma.informatica.Entidades.Expediente;
+import es.uma.informatica.Entidades.Matrícula;
 import es.uma.informatica.Exception.ExpedienteException;
+import es.uma.informatica.Exception.MatriculaException;
 import es.uma.informatica.Interfaces.InterfazExpediente;
 
 /**
@@ -86,4 +90,13 @@ public class ExpedienteEJB implements InterfazExpediente {
 		}
 		return e;
 	}
+
+	@Override
+    public List<Expediente> leerExpedientes() throws ExpedienteException{
+ 
+    	TypedQuery <Expediente> query = em.createQuery("SELECT a FROM Expediente a ", Expediente.class);
+    	List<Expediente> list = query.getResultList();
+		
+		return list;    	
+    }
 }
