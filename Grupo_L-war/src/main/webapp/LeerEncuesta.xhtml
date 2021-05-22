@@ -44,16 +44,21 @@
 		
 		<h:form styleClass="centrado" >
 		
-		 <h:dataTable styleClass="card" value="#{grupoBB.asignaturasMatriculasAlumno}" var="asig">
+		 <h:dataTable styleClass="card" value="#{encuestaBB.encuesta}" var="encues">
              <h:column>
                  <f:facet name="header">Fecha de envío</f:facet>
-                 <h:outputText value="#{asig.matricula}"/>
+                 <h:outputText value="#{encues.fecha_De_Envío}"/>
              </h:column>
              
              <h:column>
                  <f:facet name="header">Número de expediente</f:facet>
-                 <h:outputText value="#{asig.asignatura}"/>
+                 <h:outputText value="#{encues.EE.num_Expediente}"/>
              </h:column>  
+             
+             <h:column>
+                 <f:facet name="header">Grupos por asignaturas</f:facet>
+                 <h:outputText value="#{encues.gruposPorAsignaturas}"/>
+             </h:column>
          </h:dataTable>
 	</h:form>
 	
