@@ -46,12 +46,12 @@ public class LoginBB {
 
     public String entrar() {
         try {
-        	String rol = usuEJB.validarAcceso(usuario.getEmail_Institucional(), usuario.getContraseña());
+        	String rol = usuEJB.validarAcceso(usuario.getEmail_Institucional(), usuario.getContrasenia());
             if(rol.equalsIgnoreCase("ALUMNO")){
-            	sesion.setAlumno(usuEJB.loginAlumno(usuario.getEmail_Institucional(), usuario.getContraseña()));
+            	sesion.setAlumno(usuEJB.loginAlumno(usuario.getEmail_Institucional(), usuario.getContrasenia()));
             }
             if(rol.equalsIgnoreCase("SECRETARIO")){
-            	sesion.setPersonal(usuEJB.loginPersonal(usuario.getEmail_Institucional(), usuario.getContraseña()));
+            	sesion.setPersonal(usuEJB.loginPersonal(usuario.getEmail_Institucional(), usuario.getContrasenia()));
             }
             
 

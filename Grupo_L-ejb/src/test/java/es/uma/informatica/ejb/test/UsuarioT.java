@@ -70,7 +70,7 @@ public class UsuarioT {
 		try {
 			Alumno a = alumno.leerAlumno((long) 9);
 			
-			String rol = usuario.validarAcceso(a.getEmail_Institucional(),a.getContraseña());
+			String rol = usuario.validarAcceso(a.getEmail_Institucional(),a.getContrasenia());
 			
 			if(!rol.equals("ALUMNO")) {
 				fail("Falla rol");
@@ -114,7 +114,7 @@ public class UsuarioT {
 			Usuario u = new Usuario((long)9, (long)664184557, "popa@uma.es" ,"njevpnev");
 			usuario.generarNuevaContraseña(u, pass);
 			Usuario u2=usuario.leerUsuario(u.getID());
-			if(!encriptado.equals(u2.getContraseña())) {
+			if(!encriptado.equals(u2.getContrasenia())) {
 				fail("No debería lanzarse excepción1");
 			}		
 		} catch (UsuarioException e) {

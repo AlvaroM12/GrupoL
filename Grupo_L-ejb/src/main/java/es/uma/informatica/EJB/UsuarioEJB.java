@@ -64,7 +64,7 @@ public class UsuarioEJB implements InterfazUsuario{
 			
 			Alumno a = query.getSingleResult();
 			
-			if(!a.getContraseña().equalsIgnoreCase(pass)) {
+			if(!a.getContrasenia().equalsIgnoreCase(pass)) {
 			throw new UsuarioErrorException();
 			}else {
 				rol="ALUMNO";
@@ -74,7 +74,7 @@ public class UsuarioEJB implements InterfazUsuario{
 		if(query2.getResultList().size()==1){
 			Personal_de_secretaria p = query2.getSingleResult();
 			
-			if(!p.getContraseña().equalsIgnoreCase(pass)) {
+			if(!p.getContrasenia().equalsIgnoreCase(pass)) {
 				throw new UsuarioErrorException();
 			}else {
 				rol="SECRETARIO";
@@ -140,7 +140,7 @@ public class UsuarioEJB implements InterfazUsuario{
 		if(usuario==null) {
 			throw new UsuarioNullException();
 		}
-		usuario.setContraseña(encriptado);
+		usuario.setContrasenia(encriptado);
 		em.merge(usuario);
 	}
 }
