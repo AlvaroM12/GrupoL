@@ -17,7 +17,7 @@
 	<div class="cerrar"> <h:button value="Cerrar sesion" outcome="index.xhtml" /> </div>
 	<div class="inicio"> <h:button value="Inicio" outcome="Principal.xhtml" /> </div>
 
-	<h1 class="titulo"> Matricula </h1>
+	<h1 class="titulo"> Clase </h1>
 
 	<ui:fragment rendered="#{InfoSension.alumno != null eq true}">
 		<div class="izquierda">
@@ -31,52 +31,27 @@
 			<a href="#" style="text-decoration: none">Leer Clase</a><br></br> 
 			<a href="LeerExpediente.xhtml" style="text-decoration: none">Leer Expediente</a>
 		</div>
-	</ui:fragment>
-	
-	
-	
-	<ui:fragment rendered="#{InfoSension.personal != null eq true}">
+		
 		<h:form styleClass="centrado">
 			<h:dataTable styleClass="card" value="#{matriculaBB.matriculas}" var="mat">
 				<h:column>
-					<f:facet name="header">Curso Academico</f:facet> 
+					<f:facet name="header">Asignatura</f:facet> 
 					<h:outputText value="#{mat.curso_Academico}" />
 				</h:column>
 				<h:column>
-					<f:facet name="header">Estado</f:facet> 
+					<f:facet name="header">Dia</f:facet> 
 					<h:outputText value="#{mat.estado}" />
 				</h:column>
 				<h:column>
-					<f:facet name="header">Numero Archivo</f:facet> 
+					<f:facet name="header">Hora Inicio</f:facet> 
 					<h:outputText value="#{mat.num_Archivo}" />
 				</h:column>
 				<h:column>
-					<f:facet name="header">Turno Preferente</f:facet> 
+					<f:facet name="header">Hora Fin</f:facet> 
 					<h:outputText value="#{mat.turno_Preferente}" />
-				</h:column>
-				<h:column>
-					<f:facet name="header">Fecha de Matricula</f:facet> 
-					<h:outputText value="#{mat.fecha_De_Matrícula}" />
-				</h:column>
-				<h:column>
-					<f:facet name="header">Nuevo Ingreso</f:facet> 
-					<h:outputText value="#{mat.nuevo_Ingreso}" />
-				</h:column>
-				<h:column>
-					<f:facet name="header">Listado Asignaturas</f:facet> 
-					<h:outputText value="#{mat.a}" />
-				</h:column>
-				<h:column>
-					<f:facet name="header">Estado</f:facet> 
-					<h:outputText value="#{mat.estado}" />
-				</h:column>
-				<h:column>
-					<f:facet name="header">Expediente</f:facet> 
-					<h:outputText value="#{mat.EM.num_Expediente}" />
 				</h:column>
 			</h:dataTable>
 		</h:form>
-		<div class="importarMatricula"> <h:button value="Importar Matricula" outcome="ImportarMatricula.xhtml" /> </div>
 	</ui:fragment>
 
 	<div class="pie"> 
