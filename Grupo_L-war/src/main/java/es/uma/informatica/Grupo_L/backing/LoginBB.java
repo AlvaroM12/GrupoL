@@ -11,6 +11,7 @@ import es.uma.informatica.Entidades.Usuario;
 import es.uma.informatica.Exception.UsuarioErrorException;
 import es.uma.informatica.Exception.UsuarioException;
 import es.uma.informatica.Exception.UsuarioExistenteException;
+import es.uma.informatica.Interfaces.InterfazUsuario;
 
 @Named
 @RequestScoped
@@ -19,11 +20,13 @@ public class LoginBB {
 	
     @Inject
     private InfoSesion sesion;
+    
+    @Inject
+    private InterfazUsuario usuEJB;
 
     private Usuario usuario;
     
-    @Inject
-    private UsuarioEJB usuEJB;
+    
 
     /**
      * Creates a new instance of login

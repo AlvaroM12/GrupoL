@@ -1,5 +1,7 @@
 package es.uma.informatica.Interfaces;
 
+import java.util.List;
+
 import es.uma.informatica.Entidades.Alumno;
 import es.uma.informatica.Entidades.Asignatura;
 import es.uma.informatica.Entidades.Asignaturas_Matrícula;
@@ -66,6 +68,8 @@ public interface InterfazGrupo {
 	public Asignaturas_Matrícula leerGrupoAsignatura(Asignaturas_MatriculaId a) throws GrupoException;
 
 	public void asignarGrupo(Alumno a) throws GrupoException;
+
+	public List<Asignaturas_Matrícula> leerAsignaturasMatricula() throws GrupoException;
 
 	
 }
