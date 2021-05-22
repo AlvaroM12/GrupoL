@@ -1,8 +1,10 @@
 package es.uma.informatica.Interfaces;
 
+import javax.ejb.Local;
+
 import es.uma.informatica.Entidades.Centro;
 import es.uma.informatica.Exception.CentroException;
-
+@Local
 public interface InterfazCentro {
 	/**
 	  Este método debe consultar un centro de la base de datos.

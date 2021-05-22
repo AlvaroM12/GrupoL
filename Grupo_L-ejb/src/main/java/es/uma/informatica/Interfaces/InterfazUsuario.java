@@ -1,10 +1,12 @@
 package es.uma.informatica.Interfaces;
 
+import javax.ejb.Local;
+
 import es.uma.informatica.Entidades.*;
 import es.uma.informatica.Exception.UsuarioException;
 import es.uma.informatica.Exception.UsuarioExistenteException;
 import es.uma.informatica.Exception.UsuarioNullException;
-
+@Local
 public interface InterfazUsuario {
 	/**
 	  Este método registra un usuario de la base de datos.

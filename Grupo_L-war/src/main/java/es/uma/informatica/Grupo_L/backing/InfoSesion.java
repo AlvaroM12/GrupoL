@@ -19,7 +19,7 @@ import es.uma.informatica.Entidades.Personal_de_secretaria;
 @SessionScoped
 public class InfoSesion implements Serializable {
 
-    @Inject
+    
     private Alumno alumno;
     private Personal_de_secretaria personal;
     

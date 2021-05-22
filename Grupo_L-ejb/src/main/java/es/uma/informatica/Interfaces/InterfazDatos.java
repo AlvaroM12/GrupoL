@@ -2,9 +2,11 @@ package es.uma.informatica.Interfaces;
 
 import java.io.IOException;
 
+import javax.ejb.Local;
+
 import es.uma.informatica.Entidades.Titulacion;
 import es.uma.informatica.Exception.DatosException;
-
+@Local
 public interface InterfazDatos {
 	/**
 	  Este método debe exportar los datos de los grupos por asignatura de la base de datos.

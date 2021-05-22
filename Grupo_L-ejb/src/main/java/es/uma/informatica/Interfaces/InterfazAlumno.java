@@ -7,7 +7,11 @@ import es.uma.informatica.Exception.AlumnoExistenteException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.ejb.Local;
+
 import es.uma.informatica.Entidades.*;
+
+@Local
 public interface InterfazAlumno {
 	/**
 	  Este método debe crear un alumno en la base de datos.

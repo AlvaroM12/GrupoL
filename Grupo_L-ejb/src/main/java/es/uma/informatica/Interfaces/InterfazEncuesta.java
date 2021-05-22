@@ -1,9 +1,11 @@
 package es.uma.informatica.Interfaces;
 
+import javax.ejb.Local;
+
 import es.uma.informatica.Entidades.Encuesta;
 import es.uma.informatica.Entidades.Encuesta.EncuestaId;
 import es.uma.informatica.Exception.EncuestaException;
-
+@Local
 public interface InterfazEncuesta {
 
 	/**

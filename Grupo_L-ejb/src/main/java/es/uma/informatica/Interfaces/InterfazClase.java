@@ -1,9 +1,11 @@
 package es.uma.informatica.Interfaces;
 
+import javax.ejb.Local;
+
 import es.uma.informatica.Entidades.Clase;
 import es.uma.informatica.Entidades.Clase.ClaseId;
 import es.uma.informatica.Exception.ClaseException;
-
+@Local
 public interface InterfazClase {
 	/**
 	  Este método debe importar un horario en la base de datos.

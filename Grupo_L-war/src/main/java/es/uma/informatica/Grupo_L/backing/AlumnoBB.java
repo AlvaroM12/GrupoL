@@ -10,13 +10,14 @@ import javax.inject.Named;
 import es.uma.informatica.EJB.AlumnoEJB;
 import es.uma.informatica.Entidades.Alumno;
 import es.uma.informatica.Exception.AlumnoException;
+import es.uma.informatica.Interfaces.InterfazAlumno;
 
 @Named(value = "alumnos")
 @RequestScoped
 public class AlumnoBB {
 
 	@Inject
-	private AlumnoEJB alejb;
+	private InterfazAlumno alejb;
 
 	private List<Alumno> listaAl = new ArrayList();
 	private Alumno al;

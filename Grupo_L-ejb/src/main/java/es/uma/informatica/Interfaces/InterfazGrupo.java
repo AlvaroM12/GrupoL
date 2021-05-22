@@ -2,6 +2,8 @@ package es.uma.informatica.Interfaces;
 
 import java.util.List;
 
+import javax.ejb.Local;
+
 import es.uma.informatica.Entidades.Alumno;
 import es.uma.informatica.Entidades.Asignatura;
 import es.uma.informatica.Entidades.Asignaturas_Matrícula;
@@ -9,7 +11,7 @@ import es.uma.informatica.Entidades.Asignaturas_Matrícula.Asignaturas_Matricula
 import es.uma.informatica.Entidades.Grupo;
 import es.uma.informatica.Exception.GrupoException;
 import es.uma.informatica.Exception.PlazasException;
-
+@Local
 public interface InterfazGrupo {
 	
 	/**

@@ -8,6 +8,7 @@ import es.uma.informatica.EJB.UsuarioEJB;
 import es.uma.informatica.Entidades.Alumno;
 import es.uma.informatica.Entidades.Usuario;
 import es.uma.informatica.Exception.AlumnoException;
+import es.uma.informatica.Interfaces.InterfazUsuario;
 
 
 @Named(value = "usuario")
@@ -15,7 +16,7 @@ import es.uma.informatica.Exception.AlumnoException;
 public class UsuarioBB {
 	
 	@Inject
-    private UsuarioEJB usuejb;
+    private InterfazUsuario usuejb;
     
 	private String rol;
     private Usuario usu;

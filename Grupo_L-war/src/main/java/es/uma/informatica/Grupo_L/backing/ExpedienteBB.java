@@ -12,6 +12,7 @@ import es.uma.informatica.Entidades.Alumno;
 import es.uma.informatica.Entidades.Expediente;
 
 import es.uma.informatica.Exception.ExpedienteException;
+import es.uma.informatica.Interfaces.InterfazExpediente;
 
 
 @Named(value = "expediente")
@@ -19,7 +20,7 @@ import es.uma.informatica.Exception.ExpedienteException;
 public class ExpedienteBB {
 	
     @Inject
-    private ExpedienteEJB exejb;
+    private InterfazExpediente exejb;
     
     private Alumno al;
     private Expediente ex;
