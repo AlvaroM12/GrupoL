@@ -24,7 +24,7 @@ public class EncuestaEJB implements InterfazEncuesta {
 
 	public void responderEncuesta(String campos, Encuesta e) throws EncuestaException {
 		
-		Long Fecha=e.getFecha_De_Envío();
+		Long Fecha=e.getFecha_De_Envio();
 		Long ne=e.getEE().getNum_Expediente();
 		EncuestaId ei = new EncuestaId(ne, Fecha);
 		Encuesta en = em.find(Encuesta.class, ei);		

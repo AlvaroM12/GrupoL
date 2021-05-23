@@ -18,24 +18,24 @@ public class Optativa extends Asignatura implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	
-	public Optativa(Long referencia, Long codigo, Long créditos_Teoricos, Long créditos_Practicos,
-			Long total_Créditos, String ofertada, String nombre, Long curso, String plazas, String cuatrimestre,
-			String idioma_de_imparticion,String mención) {
-		super(referencia,codigo,créditos_Teoricos, créditos_Practicos, total_Créditos, ofertada, nombre, curso,
+	public Optativa(Long referencia, Long codigo, Long creditos_Teoricos, Long creditos_Practicos,
+			Long total_Creditos, String ofertada, String nombre, Long curso, String plazas, String cuatrimestre,
+			String idioma_de_imparticion,String mencion) {
+		super(referencia,codigo,creditos_Teoricos, creditos_Practicos, total_Creditos, ofertada, nombre, curso,
 				plazas, cuatrimestre, idioma_de_imparticion);
-		Mencion = mención;
+		Mencion = mencion;
 	}
 
 	public Optativa() {
 		super();
 	}   
 	
-	public String getMención() {
+	public String getMencion() {
 		return this.Mencion;
 	}
 
-	public void setMención(String Mención) {
-		this.Mencion = Mención;
+	public void setMencion(String Mencion) {
+		this.Mencion = Mencion;
 	}
 	
 	@Override

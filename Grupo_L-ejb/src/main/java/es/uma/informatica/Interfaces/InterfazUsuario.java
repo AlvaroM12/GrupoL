@@ -38,7 +38,7 @@ public interface InterfazUsuario {
 	 * @throws UsuarioExistenteException 
 	 * @throws UsuarioNullException 
 	 */
-	public void solicitarRecuperarContraseña(String email) throws UsuarioException;
+	public void solicitarRecuperarContrasenia(String email) throws UsuarioException;
 
 	/**
 	  Este método genera una nueva contraseña para un usuario en la plataforma.
@@ -47,7 +47,10 @@ public interface InterfazUsuario {
 	  En caso de que la contraseña sea null, se lanza la excepción UsuarioNullException.
 	 * @throws UsuarioNullException 
 	 */
-	public void generarNuevaContraseña(Usuario u, String contraseña) throws UsuarioException;
+	public void generarNuevaContrasenia(Usuario u, String contrasenia) throws UsuarioException;
+
+
+	
 
 
 	

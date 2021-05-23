@@ -87,8 +87,8 @@ public class Grupo implements Serializable {
 		return this.Turno_Maniana_Tarde;
 	}
 
-	public void setTurno_Maniana_Tarde(String Turno_Mañana_Tarde) {
-		this.Turno_Maniana_Tarde = Turno_Mañana_Tarde;
+	public void setTurno_Maniana_Tarde(String Turno_Maniana_Tarde) {
+		this.Turno_Maniana_Tarde = Turno_Maniana_Tarde;
 	}   
 	public String getIngles() {
 		return this.Ingles;

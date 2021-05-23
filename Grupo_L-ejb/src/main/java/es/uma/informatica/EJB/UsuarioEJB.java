@@ -103,7 +103,7 @@ public class UsuarioEJB implements InterfazUsuario{
 	}
 
 	@Override
-	public void solicitarRecuperarContraseña(String email) throws UsuarioException{
+	public void solicitarRecuperarContrasenia(String email) throws UsuarioException{
 		if(email==null) {
 			throw new UsuarioNullException();
 		}
@@ -119,14 +119,14 @@ public class UsuarioEJB implements InterfazUsuario{
 	}
 
 	@Override
-	public void generarNuevaContraseña(Usuario u, String contraseña) throws UsuarioException {
+	public void generarNuevaContrasenia(Usuario u, String contrasenia) throws UsuarioException {
 		
-		if(contraseña==null) {
+		if(contrasenia==null) {
 			throw new UsuarioNullException();
 		}
 		byte[] newPassword = null;
 	    try {
-	        newPassword = MessageDigest.getInstance("SHA").digest(contraseña.getBytes("UTF-8"));
+	        newPassword = MessageDigest.getInstance("SHA").digest(contrasenia.getBytes("UTF-8"));
 	    } catch (NoSuchAlgorithmException e) {
 	        e.printStackTrace();
 	    } catch (UnsupportedEncodingException e) {

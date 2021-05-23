@@ -20,12 +20,12 @@ public class Usuario implements Serializable {
 	private String contrasenia;
 	private static final long serialVersionUID = 1L;
 
-	public Usuario(Long iD, Long telefono, String Email, String contraseña) {
+	public Usuario(Long iD, Long telefono, String Email, String contrasenia) {
 		super();
 		ID = iD;
 		Telefono = telefono;
 		Email_Institucional = Email;
-		this.contrasenia = contraseña;
+		this.contrasenia = contrasenia;
 	}
 	public Usuario() {
 		super();

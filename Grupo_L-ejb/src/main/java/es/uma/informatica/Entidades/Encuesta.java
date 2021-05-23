@@ -76,11 +76,11 @@ public class Encuesta implements Serializable {
 		super();
 	}   
 	
-	public Long getFecha_De_Envío() {
+	public Long getFecha_De_Envio() {
 		return this.Fecha_De_Envio;
 	}
 
-	public void setFecha_De_Envío(Long Fecha_De_Envío) {
+	public void setFecha_De_Envio(Long Fecha_De_Envío) {
 		this.Fecha_De_Envio = Fecha_De_Envío;
 	}
     
