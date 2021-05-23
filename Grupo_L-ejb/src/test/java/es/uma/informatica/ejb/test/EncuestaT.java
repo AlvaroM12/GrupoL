@@ -1,10 +1,8 @@
 package es.uma.informatica.ejb.test;
 
 import static org.junit.Assert.*;
-
 import org.junit.Before;
 import org.junit.Test;
-
 import es.uma.informatica.Entidades.Encuesta;
 import es.uma.informatica.Entidades.Encuesta.EncuestaId;
 import es.uma.informatica.Exception.EncuestaException;

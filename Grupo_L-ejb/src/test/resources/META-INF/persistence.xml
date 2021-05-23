@@ -9,7 +9,7 @@
 		<class>es.uma.informatica.Entidades.Grupo</class>
 		<class>es.uma.informatica.Entidades.Alumno</class>
 		<class>es.uma.informatica.Entidades.Asignatura</class>
-		<class>es.uma.informatica.Entidades.Asignaturas_Matrícula</class>
+		<class>es.uma.informatica.Entidades.Asignaturas_Matricula</class>
 		<class>es.uma.informatica.Entidades.Centro</class>
 		<class>es.uma.informatica.Entidades.Clase</class>
 		<class>es.uma.informatica.Entidades.Encuesta</class>

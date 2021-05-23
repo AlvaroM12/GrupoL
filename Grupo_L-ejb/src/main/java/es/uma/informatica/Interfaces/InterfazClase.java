@@ -1,7 +1,6 @@
 package es.uma.informatica.Interfaces;
 
 import javax.ejb.Local;
-
 import es.uma.informatica.Entidades.Clase;
 import es.uma.informatica.Entidades.Clase.ClaseId;
 import es.uma.informatica.Exception.ClaseException;

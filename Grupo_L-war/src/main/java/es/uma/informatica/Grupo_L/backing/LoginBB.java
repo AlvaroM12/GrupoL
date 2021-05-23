@@ -5,8 +5,6 @@ import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
-
-import es.uma.informatica.EJB.UsuarioEJB;
 import es.uma.informatica.Entidades.Usuario;
 import es.uma.informatica.Exception.UsuarioErrorException;
 import es.uma.informatica.Exception.UsuarioException;

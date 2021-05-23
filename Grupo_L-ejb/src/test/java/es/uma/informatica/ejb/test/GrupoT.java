@@ -1,19 +1,17 @@
 package es.uma.informatica.ejb.test;
 
 import static org.junit.Assert.*;
-
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
-
 import es.uma.informatica.Entidades.Alumno;
 import es.uma.informatica.Entidades.Asignatura;
-import es.uma.informatica.Entidades.Asignaturas_Matrícula;
+import es.uma.informatica.Entidades.Asignaturas_Matricula;
 import es.uma.informatica.Entidades.Expediente;
 import es.uma.informatica.Entidades.Grupo;
 import es.uma.informatica.Entidades.Matricula;
 import es.uma.informatica.Entidades.Matricula.MatriculaId;
-import es.uma.informatica.Entidades.Asignaturas_Matrícula.Asignaturas_MatriculaId;
+import es.uma.informatica.Entidades.Asignaturas_Matricula.Asignaturas_MatriculaId;
 import es.uma.informatica.Exception.AlumnoException;
 import es.uma.informatica.Exception.GrupoException;
 import es.uma.informatica.Exception.GrupoExistenteException;
@@ -139,7 +137,7 @@ public class GrupoT {
 			grupo.asignarGrupo(Juan);
 			Expediente e = Juan.getExpedientes().get(0);
 			Matricula m = e.getMatriculas().get(0);
-			Asignaturas_Matrícula asigM = m.getAsigMatricula().get(0);
+			Asignaturas_Matricula asigM = m.getAsigMatricula().get(0);
 			Grupo g = asigM.getG_AM();
 			assertNotEquals(g,null);
 		} catch (GrupoException e) {
@@ -177,7 +175,7 @@ public class GrupoT {
 			//Asignatura Calculo = new Asignatura((long) 1, (long) 123, (long) 5, (long) 1, (long) 6, "Sí", "Cálculo", (long) 1, "50", "Primer Cuatrimestre", "Español");
 			MatriculaId m = new MatriculaId("Primero", (long) 33);
 			Asignaturas_MatriculaId a = new Asignaturas_MatriculaId ((long) 1, m);
-			Asignaturas_Matrícula am = grupo.leerGrupoAsignatura(a);
+			Asignaturas_Matricula am = grupo.leerGrupoAsignatura(a);
             if(am==null) {
             	fail("No deberia lanzar una excepcion");
             }

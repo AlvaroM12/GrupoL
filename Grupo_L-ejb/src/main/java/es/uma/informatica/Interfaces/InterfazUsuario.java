@@ -1,11 +1,11 @@
 package es.uma.informatica.Interfaces;
 
 import javax.ejb.Local;
-
 import es.uma.informatica.Entidades.*;
 import es.uma.informatica.Exception.UsuarioException;
 import es.uma.informatica.Exception.UsuarioExistenteException;
 import es.uma.informatica.Exception.UsuarioNullException;
+
 @Local
 public interface InterfazUsuario {
 	/**

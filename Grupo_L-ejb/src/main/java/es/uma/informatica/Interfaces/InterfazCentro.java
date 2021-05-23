@@ -1,9 +1,7 @@
 package es.uma.informatica.Interfaces;
 
 import java.util.List;
-
 import javax.ejb.Local;
-
 import es.uma.informatica.Entidades.Centro;
 import es.uma.informatica.Exception.CentroException;
 @Local

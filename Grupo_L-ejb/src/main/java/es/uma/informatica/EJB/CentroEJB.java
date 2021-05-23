@@ -8,10 +8,8 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
 import es.uma.informatica.Entidades.Centro;
-import es.uma.informatica.Entidades.Encuesta;
 import es.uma.informatica.Exception.CentroException;
 import es.uma.informatica.Exception.CentroNullException;
-import es.uma.informatica.Exception.EncuestaException;
 import es.uma.informatica.Interfaces.InterfazCentro;
 
 /**

@@ -10,9 +10,9 @@ import es.uma.informatica.Entidades.Matricula.MatriculaId;
  *
  */
 @Entity
-@IdClass(Asignaturas_Matrícula.Asignaturas_MatriculaId.class)
+@IdClass(Asignaturas_Matricula.Asignaturas_MatriculaId.class)
 
-public class Asignaturas_Matrícula implements Serializable {
+public class Asignaturas_Matricula implements Serializable {
 	
 	public static class Asignaturas_MatriculaId implements Serializable{
 		private Long asignatura;
@@ -74,13 +74,13 @@ public class Asignaturas_Matrícula implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
-	public Asignaturas_Matrícula(Matricula matricula, Asignatura asignatura) {
+	public Asignaturas_Matricula(Matricula matricula, Asignatura asignatura) {
 		super();
 		this.matricula = matricula;
 		this.asignatura = asignatura;
 		
 	}
-	public Asignaturas_Matrícula() {
+	public Asignaturas_Matricula() {
 		super();
 		
 	}
@@ -128,7 +128,7 @@ public class Asignaturas_Matrícula implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Asignaturas_Matrícula other = (Asignaturas_Matrícula) obj;
+		Asignaturas_Matricula other = (Asignaturas_Matricula) obj;
 		if (G_AM == null) {
 			if (other.G_AM != null)
 				return false;

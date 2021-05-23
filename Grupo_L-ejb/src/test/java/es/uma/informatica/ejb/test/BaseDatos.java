@@ -4,14 +4,12 @@ import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-
 import es.uma.informatica.Entidades.Alumno;
 import es.uma.informatica.Entidades.Asignatura;
-import es.uma.informatica.Entidades.Asignaturas_Matrícula;
+import es.uma.informatica.Entidades.Asignaturas_Matricula;
 import es.uma.informatica.Entidades.Centro;
 import es.uma.informatica.Entidades.Clase;
 import es.uma.informatica.Entidades.Encuesta;
@@ -190,10 +188,10 @@ public class BaseDatos {
 		
 		
 		
-		Asignaturas_Matrícula am = new Asignaturas_Matrícula (m1,Calculo);
-		Asignaturas_Matrícula am2 = new Asignaturas_Matrícula (m2,PL);
-		Asignaturas_Matrícula am3 = new Asignaturas_Matrícula (m3,IIS);
-		Asignaturas_Matrícula am4 = new Asignaturas_Matrícula (m4,Algebra);
+		Asignaturas_Matricula am = new Asignaturas_Matricula (m1,Calculo);
+		Asignaturas_Matricula am2 = new Asignaturas_Matricula (m2,PL);
+		Asignaturas_Matricula am3 = new Asignaturas_Matricula (m3,IIS);
+		Asignaturas_Matricula am4 = new Asignaturas_Matricula (m4,Algebra);
 		
 		am.setAsignatura(Calculo);
 		am2.setAsignatura(PL);
@@ -210,7 +208,7 @@ public class BaseDatos {
 		am3.setG_AM(C);
 		am4.setG_AM(D);
 		
-		for(Asignaturas_Matrícula asigm: new Asignaturas_Matrícula [] {am, am2, am3, am4}) {
+		for(Asignaturas_Matricula asigm: new Asignaturas_Matricula [] {am, am2, am3, am4}) {
 			em.persist(asigm);
 		}
 		

@@ -2,23 +2,19 @@ package es.uma.informatica.EJB;
 
 import java.io.IOException;
 import java.util.List;
-
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
-
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-
-import es.uma.informatica.Entidades.Alumno;
 import es.uma.informatica.Entidades.Asignatura;
-import es.uma.informatica.Entidades.Matricula;
 import es.uma.informatica.Entidades.Titulacion;
-import es.uma.informatica.Exception.AlumnoException;
-import es.uma.informatica.Exception.AlumnoNullException;
 import es.uma.informatica.Exception.AsignaturaException;
 import es.uma.informatica.Interfaces.InterfazAsignatura;
+
+
+
 
 /**
  * Session Bean implementation class Asignatura
@@ -63,13 +59,13 @@ public class AsignaturaEJB implements InterfazAsignatura {
 	        	a.setCurso(curso);
 	        	
 	        	Long credt = (long) sheet.getRow(fila).getCell(6).getNumericCellValue();
-	        	a.setCréditos_Teoricos(credt);
+	        	a.setCreditos_Teoricos(credt);
 	        	
 	        	Long credp = (long) sheet.getRow(fila).getCell(7).getNumericCellValue();
-	        	a.setCréditos_Practicos(credp);
+	        	a.setCreditos_Practicos(credp);
 	        	
 	        	Long cred = (long) sheet.getRow(fila).getCell(8).getNumericCellValue();
-	        	a.setTotal_Créditos(cred);
+	        	a.setTotal_Creditos(cred);
 	        	
 	        	String cuatri = sheet.getRow(fila).getCell(9).getStringCellValue();
 	        	a.setCuatrimestre(cuatri);

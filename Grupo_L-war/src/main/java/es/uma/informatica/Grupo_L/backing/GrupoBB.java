@@ -2,17 +2,14 @@ package es.uma.informatica.Grupo_L.backing;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
-
 import es.uma.informatica.Entidades.Alumno;
-import es.uma.informatica.Entidades.Asignaturas_Matrícula;
+import es.uma.informatica.Entidades.Asignaturas_Matricula;
 import es.uma.informatica.Entidades.Expediente;
 import es.uma.informatica.Entidades.Grupo;
 import es.uma.informatica.Entidades.Matricula;
-import es.uma.informatica.Entidades.Usuario;
 import es.uma.informatica.Exception.AlumnoException;
 import es.uma.informatica.Exception.GrupoException;
 import es.uma.informatica.Interfaces.InterfazAlumno;
@@ -29,7 +26,7 @@ public class GrupoBB {
 	@Inject
 	private InterfazGrupo grupo;
 	
-	private Asignaturas_Matrícula asigmat;
+	private Asignaturas_Matricula asigmat;
 	private Alumno alum;
 	
 	
@@ -38,12 +35,12 @@ public class GrupoBB {
 	}
 
 
-	public Asignaturas_Matrícula getAsigmat() {
+	public Asignaturas_Matricula getAsigmat() {
 		return asigmat;
 	}
 
 
-	public void setAsigmat(Asignaturas_Matrícula asigmat) {
+	public void setAsigmat(Asignaturas_Matricula asigmat) {
 		this.asigmat = asigmat;
 	}
 	
@@ -60,12 +57,12 @@ public class GrupoBB {
 
 
 	//NO SE SI FUNCIONA PORQUE SON 3 FOREACH ANIDADOS
-	public synchronized List<Asignaturas_Matrícula> getAsignaturasMatriculasAlumno()
+	public synchronized List<Asignaturas_Matricula> getAsignaturasMatriculasAlumno()
     {
-		List<Asignaturas_Matrícula> asigmatalum = new ArrayList<Asignaturas_Matrícula>();
+		List<Asignaturas_Matricula> asigmatalum = new ArrayList<Asignaturas_Matricula>();
         for (Expediente ex : alum.getExpedientes()) {
 			for (Matricula mat : ex.getMatriculas()) {
-				for (Asignaturas_Matrícula asignaturasmat: mat.getAsigMatricula()) {
+				for (Asignaturas_Matricula asignaturasmat: mat.getAsigMatricula()) {
 					asigmatalum.add(asignaturasmat);
 				}
 			}
@@ -74,7 +71,7 @@ public class GrupoBB {
     }
 	
 	//METODO PARA LEER TODAS LAS ASIG_MATRICULAS(S)
-	public  synchronized List<Asignaturas_Matrícula> getAsignaturasMatriculas(){
+	public  synchronized List<Asignaturas_Matricula> getAsignaturasMatriculas(){
 		
 		try {
 			return grupo.leerAsignaturasMatricula();

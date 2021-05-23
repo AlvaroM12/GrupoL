@@ -2,18 +2,13 @@ package es.uma.informatica.EJB;
 
 import java.io.IOException;
 import java.util.List;
-
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
-
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-
-
 import es.uma.informatica.Entidades.Titulacion;
-
 import es.uma.informatica.Exception.TitulacionException;
 import es.uma.informatica.Exception.TitulacionNullException;
 import es.uma.informatica.Interfaces.InterfazTitulacion;

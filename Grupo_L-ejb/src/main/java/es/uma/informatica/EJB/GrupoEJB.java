@@ -1,13 +1,10 @@
 package es.uma.informatica.EJB;
 
 import java.util.List;
-
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
 import javax.persistence.TypedQuery;
-
 import es.uma.informatica.Exception.GrupoAsigErrorException;
 import es.uma.informatica.Exception.GrupoErrorException;
 import es.uma.informatica.Exception.GrupoException;
@@ -16,8 +13,8 @@ import es.uma.informatica.Exception.GrupoNullException;
 import es.uma.informatica.Interfaces.InterfazGrupo;
 import es.uma.informatica.Entidades.Alumno;
 import es.uma.informatica.Entidades.Asignatura;
-import es.uma.informatica.Entidades.Asignaturas_Matrícula;
-import es.uma.informatica.Entidades.Asignaturas_Matrícula.Asignaturas_MatriculaId;
+import es.uma.informatica.Entidades.Asignaturas_Matricula;
+import es.uma.informatica.Entidades.Asignaturas_Matricula.Asignaturas_MatriculaId;
 import es.uma.informatica.Entidades.Expediente;
 import es.uma.informatica.Entidades.Grupo;
 import es.uma.informatica.Entidades.GruposPorAsignatura;
@@ -153,14 +150,14 @@ public class GrupoEJB implements InterfazGrupo {
 						List<Asignatura> asig = matricula.getA();
 						for (Asignatura asignatura : asig) {
 							if(asignatura.getIdioma_de_imparticion().equalsIgnoreCase("Español")) {
-								List<Asignaturas_Matrícula> asigM = asignatura.getAsignaturasMatricula();
+								List<Asignaturas_Matricula> asigM = asignatura.getAsignaturasMatricula();
 								Grupo grupo = asigM.get(contador).getG_AM();
 								while(grupo.getIngles().equalsIgnoreCase("si") || grupo.getPlazas()==0) {
 									contador++;
 								}
 								asigM.get(contador).setG_AM(grupo);
 							}else {
-								List<Asignaturas_Matrícula> asigM = asignatura.getAsignaturasMatricula();
+								List<Asignaturas_Matricula> asigM = asignatura.getAsignaturasMatricula();
 								Grupo grupo = asigM.get(contador).getG_AM();
 								while(grupo.getIngles().equalsIgnoreCase("no") || grupo.getPlazas()==0) {
 									contador++;
@@ -179,8 +176,8 @@ public class GrupoEJB implements InterfazGrupo {
 
     
     @Override
-    public Asignaturas_Matrícula leerGrupoAsignatura(Asignaturas_MatriculaId a) throws GrupoException{
-		Asignaturas_Matrícula am = em.find(Asignaturas_Matrícula.class, a);
+    public Asignaturas_Matricula leerGrupoAsignatura(Asignaturas_MatriculaId a) throws GrupoException{
+    	Asignaturas_Matricula am = em.find(Asignaturas_Matricula.class, a);
 		if(am==null) {
 			throw new GrupoException();
 		}
@@ -188,10 +185,10 @@ public class GrupoEJB implements InterfazGrupo {
     }
     
     @Override
-    public List<Asignaturas_Matrícula> leerAsignaturasMatricula() throws GrupoException{
+    public List<Asignaturas_Matricula> leerAsignaturasMatricula() throws GrupoException{
     	
-    	TypedQuery <Asignaturas_Matrícula> query = em.createQuery("SELECT a FROM Asignatura_Matrícula a ", Asignaturas_Matrícula.class);
-    	List<Asignaturas_Matrícula> list = query.getResultList();
+    	TypedQuery <Asignaturas_Matricula> query = em.createQuery("SELECT a FROM Asignatura_Matrícula a ", Asignaturas_Matricula.class);
+    	List<Asignaturas_Matricula> list = query.getResultList();
 		
 		return list;    	
     }

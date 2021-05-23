@@ -65,7 +65,7 @@ public class Matricula implements Serializable {
 	private String Turno_Preferente;
 	
 	@Temporal(TemporalType.DATE)
-	private Date Fecha_De_Matrícula;
+	private Date Fecha_De_Matricula;
 	private String Nuevo_Ingreso;
 	@OneToMany(mappedBy="matriculas")
 	private List<Asignatura> a;
@@ -77,7 +77,7 @@ public class Matricula implements Serializable {
 	private Expediente EM;
 	
 	@OneToMany(mappedBy = "matricula", cascade = CascadeType.REMOVE)
-	private List<Asignaturas_Matrícula> asigMatricula;
+	private List<Asignaturas_Matricula> asigMatricula;
 
 	
 	public Matricula(String curso_Academico, String estado, Long num_Archivo, String turno_Preferente,
@@ -87,7 +87,7 @@ public class Matricula implements Serializable {
 		Estado = estado;
 		Num_Archivo = num_Archivo;
 		Turno_Preferente = turno_Preferente;
-		Fecha_De_Matrícula = fecha_De_Matrícula;
+		Fecha_De_Matricula = fecha_De_Matrícula;
 		Nuevo_Ingreso = nuevo_Ingreso;
 		a = listado_Asignaturas;
 		EM = E;
@@ -125,11 +125,11 @@ public class Matricula implements Serializable {
 		this.Turno_Preferente = Turno_Preferente;
 	}   
 	
-	public Date getFecha_De_Matrícula() {
-		return Fecha_De_Matrícula;
+	public Date getFecha_De_Matricula() {
+		return Fecha_De_Matricula;
 	}
-	public void setFecha_De_Matrícula(Date fecha_De_Matrícula) {
-		Fecha_De_Matrícula = fecha_De_Matrícula;
+	public void setFecha_De_Matricula(Date fecha_De_Matrícula) {
+		Fecha_De_Matricula = fecha_De_Matrícula;
 	}
 	public String getNuevo_Ingreso() {
 		return this.Nuevo_Ingreso;
@@ -150,10 +150,10 @@ public class Matricula implements Serializable {
 	public void setEM(Expediente eM) {
 		EM = eM;
 	}
-	public List<Asignaturas_Matrícula> getAsigMatricula() {
+	public List<Asignaturas_Matricula> getAsigMatricula() {
 		return asigMatricula;
 	}
-	public void setAsigMatricula(List<Asignaturas_Matrícula> asigMatricula) {
+	public void setAsigMatricula(List<Asignaturas_Matricula> asigMatricula) {
 		this.asigMatricula = asigMatricula;
 	}
 	@Override
@@ -162,7 +162,7 @@ public class Matricula implements Serializable {
 		int result = 1;
 		result = prime * result + ((Curso_Academico == null) ? 0 : Curso_Academico.hashCode());
 		result = prime * result + ((Estado == null) ? 0 : Estado.hashCode());
-		result = prime * result + ((Fecha_De_Matrícula == null) ? 0 : Fecha_De_Matrícula.hashCode());
+		result = prime * result + ((Fecha_De_Matricula == null) ? 0 : Fecha_De_Matricula.hashCode());
 		result = prime * result + ((Nuevo_Ingreso == null) ? 0 : Nuevo_Ingreso.hashCode());
 		result = prime * result + ((Num_Archivo == null) ? 0 : Num_Archivo.hashCode());
 		result = prime * result + ((Turno_Preferente == null) ? 0 : Turno_Preferente.hashCode());
@@ -187,10 +187,10 @@ public class Matricula implements Serializable {
 				return false;
 		} else if (!Estado.equals(other.Estado))
 			return false;
-		if (Fecha_De_Matrícula == null) {
-			if (other.Fecha_De_Matrícula != null)
+		if (Fecha_De_Matricula == null) {
+			if (other.Fecha_De_Matricula != null)
 				return false;
-		} else if (!Fecha_De_Matrícula.equals(other.Fecha_De_Matrícula))
+		} else if (!Fecha_De_Matricula.equals(other.Fecha_De_Matricula))
 			return false;
 		if (Nuevo_Ingreso == null) {
 			if (other.Nuevo_Ingreso != null)
@@ -212,7 +212,7 @@ public class Matricula implements Serializable {
 	@Override
 	public String toString() {
 		return "Matrícula [Curso_Academico=" + Curso_Academico + ", Estado=" + Estado + ", Num_Archivo=" + Num_Archivo
-				+ ", Turno_Preferente=" + Turno_Preferente + ", Fecha_De_Matrícula=" + Fecha_De_Matrícula
+				+ ", Turno_Preferente=" + Turno_Preferente + ", Fecha_De_Matrícula=" + Fecha_De_Matricula
 				+ ", Nuevo_Ingreso=" + Nuevo_Ingreso + ", a=" + a + ", EM=" + EM + ", asigMatricula=" + asigMatricula
 				+ "]";
 	}

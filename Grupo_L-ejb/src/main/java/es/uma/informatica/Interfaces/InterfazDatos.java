@@ -1,9 +1,7 @@
 package es.uma.informatica.Interfaces;
 
 import java.io.IOException;
-
 import javax.ejb.Local;
-
 import es.uma.informatica.Entidades.Titulacion;
 import es.uma.informatica.Exception.DatosException;
 @Local

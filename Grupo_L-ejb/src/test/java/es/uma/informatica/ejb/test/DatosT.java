@@ -1,10 +1,8 @@
 package es.uma.informatica.ejb.test;
 
 import java.io.IOException;
-
 import org.junit.Before;
 import org.junit.Test;
-
 import es.uma.informatica.Entidades.Titulacion;
 import es.uma.informatica.Exception.DatosException;
 import es.uma.informatica.Interfaces.InterfazDatos;

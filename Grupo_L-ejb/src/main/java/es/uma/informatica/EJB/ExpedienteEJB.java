@@ -2,20 +2,15 @@ package es.uma.informatica.EJB;
 
 import java.io.IOException;
 import java.util.List;
-
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
-
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-
 import es.uma.informatica.Entidades.Alumno;
 import es.uma.informatica.Entidades.Expediente;
-import es.uma.informatica.Entidades.Matricula;
 import es.uma.informatica.Exception.ExpedienteException;
-import es.uma.informatica.Exception.MatriculaException;
 import es.uma.informatica.Interfaces.InterfazExpediente;
 
 /**

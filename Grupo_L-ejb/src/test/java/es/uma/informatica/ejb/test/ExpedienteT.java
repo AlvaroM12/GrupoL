@@ -1,10 +1,8 @@
 package es.uma.informatica.ejb.test;
 
 import static org.junit.Assert.*;
-
 import org.junit.Before;
 import org.junit.Test;
-
 import es.uma.informatica.Entidades.Expediente;
 import es.uma.informatica.Exception.ExpedienteException;
 import es.uma.informatica.Interfaces.InterfazExpediente;

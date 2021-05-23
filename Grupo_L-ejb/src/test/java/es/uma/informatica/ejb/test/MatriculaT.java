@@ -1,11 +1,8 @@
 package es.uma.informatica.ejb.test;
 
 import static org.junit.Assert.*;
-
-
 import org.junit.Before;
 import org.junit.Test;
-
 import es.uma.informatica.Entidades.Matricula;
 import es.uma.informatica.Entidades.Matricula.MatriculaId;
 import es.uma.informatica.Exception.MatriculaException;

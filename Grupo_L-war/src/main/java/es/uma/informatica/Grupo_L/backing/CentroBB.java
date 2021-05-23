@@ -1,7 +1,6 @@
 package es.uma.informatica.Grupo_L.backing;
 
 import java.util.List;
-
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;

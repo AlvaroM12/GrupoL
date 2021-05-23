@@ -1,16 +1,12 @@
 package es.uma.informatica.ejb.test;
 
 import static org.junit.Assert.*;
-
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Base64;
-
 import org.junit.Before;
-
 import org.junit.Test;
-
 import es.uma.informatica.Entidades.Alumno;
 import es.uma.informatica.Entidades.Usuario;
 import es.uma.informatica.Exception.AlumnoException;

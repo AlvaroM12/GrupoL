@@ -1,13 +1,11 @@
 package es.uma.informatica.Interfaces;
 
 import java.util.List;
-
 import javax.ejb.Local;
-
 import es.uma.informatica.Entidades.Alumno;
 import es.uma.informatica.Entidades.Asignatura;
-import es.uma.informatica.Entidades.Asignaturas_Matrícula;
-import es.uma.informatica.Entidades.Asignaturas_Matrícula.Asignaturas_MatriculaId;
+import es.uma.informatica.Entidades.Asignaturas_Matricula;
+import es.uma.informatica.Entidades.Asignaturas_Matricula.Asignaturas_MatriculaId;
 import es.uma.informatica.Entidades.Grupo;
 import es.uma.informatica.Exception.GrupoException;
 import es.uma.informatica.Exception.PlazasException;
@@ -67,11 +65,11 @@ public interface InterfazGrupo {
 	 * @throws PlazasException 
 	 */
 
-	public Asignaturas_Matrícula leerGrupoAsignatura(Asignaturas_MatriculaId a) throws GrupoException;
+	public Asignaturas_Matricula leerGrupoAsignatura(Asignaturas_MatriculaId a) throws GrupoException;
 
 	public void asignarGrupo(Alumno a) throws GrupoException;
 
-	public List<Asignaturas_Matrícula> leerAsignaturasMatricula() throws GrupoException;
+	public List<Asignaturas_Matricula> leerAsignaturasMatricula() throws GrupoException;
 
 	public List<Grupo> leerGrupos() throws GrupoException;
 

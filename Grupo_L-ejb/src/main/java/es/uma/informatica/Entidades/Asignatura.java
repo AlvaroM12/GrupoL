@@ -29,15 +29,15 @@ public class Asignatura implements Serializable {
 	private String Cuatrimestre;
 	private String Idioma_de_imparticion;
 	
-	public Asignatura(Long referencia, Long codigo, Long créditos_Teoricos, Long créditos_Practicos,
-			Long total_Créditos, String ofertada, String nombre, Long curso, String plazas, String cuatrimestre,
+	public Asignatura(Long referencia, Long codigo, Long creditos_Teoricos, Long creditos_Practicos,
+			Long total_Creditos, String ofertada, String nombre, Long curso, String plazas, String cuatrimestre,
 			String idioma_de_imparticion) {
 		super();
 		Referencia = referencia;
 		Codigo = codigo;
-		Creditos_Teoricos = créditos_Teoricos;
-		Creditos_Practicos = créditos_Practicos;
-		Total_Creditos = total_Créditos;
+		Creditos_Teoricos = creditos_Teoricos;
+		Creditos_Practicos = creditos_Practicos;
+		Total_Creditos = total_Creditos;
 		Ofertada = ofertada;
 		Nombre = nombre;
 		Curso = curso;
@@ -57,7 +57,7 @@ public class Asignatura implements Serializable {
 	private List<Clase> clases;
 	
 	@OneToMany(mappedBy = "asignatura")
-	private List<Asignaturas_Matrícula> asignaturasMatricula;
+	private List<Asignaturas_Matricula> asignaturasMatricula;
 	
 	@OneToMany(mappedBy = "A_GPA")
 	private List<GruposPorAsignatura> gruposPorAsignatura;
@@ -114,22 +114,22 @@ public class Asignatura implements Serializable {
 		this.Idioma_de_imparticion = Idioma_de_imparticion;
 	}	
 	
-	public Long getCréditos_Teoricos() {
+	public Long getCreditos_Teoricos() {
 		return Creditos_Teoricos;
 	}
-	public void setCréditos_Teoricos(Long créditos_Teoricos) {
+	public void setCreditos_Teoricos(Long créditos_Teoricos) {
 		Creditos_Teoricos = créditos_Teoricos;
 	}
-	public Long getCréditos_Practicos() {
+	public Long getCreditos_Practicos() {
 		return Creditos_Practicos;
 	}
-	public void setCréditos_Practicos(Long créditos_Practicos) {
+	public void setCreditos_Practicos(Long créditos_Practicos) {
 		Creditos_Practicos = créditos_Practicos;
 	}
-	public Long getTotal_Créditos() {
+	public Long getTotal_Creditos() {
 		return Total_Creditos;
 	}
-	public void setTotal_Créditos(Long total_Créditos) {
+	public void setTotal_Creditos(Long total_Créditos) {
 		Total_Creditos = total_Créditos;
 	}
 	public String getPlazas() {
@@ -157,10 +157,10 @@ public class Asignatura implements Serializable {
 	public void setClases(List<Clase> clases) {
 		this.clases = clases;
 	}
-	public List<Asignaturas_Matrícula> getAsignaturasMatricula() {
+	public List<Asignaturas_Matricula> getAsignaturasMatricula() {
 		return asignaturasMatricula;
 	}
-	public void setAsignaturasMatricula(List<Asignaturas_Matrícula> asignaturasMatricula) {
+	public void setAsignaturasMatricula(List<Asignaturas_Matricula> asignaturasMatricula) {
 		this.asignaturasMatricula = asignaturasMatricula;
 	}
 	

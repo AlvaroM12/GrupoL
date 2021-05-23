@@ -1,16 +1,10 @@
 package es.uma.informatica.ejb.test;
 
 import static org.junit.Assert.*;
-
-
-
 import org.junit.Before;
-
 import org.junit.Test;
-
 import es.uma.informatica.Entidades.Titulacion;
 import es.uma.informatica.Exception.TitulacionException;
-
 import es.uma.informatica.Interfaces.InterfazTitulacion;
 import es.uma.informatica.sii.anotaciones.Requisitos;
 

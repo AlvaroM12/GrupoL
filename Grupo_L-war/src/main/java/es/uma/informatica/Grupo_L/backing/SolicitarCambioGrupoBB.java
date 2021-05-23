@@ -14,7 +14,7 @@ import es.uma.informatica.Interfaces.InterfazGrupo;
 @RequestScoped
 public class SolicitarCambioGrupoBB {
 
-	    private Grupo grupo;
+	    
 	    private List<Long> listGrupoCurso; 
 
 	    @Inject

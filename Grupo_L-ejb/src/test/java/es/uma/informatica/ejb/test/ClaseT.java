@@ -1,13 +1,9 @@
 package es.uma.informatica.ejb.test;
 
 import static org.junit.Assert.*;
-
-
-
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
-
 import es.uma.informatica.Entidades.Clase;
 import es.uma.informatica.Entidades.Clase.ClaseId;
 import es.uma.informatica.Exception.ClaseException;

@@ -57,7 +57,7 @@ public class MatriculaEJB implements InterfazMatricula {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-	        	m.setFecha_De_Matrícula(date);
+	        	m.setFecha_De_Matricula(date);
 	        	String turnoPref = sheet.getRow(4).getCell(15).getStringCellValue();
 	        	m.setTurno_Preferente(turnoPref);
 	        	em.persist(m);;

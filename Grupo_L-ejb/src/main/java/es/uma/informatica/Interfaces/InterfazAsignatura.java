@@ -2,9 +2,7 @@ package es.uma.informatica.Interfaces;
 
 
 import java.util.List;
-
 import javax.ejb.Local;
-
 import es.uma.informatica.Entidades.Asignatura;
 import es.uma.informatica.Exception.AsignaturaException;
 

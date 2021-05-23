@@ -1,17 +1,11 @@
 package es.uma.informatica.Grupo_L.backing;
 
-import java.util.ArrayList;
-import java.util.List;
+
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
-
-import es.uma.informatica.Entidades.Asignaturas_Matrícula;
 import es.uma.informatica.Entidades.Clase;
-import es.uma.informatica.Entidades.Expediente;
-import es.uma.informatica.Entidades.Matricula;
-import es.uma.informatica.Interfaces.InterfazAlumno;
 import es.uma.informatica.Interfaces.InterfazClase;
 
 @Named

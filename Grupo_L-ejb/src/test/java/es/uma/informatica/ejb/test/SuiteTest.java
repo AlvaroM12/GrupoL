@@ -1,10 +1,8 @@
 package es.uma.informatica.ejb.test;
 
 import java.util.Properties;
-
 import javax.ejb.embeddable.EJBContainer;
 import javax.naming.Context;
-
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
