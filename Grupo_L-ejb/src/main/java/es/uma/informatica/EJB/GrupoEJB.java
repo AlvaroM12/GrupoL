@@ -21,7 +21,7 @@ import es.uma.informatica.Entidades.Asignaturas_Matrícula.Asignaturas_Matricula
 import es.uma.informatica.Entidades.Expediente;
 import es.uma.informatica.Entidades.Grupo;
 import es.uma.informatica.Entidades.GruposPorAsignatura;
-import es.uma.informatica.Entidades.Matrícula;
+import es.uma.informatica.Entidades.Matricula;
 
 /**
  * Session Bean implementation class Grupo
@@ -56,7 +56,7 @@ public class GrupoEJB implements InterfazGrupo {
 		Grupo g1 = leerGrupo(g.getID());
 		g1.setCurso(g.getCurso());
 		g1.setLetra(g.getLetra());
-		g1.setTurno_Mañana_Tarde(g.getTurno_Mañana_Tarde());
+		g1.setTurno_Maniana_Tarde(g.getTurno_Maniana_Tarde());
 		g1.setIngles(g.getIngles());
 		g1.setVisible(g.getVisible());
 		g1.setAsignar(g.getAsignar());
@@ -147,8 +147,8 @@ public class GrupoEJB implements InterfazGrupo {
     	int contador = 0;
     	for (Expediente expediente : e) {
 			if(expediente.getActivo().equalsIgnoreCase("activo")) {
-				List<Matrícula> m = expediente.getMatriculas();
-				for (Matrícula matricula : m) {
+				List<Matricula> m = expediente.getMatriculas();
+				for (Matricula matricula : m) {
 					if(matricula.getEstado().equalsIgnoreCase("activo")) {
 						List<Asignatura> asig = matricula.getA();
 						for (Asignatura asignatura : asig) {

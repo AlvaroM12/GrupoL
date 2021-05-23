@@ -10,7 +10,7 @@ import javax.inject.Named;
 import es.uma.informatica.Entidades.Alumno;
 import es.uma.informatica.Entidades.Asignaturas_Matrícula;
 import es.uma.informatica.Entidades.Expediente;
-import es.uma.informatica.Entidades.Matrícula;
+import es.uma.informatica.Entidades.Matricula;
 import es.uma.informatica.Entidades.Usuario;
 import es.uma.informatica.Exception.AlumnoException;
 import es.uma.informatica.Exception.GrupoException;
@@ -63,7 +63,7 @@ public class GrupoBB {
     {
 		List<Asignaturas_Matrícula> asigmatalum = new ArrayList<Asignaturas_Matrícula>();
         for (Expediente ex : alum.getExpedientes()) {
-			for (Matrícula mat : ex.getMatriculas()) {
+			for (Matricula mat : ex.getMatriculas()) {
 				for (Asignaturas_Matrícula asignaturasmat: mat.getAsigMatricula()) {
 					asigmatalum.add(asignaturasmat);
 				}

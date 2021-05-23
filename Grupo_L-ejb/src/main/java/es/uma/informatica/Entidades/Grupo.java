@@ -22,7 +22,7 @@ public class Grupo implements Serializable {
 	private Long Curso;
 	@Column(unique=true)
 	private String Letra;
-	private String Turno_Mañana_Tarde;
+	private String Turno_Maniana_Tarde;
 	private String Ingles;
 	private Long Visible;
 	private Long Asignar;
@@ -52,7 +52,7 @@ public class Grupo implements Serializable {
 		ID = id;
 		Curso = curso;
 		Letra = letra;
-		Turno_Mañana_Tarde = turno;
+		Turno_Maniana_Tarde = turno;
 		Ingles = ingles;
 		Visible = visible;
 		Asignar = asignar;
@@ -83,12 +83,12 @@ public class Grupo implements Serializable {
 	public void setLetra(String Letra) {
 		this.Letra = Letra;
 	}   
-	public String getTurno_Mañana_Tarde() {
-		return this.Turno_Mañana_Tarde;
+	public String getTurno_Maniana_Tarde() {
+		return this.Turno_Maniana_Tarde;
 	}
 
-	public void setTurno_Mañana_Tarde(String Turno_Mañana_Tarde) {
-		this.Turno_Mañana_Tarde = Turno_Mañana_Tarde;
+	public void setTurno_Maniana_Tarde(String Turno_Mañana_Tarde) {
+		this.Turno_Maniana_Tarde = Turno_Mañana_Tarde;
 	}   
 	public String getIngles() {
 		return this.Ingles;
@@ -166,7 +166,7 @@ public class Grupo implements Serializable {
 		result = prime * result + ((Ingles == null) ? 0 : Ingles.hashCode());
 		result = prime * result + ((Letra == null) ? 0 : Letra.hashCode());
 		result = prime * result + ((Plazas == null) ? 0 : Plazas.hashCode());
-		result = prime * result + ((Turno_Mañana_Tarde == null) ? 0 : Turno_Mañana_Tarde.hashCode());
+		result = prime * result + ((Turno_Maniana_Tarde == null) ? 0 : Turno_Maniana_Tarde.hashCode());
 		result = prime * result + ((Visible == null) ? 0 : Visible.hashCode());
 		result = prime * result + ((clases == null) ? 0 : clases.hashCode());
 		result = prime * result + ((grupos == null) ? 0 : grupos.hashCode());
@@ -216,10 +216,10 @@ public class Grupo implements Serializable {
 				return false;
 		} else if (!Plazas.equals(other.Plazas))
 			return false;
-		if (Turno_Mañana_Tarde == null) {
-			if (other.Turno_Mañana_Tarde != null)
+		if (Turno_Maniana_Tarde == null) {
+			if (other.Turno_Maniana_Tarde != null)
 				return false;
-		} else if (!Turno_Mañana_Tarde.equals(other.Turno_Mañana_Tarde))
+		} else if (!Turno_Maniana_Tarde.equals(other.Turno_Maniana_Tarde))
 			return false;
 		if (Visible == null) {
 			if (other.Visible != null)
@@ -241,7 +241,7 @@ public class Grupo implements Serializable {
 	@Override
 	public String toString() {
 		return "Grupo [ID=" + ID + ", Curso=" + Curso + ", Letra=" + Letra + ", Turno_Mañana_Tarde="
-				+ Turno_Mañana_Tarde + ", Ingles=" + Ingles + ", Visible=" + Visible + ", Asignar=" + Asignar
+				+ Turno_Maniana_Tarde + ", Ingles=" + Ingles + ", Visible=" + Visible + ", Asignar=" + Asignar
 				+ ", Plazas=" + Plazas + ", TG=" + TG + ", asignaturasMatriculas=" + asignaturasMatriculas + ", grupos="
 				+ grupos + ", gruposPorAsig=" + gruposPorAsig + ", GG=" + GG + ", clases=" + clases + "]";
 	}	

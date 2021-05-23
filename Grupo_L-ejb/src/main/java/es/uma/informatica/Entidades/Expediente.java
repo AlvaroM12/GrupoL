@@ -42,7 +42,7 @@ public class Expediente implements Serializable {
 	
 	
 	@OneToMany(mappedBy = "EM", cascade = {CascadeType.REMOVE, CascadeType.PERSIST})
-	private List<Matrícula> matriculas;
+	private List<Matricula> matriculas;
 	
 	@OneToMany(mappedBy = "EE" , cascade = {CascadeType.REMOVE, CascadeType.PERSIST})
 	private List<Encuesta> encuestas;
@@ -137,11 +137,11 @@ public class Expediente implements Serializable {
 		AE = aE;
 	}
 
-	public List<Matrícula> getMatriculas() {
+	public List<Matricula> getMatriculas() {
 		return matriculas;
 	}
 
-	public void setMatriculas(List<Matrícula> matriculas) {
+	public void setMatriculas(List<Matricula> matriculas) {
 		this.matriculas = matriculas;
 	}
 

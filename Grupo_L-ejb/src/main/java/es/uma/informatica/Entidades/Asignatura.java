@@ -19,9 +19,9 @@ public class Asignatura implements Serializable {
 	@Id @GeneratedValue
 	private Long Referencia;
 	private Long Codigo;
-	private Long Créditos_Teoricos;
-	private Long Créditos_Practicos;
-	private Long Total_Créditos;
+	private Long Creditos_Teoricos;
+	private Long Creditos_Practicos;
+	private Long Total_Creditos;
 	private String Ofertada;
 	private String Nombre;
 	private Long Curso;
@@ -35,9 +35,9 @@ public class Asignatura implements Serializable {
 		super();
 		Referencia = referencia;
 		Codigo = codigo;
-		Créditos_Teoricos = créditos_Teoricos;
-		Créditos_Practicos = créditos_Practicos;
-		Total_Créditos = total_Créditos;
+		Creditos_Teoricos = créditos_Teoricos;
+		Creditos_Practicos = créditos_Practicos;
+		Total_Creditos = total_Créditos;
 		Ofertada = ofertada;
 		Nombre = nombre;
 		Curso = curso;
@@ -63,7 +63,7 @@ public class Asignatura implements Serializable {
 	private List<GruposPorAsignatura> gruposPorAsignatura;
 	
 	@ManyToOne
-	private Matrícula matriculas;
+	private Matricula matriculas;
 	
 	private static final long serialVersionUID = 1L;
   
@@ -115,22 +115,22 @@ public class Asignatura implements Serializable {
 	}	
 	
 	public Long getCréditos_Teoricos() {
-		return Créditos_Teoricos;
+		return Creditos_Teoricos;
 	}
 	public void setCréditos_Teoricos(Long créditos_Teoricos) {
-		Créditos_Teoricos = créditos_Teoricos;
+		Creditos_Teoricos = créditos_Teoricos;
 	}
 	public Long getCréditos_Practicos() {
-		return Créditos_Practicos;
+		return Creditos_Practicos;
 	}
 	public void setCréditos_Practicos(Long créditos_Practicos) {
-		Créditos_Practicos = créditos_Practicos;
+		Creditos_Practicos = créditos_Practicos;
 	}
 	public Long getTotal_Créditos() {
-		return Total_Créditos;
+		return Total_Creditos;
 	}
 	public void setTotal_Créditos(Long total_Créditos) {
-		Total_Créditos = total_Créditos;
+		Total_Creditos = total_Créditos;
 	}
 	public String getPlazas() {
 		return Plazas;
@@ -176,8 +176,8 @@ public class Asignatura implements Serializable {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((Codigo == null) ? 0 : Codigo.hashCode());
-		result = prime * result + ((Créditos_Practicos == null) ? 0 : Créditos_Practicos.hashCode());
-		result = prime * result + ((Créditos_Teoricos == null) ? 0 : Créditos_Teoricos.hashCode());
+		result = prime * result + ((Creditos_Practicos == null) ? 0 : Creditos_Practicos.hashCode());
+		result = prime * result + ((Creditos_Teoricos == null) ? 0 : Creditos_Teoricos.hashCode());
 		result = prime * result + ((Cuatrimestre == null) ? 0 : Cuatrimestre.hashCode());
 		result = prime * result + ((Curso == null) ? 0 : Curso.hashCode());
 		result = prime * result + ((Idioma_de_imparticion == null) ? 0 : Idioma_de_imparticion.hashCode());
@@ -185,7 +185,7 @@ public class Asignatura implements Serializable {
 		result = prime * result + ((Ofertada == null) ? 0 : Ofertada.hashCode());
 		result = prime * result + ((Plazas == null) ? 0 : Plazas.hashCode());
 		result = prime * result + ((Referencia == null) ? 0 : Referencia.hashCode());
-		result = prime * result + ((Total_Créditos == null) ? 0 : Total_Créditos.hashCode());
+		result = prime * result + ((Total_Creditos == null) ? 0 : Total_Creditos.hashCode());
 		return result;
 	}
 	@Override
@@ -202,15 +202,15 @@ public class Asignatura implements Serializable {
 				return false;
 		} else if (!Codigo.equals(other.Codigo))
 			return false;
-		if (Créditos_Practicos == null) {
-			if (other.Créditos_Practicos != null)
+		if (Creditos_Practicos == null) {
+			if (other.Creditos_Practicos != null)
 				return false;
-		} else if (!Créditos_Practicos.equals(other.Créditos_Practicos))
+		} else if (!Creditos_Practicos.equals(other.Creditos_Practicos))
 			return false;
-		if (Créditos_Teoricos == null) {
-			if (other.Créditos_Teoricos != null)
+		if (Creditos_Teoricos == null) {
+			if (other.Creditos_Teoricos != null)
 				return false;
-		} else if (!Créditos_Teoricos.equals(other.Créditos_Teoricos))
+		} else if (!Creditos_Teoricos.equals(other.Creditos_Teoricos))
 			return false;
 		if (Cuatrimestre == null) {
 			if (other.Cuatrimestre != null)
@@ -247,18 +247,18 @@ public class Asignatura implements Serializable {
 				return false;
 		} else if (!Referencia.equals(other.Referencia))
 			return false;
-		if (Total_Créditos == null) {
-			if (other.Total_Créditos != null)
+		if (Total_Creditos == null) {
+			if (other.Total_Creditos != null)
 				return false;
-		} else if (!Total_Créditos.equals(other.Total_Créditos))
+		} else if (!Total_Creditos.equals(other.Total_Creditos))
 			return false;
 		return true;
 	}
 	@Override
 	public String toString() {
 		return "Asignatura [Referencia=" + Referencia + ", Codigo=" + Codigo + ", Créditos_Teoricos="
-				+ Créditos_Teoricos + ", Créditos_Practicos=" + Créditos_Practicos + ", Total_Créditos="
-				+ Total_Créditos + ", Ofertada=" + Ofertada + ", Nombre=" + Nombre + ", Curso=" + Curso + ", Plazas="
+				+ Creditos_Teoricos + ", Créditos_Practicos=" + Creditos_Practicos + ", Total_Créditos="
+				+ Total_Creditos + ", Ofertada=" + Ofertada + ", Nombre=" + Nombre + ", Curso=" + Curso + ", Plazas="
 				+ Plazas + ", Cuatrimestre=" + Cuatrimestre + ", Idioma_de_imparticion=" + Idioma_de_imparticion
 				+ ", TA=" + TA + ", clases=" + clases + ", asignaturasMatricula=" + asignaturasMatricula
 				+ ", gruposPorAsignatura=" + gruposPorAsignatura + "]";

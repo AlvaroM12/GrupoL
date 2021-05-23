@@ -52,11 +52,11 @@ public class TitulacionEJB implements InterfazTitulacion{
 	        	Titulacion t = new Titulacion();
 	        	
 	        	Long codigo = (long) sheet.getRow(fila).getCell(0).getNumericCellValue();
-	        	t.setCódigo(codigo);
+	        	t.setCodigo(codigo);
 	        	String nombre =  sheet.getRow(fila).getCell(1).getStringCellValue();
 	        	t.setNombre(nombre);
 	        	Long creditos = (long) sheet.getRow(fila).getCell(2).getNumericCellValue();
-	        	t.setCréditos(creditos);
+	        	t.setCreditos(creditos);
 	        	em.persist(t);
 	        }
 		} catch (IOException e) {

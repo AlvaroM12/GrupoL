@@ -3,7 +3,7 @@ package es.uma.informatica.Entidades;
 import java.io.Serializable;
 import javax.persistence.*;
 
-import es.uma.informatica.Entidades.Matrícula.MatriculaId;
+import es.uma.informatica.Entidades.Matricula.MatriculaId;
 
 /**
  * Entity implementation class for Entity: Asignaturas_Matrícula
@@ -63,7 +63,7 @@ public class Asignaturas_Matrícula implements Serializable {
 		@JoinColumn(name="Curso_Academico", referencedColumnName="Curso_Academico"),
 		@JoinColumn(name="EM", referencedColumnName="EM")
 		})
-	private Matrícula matricula;
+	private Matricula matricula;
 	
 	@Id
 	@ManyToOne
@@ -74,7 +74,7 @@ public class Asignaturas_Matrícula implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
-	public Asignaturas_Matrícula(Matrícula matricula, Asignatura asignatura) {
+	public Asignaturas_Matrícula(Matricula matricula, Asignatura asignatura) {
 		super();
 		this.matricula = matricula;
 		this.asignatura = asignatura;
@@ -85,11 +85,11 @@ public class Asignaturas_Matrícula implements Serializable {
 		
 	}
 
-	public Matrícula getMatricula() {
+	public Matricula getMatricula() {
 		return matricula;
 	}
 
-	public void setMatricula(Matrícula matricula) {
+	public void setMatricula(Matricula matricula) {
 		this.matricula = matricula;
 	}
 

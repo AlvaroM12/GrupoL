@@ -53,7 +53,7 @@ public  synchronized List<Titulacion> getTitulaciones(){
     
     public Titulacion leerTitulacion(Titulacion t) {
         try {
-            tit =  titulacion.consultarTitulacion(t.getCódigo());
+            tit =  titulacion.consultarTitulacion(t.getCodigo());
         } catch (TitulacionException e) {
             e.printStackTrace();
         }

@@ -18,7 +18,7 @@ import es.uma.informatica.Entidades.Encuesta;
 import es.uma.informatica.Entidades.Expediente;
 import es.uma.informatica.Entidades.Grupo;
 import es.uma.informatica.Entidades.GruposPorAsignatura;
-import es.uma.informatica.Entidades.Matrícula;
+import es.uma.informatica.Entidades.Matricula;
 import es.uma.informatica.Entidades.Optativa;
 import es.uma.informatica.Entidades.Personal_de_secretaria;
 import es.uma.informatica.Entidades.Titulacion;
@@ -152,17 +152,17 @@ public class BaseDatos {
 		}
 		List<Asignatura> La = Stream.of(Calculo, PL, IIS).collect(Collectors.toList());
 		
-		Matrícula m1 = new Matrícula ("Primero", "activo", (long) 5, "tarde", new Date(14/03/2020), "si", La, e1);
-		Matrícula m2 = new Matrícula ("Segundo", "inactivo", (long) 54, "mañana", new Date(11/12/2019), "no", La, e2);
-		Matrícula m3 = new Matrícula ("Tercero", "activo", (long) 14, "tarde", new Date(22/11/2018), "si", La, e3);
-		Matrícula m4 = new Matrícula ("Primero", "inactivo", (long) 60, "mañana", new Date(13/04/2021), "no", La, e4);
+		Matricula m1 = new Matricula ("Primero", "activo", (long) 5, "tarde", new Date(14/03/2020), "si", La, e1);
+		Matricula m2 = new Matricula ("Segundo", "inactivo", (long) 54, "mañana", new Date(11/12/2019), "no", La, e2);
+		Matricula m3 = new Matricula ("Tercero", "activo", (long) 14, "tarde", new Date(22/11/2018), "si", La, e3);
+		Matricula m4 = new Matricula ("Primero", "inactivo", (long) 60, "mañana", new Date(13/04/2021), "no", La, e4);
 
 		m1.setEM(e4);
 		m2.setEM(e3);
 		m3.setEM(e2);
 		m4.setEM(e1);
 		
-		for (Matrícula matricula : new Matrícula [] {m1, m2, m3, m4}) {
+		for (Matricula matricula : new Matricula [] {m1, m2, m3, m4}) {
 			em.persist(matricula);
 		}
 		

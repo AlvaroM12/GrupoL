@@ -48,11 +48,11 @@ public class DatosEJB implements InterfazDatos{
 	        
 			// Creacion subcategorías por hojas 
 			// (Se crean todas las asignaturas por un fallo en la lista de asignaturas, me devuelve una asignatura repetida)
-			if(asigList.get(0).getTA().getCódigo().equals(t.getCódigo())) {
+			if(asigList.get(0).getTA().getCodigo().equals(t.getCodigo())) {
 				creacionHojasExcel(workbook, t,  asigList.get(0));
-			}else if(asigList.get(1).getTA().getCódigo().equals(t.getCódigo())) {
+			}else if(asigList.get(1).getTA().getCodigo().equals(t.getCodigo())) {
 				creacionHojasExcel(workbook, t,  asigList.get(1));
-			}else if(asigList.get(2).getTA().getCódigo().equals(t.getCódigo())) {
+			}else if(asigList.get(2).getTA().getCodigo().equals(t.getCodigo())) {
 				creacionHojasExcel(workbook, t,  asigList.get(2));
 			}else {
 				creacionHojasExcel(workbook, t,  asigList.get(3));

@@ -13,8 +13,8 @@ import javax.persistence.*;
  *
  */
 @Entity
-@IdClass(Matrícula.MatriculaId.class)
-public class Matrícula implements Serializable {
+@IdClass(Matricula.MatriculaId.class)
+public class Matricula implements Serializable {
 
 	public static class MatriculaId implements Serializable{
 		private String Curso_Academico;
@@ -80,7 +80,7 @@ public class Matrícula implements Serializable {
 	private List<Asignaturas_Matrícula> asigMatricula;
 
 	
-	public Matrícula(String curso_Academico, String estado, Long num_Archivo, String turno_Preferente,
+	public Matricula(String curso_Academico, String estado, Long num_Archivo, String turno_Preferente,
 			Date fecha_De_Matrícula, String nuevo_Ingreso, List<Asignatura> listado_Asignaturas, Expediente E) {
 		super();
 		Curso_Academico = curso_Academico;
@@ -93,7 +93,7 @@ public class Matrícula implements Serializable {
 		EM = E;
 		
 	}
-	public Matrícula() {
+	public Matricula() {
 		super();
 	}   
 	public String getCurso_Academico() {
@@ -176,7 +176,7 @@ public class Matrícula implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Matrícula other = (Matrícula) obj;
+		Matricula other = (Matricula) obj;
 		if (Curso_Academico == null) {
 			if (other.Curso_Academico != null)
 				return false;

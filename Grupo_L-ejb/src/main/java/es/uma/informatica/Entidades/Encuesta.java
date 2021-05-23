@@ -16,21 +16,21 @@ public class Encuesta implements Serializable {
 
 	public static class EncuestaId implements Serializable{
 		private Long EE;
-		private Long Fecha_De_Envío;
+		private Long Fecha_De_Envio;
 		
 		public EncuestaId() {
 		}
 		
 		public EncuestaId(Long ne, Long f) {
 			EE=ne;
-			Fecha_De_Envío=f;
+			Fecha_De_Envio=f;
 		}
 		@Override
 		public int hashCode() {
 			final int prime = 31;
 			int result = 1;
 			result = prime * result + ((EE == null) ? 0 : EE.hashCode());
-			result = prime * result + ((Fecha_De_Envío == null) ? 0 : Fecha_De_Envío.hashCode());
+			result = prime * result + ((Fecha_De_Envio == null) ? 0 : Fecha_De_Envio.hashCode());
 			return result;
 		}
 		@Override
@@ -47,17 +47,17 @@ public class Encuesta implements Serializable {
 					return false;
 			} else if (!EE.equals(other.EE))
 				return false;
-			if (Fecha_De_Envío == null) {
-				if (other.Fecha_De_Envío != null)
+			if (Fecha_De_Envio == null) {
+				if (other.Fecha_De_Envio != null)
 					return false;
-			} else if (!Fecha_De_Envío.equals(other.Fecha_De_Envío))
+			} else if (!Fecha_De_Envio.equals(other.Fecha_De_Envio))
 				return false;
 			return true;
 		}
 	}
 	   
 	@Id 
-	private Long Fecha_De_Envío;
+	private Long Fecha_De_Envio;
 	private static final long serialVersionUID = 1L;
 	
 	@ManyToMany(mappedBy = "E_GPA")
@@ -69,7 +69,7 @@ public class Encuesta implements Serializable {
 
 	public Encuesta(Long fecha_De_Envío) {
 		super();
-		Fecha_De_Envío = fecha_De_Envío;
+		Fecha_De_Envio = fecha_De_Envío;
 	}
 	
 	public Encuesta() {
@@ -77,11 +77,11 @@ public class Encuesta implements Serializable {
 	}   
 	
 	public Long getFecha_De_Envío() {
-		return this.Fecha_De_Envío;
+		return this.Fecha_De_Envio;
 	}
 
 	public void setFecha_De_Envío(Long Fecha_De_Envío) {
-		this.Fecha_De_Envío = Fecha_De_Envío;
+		this.Fecha_De_Envio = Fecha_De_Envío;
 	}
     
 	public List<GruposPorAsignatura> getGruposPorAsignaturas() {
@@ -105,7 +105,7 @@ public class Encuesta implements Serializable {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((EE == null) ? 0 : EE.hashCode());
-		result = prime * result + ((Fecha_De_Envío == null) ? 0 : Fecha_De_Envío.hashCode());
+		result = prime * result + ((Fecha_De_Envio == null) ? 0 : Fecha_De_Envio.hashCode());
 		result = prime * result + ((gruposPorAsignaturas == null) ? 0 : gruposPorAsignaturas.hashCode());
 		return result;
 	}
@@ -124,10 +124,10 @@ public class Encuesta implements Serializable {
 				return false;
 		} else if (!EE.equals(other.EE))
 			return false;
-		if (Fecha_De_Envío == null) {
-			if (other.Fecha_De_Envío != null)
+		if (Fecha_De_Envio == null) {
+			if (other.Fecha_De_Envio != null)
 				return false;
-		} else if (!Fecha_De_Envío.equals(other.Fecha_De_Envío))
+		} else if (!Fecha_De_Envio.equals(other.Fecha_De_Envio))
 			return false;
 		if (gruposPorAsignaturas == null) {
 			if (other.gruposPorAsignaturas != null)
@@ -139,7 +139,7 @@ public class Encuesta implements Serializable {
 	
 	@Override
 	public String toString() {
-		return "Encuesta [Fecha_De_Envío=" + Fecha_De_Envío + ", gruposPorAsignaturas=" + gruposPorAsignaturas + ", EE="
+		return "Encuesta [Fecha_De_Envío=" + Fecha_De_Envio + ", gruposPorAsignaturas=" + gruposPorAsignaturas + ", EE="
 				+ EE + "]";
 	}
 }

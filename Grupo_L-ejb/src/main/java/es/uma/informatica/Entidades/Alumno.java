@@ -34,14 +34,14 @@ public class Alumno extends Usuario implements Serializable {
 	
 
 	public Alumno(Long id, Long telefono, String Contraseña , String dNI, String nombre, String apellido1, String apellido2, String email_Institucional,
-			String email_Personal, Long móvil, String direccion, String localidad, String provincia, Long cP) {
+			String email_Personal, Long movil, String direccion, String localidad, String provincia, Long cP) {
 		super(id,telefono,email_Institucional,Contraseña);
 		DNI = dNI;
 		Nombre = nombre;
 		Apellido1 = apellido1;
 		Apellido2 = apellido2;
 		Email_Personal = email_Personal;
-		Movil = móvil;
+		Movil = movil;
 		Direccion = direccion;
 		Localidad = localidad;
 		Provincia = provincia;

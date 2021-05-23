@@ -6,7 +6,7 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import es.uma.informatica.Entidades.Matrícula;
+import es.uma.informatica.Entidades.Matricula;
 import es.uma.informatica.Exception.MatriculaException;
 import es.uma.informatica.Interfaces.InterfazMatricula;
 
@@ -17,24 +17,24 @@ public class MatriculaBB {
 	@Inject
 	private InterfazMatricula matricula;
 	
-	private Matrícula mat;
+	private Matricula mat;
 	
 	public MatriculaBB() {
 		
 	}
 	
-	public Matrícula getMatricula() {
+	public Matricula getMatricula() {
 		return mat;
 	}
 	
-	public void setMatricula(Matrícula mat) {
+	public void setMatricula(Matricula mat) {
 		this.mat = mat;
 	}
 
 
 
 	//METODO PARA LEER TODAS LAS ASIG_MATRICULAS(S)
-	public  synchronized List<Matrícula> getMatriculas(){
+	public  synchronized List<Matricula> getMatriculas(){
 		
 		try {
 			return matricula.leerMatriculas();

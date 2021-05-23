@@ -15,7 +15,7 @@
 		<class>es.uma.informatica.Entidades.Encuesta</class>
 		<class>es.uma.informatica.Entidades.Expediente</class>
 		<class>es.uma.informatica.Entidades.GruposPorAsignatura</class>
-		<class>es.uma.informatica.Entidades.Matrícula</class>
+		<class>es.uma.informatica.Entidades.Matricula</class>
 		<class>es.uma.informatica.Entidades.Optativa</class>
 		<class>es.uma.informatica.Entidades.Personal_de_secretaria</class>
 		<class>es.uma.informatica.Entidades.Titulacion</class>

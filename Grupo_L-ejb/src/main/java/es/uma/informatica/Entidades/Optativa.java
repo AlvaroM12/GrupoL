@@ -14,7 +14,7 @@ import javax.persistence.*;
 
 public class Optativa extends Asignatura implements Serializable {
 
-	private String Mención;	
+	private String Mencion;	
 	private static final long serialVersionUID = 1L;
 
 	
@@ -23,7 +23,7 @@ public class Optativa extends Asignatura implements Serializable {
 			String idioma_de_imparticion,String mención) {
 		super(referencia,codigo,créditos_Teoricos, créditos_Practicos, total_Créditos, ofertada, nombre, curso,
 				plazas, cuatrimestre, idioma_de_imparticion);
-		Mención = mención;
+		Mencion = mención;
 	}
 
 	public Optativa() {
@@ -31,18 +31,18 @@ public class Optativa extends Asignatura implements Serializable {
 	}   
 	
 	public String getMención() {
-		return this.Mención;
+		return this.Mencion;
 	}
 
 	public void setMención(String Mención) {
-		this.Mención = Mención;
+		this.Mencion = Mención;
 	}
 	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = super.hashCode();
-		result = prime * result + ((Mención == null) ? 0 : Mención.hashCode());
+		result = prime * result + ((Mencion == null) ? 0 : Mencion.hashCode());
 		return result;
 	}
 	@Override
@@ -54,16 +54,16 @@ public class Optativa extends Asignatura implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Optativa other = (Optativa) obj;
-		if (Mención == null) {
-			if (other.Mención != null)
+		if (Mencion == null) {
+			if (other.Mencion != null)
 				return false;
-		} else if (!Mención.equals(other.Mención))
+		} else if (!Mencion.equals(other.Mencion))
 			return false;
 		return true;
 	}
 	@Override
 	public String toString() {
-		return "Optativa [Mención=" + Mención + ", getReferencia()=" + getReferencia() + ", getPlazas()=" + getPlazas()
+		return "Optativa [Mención=" + Mencion + ", getReferencia()=" + getReferencia() + ", getPlazas()=" + getPlazas()
 				+ "]";
 	}
    

@@ -14,14 +14,12 @@ import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-
-import es.uma.informatica.Exception.GrupoException;
 import es.uma.informatica.Exception.MatriculaException;
 import es.uma.informatica.Interfaces.InterfazMatricula;
-import es.uma.informatica.Entidades.Asignaturas_Matrícula;
 import es.uma.informatica.Entidades.Expediente;
-import es.uma.informatica.Entidades.Matrícula;
-import es.uma.informatica.Entidades.Matrícula.MatriculaId;
+import es.uma.informatica.Entidades.Matricula;
+
+import es.uma.informatica.Entidades.Matricula.MatriculaId;
 
 /**
  * Session Bean implementation class Matrícula
@@ -41,7 +39,7 @@ public class MatriculaEJB implements InterfazMatricula {
 	        XSSFSheet sheet = workbook.getSheet("Hoja1");
 	        XSSFRow row = sheet.getRow(0);
 	        XSSFCell cell = null;
-	        Matrícula m = new Matrícula();
+	        Matricula m = new Matricula();
 	        Expediente e = new Expediente();
 	        for(int fila=4; fila<row.getRowNum(); fila++) {
 	        	String nExp = sheet.getRow(4).getCell(4).getStringCellValue();
@@ -70,8 +68,8 @@ public class MatriculaEJB implements InterfazMatricula {
 	}
 	
 	@Override
-	public Matrícula leerMatricula (MatriculaId ma) throws MatriculaException {
-		Matrícula m = em.find(Matrícula.class, ma);
+	public Matricula leerMatricula (MatriculaId ma) throws MatriculaException {
+		Matricula m = em.find(Matricula.class, ma);
 		if(m==null) {
 			throw new MatriculaException();
 		}
@@ -79,10 +77,10 @@ public class MatriculaEJB implements InterfazMatricula {
 	}
 	
 	@Override
-    public List<Matrícula> leerMatriculas() throws MatriculaException{
+    public List<Matricula> leerMatriculas() throws MatriculaException{
  
-    	TypedQuery <Matrícula> query = em.createQuery("SELECT a FROM Matrícula a ", Matrícula.class);
-    	List<Matrícula> list = query.getResultList();
+    	TypedQuery <Matricula> query = em.createQuery("SELECT a FROM Matricula a ", Matricula.class);
+    	List<Matricula> list = query.getResultList();
 		
 		return list;    	
     }

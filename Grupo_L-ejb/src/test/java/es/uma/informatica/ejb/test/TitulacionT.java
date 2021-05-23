@@ -44,7 +44,7 @@ public class TitulacionT {
 		try {
 			titulacion.importarTitulacion();
 			Titulacion t = titulacion.leerTitulacion((long) 1041);
-			if((long)1041 != t.getCódigo()) {
+			if((long)1041 != t.getCodigo()) {
 				fail("No deberia lanzar excepcion1");
 			}
 		} catch (TitulacionException e) {
@@ -57,7 +57,7 @@ public class TitulacionT {
 	public void testLeerTitulacion() throws TitulacionException {
 		try {
             Titulacion t = titulacion.leerTitulacion((long) 1);
-            if((long)1 != t.getCódigo()) {
+            if((long)1 != t.getCodigo()) {
 				fail("No coincide el codigo");
 			}
 

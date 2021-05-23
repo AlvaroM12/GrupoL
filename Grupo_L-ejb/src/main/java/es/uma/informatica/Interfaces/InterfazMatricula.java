@@ -4,8 +4,8 @@ import java.util.List;
 
 import javax.ejb.Local;
 
-import es.uma.informatica.Entidades.Matrícula;
-import es.uma.informatica.Entidades.Matrícula.MatriculaId;
+import es.uma.informatica.Entidades.Matricula;
+import es.uma.informatica.Entidades.Matricula.MatriculaId;
 import es.uma.informatica.Exception.MatriculaException;
 @Local
 public interface InterfazMatricula {
@@ -15,8 +15,8 @@ public interface InterfazMatricula {
 	 */
 	public void importarMatricula() throws MatriculaException;
 
-	public Matrícula leerMatricula(MatriculaId ma) throws MatriculaException;
+	public Matricula leerMatricula(MatriculaId ma) throws MatriculaException;
 
-	public List<Matrícula> leerMatriculas() throws MatriculaException;
+	public List<Matricula> leerMatriculas() throws MatriculaException;
 	
 }

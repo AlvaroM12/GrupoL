@@ -18,9 +18,9 @@ public class Titulacion implements Serializable {
 
 	   
 	@Id
-	private Long Código;
+	private Long Codigo;
 	private String Nombre;
-	private Long Créditos;
+	private Long Creditos;
 	private static final long serialVersionUID = 1L;
 	
 	@OneToMany(mappedBy = "TA")
@@ -37,20 +37,20 @@ public class Titulacion implements Serializable {
 
 	public Titulacion(Long código, String nombre, Long créditos) {
 		super();
-		Código = código;
+		Codigo = código;
 		Nombre = nombre;
-		Créditos = créditos;
+		Creditos = créditos;
 		
 	}
 	public Titulacion() {
 		super();
 	}   
-	public Long getCódigo() {
-		return this.Código;
+	public Long getCodigo() {
+		return this.Codigo;
 	}
 
-	public void setCódigo(Long Código) {
-		this.Código = Código;
+	public void setCodigo(Long Código) {
+		this.Codigo = Código;
 	}   
 	public String getNombre() {
 		return this.Nombre;
@@ -59,12 +59,12 @@ public class Titulacion implements Serializable {
 	public void setNombre(String Nombre) {
 		this.Nombre = Nombre;
 	}   
-	public Long getCréditos() {
-		return this.Créditos;
+	public Long getCreditos() {
+		return this.Creditos;
 	}
 
-	public void setCréditos(Long Créditos) {
-		this.Créditos = Créditos;
+	public void setCreditos(Long Créditos) {
+		this.Creditos = Créditos;
 	}
 	
 	public List<Asignatura> getAsignaturas() {
@@ -97,8 +97,8 @@ public class Titulacion implements Serializable {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((Créditos == null) ? 0 : Créditos.hashCode());
-		result = prime * result + ((Código == null) ? 0 : Código.hashCode());
+		result = prime * result + ((Creditos == null) ? 0 : Creditos.hashCode());
+		result = prime * result + ((Codigo == null) ? 0 : Codigo.hashCode());
 		result = prime * result + ((Nombre == null) ? 0 : Nombre.hashCode());
 		result = prime * result + ((asignaturas == null) ? 0 : asignaturas.hashCode());
 		result = prime * result + ((centros == null) ? 0 : centros.hashCode());
@@ -114,15 +114,15 @@ public class Titulacion implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Titulacion other = (Titulacion) obj;
-		if (Créditos == null) {
-			if (other.Créditos != null)
+		if (Creditos == null) {
+			if (other.Creditos != null)
 				return false;
-		} else if (!Créditos.equals(other.Créditos))
+		} else if (!Creditos.equals(other.Creditos))
 			return false;
-		if (Código == null) {
-			if (other.Código != null)
+		if (Codigo == null) {
+			if (other.Codigo != null)
 				return false;
-		} else if (!Código.equals(other.Código))
+		} else if (!Codigo.equals(other.Codigo))
 			return false;
 		if (Nombre == null) {
 			if (other.Nombre != null)
@@ -148,7 +148,7 @@ public class Titulacion implements Serializable {
 	}
 	@Override
 	public String toString() {
-		return "Titulacion [Código=" + Código + ", Nombre=" + Nombre + ", Créditos=" + Créditos + "]";
+		return "Titulacion [Código=" + Codigo + ", Nombre=" + Nombre + ", Créditos=" + Creditos + "]";
 	}
 	  
 }
