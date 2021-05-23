@@ -73,5 +73,7 @@ public interface InterfazGrupo {
 
 	public List<Asignaturas_Matrícula> leerAsignaturasMatricula() throws GrupoException;
 
+	public List<Grupo> leerGrupos() throws GrupoException;
+
 	
 }

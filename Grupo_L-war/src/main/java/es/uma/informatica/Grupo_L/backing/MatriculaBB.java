@@ -31,6 +31,17 @@ public class MatriculaBB {
 		this.mat = mat;
 	}
 
+	//METODO PARA LEER UNA MATRICULA
+	public  synchronized List<Matrícula> getMatriculaAlumno(){
+		List<Matrícula> matalum = new ArrayList<Matrícula>();
+		
+        for (Expediente ex : alum.getExpedientes()) {
+			for (Matrícula mat : ex.getMatriculas()) {
+					matalum.add(mat);
+			}
+		}
+        return matalum;
+	}
 
 
 	//METODO PARA LEER TODAS LAS ASIG_MATRICULAS(S)
@@ -44,5 +55,12 @@ public class MatriculaBB {
 		return null;
 	}
 	
-	
+	public  synchronized String getImportarMatricula(){
+		try {
+			matricula.importarMatricula();
+		} catch (MatriculaException e) {
+			e.printStackTrace();
+		}
+		return "LeerMatricula.xhtml";
+	}
 }

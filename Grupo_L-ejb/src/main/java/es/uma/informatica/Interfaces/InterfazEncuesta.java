@@ -1,5 +1,7 @@
 package es.uma.informatica.Interfaces;
 
+import java.util.List;
+
 import javax.ejb.Local;
 
 import es.uma.informatica.Entidades.Encuesta;
@@ -18,5 +20,8 @@ public interface InterfazEncuesta {
 	
 	
 	public Encuesta leerEncuesta(EncuestaId id) throws EncuestaException;
+
+
+	public List<Encuesta> leerEncuestas() throws EncuestaException;
 }
 

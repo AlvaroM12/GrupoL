@@ -7,9 +7,9 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core">
 
 <h:head>
-	<title>FLM SECRETARIA</title>
-	<h:outputStylesheet library="css" name="Layout.css"  />
-	<h:outputStylesheet library="css" name="Estilos.css"  />
+	<title>LEER MATRICULA</title>
+	<h:outputStylesheet library="css" name="Layout.css" />
+	<h:outputStylesheet library="css" name="Estilos.css" />
 </h:head>
 
 <h:body>
@@ -17,13 +17,14 @@
 	<div class="cerrar"> <h:button value="Cerrar sesion" outcome="index.xhtml" /> </div>
 	<div class="inicio"> <h:button value="Inicio" outcome="Principal.xhtml" /> </div>
 
-	<h1 class="titulo"> Matricula </h1>
+	<h1 class="titulo">Matricula</h1>
 
 	<ui:fragment rendered="#{InfoSension.alumno != null eq true}">
 		<div class="izquierda">
-			<b>MIS DATOS </b><br></br><br></br> 
+			<b>MIS DATOS </b><br></br>
+			<br></br> 
 			<a href="#" style="text-decoration: none">Leer Encuesta</a><br></br>
-			<a href="#" style="text-decoration: none">Leer Asignatura Matricula</a><br></br>
+			<a href="#" style="text-decoration: none">Leer Asignatura Matricula</a><br></br> 
 			<a href="LeerMatricula.xhtml" style="text-decoration: none">Leer Matricula</a><br></br> 
 			<a href="LeerTitulacion.xhtml" style="text-decoration: none">Leer Titulacion</a><br></br> 
 			<a href="LeerAlumnos.xhtml" style="text-decoration: none">Leer Usuario</a><br></br> 
@@ -31,57 +32,103 @@
 			<a href="#" style="text-decoration: none">Leer Clase</a><br></br> 
 			<a href="LeerExpediente.xhtml" style="text-decoration: none">Leer Expediente</a>
 		</div>
-	</ui:fragment>
-	
-	
-	
-	<ui:fragment >	
-			<h:form styleClass="centrado">
-				<h:dataTable styleClass="card" value="#{matriculaBB.matriculas}" var="mat">
-					<h:column>
-						<f:facet name="header">Curso Academico</f:facet> 
-						<h:outputText value="#{mat.curso_Academico}" />
-					</h:column>
-					<h:column>
-						<f:facet name="header">Estado</f:facet> 
-						<h:outputText value="#{mat.estado}" />
-					</h:column>
-					<h:column>
-						<f:facet name="header">Numero Archivo</f:facet> 
-						<h:outputText value="#{mat.num_Archivo}" />
-					</h:column>
-					<h:column>
-						<f:facet name="header">Turno Preferente</f:facet> 
-						<h:outputText value="#{mat.turno_Preferente}" />
-					</h:column>
-					<h:column>
-						<f:facet name="header">Fecha de Matricula</f:facet> 
-						<h:outputText value="#{mat.fecha_De_Matrícula}" />
-					</h:column>
-					<h:column>
-						<f:facet name="header">Nuevo Ingreso</f:facet> 
-						<h:outputText value="#{mat.nuevo_Ingreso}" />
-					</h:column>
-					<h:column>
-						<f:facet name="header">Listado Asignaturas</f:facet> 
-						<h:outputText value="#{mat.a}" />
-					</h:column>
-					<h:column>
-						<f:facet name="header">Estado</f:facet> 
-						<h:outputText value="#{mat.estado}" />
-					</h:column>
-					<h:column>
-						<f:facet name="header">Expediente</f:facet> 
-						<h:outputText value="#{mat.EM.num_Expediente}" />
-					</h:column>
-				</h:dataTable>
-			</h:form>
-		<div class="importarMatricula"> <h:button value="Importar Matricula" outcome="ImportarMatricula.xhtml" /> </div>
+
+		<h:form styleClass="centro">
+			<h:dataTable styleClass="card" value="#{matriculaBB.matriculaAlumno}"
+				var="mat">
+				<h:column>
+					<f:facet name="header">Curso Academico</f:facet>
+					<h:outputText value="#{mat.curso_Academico}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Estado</f:facet>
+					<h:outputText value="#{mat.estado}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Numero Archivo</f:facet>
+					<h:outputText value="#{mat.num_Archivo}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Turno Preferente</f:facet>
+					<h:outputText value="#{mat.turno_Preferente}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Fecha de Matricula</f:facet>
+					<h:outputText value="#{mat.fecha_De_Matrícula}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Nuevo Ingreso</f:facet>
+					<h:outputText value="#{mat.nuevo_Ingreso}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Listado Asignaturas</f:facet>
+					<h:outputText value="#{mat.a}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Estado</f:facet>
+					<h:outputText value="#{mat.estado}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Expediente</f:facet>
+					<h:outputText value="#{mat.EM.num_Expediente}" />
+				</h:column>
+			</h:dataTable>
+		</h:form>
+
 	</ui:fragment>
 
-	<div class="pie"> 
-		Universidad de Málaga · Avda. Cervantes, 2. 29071 MÁLAGA · Tel. 952131000 · info@uma.es	
-	</div>
-	
+
+
+	<ui:fragment rendered="#{InfoSension.personal != null eq true}">
+		<h:form styleClass="centrado">
+			<h:dataTable styleClass="card" value="#{matriculaBB.matriculas}"
+				var="mat">
+				<h:column>
+					<f:facet name="header">Curso Academico</f:facet>
+					<h:outputText value="#{mat.curso_Academico}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Estado</f:facet>
+					<h:outputText value="#{mat.estado}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Numero Archivo</f:facet>
+					<h:outputText value="#{mat.num_Archivo}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Turno Preferente</f:facet>
+					<h:outputText value="#{mat.turno_Preferente}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Fecha de Matricula</f:facet>
+					<h:outputText value="#{mat.fecha_De_Matrícula}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Nuevo Ingreso</f:facet>
+					<h:outputText value="#{mat.nuevo_Ingreso}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Listado Asignaturas</f:facet>
+					<h:outputText value="#{mat.a}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Estado</f:facet>
+					<h:outputText value="#{mat.estado}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Expediente</f:facet>
+					<h:outputText value="#{mat.EM.num_Expediente}" />
+				</h:column>
+			</h:dataTable>
+		</h:form>
+		<div class="importarMatricula">
+			<h:button value="Importar Matricula"
+				outcome="ImportarMatricula.xhtml" />
+		</div>
+	</ui:fragment>
+
+	<div class="pie">Universidad de Málaga · Avda. Cervantes, 2.
+		29071 MÁLAGA · Tel. 952131000 · info@uma.es</div>
+
 </h:body>
 </html>

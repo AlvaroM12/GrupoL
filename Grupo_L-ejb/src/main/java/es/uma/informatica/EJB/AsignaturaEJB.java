@@ -1,16 +1,22 @@
 package es.uma.informatica.EJB;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
+import es.uma.informatica.Entidades.Alumno;
 import es.uma.informatica.Entidades.Asignatura;
+import es.uma.informatica.Entidades.Matrícula;
 import es.uma.informatica.Entidades.Titulacion;
+import es.uma.informatica.Exception.AlumnoException;
+import es.uma.informatica.Exception.AlumnoNullException;
 import es.uma.informatica.Exception.AsignaturaException;
 import es.uma.informatica.Interfaces.InterfazAsignatura;
 
@@ -87,5 +93,21 @@ public class AsignaturaEJB implements InterfazAsignatura {
 		}
 		return a;
 		
+	}
+
+	@Override
+	public List<Asignatura> leerAsignaturas() {
+		TypedQuery <Asignatura> query = em.createQuery("SELECT a FROM Asignatura a ", Asignatura.class);
+    	List<Asignatura> list = query.getResultList();
+		return list;
+	}
+	
+	@Override
+	public void eliminarAsignatura(Long ref) throws AsignaturaException{
+		Asignatura a = leerAsignatura(ref);
+		if(a == null) {
+			throw new NullPointerException();
+		}
+		em.remove(a);		
 	}
 }

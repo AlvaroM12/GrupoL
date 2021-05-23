@@ -1,6 +1,8 @@
 package es.uma.informatica.Interfaces;
 
 
+import java.util.List;
+
 import javax.ejb.Local;
 
 import es.uma.informatica.Entidades.Asignatura;
@@ -16,4 +18,8 @@ public interface InterfazAsignatura {
 	public void importarAsignatura() throws AsignaturaException;
 	
 	public Asignatura leerAsignatura(Long ref) throws AsignaturaException;
+
+	public List<Asignatura> leerAsignaturas();
+
+	void eliminarAsignatura(Long ref) throws AsignaturaException;
 }

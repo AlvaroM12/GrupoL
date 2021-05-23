@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>LEER GRUPO</title>
+	<h:outputStylesheet library="css" name="Layout.css"  />
+	<h:outputStylesheet library="css" name="Estilos.css"  />
+</h:head>
+
+<h:body>
+
+	<div class="inicio">
+		<h:button value="INICIO" outcome="Principal.xhtml" />
+	</div>
+	<div>
+		<p>
+			Hola,
+			<h:outputText value="#" />
+			.
+		</p>
+	</div>
+
+	<div class="cerrar"> <h:button value="Cerrar sesion" outcome="index.xhtml" /> </div>
+	
+	<h1 class="titulo"> Leer Grupo </h1>
+		
+		<h:form styleClass="centrado" >
+		
+		 <h:dataTable styleClass="card" value="#{grupoBB.grupos}" var="grupo">
+             <h:column>
+                 <f:facet name="header">ID</f:facet>
+                 <h:outputText value="#{grupo.ID}"/>
+             </h:column>
+             
+             <h:column>
+                 <f:facet name="header">Curso</f:facet>
+                 <h:outputText value="#{grupo.curso}"/>
+             </h:column>  
+             
+             <h:column>
+                 <f:facet name="header">Letra</f:facet>
+                 <h:outputText value="#{grupo.letra}"/>
+             </h:column>
+             
+             <h:column>
+                 <f:facet name="header">Turno</f:facet>
+                 <h:outputText value="#{grupo.turno_Mañana_Tarde}"/>
+             </h:column>
+             
+             <h:column>
+                 <f:facet name="header">Inglés</f:facet>
+                 <h:outputText value="#{grupo.ingles}"/>
+             </h:column>
+             
+             <h:column>
+                 <f:facet name="header">Visible</f:facet>
+                 <h:outputText value="#{grupo.visible}"/>
+             </h:column>
+             
+             <h:column>
+                 <f:facet name="header">Asignar</f:facet>
+                 <h:outputText value="#{grupo.asignar}"/>
+             </h:column>
+             
+             <h:column>
+                 <f:facet name="header">Plazas</f:facet>
+                 <h:outputText value="#{grupo.plazas}"/>
+             </h:column>
+             
+         </h:dataTable>
+	</h:form>
+	
+	<div class="pie"> 
+		Universidad de Málaga · Avda. Cervantes, 2. 29071 MÁLAGA · Tel. 952131000 · info@uma.es	
+	</div>
+	
+</h:body>
+</html>

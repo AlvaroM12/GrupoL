@@ -7,25 +7,17 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core">
 
 <h:head>
-	<title>Solicitar cambio de grupo</title>
+	<title>Rellenar Encuesta</title>
+	<h:outputStylesheet library="css" name="Estilos.css"  />
 	<h:outputStylesheet library="css" name="Layout.css"/>
 </h:head>
 
 <h:body>
 	
-	<div class="inicio">
-		<h:button value="INICIO" outcome="Principal.xhtml" />
-	</div>
-	<div>
-		<p>
-			Hola,
-			<h:outputText value="#" />
-			.
-		</p>
-	</div>
+	<div class="inicio"> <h:button value="INICIO" outcome="Principal.xhtml" /> </div>
 	<div class="cerrar"> <h:button value="Cerrar sesion" outcome="index.xhtml" /> </div>
 	
-	<h1 class="titulo"> SOLICITAR CAMBIO DE GRUPO </h1>
+	<h1 class="titulo"> RELLENAR ENCUESTA </h1>
 
 	<div class="izquierda">
 		<b>MIS DATOS </b><br></br><br></br> 
@@ -40,29 +32,24 @@
 	</div>
 
 	<div class="centro">
-		<label for="curso">Curso:</label>
+		<label for="curso">Primer curso:</label>
 		<select name="curso">
-			 <option value="1">1º</option>
-			 <option value="2">2º</option>
+		</select><br></br>
+		
+		<label for="curso">Segundo curso:</label>
+		<select name="curso">
+		</select><br></br>
+		
+		<label for="curso">Tercero curso:</label>
+		<select name="curso">
+		</select><br></br>
+		
+		<label for="curso">Cuarto curso:</label>
+		<select name="curso">
 		</select><br></br>
 
-		<label for="grupo">Grupo:</label>
-		<select name="grupo">
-			 <option value="a">A</option>
-			 <option value="b">B</option>
-		</select><br></br>
-		
-		<label for="asig">Motivo:</label>
-		<textarea name="comentarios" rows="10" cols="40"></textarea><br></br>
-	
-		<label for="asig">Asignatura:</label>
-		<select name="asig">
-			 <option value="1041">Calculo</option>
-			 <option value="1042">SII</option>
-		</select>
-		
-		<br></br><br></br><input type="submit" name="leerEncuesta" value="Cancelar"/>
-		<input type="submit" name="leerEncuesta" value="Aceptar"/>
+		<input type="submit" name="leerEncuesta" value="Cancelar"/>
+		<input type="submit" name="leerEncuesta" value="Enviar"/>
 		
 	</div>
 	

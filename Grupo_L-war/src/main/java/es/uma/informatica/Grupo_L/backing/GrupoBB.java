@@ -83,6 +83,20 @@ public class GrupoBB {
 		return null;
 	}
 	
+	
+	//METODO PARA LEER TODAS LOS GRUPOS(S)
+	public  synchronized List<Grupo> getGrupos(){
+		
+		try {
+			return grupo.leerGrupos();
+		} catch (GrupoException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+		
+		
+	
 	public synchronized void refrescarUsuario()
     {
         try {

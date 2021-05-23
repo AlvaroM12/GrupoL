@@ -8,7 +8,7 @@
 	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
-	<title>LEER ASIGNATURA-MATRICULA</title>
+	<title>LEER ENCUESTA</title>
 	<h:outputStylesheet library="css" name="Layout.css"  />
 	<h:outputStylesheet library="css" name="Estilos.css"  />
 </h:head>
@@ -25,12 +25,11 @@
 			.
 		</p>
 	</div>
-
+	
 	<div class="cerrar"> <h:button value="Cerrar sesion" outcome="index.xhtml" /> </div>
 	
-	<h1 class="titulo"> Leer Asignatura-Matricula </h1>
+	<h1 class="titulo"> Leer Encuesta </h1>
 
-	<ui:fragment rendered="#{InfoSension.alumno != null eq true}">
 		<div class="izquierda"   >
 			<b>MIS DATOS </b><br></br><br></br> 
 			<a href="#" style="text-decoration: none">Leer Encuesta</a><br></br>
@@ -45,57 +44,24 @@
 		
 		<h:form styleClass="centrado" >
 		
-		 <h:dataTable styleClass="card" value="#{grupoBB.asignaturasMatriculasAlumno}" var="asig">
+		 <h:dataTable styleClass="card" value="#{encuestaBB.encuesta}" var="encues">
              <h:column>
-                 <f:facet name="header">Matricula</f:facet>
-                 <h:outputText value="#{asig.matricula}"/>
+                 <f:facet name="header">Fecha de envío</f:facet>
+                 <h:outputText value="#{encues.fecha_De_Envío}"/>
              </h:column>
              
              <h:column>
-                 <f:facet name="header">Asignatura</f:facet>
-                 <h:outputText value="#{asig.asignatura}"/>
-             </h:column>
+                 <f:facet name="header">Número de expediente</f:facet>
+                 <h:outputText value="#{encues.EE.num_Expediente}"/>
+             </h:column>  
              
              <h:column>
-                 <f:facet name="header">Grupo</f:facet>
-                 <h:outputText value="#{asig.g_AM}"/>
+                 <f:facet name="header">Grupos por asignaturas</f:facet>
+                 <h:outputText value="#{encues.gruposPorAsignaturas}"/>
              </h:column>
-                          
          </h:dataTable>
-         
-         <h:commandButton value="Refrescar" action="#{grupoBB.refrescarUsuario}"/>
 	</h:form>
-	</ui:fragment>
 	
-	
-	<ui:fragment >
-	
-		<h:form styleClass="centrado" >
-		
-		 <h:dataTable styleClass="card" value="#{grupoBB.asignaturasMatriculas}" var="asig">
-             <h:column>
-                 <f:facet name="header">Matricula</f:facet>
-                 <h:outputText value="#{asig.matricula}"/>
-             </h:column>
-             
-             <h:column>
-                 <f:facet name="header">Asignatura</f:facet>
-                 <h:outputText value="#{asig.asignatura}"/>
-             </h:column>
-             
-             <h:column>
-                 <f:facet name="header">Grupo</f:facet>
-                 <h:outputText value="#{asig.g_AM}"/>
-             </h:column>
-        
-         </h:dataTable>
-         
-         <h:commandButton value="Refrescar" action="#{grupoBB.refrescarUsuario}"/>
-	</h:form>			
-		
-	</ui:fragment>
-	
-
 	<div class="pie"> 
 		Universidad de Málaga · Avda. Cervantes, 2. 29071 MÁLAGA · Tel. 952131000 · info@uma.es	
 	</div>

@@ -8,7 +8,7 @@
 	 xmlns:p="http://primefaces.org/ui">
 
 <h:head>
-	<title>Importar Matricula</title>
+	<title>Importar titulacion</title>
 	<h:outputStylesheet library="css" name="Estilos.css"  />
 	<h:outputStylesheet library="css" name="Layout.css"  />
 </h:head>
@@ -17,19 +17,19 @@
 	<div class="cerrar"> <h:button value="Cerrar sesion" outcome="index.xhtml" /> </div>
 	<div class="inicio"> <h:button value="INICIO" outcome="Principal.xhtml" /> </div>
 
-	<h1 class="titulo"> IMPORTAR MATRICULA </h1>
+	<h1 class="titulo"> IMPORTAR TITULACION </h1>
 
 	<div class="centrado">	
 	<div class="card">
     <h:form>
-      		  <p:fileUpload listener="#{fileUploadView.handleFileUpload}" mode="advanced" dragDropSupport="true" update="messages" allowTypes="/(\.|\/)(csv|xls|xlsx)$/"/>
+      		  <p:fileUpload listener="#{fileUploadView.handleFileUpload}" mode="advanced" dragDropSupport="true" update="messages" sizeLimit="100000" allowTypes="/(\.|\/)(csv|xls)$/"/>
 
        		 <p:growl id="messages" showDetail="true"/>
-    </h:form>
-	</div>
+    		</h:form>
+		</div>
 	
-		<h:commandButton value="Cancelar" outcome="LeerMaricula.xhtml" />
-		<h:commandButton value="Aceptar" outcome="#{matriculaBB.importarMatricula}" />
+		<input type="submit" name="leerEncuesta" value="Cancelar"/>
+		<input type="submit" name="leerEncuesta" value="Aceptar"/>
 	</div>
 
 	<div class="pie"> 
