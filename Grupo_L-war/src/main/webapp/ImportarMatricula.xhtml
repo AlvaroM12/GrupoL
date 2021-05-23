@@ -4,17 +4,37 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
-	xmlns:f="http://xmlns.jcp.org/jsf/core">
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	 xmlns:p="http://primefaces.org/ui">
 
-<ui:composition template="">
-	<ui:define name="header">
-	    Add your header here or delete to use the default
-	</ui:define>
-	<ui:define name="content">
-	    Add your content here or delete to use the default
-	</ui:define>
-	<ui:define name="footer">
-	    Add your footer here or delete to use the default
-	</ui:define>
-</ui:composition>
+<h:head>
+	<title>Importar Matricula</title>
+	<h:outputStylesheet library="css" name="Estilos.css"  />
+	<h:outputStylesheet library="css" name="Layout.css"  />
+</h:head>
+
+<h:body>
+	<div class="cerrar"> <h:button value="Cerrar sesion" outcome="index.xhtml" /> </div>
+	<div class="inicio"> <h:button value="INICIO" outcome="Principal.xhtml" /> </div>
+
+	<h1 class="titulo"> IMPORTAR MATRICULA </h1>
+
+	<div class="centrado">	
+	<div class="card">
+    <h:form>
+      		  <p:fileUpload listener="#{fileUploadView.handleFileUpload}" mode="advanced" dragDropSupport="true" update="messages" allowTypes="/(\.|\/)(csv|xls|xlsx)$/"/>
+
+       		 <p:growl id="messages" showDetail="true"/>
+    </h:form>
+	</div>
+	
+		<h:commandButton value="Cancelar" outcome="LeerMaricula.xhtml" />
+		<h:commandButton value="Aceptar" outcome="#{matriculaBB.importarMatricula}" />
+	</div>
+
+	<div class="pie"> 
+		Universidad de Málaga · Avda. Cervantes, 2. 29071 MÁLAGA · Tel. 952131000 · info@uma.es	
+	</div>
+	
+</h:body>
 </html>

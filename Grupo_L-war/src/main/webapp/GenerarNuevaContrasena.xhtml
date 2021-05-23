@@ -18,29 +18,30 @@
 
 	<div class="izquierda"> <img src="resources/imagenes/logo.jpg" width="400" /> </div>
 
-	<div class="centrado">
+	<div class="centro">
 		<h:form>
 			<img src="resources/imagenes/uma.png" width="200" />
-
+			
 			<h:panelGrid columns="3">
 				<h:outputText value="Email:" />
 				<h:inputText id="user" required="true"
-					value="#{login.usuario.cuenta}" />
+					value="#{loginBB.usuario.email_Institucional}" />
 				<h:message for="user" />
 
 				<h:outputText value="Nueva contraseña:" />
 				<h:inputSecret id="pass" required="true"
-					value="#{login.usuario.contrasenia}" />
+					value="#{}" />
 				<h:message for="pass" />
 				
 				<h:outputText value="Repetir nueva contraseña:" />
 				<h:inputSecret id="pass" required="true"
-					value="#{login.usuario.contrasenia}" />
+					value="#{}" />
 				<h:message for="pass" />
 				
 				<h:button value="Guardar Cambios" outcome="Login.xhtml" /> 
 
 			</h:panelGrid>
+			
 		</h:form>
 	</div>
 

@@ -6,8 +6,9 @@
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:head>
-	<title>FLM SECRETARIA</title>
+	<title>Leer Asignaturas</title>
 	<h:outputStylesheet library="css" name="Layout.css"  />
+	<h:outputStylesheet library="css" name="Estilos.css"  />
 </h:head>
 
 <h:body>
@@ -16,23 +17,133 @@
 	<div class="inicio"> <h:button value="INICIO" outcome="Principal.xhtml" /> </div>
 	
 	<h1 class="titulo"> Asignaturas </h1>
-
-	<div class="izquierda">
-		<b>MIS DATOS </b><br></br><br></br> 
-		<a href="#" style="text-decoration: none">Leer Encuesta</a><br></br>
-		<a href="#" style="text-decoration: none">Leer Asignatura Matricula</a><br></br>
-		<a href="LeerMatricula.xhtml" style="text-decoration: none">Leer Matricula</a><br></br> 
-		<a href="LeerTitulacion.xhtml" style="text-decoration: none">Leer Titulacion</a><br></br> 
-		<a href="LeerAlumnos.xhtml" style="text-decoration: none">Leer Usuario</a><br></br> 
-		<a href="LeerAsignaturas.xhtml" style="text-decoration: none">Leer Asignatura</a><br></br> 
-		<a href="#" style="text-decoration: none">Leer Clase</a><br></br> 
-		<a href="LeerExpediente.xhtml" style="text-decoration: none">Leer Expediente</a>
-	</div>
 	
-	<div class="centro" rendered=a>
-		<h1> ASIGNATURAS </h1>
+	<ui:fragment rendered="#{InfoSension.alumno != null eq true}">
+		
+		<div class="izquierda">
+			<b> MIS DATOS </b><br></br>
+			<br></br> 
+			<a href="#" style="text-decoration: none">Leer Encuesta</a><br></br>
+			<a href="#" style="text-decoration: none">Leer Asignatura Matricula</a><br></br> 
+			<a href="LeerMatricula.xhtml" style="text-decoration: none">Leer Matricula</a><br></br> 
+			<a href="LeerTitulacion.xhtml" style="text-decoration: none">Leer Titulacion</a><br></br> 
+			<a href="LeerAlumnos.xhtml" style="text-decoration: none">Leer Usuario</a><br></br> 
+			<a href="LeerAsignaturas.xhtml" style="text-decoration: none">Leer Asignatura</a><br></br> 
+			<a href="#" style="text-decoration: none">Leer Clase</a><br></br> 
+			<a href="LeerExpediente.xhtml" style="text-decoration: none">Leer Expediente</a>
+		</div>
 
-	</div>
+		<h:form styleClass="centro">
+			<h:dataTable styleClass="card" value="#{asignaturaBB.asignaturaAlumno}" var="a">
+				<h:column>
+					<f:facet name="header">Referencia</f:facet>
+					<h:outputText value="#{a.referencia}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Codigo</f:facet>
+					<h:outputText value="#{a.codigo}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Créditos Teoricos</f:facet>
+					<h:outputText value="#{a.créditos_Teoricos}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Créditos Practicos</f:facet>
+					<h:outputText value="#{a.créditos_Practicos}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Total_Créditos</f:facet>
+					<h:outputText value="#{a.total_Créditos}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Ofertada</f:facet>
+					<h:outputText value="#{a.ofertada}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Nombre</f:facet>
+					<h:outputText value="#{a.nombre}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Curso</f:facet>
+					<h:outputText value="#{a.curso}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Plazas</f:facet>
+					<h:outputText value="#{a.plazas}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Cuatrimestre</f:facet>
+					<h:outputText value="#{a.cuatrimestre}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Idioma de imparticion</f:facet>
+					<h:outputText value="#{a.idioma_de_imparticion}" />
+				</h:column>
+			</h:dataTable>
+		</h:form>
+
+	</ui:fragment>
+
+
+
+	<ui:fragment >
+		<h:form styleClass="centrado">
+			<h:dataTable styleClass="card" value="#{asignaturaBB.asignaturas}" var="a">
+				<h:column>
+					<f:facet name="header">Referencia</f:facet>
+					<h:outputText value="#{a.referencia}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Codigo</f:facet>
+					<h:outputText value="#{a.codigo}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Créditos Teoricos</f:facet>
+					<h:outputText value="#{a.créditos_Teoricos}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Créditos Practicos</f:facet>
+					<h:outputText value="#{a.créditos_Practicos}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Total_Créditos</f:facet>
+					<h:outputText value="#{a.total_Créditos}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Ofertada</f:facet>
+					<h:outputText value="#{a.ofertada}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Nombre</f:facet>
+					<h:outputText value="#{a.nombre}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Curso</f:facet>
+					<h:outputText value="#{a.curso}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Plazas</f:facet>
+					<h:outputText value="#{a.plazas}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Cuatrimestre</f:facet>
+					<h:outputText value="#{a.cuatrimestre}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Idioma de imparticion</f:facet>
+					<h:outputText value="#{a.idioma_de_imparticion}" />
+				</h:column>
+				<h:column>
+					<h:commandLink value="Eliminar" action="#{asignaturaBB.}" /> 
+				</h:column>
+				
+			</h:dataTable>
+		</h:form>
+		
+		<div class="importarMatricula">
+			<h:button value="Importar Asignatura" outcome="ImportarAsignatura.xhtml" />
+		</div>
+	</ui:fragment>
 
 	<div class="pie"> 
 		Universidad de Málaga · Avda. Cervantes, 2. 29071 MÁLAGA · Tel. 952131000 · info@uma.es	
