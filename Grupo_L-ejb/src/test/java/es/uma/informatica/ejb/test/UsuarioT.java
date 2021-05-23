@@ -82,11 +82,11 @@ public class UsuarioT {
 
 	@Test
 	@Requisitos({"RF15"})
-	public void testSolicitarRecuperarContraseña() {
+	public void testSolicitarRecuperarContrasenia() {
 		try {
 			Alumno a = new Alumno ((long)41, (long)664184557, "njevpnev","45698712R", "Marta", "Molero", "Santiago", "mms@uma.es", "martams@gmail.com",
 								   (long) 632547891, "calle margarita", "Torremolinos", "Málaga", (long)29620);
-			usuario.solicitarRecuperarContraseña(a.getEmail_Personal());
+			usuario.solicitarRecuperarContrasenia(a.getEmail_Personal());
 			
 		} catch (UsuarioException e) {
 			fail("No debería lanzarse excepción");
@@ -95,7 +95,7 @@ public class UsuarioT {
 	
 	@Test
 	@Requisitos({"RF18"})
-	public void testGenerarNuevaContraseña() {		
+	public void testGenerarNuevaContrasenia() {		
 		try {
 			String pass="Hola";
 			byte[] newPassword = null;
@@ -108,7 +108,7 @@ public class UsuarioT {
 		    }
 		    String encriptado = Base64.getEncoder().encodeToString(newPassword);
 			Usuario u = new Usuario((long)9, (long)664184557, "popa@uma.es" ,"njevpnev");
-			usuario.generarNuevaContraseña(u, pass);
+			usuario.generarNuevaContrasenia(u, pass);
 			Usuario u2=usuario.leerUsuario(u.getID());
 			if(!encriptado.equals(u2.getContrasenia())) {
 				fail("No debería lanzarse excepción1");

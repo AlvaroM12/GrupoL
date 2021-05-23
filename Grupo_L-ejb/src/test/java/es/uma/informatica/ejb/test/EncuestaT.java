@@ -42,7 +42,7 @@ public class EncuestaT {
 		try {
 			EncuestaId id = new EncuestaId((long) 12,(long)14);
 			Encuesta EleccionGrupo = encuesta.leerEncuesta(id);
-            if((long)14 != EleccionGrupo.getFecha_De_Envío()) {
+            if((long)14 != EleccionGrupo.getFecha_De_Envio()) {
             	fail("No esta");
             }
 		} catch (EncuestaException e) {

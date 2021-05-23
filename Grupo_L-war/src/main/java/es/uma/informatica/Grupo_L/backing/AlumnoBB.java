@@ -57,7 +57,7 @@ public class AlumnoBB {
 		}
 	}
 	
-	public void añadirAlumno() {
+	public void aniadirAlumno() {
 		al.setDNI(al.getDNI());
 		al.setNombre(al.getNombre());
 		

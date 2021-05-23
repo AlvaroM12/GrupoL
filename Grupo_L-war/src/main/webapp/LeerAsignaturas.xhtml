@@ -45,15 +45,15 @@
 				</h:column>
 				<h:column>
 					<f:facet name="header">Créditos Teoricos</f:facet>
-					<h:outputText value="#{a.créditos_Teoricos}" />
+					<h:outputText value="#{a.creditos_Teoricos}" />
 				</h:column>
 				<h:column>
 					<f:facet name="header">Créditos Practicos</f:facet>
-					<h:outputText value="#{a.créditos_Practicos}" />
+					<h:outputText value="#{a.creditos_Practicos}" />
 				</h:column>
 				<h:column>
 					<f:facet name="header">Total_Créditos</f:facet>
-					<h:outputText value="#{a.total_Créditos}" />
+					<h:outputText value="#{a.total_Creditos}" />
 				</h:column>
 				<h:column>
 					<f:facet name="header">Ofertada</f:facet>
@@ -134,7 +134,7 @@
 					<h:outputText value="#{a.idioma_de_imparticion}" />
 				</h:column>
 				<h:column>
-					<h:commandLink value="Eliminar" action="#{asignaturaBB.}" /> 
+					<h:commandLink value="Eliminar" action="#{asignaturaBB.getEliminar}" /> 
 				</h:column>
 				
 			</h:dataTable>
