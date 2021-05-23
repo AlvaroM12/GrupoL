@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+	<title>Rellenar Encuesta</title>
+	<h:outputStylesheet library="css" name="Estilos.css"  />
+	<h:outputStylesheet library="css" name="Layout.css"/>
+</h:head>
+
+<h:body>
+	
+	<div class="inicio"> <h:button value="INICIO" outcome="Principal.xhtml" /> </div>
+	<div class="cerrar"> <h:button value="Cerrar sesion" outcome="index.xhtml" /> </div>
+	
+	<h1 class="titulo"> RELLENAR ENCUESTA </h1>
+
+	<div class="izquierda">
+		<b>MIS DATOS </b><br></br><br></br> 
+		<a href="#" style="text-decoration: none">Leer Encuesta</a><br></br>
+		<a href="#" style="text-decoration: none">Leer Asignatura Matricula</a><br></br>
+		<a href="LeerMatricula.xhtml" style="text-decoration: none">Leer Matricula</a><br></br> 
+		<a href="LeerTitulacion.xhtml" style="text-decoration: none">Leer Titulacion</a><br></br> 
+		<a href="LeerAlumnos.xhtml" style="text-decoration: none">Leer Usuario</a><br></br> 
+		<a href="LeerAsignaturas.xhtml" style="text-decoration: none">Leer Asignatura</a><br></br> 
+		<a href="#" style="text-decoration: none">Leer Clase</a><br></br> 
+		<a href="LeerExpediente.xhtml" style="text-decoration: none">Leer Expediente</a>
+	</div>
+
+	<div class="centro">
+		<label for="curso">Primer curso:</label>
+		<select name="curso">
+		</select><br></br>
+		
+		<label for="curso">Segundo curso:</label>
+		<select name="curso">
+		</select><br></br>
+		
+		<label for="curso">Tercero curso:</label>
+		<select name="curso">
+		</select><br></br>
+		
+		<label for="curso">Cuarto curso:</label>
+		<select name="curso">
+		</select><br></br>
+
+		<input type="submit" name="leerEncuesta" value="Cancelar"/>
+		<input type="submit" name="leerEncuesta" value="Enviar"/>
+		
+	</div>
+	
+	<div class="pie"> Universidad de Málaga · Avda. Cervantes, 2. 29071 MÁLAGA · Tel. 952131000 · info@uma.es </div>
+
+</h:body>
+</html>

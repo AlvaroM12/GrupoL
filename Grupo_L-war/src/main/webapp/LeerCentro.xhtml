@@ -32,25 +32,30 @@
 		
 		<h:form styleClass="centrado" >
 		
-		 <h:dataTable styleClass="card" value="#{grupoBB.asignaturasMatriculasAlumno}" var="asig">
+		 <h:dataTable styleClass="card" value="#{centroBB.centro}" var="centro">
              <h:column>
                  <f:facet name="header">ID</f:facet>
-                 <h:outputText value="#{asig.matricula}"/>
+                 <h:outputText value="#{centro.ID}"/>
              </h:column>
              
              <h:column>
                  <f:facet name="header">Nombre</f:facet>
-                 <h:outputText value="#{asig.asignatura}"/>
+                 <h:outputText value="#{centro.nombre}"/>
              </h:column>  
              
              <h:column>
                  <f:facet name="header">Dirección</f:facet>
-                 <h:outputText value="#{asig.asignatura}"/>
+                 <h:outputText value="#{centro.direccion}"/>
              </h:column>
              
              <h:column>
                  <f:facet name="header">Teléfono conserjería</f:facet>
-                 <h:outputText value="#{asig.asignatura}"/>
+                 <h:outputText value="#{centro.TLF_Conserjeria}"/>
+             </h:column>
+             
+             <h:column>
+                 <f:facet name="header">Titulación</f:facet>
+                 <h:outputText value="#{centro.TC}"/>
              </h:column>
              
          </h:dataTable>
