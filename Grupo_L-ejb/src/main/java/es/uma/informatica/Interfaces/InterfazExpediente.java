@@ -5,7 +5,7 @@ import java.util.List;
 import javax.ejb.Local;
 
 import es.uma.informatica.Entidades.Expediente;
-import es.uma.informatica.Entidades.Matrícula;
+import es.uma.informatica.Entidades.Matricula;
 import es.uma.informatica.Exception.ExpedienteException;
 @Local
 public interface InterfazExpediente {

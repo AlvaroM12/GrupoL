@@ -13,7 +13,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import es.uma.informatica.Entidades.Alumno;
 import es.uma.informatica.Entidades.Asignatura;
-import es.uma.informatica.Entidades.Matrícula;
+import es.uma.informatica.Entidades.Matricula;
 import es.uma.informatica.Entidades.Titulacion;
 import es.uma.informatica.Exception.AlumnoException;
 import es.uma.informatica.Exception.AlumnoNullException;

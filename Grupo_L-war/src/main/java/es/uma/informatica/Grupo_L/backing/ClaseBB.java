@@ -10,7 +10,7 @@ import javax.inject.Named;
 import es.uma.informatica.Entidades.Asignaturas_Matrícula;
 import es.uma.informatica.Entidades.Clase;
 import es.uma.informatica.Entidades.Expediente;
-import es.uma.informatica.Entidades.Matrícula;
+import es.uma.informatica.Entidades.Matricula;
 import es.uma.informatica.Interfaces.InterfazAlumno;
 import es.uma.informatica.Interfaces.InterfazClase;
 

@@ -1,11 +1,14 @@
 package es.uma.informatica.Grupo_L.backing;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import es.uma.informatica.Entidades.Alumno;
+import es.uma.informatica.Entidades.Expediente;
 import es.uma.informatica.Entidades.Matricula;
 import es.uma.informatica.Exception.MatriculaException;
 import es.uma.informatica.Interfaces.InterfazMatricula;
@@ -19,24 +22,44 @@ public class MatriculaBB {
 	
 	private Matricula mat;
 	
+	private Alumno alum;
+	
 	public MatriculaBB() {
 		
 	}
 	
-	public Matricula getMatricula() {
+	
+
+	public Matricula getMat() {
 		return mat;
 	}
-	
-	public void setMatricula(Matricula mat) {
+
+
+
+	public void setMat(Matricula mat) {
 		this.mat = mat;
 	}
 
+
+
+	public Alumno getAlum() {
+		return alum;
+	}
+
+
+
+	public void setAlum(Alumno alum) {
+		this.alum = alum;
+	}
+
+
+
 	//METODO PARA LEER UNA MATRICULA
-	public  synchronized List<Matrícula> getMatriculaAlumno(){
-		List<Matrícula> matalum = new ArrayList<Matrícula>();
+	public  synchronized List<Matricula> getMatriculaAlumno(){
+		List<Matricula> matalum = new ArrayList<Matricula>();
 		
         for (Expediente ex : alum.getExpedientes()) {
-			for (Matrícula mat : ex.getMatriculas()) {
+			for (Matricula mat : ex.getMatriculas()) {
 					matalum.add(mat);
 			}
 		}

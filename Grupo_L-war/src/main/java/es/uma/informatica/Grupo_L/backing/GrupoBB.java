@@ -10,6 +10,7 @@ import javax.inject.Named;
 import es.uma.informatica.Entidades.Alumno;
 import es.uma.informatica.Entidades.Asignaturas_Matrícula;
 import es.uma.informatica.Entidades.Expediente;
+import es.uma.informatica.Entidades.Grupo;
 import es.uma.informatica.Entidades.Matricula;
 import es.uma.informatica.Entidades.Usuario;
 import es.uma.informatica.Exception.AlumnoException;
