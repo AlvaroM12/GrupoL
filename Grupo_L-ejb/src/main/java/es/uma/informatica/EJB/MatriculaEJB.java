@@ -31,16 +31,17 @@ public class MatriculaEJB implements InterfazMatricula {
 	private EntityManager em;
 
 	@Override
-	public void importarMatricula() throws MatriculaException {
+	public void importarMatricula(String fileName){
 		try {
-			String directorio_de_ejecucion_de_la_aplicacion = new java.io.File( "." ).getCanonicalPath();
-			String sFile = directorio_de_ejecucion_de_la_aplicacion + "/" +"Datos alumnadoFAKE.xlsx"; 
-			XSSFWorkbook workbook = new XSSFWorkbook(sFile);
+			//String directorio_de_ejecucion_de_la_aplicacion = new java.io.File( "." ).getCanonicalPath();
+			//String sFile = fileName ; 
+			XSSFWorkbook workbook = new XSSFWorkbook(fileName);
 	        XSSFSheet sheet = workbook.getSheet("Hoja1");
 	        XSSFRow row = sheet.getRow(0);
-	        XSSFCell cell = null;
+	        //XSSFCell cell = null;
 	        Matricula m = new Matricula();
 	        Expediente e = new Expediente();
+	        
 	        for(int fila=4; fila<row.getRowNum(); fila++) {
 	        	String nExp = sheet.getRow(4).getCell(4).getStringCellValue();
 	        	long nE= Long.parseLong(nExp);
@@ -54,7 +55,6 @@ public class MatriculaEJB implements InterfazMatricula {
 				try {
 					date = (Date) formatter.parse(fmat);
 				} catch (java.text.ParseException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 	        	m.setFecha_De_Matricula(date);

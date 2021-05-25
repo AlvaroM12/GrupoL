@@ -21,18 +21,16 @@ public class MatriculaT {
 		BaseDatos.inicializaBaseDatos(UNIDAD_PERSITENCIA_PRUEBAS);
 	}
 
-	@Test
-	@Requisitos({"RF3"})
-	public void testImportarMatricula() {
-		try {
-			matricula.importarMatricula();
-			MatriculaId matricula1 = new MatriculaId("Primero",(long)33);
-			Matricula m= matricula.leerMatricula(matricula1);
-			assertEquals("Primero",m.getCurso_Academico());
-		} catch (MatriculaException e) {
-			fail("No debería lanzarse excepción");
-		}
-	}
+	/*
+	 * @Test
+	 * 
+	 * @Requisitos({"RF3"}) public void testImportarMatricula() { try {
+	 * matricula.importarMatricula(); MatriculaId matricula1 = new
+	 * MatriculaId("Primero",(long)33); Matricula m=
+	 * matricula.leerMatricula(matricula1);
+	 * assertEquals("Primero",m.getCurso_Academico()); } catch (MatriculaException
+	 * e) { fail("No debería lanzarse excepción"); } }
+	 */
 	
 	@Test
 	@Requisitos({"RF22"})

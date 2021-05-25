@@ -19,17 +19,11 @@
 
 	<h1 class="titulo"> IMPORTAR EXPEDIENTE </h1>
 
-	<div class="centrado">	
-	<div class="card">
-    <h:form>
-      		  <p:fileUpload listener="#{fileUploadView.handleFileUpload}" mode="advanced" dragDropSupport="true" update="messages" sizeLimit="100000" allowTypes="/(\.|\/)(csv|xls)$/"/>
-
-       		 <p:growl id="messages" showDetail="true"/>
-    </h:form>
-	</div>
-	
-		<input type="submit" name="leerEncuesta" value="Cancelar"/>
-		<input type="submit" name="leerEncuesta" value="Aceptar"/>
+	<div class="centrado">
+	    <h:form>
+			<p:fileUpload listener="#{fileUploadView.handleFileUpload}" mode="advanced" dragDropSupport="true" update="messages" allowTypes="/(\.|\/)(csv|xls|xlsx)$/"/>
+			<p:growl id="messages" showDetail="true"/>
+		</h:form>
 	</div>
 
 	<div class="pie"> 

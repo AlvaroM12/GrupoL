@@ -11,7 +11,7 @@ public interface InterfazMatricula {
 	  Este método debe importar una matricula en la base de datos.
 	 
 	 */
-	public void importarMatricula() throws MatriculaException;
+	public void importarMatricula(String fileName);
 
 	public Matricula leerMatricula(MatriculaId ma) throws MatriculaException;
 

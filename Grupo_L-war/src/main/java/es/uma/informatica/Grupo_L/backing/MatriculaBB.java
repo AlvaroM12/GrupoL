@@ -19,38 +19,27 @@ public class MatriculaBB {
 	private InterfazMatricula matricula;
 	
 	private Matricula mat;
-	
 	private Alumno alum;
 	
 	public MatriculaBB() {
 		
 	}
-	
-	
 
 	public Matricula getMat() {
 		return mat;
 	}
 
-
-
 	public void setMat(Matricula mat) {
 		this.mat = mat;
 	}
-
-
 
 	public Alumno getAlum() {
 		return alum;
 	}
 
-
-
 	public void setAlum(Alumno alum) {
 		this.alum = alum;
 	}
-
-
 
 	//METODO PARA LEER UNA MATRICULA
 	public  synchronized List<Matricula> getMatriculaAlumno(){
@@ -76,12 +65,8 @@ public class MatriculaBB {
 		return null;
 	}
 	
-	public  synchronized String getImportarMatricula(){
-		try {
-			matricula.importarMatricula();
-		} catch (MatriculaException e) {
-			e.printStackTrace();
-		}
-		return "LeerMatricula.xhtml";
+	public  synchronized String getImportarMatricula(String fileName){
+		matricula.importarMatricula(fileName);
+		return null;
 	}
 }
