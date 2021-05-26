@@ -7,6 +7,8 @@
 package es.uma.informatica.Grupo_L.backing;
 
 import java.io.Serializable;
+import java.util.logging.Logger;
+
 import javax.enterprise.context.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Named;
@@ -17,6 +19,7 @@ import es.uma.informatica.Entidades.Personal_de_secretaria;
 @Named(value = "infoSesion")
 @SessionScoped
 public class InfoSesion implements Serializable {
+	private static final Logger LOGGER = Logger.getLogger(LoginBB.class.getCanonicalName());
 
     
     private Alumno alumno;
@@ -30,6 +33,7 @@ public class InfoSesion implements Serializable {
 
     public synchronized void setAlumno(Alumno alumno) {
         this.alumno = alumno;
+        LOGGER.info(alumno.getApellido1());
     }
 
     public synchronized Alumno getAlumno() {

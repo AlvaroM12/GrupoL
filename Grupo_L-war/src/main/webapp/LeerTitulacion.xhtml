@@ -42,23 +42,23 @@
 		</div>
 		
         <h:form id="expediente">
-            <p:commandButton value="Mostar" actionListener="#{titulacion.listasTitulaciones()}" update="dtTitulacion" />
+            <p:commandButton value="Mostar" actionListener="#{titulacion.titulaciones}" update="dtTitulacion" />
 
-		<p:dataTable id="dtTitulacion" value="#{TitulacionBB.lista}" var="t">
+		<p:dataTable id="dtTitulacion" value="#{titulacion.titulaciones}" var="t">
 		
 			<p:column headerText="Codigo" filterBy="#{t.Codigo}"
 				filterMatchMode="contains">
-				<p:outputLabel value="#{t.Codigo}" />
+				<p:outputLabel value="#{t.codigo}" />
 			</p:column>
 			
 			<p:column headerText="Nombre" filterBy="#{t.Nombre}"
 				filterMatchMode="contains">
-				<p:outputLabel value="#{t.Nombre}" />
+				<p:outputLabel value="#{t.nombre}" />
 			</p:column>
 			
 			<p:column headerText="Créditos" filterBy="#{t.Creditos}"
 				filterMatchMode="contains">
-				<p:outputLabel value="#{t.Creditos}" />
+				<p:outputLabel value="#{t.creditos}" />
 			</p:column>
 	 	</p:dataTable>
         </h:form>

@@ -58,7 +58,7 @@
     </table>
 
 	<h:form>
-		<p:commandButton value="Mostar" actionListener="#{alumnos.listasAlumnos()}" update="dtAlumnos" />
+		<p:commandButton value="Mostar" actionListener="#{alumnos.}" update="dtAlumnos" />
 
 		<p:dataTable id="dtAlumnos" value="#{AlumnoBB.listaAl}" var="a">
 			<p:column headerText="DNI" filterBy="#{a.DNI}"

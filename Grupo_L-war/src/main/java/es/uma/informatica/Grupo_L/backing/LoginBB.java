@@ -1,5 +1,7 @@
 package es.uma.informatica.Grupo_L.backing;
 
+import java.util.logging.Logger;
+
 import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
@@ -11,9 +13,11 @@ import es.uma.informatica.Exception.UsuarioException;
 import es.uma.informatica.Exception.UsuarioExistenteException;
 import es.uma.informatica.Interfaces.InterfazUsuario;
 
+
 @Named
 @RequestScoped
 public class LoginBB {
+	private static final Logger LOGGER = Logger.getLogger(LoginBB.class.getCanonicalName());
 	
 	
     @Inject
@@ -44,6 +48,7 @@ public class LoginBB {
 
     public String entrar() {
         try {
+        	LOGGER.info(usuario.getEmail_Institucional());
         	String rol = usuEJB.validarAcceso(usuario.getEmail_Institucional(), usuario.getContrasenia());
             if(rol.equalsIgnoreCase("ALUMNO")){
             	sesion.setAlumno(usuEJB.loginAlumno(usuario.getEmail_Institucional(), usuario.getContrasenia()));

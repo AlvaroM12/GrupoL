@@ -21,7 +21,7 @@
 	
 	<h1 class="titulo"> Principal </h1>
 
-	<ui:fragment rendered="#{InfoSension.alumno != null eq true}">
+	<ui:fragment rendered="#{not empty infoSesion.alumno}">
 		<div class="izquierda"   >
 			<b>MIS DATOS </b><br></br><br></br> 
 			<a href="#" style="text-decoration: none">Leer Encuesta</a><br></br>
@@ -41,7 +41,7 @@
 	</div>
 	</ui:fragment>
 	
-	<ui:fragment rendered="#{InfoSension.personal != null eq true}">			
+	<ui:fragment rendered="#{not empty infoSesion.personal}">			
 		<div class="centrado" >
 			<h:button value="Alumnos" outcome="index.xhtml" /> <br></br><br></br>
 			<h:button value="Matricula" outcome="index.xhtml" /> <br></br><br></br>

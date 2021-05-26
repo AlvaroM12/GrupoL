@@ -50,44 +50,44 @@ public class UsuarioEJB implements InterfazUsuario{
             throw new UsuarioExistenteException();
         }
         
-        TypedQuery <Alumno> query = em.createQuery("SELECT a FROM Alumno a "
-	            + "WHERE a.Email_Institucional LIKE :correo", Alumno.class);
-        TypedQuery <Personal_de_secretaria> query2 = em.createQuery("SELECT p FROM Personal_de_secretaria p "
-	            + "WHERE p.Email_Institucional LIKE :correo", Personal_de_secretaria.class);
+        TypedQuery <Usuario> query = em.createQuery("SELECT a FROM Usuario a "
+	            + "WHERE a.Email_Institucional LIKE :correo", Usuario.class);
+        
         
 		query.setParameter("correo", email);
-		query2.setParameter("correo", email);
+		
 		
 		if(query.getResultList().size()==1) {
 			
-			Alumno a = query.getSingleResult();
+			Usuario u = query.getSingleResult();
 			
-			if(!a.getContrasenia().equalsIgnoreCase(pass)) {
+			if(!u.getContrasenia().equalsIgnoreCase(pass)) {
 			throw new UsuarioErrorException();
 			}else {
-				rol="ALUMNO";
+				if(u instanceof Alumno) {
+					rol="ALUMNO";
+				}else {
+					rol="SECRETARIO";
+				}
 			}
 		}
 		
-		if(query2.getResultList().size()==1){
-			Personal_de_secretaria p = query2.getSingleResult();
-			
-			if(!p.getContrasenia().equalsIgnoreCase(pass)) {
-				throw new UsuarioErrorException();
-			}else {
-				rol="SECRETARIO";
-			}
-		}
 	
 		return rol;        
 	}
 	@Override
 	public Alumno loginAlumno(String email, String pass) throws UsuarioException{
-		
-        TypedQuery <Alumno> query = em.createQuery("SELECT a FROM Alumno a "
-	            + "WHERE a.Email_Personal LIKE :correo", Alumno.class);
+		TypedQuery <Usuario> query = em.createQuery("SELECT a FROM Usuario a "
+	            + "WHERE a.Email_Institucional LIKE :correo", Usuario.class);        
+        
 		query.setParameter("correo", email);
-		Alumno a = query.getSingleResult();
+		
+		Usuario u = query.getSingleResult();
+		
+        TypedQuery <Alumno> query2 = em.createQuery("SELECT a FROM Alumno a "
+	            + "WHERE a.ID LIKE :id", Alumno.class);
+		query2.setParameter("id", u.getID());
+		Alumno a = query2.getSingleResult();
 		
 		return a;        
 	}
