@@ -16,9 +16,15 @@
 
 <h:body>
 
-	<div class="inicio"><p>Hola, <h:outputText value="#"/>.</p></div>
-	<div class="cerrar"> <h:button value="Cerrar sesion" outcome="index.xhtml" /> </div>
-	
+	<ui:fragment rendered="#{not empty infoSesion.alumno}">
+	<div class="inicio"><p>Hola, <h:outputText value="#{infoSesion.alumno.nombre}"/>.</p></div>
+	</ui:fragment>
+	<ui:fragment rendered="#{not empty infoSesion.personal}">	
+	<div class="inicio"><p>Hola, <h:outputText value="#{infoSesion.personal.rango}"/>.</p></div>
+	</ui:fragment>
+	<h:form>
+	<div class="cerrar"> <h:commandLink action="#{infoSesion.invalidarSesion()}">Cerrar Sesion</h:commandLink> </div>
+	</h:form>
 	<h1 class="titulo"> Principal </h1>
 
 	<ui:fragment rendered="#{not empty infoSesion.alumno}">
@@ -41,7 +47,7 @@
 	</div>
 	</ui:fragment>
 	
-	<ui:fragment rendered="#{not empty infoSesion.personal}">			
+	<ui:fragment rendered="#{not empty infoSesion.personal}">		
 		<div class="centrado" >
 			<h:button value="Alumnos" outcome="index.xhtml" /> <br></br><br></br>
 			<h:button value="Matricula" outcome="index.xhtml" /> <br></br><br></br>

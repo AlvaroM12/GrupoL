@@ -43,14 +43,17 @@ public class TitulacionEJB implements InterfazTitulacion{
 			//String directorio_de_ejecucion_de_la_aplicacion; 
 			//directorio_de_ejecucion_de_la_aplicacion = new java.io.File( "." ).getCanonicalPath();
 			//String sFile = directorio_de_ejecucion_de_la_aplicacion + "/" +"Titulacion.xlsx";
-			
+			/*
 	        Workbook wb = WorkbookFactory.create(new File(fileName));	// El path ya te da el nombre incluido
-	        Sheet sheet = wb.getSheet("Hoja1");
+	        Sheet sheet = wb.getSheet("Hoja1");*/
+			XSSFWorkbook workbook = new XSSFWorkbook(fileName);
+			XSSFSheet sheet = workbook.getSheet("Hoja1");
 	        Row row = sheet.getRow(0);
 	       
-	        Titulacion t = new Titulacion();
 	        
-	        for(int fila=1; fila<row.getRowNum(); fila++) {
+	        
+	        for(int fila=1; fila<6; fila++) {
+	        	Titulacion t = new Titulacion();
 	        	Long codigo = (long) sheet.getRow(fila).getCell(0).getNumericCellValue();
 	        	t.setCodigo(codigo);
 	        	String nombre =  sheet.getRow(fila).getCell(1).getStringCellValue();

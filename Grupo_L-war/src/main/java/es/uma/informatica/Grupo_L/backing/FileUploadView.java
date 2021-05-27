@@ -55,17 +55,17 @@ public class FileUploadView {
              File file_name = new File(file.getFileName());
              
              //matricula.importarMatricula(file.getFileName(), file_name.toString());	// Sale el mensaje de exito pero da error en la terminal wildfly
-             tit.importarTitulacion(file_name.toString());								// sale ifual q matricula
+             //tit.importarTitulacion(file_name.toString());								// sale ifual q matricula
     	 
-    	  /* 
+    	  
     	 // COPIAR ARCHIVO A OTRO DIRECTORIO
         
-          	 File path_name = new File("/home/alumno/Temporal_Primefaces/" + file.getFileName());
-             OutputStream output = new FileOutputStream(path_name);			// Se pilla aqui, no se copia el archivo.
-             IOUtils.copy(file.getInputStream(), output);
-             
-             matricula.importarMatricula(file.getFileName(), path_name.toString());
-           */   
+          	 //File path_name = new File("/home/alumno/Temporal_Primefaces/" + file.getFileName());
+             //OutputStream output = new FileOutputStream(path_name);			// Se pilla aqui, no se copia el archivo.
+            // IOUtils.copy(file.getInputStream(), output);
+             Path temp = Files.createTempFile(file_name.getName(), ".xlsx");
+             matricula.importarMatricula(file.getFileName(), temp);
+              
              
              FacesMessage message = new FacesMessage("Successful", file.getFileName() + " is uploaded.");
              FacesContext.getCurrentInstance().addMessage(null, message);
@@ -77,6 +77,14 @@ public class FileUploadView {
         FacesContext.getCurrentInstance().addMessage(null, message);
         
         File file_name = new File(event.getFile().getFileName());
-        matricula.importarMatricula(file_name.getName(), file_name.getPath());
+        Path temp;
+		try {
+			temp = Files.createTempFile(file_name.getName(), ".xlsx");
+			matricula.importarMatricula(file_name.getName(), temp);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        
     }
 }

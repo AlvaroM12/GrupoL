@@ -1,6 +1,9 @@
 package es.uma.informatica.ejb.test;
 
 import static org.junit.Assert.*;
+
+import java.io.IOException;
+
 import org.junit.Before;
 import org.junit.Test;
 import es.uma.informatica.Entidades.Titulacion;
@@ -34,9 +37,12 @@ public class TitulacionT {
 
 	@Test
 	@Requisitos({"RF23"})
-	public void testImportarTitulacion() {
+	public void testImportarTitulacion() throws IOException {
 		try {
-			titulacion.importarTitulacion();
+			String directorio_de_ejecucion_de_la_aplicacion; 
+			directorio_de_ejecucion_de_la_aplicacion = new java.io.File( "." ).getCanonicalPath();
+			String sFile = directorio_de_ejecucion_de_la_aplicacion + "/" +"Titulacion.xlsx";
+			titulacion.importarTitulacion(sFile);
 			Titulacion t = titulacion.leerTitulacion((long) 1041);
 			if((long)1041 != t.getCodigo()) {
 				fail("No deberia lanzar excepcion1");

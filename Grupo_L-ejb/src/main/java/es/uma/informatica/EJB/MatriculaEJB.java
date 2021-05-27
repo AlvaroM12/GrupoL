@@ -2,6 +2,7 @@ package es.uma.informatica.EJB;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Path;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
 import java.util.List;
@@ -38,14 +39,14 @@ public class MatriculaEJB implements InterfazMatricula {
 	private final static Logger LOGGER=Logger.getLogger(MatriculaEJB.class.getCanonicalName());
 
 	@Override
-	public void importarMatricula(String fileName, String path){
+	public void importarMatricula(String fileName, Path path){
 		try {
 			//String directorio_de_ejecucion_de_la_aplicacion = "/home/alumno/.cache/vmware/drag_and_drop/GCw5oe";
 			//String sFile = path + "/" + fileName ; 
 			LOGGER.info("PATH DEL ARCHIVO --------------------- " + path);
 			
 			
-			Workbook wb = WorkbookFactory.create(new File(fileName));	// El path ya te da el nombre incluido
+			Workbook wb = WorkbookFactory.create(path);	// El path ya te da el nombre incluido
 			//XSSFWorkbook workbook = new XSSFWorkbook(path);
 	        Sheet sheet = wb.getSheet("Hoja1");
 	        Row row = sheet.getRow(0);
