@@ -6,11 +6,14 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
+
 import es.uma.informatica.Exception.AlumnoException;
 import es.uma.informatica.Exception.AlumnoExistenteException;
 import es.uma.informatica.Exception.AlumnoNullException;
 import es.uma.informatica.Interfaces.InterfazAlumno;
 import es.uma.informatica.Entidades.Alumno;
+import es.uma.informatica.Entidades.Matricula;
 
 
 /**
@@ -44,10 +47,9 @@ public class AlumnoEJB implements InterfazAlumno {
 	
 	@Override
 	public List<Alumno> listaAlumno() throws AlumnoException {
-    	Query queryAl = em.createQuery("SELECT a FROM Alumno a");
-    	List<Alumno> list = queryAl.getResultList();
-		
-		return list;
+		TypedQuery <Alumno> query = em.createQuery("SELECT a FROM Alumno a ", Alumno.class);
+    	List<Alumno> list = query.getResultList();		
+		return list; 
 	}
 	
 	@Override

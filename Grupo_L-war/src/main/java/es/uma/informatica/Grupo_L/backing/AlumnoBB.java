@@ -62,11 +62,14 @@ public class AlumnoBB {
 	
 	//METODO PARA LEER TODOS LOS ALUMNOS
 	public  synchronized List<Alumno> getAlumnos(){
-		List<Alumno> alum = new ArrayList<Alumno>();
-		
-        for (Alumno a : alum) {
-			alum.add(a);
+		try {
+			return alejb.listaAlumno();
+		} catch (AlumnoException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-        return alum;
+		return null;
+		
+        
 	}
 }

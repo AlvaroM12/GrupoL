@@ -20,7 +20,7 @@
 
 	<h1 class="titulo">ALUMNOS</h1>
 
-	<ui:fragment rendered="#{InfoSension.alumno != null eq true}">
+	<ui:fragment rendered="#{not empty infoSesion.alumno}">
 		<div class="izquierda">
 			<b> MIS DATOS </b><br></br>
 			<br></br> 
@@ -102,73 +102,73 @@
 		</div>
 	</ui:fragment>
 
-	<ui:fragment rendered="#{InfoSension.personal != null eq true}">
+	<ui:fragment rendered="#{not empty infoSesion.personal}">
 		<h:form styleClass="centrado">
 			<p:commandButton value="Mostar" actionListener="#{alumnoBB.alumnos}" update="dtAlumnos" />
 	
 			<p:dataTable id="dtAlumnos" value="#{alumnoBB.alumnos}" var="a">
-				<p:column headerText="DNI" filterBy="#{a.DNI}"
+				<p:column headerText="DNI" filterBy="#{a.dNI}"
 					filterMatchMode="contains">
-					<p:outputLabel value="#{a.DNI}" />
+					<p:outputLabel value="#{a.dNI}" />
 				</p:column>
 	
-				<p:column headerText="Nombre" filterBy="#{a.Nombre}"
+				<p:column headerText="Nombre" filterBy="#{a.nombre}"
 					filterMatchMode="contains">
-					<p:outputLabel value="#{a.Nombre}" />
+					<p:outputLabel value="#{a.nombre}" />
 				</p:column>
 	
-				<p:column headerText="Apellido1" filterBy="#{a.Apellido1}"
+				<p:column headerText="Apellido1" filterBy="#{a.apellido1}"
 					filterMatchMode="contains">
-					<p:outputLabel value="#{a.Apellido1}" />
+					<p:outputLabel value="#{a.apellido1}" />
 				</p:column>
 	
-				<p:column headerText="Apellido2" filterBy="#{a.Apellido2}"
+				<p:column headerText="Apellido2" filterBy="#{a.apellido2}"
 					filterMatchMode="contains">
-					<p:outputLabel value="#{a.Apellido2}" />
+					<p:outputLabel value="#{a.apellido2}" />
 				</p:column>
 	
 				<p:column headerText="Email_Institucional"
-					filterBy="#{a.Email_Institucional}" filterMatchMode="contains">
-					<p:outputLabel value="#{a.Email_Institucional}" />
+					filterBy="#{a.email_Institucional}" filterMatchMode="contains">
+					<p:outputLabel value="#{a.email_Institucional}" />
 				</p:column>
 	
-				<p:column headerText="Email_Personal" filterBy="#{a.Email_Personal}"
+				<p:column headerText="Email_Personal" filterBy="#{a.email_Personal}"
 					filterMatchMode="contains">
-					<p:outputLabel value="#{a.Email_Personal}" />
+					<p:outputLabel value="#{a.email_Personal}" />
 				</p:column>
 	
-				<p:column headerText="Móvil" filterBy="#{a.Movil}"
+				<p:column headerText="Móvil" filterBy="#{a.movil}"
 					filterMatchMode="contains">
-					<p:outputLabel value="#{a.Movil}" />
+					<p:outputLabel value="#{a.movil}" />
 				</p:column>
 	
-				<p:column headerText="Direccion" filterBy="#{a.Direccion}"
+				<p:column headerText="Direccion" filterBy="#{a.direccion}"
 					filterMatchMode="contains">
-					<p:outputLabel value="#{a.Direccion}" />
+					<p:outputLabel value="#{a.direccion}" />
 				</p:column>
 	
-				<p:column headerText="Localidad" filterBy="#{a.Localidad}"
+				<p:column headerText="Localidad" filterBy="#{a.localidad}"
 					filterMatchMode="contains">
-					<p:outputLabel value="#{a.Localidad}" />
+					<p:outputLabel value="#{a.localidad}" />
 				</p:column>
 	
-				<p:column headerText="Provincia" filterBy="#{a.Provincia}"
+				<p:column headerText="Provincia" filterBy="#{a.provincia}"
 					filterMatchMode="contains">
-					<p:outputLabel value="#{a.Provincia}" />
+					<p:outputLabel value="#{a.provincia}" />
 				</p:column>
 	
-				<p:column headerText="CP" filterBy="#{a.CP}"
+				<p:column headerText="CP" filterBy="#{a.cP}"
 					filterMatchMode="contains">
-					<p:outputLabel value="#{a.CP}" />
+					<p:outputLabel value="#{a.cP}" />
 				</p:column>
 	
-				<p:column headerText="CAMBIOS" sortBy="#{a.DNI}">
+				<p:column headerText="CAMBIOS" sortBy="#{a.dNI}">
 					<p:cellEditor>
 						<f:facet name="output">
-							<h:outputText value="#{a.DNI}" />
+							<h:outputText value="#{a.dNI}" />
 						</f:facet>
 						<f:facet name="input">
-							<p:inputText id="name" value="#{a.DNI}"
+							<p:inputText id="name" value="#{a.dNI}"
 								label="CAMBIOS" />
 						</f:facet>
 					</p:cellEditor>
