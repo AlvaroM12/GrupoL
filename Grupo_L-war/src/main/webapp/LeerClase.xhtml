@@ -14,12 +14,15 @@
 
 <h:body>
 
-	<div class="cerrar"> <h:button value="Cerrar sesion" outcome="index.xhtml" /> </div>
+	<div class="inicio"><p>Hola, <h:outputText value="#{infoSesion.alumno.nombre}"/>.</p></div>
+
+	<h:form>
+	<div class="cerrar"> <h:commandLink action="#{infoSesion.invalidarSesion()}">Cerrar Sesion</h:commandLink> </div>
+	</h:form>
 	<div class="inicio"> <h:button value="Inicio" outcome="Principal.xhtml" /> </div>
 
 	<h1 class="titulo"> Clase </h1>
 
-	<ui:fragment rendered="#{InfoSension.alumno != null eq true}">
 		<div class="izquierda">
 			<b>MIS DATOS </b><br></br><br></br> 
 			<a href="#" style="text-decoration: none">Leer Encuesta</a><br></br>
@@ -52,7 +55,6 @@
 				</h:column>
 			</h:dataTable>
 		</h:form>
-	</ui:fragment>
 
 	<div class="pie"> 
 		Universidad de Málaga · Avda. Cervantes, 2. 29071 MÁLAGA · Tel. 952131000 · info@uma.es	

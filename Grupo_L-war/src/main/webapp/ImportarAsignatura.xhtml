@@ -13,7 +13,14 @@
 </h:head>
 
 <h:body>
-	<div class="cerrar"> <h:button value="Cerrar sesion" outcome="index.xhtml" /> </div>
+		
+	<div class="inicio"><p>Hola, <h:outputText value="#{infoSesion.personal.rango}"/>.</p></div>
+	
+	<div class="inicio"><p>Hola, <h:outputText value="#{infoSesion.personal.rango}"/>.</p></div>
+	
+	<h:form>
+	<div class="cerrar"> <h:commandLink action="#{infoSesion.invalidarSesion()}">Cerrar Sesion</h:commandLink> </div>
+	</h:form>
 	<div class="inicio"> <h:button value="INICIO" outcome="Principal.xhtml" /> </div>
 
 	<h1 class="titulo"> IMPORTAR ASIGNATURA </h1>

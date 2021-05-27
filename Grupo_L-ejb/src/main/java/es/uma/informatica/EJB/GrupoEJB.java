@@ -187,7 +187,7 @@ public class GrupoEJB implements InterfazGrupo {
     @Override
     public List<Asignaturas_Matricula> leerAsignaturasMatricula() throws GrupoException{
     	
-    	TypedQuery <Asignaturas_Matricula> query = em.createQuery("SELECT a FROM Asignatura_Matricula a ", Asignaturas_Matricula.class);
+    	TypedQuery <Asignaturas_Matricula> query = em.createQuery("SELECT a FROM Asignaturas_Matricula a ", Asignaturas_Matricula.class);
     	List<Asignaturas_Matricula> list = query.getResultList();
 		
 		return list;    	

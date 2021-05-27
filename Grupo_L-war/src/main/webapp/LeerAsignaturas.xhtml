@@ -12,13 +12,21 @@
 </h:head>
 
 <h:body>
+	<ui:fragment rendered="#{not empty infoSesion.alumno}">
+	<div class="inicio"><p>Hola, <h:outputText value="#{infoSesion.alumno.nombre}"/>.</p></div>
+	</ui:fragment>
+	<ui:fragment rendered="#{not empty infoSesion.personal}">	
+	<div class="inicio"><p>Hola, <h:outputText value="#{infoSesion.personal.rango}"/>.</p></div>
+	</ui:fragment>
 	
-	<div class="cerrar"> <h:button value="Cerrar sesion" outcome="index.xhtml" /> </div>
+	<h:form>
+	<div class="cerrar"> <h:commandLink action="#{infoSesion.invalidarSesion()}">Cerrar Sesion</h:commandLink> </div>
+	</h:form>
 	<div class="inicio"> <h:button value="INICIO" outcome="Principal.xhtml" /> </div>
 	
 	<h1 class="titulo"> Asignaturas </h1>
 	
-	<ui:fragment rendered="#{InfoSension.alumno != null eq true}">
+	<ui:fragment rendered="#{not empty infoSesion.alumno}">
 		
 		<div class="izquierda">
 			<b> MIS DATOS </b><br></br>
@@ -82,11 +90,11 @@
 			</h:dataTable>
 		</h:form>
 
-	</ui:fragment>
+	</ui:fragment >
 
 
 
-	<ui:fragment >
+	<ui:fragment rendered="#{not empty infoSesion.personal}">
 		<h:form styleClass="centrado">
 			<h:dataTable styleClass="card" value="#{asignaturaBB.asignaturas}" var="a">
 				<h:column>

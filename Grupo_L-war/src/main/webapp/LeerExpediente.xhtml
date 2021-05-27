@@ -14,12 +14,21 @@
 
 <h:body>
 
-	<div class="cerrar"> <h:button value="Cerrar sesion" outcome="index.xhtml" /> </div>
+	<ui:fragment rendered="#{not empty infoSesion.alumno}">
+	<div class="inicio"><p>Hola, <h:outputText value="#{infoSesion.alumno.nombre}"/>.</p></div>
+	</ui:fragment>
+	<ui:fragment rendered="#{not empty infoSesion.personal}">	
+	<div class="inicio"><p>Hola, <h:outputText value="#{infoSesion.personal.rango}"/>.</p></div>
+	</ui:fragment>
+
+	<h:form>
+	<div class="cerrar"> <h:commandLink action="#{infoSesion.invalidarSesion()}">Cerrar Sesion</h:commandLink> </div>
+	</h:form>
 	<div class="inicio"> <h:button value="INICIO" outcome="Principal.xhtml" /> </div>
 
 	<h1 class="titulo"> Expediente </h1>
 
-	<ui:fragment rendered="#{InfoSension.alumno != null eq true}">	
+	<ui:fragment rendered="#{not empty infoSesion.alumno}">	
 		<div class="izquierda">
 			<b>MIS DATOS </b><br></br><br></br> 
 			<a href="#" style="text-decoration: none">Leer Encuesta</a><br></br>
@@ -35,7 +44,7 @@
 		<div class="centro">
 			<div>
 				<h:form styleClass="alumnos">
-					<h:dataTable value="#{ExpedienteBB.leerExpediente()}" var="e">
+					<h:dataTable value="#{expedienteBB.leerExpediente()}" var="e">
 						<h:column>
 	                            <f:facet name="header">Num_Expediente  </f:facet>
 	                            <h:outputText value="#{e.Num_Expediente}"/>
@@ -80,43 +89,43 @@
 	</ui:fragment>
 	
 	
-	<ui:fragmentº>
+	<ui:fragment rendered="#{not empty infoSesion.personal}">
 		<div>
 			<h:form styleClass="alumnos">
-				<h:dataTable value="#{ExpedienteBB.leerExpediente()}" var="e">
+				<h:dataTable value="#{expedienteBB.expedientes}" var="e">
 					<h:column>
 		                <f:facet name="header">Numero Expediente  </f:facet>
-		                <h:outputText value="#{e.Num_Expediente}"/>
+		                <h:outputText value="#{e.num_Expediente}"/>
 		            </h:column>
 		            <h:column>
 		                <f:facet name="header">Activo</f:facet>
-		                <h:outputText value="#{e.Activo}"/>
+		                <h:outputText value="#{e.activo}"/>
 		            </h:column>
 		            <h:column>
 		                <f:facet name="header">  Nota Media</f:facet>
-		                <h:outputText value="#{e.Nota_Media}"/>
+		                <h:outputText value="#{e.nota_Media}"/>
 		            </h:column>
 		            <h:column>
 		                <f:facet name="header">  Creditos Superados</f:facet>
-		                <h:outputText value="#{e.Creditos_Superados}"/>
+		                <h:outputText value="#{e.creditos_Superados}"/>
 		            </h:column><h:column>
 		                <f:facet name="header">  Creditos FB</f:facet>
-		                <h:outputText value="#{e.Creditos FB}"/>
+		                <h:outputText value="#{e.creditos_FB}"/>
 		            </h:column><h:column>
 		                <f:facet name="header">  Creditos OB</f:facet>
-		                <h:outputText value="#{e.Creditos_OB}"/>
+		                <h:outputText value="#{e.creditos_OB}"/>
 		            </h:column><h:column>
 		                <f:facet name="header">  Creditos OP</f:facet>
-		                <h:outputText value="#{e.Creditos_OP}"/>
+		                <h:outputText value="#{e.creditos_OP}"/>
 		            </h:column><h:column>
 		                <f:facet name="header">  Creditos CF</f:facet>
-		                <h:outputText value="#{e.Creditos_CF}"/>
+		                <h:outputText value="#{e.creditos_CF}"/>
 		            </h:column><h:column>
 		                <f:facet name="header">  Creditos PE</f:facet>
-		                <h:outputText value="#{e.Creditos_PE}"/>
+		                <h:outputText value="#{e.creditos_PE}"/>
 		            </h:column><h:column>
 		                <f:facet name="header">  Creditos TF</f:facet>
-		                <h:outputText value="#{e.Creditos_TF}"/>
+		                <h:outputText value="#{e.creditos_TF}"/>
 		            </h:column>
 				</h:dataTable>
 			</h:form>

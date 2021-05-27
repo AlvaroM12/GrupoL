@@ -13,13 +13,20 @@
 </h:head>
 
 <h:body>
-
-	<div class="cerrar"> <h:button value="Cerrar sesion" outcome="index.xhtml" /> </div>
+	<ui:fragment rendered="#{not empty infoSesion.alumno}">
+	<div class="inicio"><p>Hola, <h:outputText value="#{infoSesion.alumno.nombre}"/>.</p></div>
+	</ui:fragment>
+	<ui:fragment rendered="#{not empty infoSesion.personal}">	
+	<div class="inicio"><p>Hola, <h:outputText value="#{infoSesion.personal.rango}"/>.</p></div>
+	</ui:fragment>
+	<h:form>
+	<div class="cerrar"> <h:commandLink action="#{infoSesion.invalidarSesion()}">Cerrar Sesion</h:commandLink> </div>
+	</h:form>
 	<div class="inicio"> <h:button value="Inicio" outcome="Principal.xhtml" /> </div>
 
 	<h1 class="titulo">Matricula</h1>
 
-	<ui:fragment rendered="#{InfoSension.alumno != null eq true}">
+	<ui:fragment rendered="#{not empty infoSesion.alumno}">
 		<div class="izquierda">
 			<b>MIS DATOS </b><br></br>
 			<br></br> 
@@ -79,7 +86,7 @@
 
 
 
-	<ui:fragment rendered="#{InfoSension.personal != null eq true}">
+	<ui:fragment rendered="#{not empty infoSesion.personal}">
 		<h:form styleClass="centrado">
 			<h:dataTable styleClass="card" value="#{matriculaBB.matriculas}"
 				var="mat">
