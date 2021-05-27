@@ -11,7 +11,7 @@ import es.uma.informatica.Entidades.Matricula;
 import es.uma.informatica.Exception.AlumnoException;
 import es.uma.informatica.Interfaces.InterfazAlumno;
 
-@Named(value = "alumnos")
+@Named
 @RequestScoped
 public class AlumnoBB {
 

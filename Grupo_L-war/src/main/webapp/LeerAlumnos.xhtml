@@ -107,9 +107,10 @@
 			<p:commandButton value="Mostar" actionListener="#{alumnoBB.alumnos}" update="dtAlumnos" />
 	
 			<p:dataTable id="dtAlumnos" value="#{alumnoBB.alumnos}" var="a">
-				<p:column headerText="DNI" filterBy="#{a.dNI}"
+			
+				<p:column headerText="DNI" filterBy="#{a.DNI}"
 					filterMatchMode="contains">
-					<p:outputLabel value="#{a.dNI}" />
+					<p:outputLabel value="#{a.DNI}" />
 				</p:column>
 	
 				<p:column headerText="Nombre" filterBy="#{a.nombre}"
@@ -157,19 +158,19 @@
 					<p:outputLabel value="#{a.provincia}" />
 				</p:column>
 	
-				<p:column headerText="CP" filterBy="#{a.cP}"
+				<p:column headerText="CP" filterBy="#{a.CP}"
 					filterMatchMode="contains">
-					<p:outputLabel value="#{a.cP}" />
+					<p:outputLabel value="#{a.CP}" />
 				</p:column>
 	
-				<p:column headerText="CAMBIOS" sortBy="#{a.dNI}">
+				<p:column headerText="APELLIDOS" sortBy="#{a.apellido1}">
 					<p:cellEditor>
 						<f:facet name="output">
-							<h:outputText value="#{a.dNI}" />
+							<h:outputText value="#{a.apellido1}" />
 						</f:facet>
 						<f:facet name="input">
-							<p:inputText id="name" value="#{a.dNI}"
-								label="CAMBIOS" />
+							<p:inputText id="name" value="#{a.apellido1}"
+								label="APELLIDOS" />
 						</f:facet>
 					</p:cellEditor>
 				</p:column>
