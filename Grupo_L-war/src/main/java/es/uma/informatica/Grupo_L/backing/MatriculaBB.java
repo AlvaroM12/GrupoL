@@ -64,9 +64,4 @@ public class MatriculaBB {
 		}
 		return null;
 	}
-	
-	public  synchronized String getImportarMatricula(String fileName){
-		matricula.importarMatricula(fileName);
-		return null;
-	}
 }

@@ -1,15 +1,21 @@
 package es.uma.informatica.EJB;
 
+import java.io.File;
 import java.io.IOException;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
 import java.util.List;
+import java.util.logging.Logger;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -29,15 +35,20 @@ public class MatriculaEJB implements InterfazMatricula {
 	
 	@PersistenceContext(name="Grupo_L")
 	private EntityManager em;
+	private final static Logger LOGGER=Logger.getLogger(MatriculaEJB.class.getCanonicalName());
 
 	@Override
-	public void importarMatricula(String fileName){
+	public void importarMatricula(String fileName, String path){
 		try {
-			//String directorio_de_ejecucion_de_la_aplicacion = new java.io.File( "." ).getCanonicalPath();
-			//String sFile = fileName ; 
-			XSSFWorkbook workbook = new XSSFWorkbook(fileName);
-	        XSSFSheet sheet = workbook.getSheet("Hoja1");
-	        XSSFRow row = sheet.getRow(0);
+			//String directorio_de_ejecucion_de_la_aplicacion = "/home/alumno/.cache/vmware/drag_and_drop/GCw5oe";
+			//String sFile = path + "/" + fileName ; 
+			LOGGER.info("PATH DEL ARCHIVO --------------------- " + path);
+			
+			
+			Workbook wb = WorkbookFactory.create(new File(fileName));	// El path ya te da el nombre incluido
+			//XSSFWorkbook workbook = new XSSFWorkbook(path);
+	        Sheet sheet = wb.getSheet("Hoja1");
+	        Row row = sheet.getRow(0);
 	        //XSSFCell cell = null;
 	        Matricula m = new Matricula();
 	        Expediente e = new Expediente();

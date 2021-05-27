@@ -15,124 +15,170 @@
 
 <h:body>
 
-	<div class="inicio">
-		<h:button value="INICIO" outcome="Principal.xhtml" />
-	</div>
-	<div> <p> Hola, <h:outputText value="#" /> . </p> </div>
-	
-	<div class="cerrar">
-		<h:button value="Cerrar sesion" outcome="index.xhtml" />
-	</div>
+	<div class="cerrar"> <h:button value="Cerrar sesion" outcome="index.xhtml" /> </div>
+	<div class="inicio"> <h:button value="INICIO" outcome="Principal.xhtml" /> </div>
 
 	<h1 class="titulo">ALUMNOS</h1>
 
-	<div class="izquierda">
-		<b>MIS DATOS </b><br></br>
-		<br></br> <a href="#" style="text-decoration: none">Leer Encuesta</a><br></br>
-		<a href="#" style="text-decoration: none">Leer Asignatura
-			Matricula</a><br></br> <a href="LeerMatricula.xhtml"
-			style="text-decoration: none">Leer Matricula</a><br></br> <a
-			href="LeerTitulacion.xhtml" style="text-decoration: none">Leer
-			Titulacion</a><br></br> <a href="LeerAlumnos.xhtml"
-			style="text-decoration: none">Leer Usuario</a><br></br> <a
-			href="LeerAsignaturas.xhtml" style="text-decoration: none">Leer
-			Asignatura</a><br></br> <a href="#" style="text-decoration: none">Leer
-			Clase</a><br></br> <a href="LeerExpediente.xhtml"
-			style="text-decoration: none">Leer Expediente</a>
-	</div>
+	<ui:fragment rendered="#{InfoSension.alumno != null eq true}">
+		<div class="izquierda">
+			<b> MIS DATOS </b><br></br>
+			<br></br> 
+			<a href="#" style="text-decoration: none">Leer Encuesta</a><br></br>
+			<a href="#" style="text-decoration: none">Leer Asignatura Matricula</a><br></br> 
+			<a href="LeerMatricula.xhtml" style="text-decoration: none">Leer Matricula</a><br></br> 
+			<a href="LeerTitulacion.xhtml" style="text-decoration: none">Leer Titulacion</a><br></br> 
+			<a href="LeerAlumnos.xhtml" style="text-decoration: none">Leer Usuario</a><br></br> 
+			<a href="LeerAsignaturas.xhtml" style="text-decoration: none">Leer Asignatura</a><br></br> 
+			<a href="#" style="text-decoration: none">Leer Clase</a><br></br> 
+			<a href="LeerExpediente.xhtml" style="text-decoration: none">Leer Expediente</a>
+		</div>
+		
+		<div class="centro">
+		 	<div class="izquierdaCentro">
+				<b>Titulaciones: </b> <br></br>
+			</div>
+			
+			<h:form id="expediente">
+            	<p:commandButton value="Mostar" actionListener="#{alumnoBB.alumno}" update="dtAlumno" />
+				
+				<p:dataTable id="dtAlumno" value="#{alumnoBB.alumno}" var="a">
+					<p:column headerText="DNI" filterBy="#{a.DNI}"
+						filterMatchMode="contains">
+						<p:outputLabel value="#{a.DNI}" />
+					</p:column>
+		
+					<p:column headerText="Nombre" filterBy="#{a.Nombre}"
+						filterMatchMode="contains">
+						<p:outputLabel value="#{a.Nombre}" />
+					</p:column>
+		
+					<p:column headerText="Apellido1" filterBy="#{a.Apellido1}"
+						filterMatchMode="contains">
+						<p:outputLabel value="#{a.Apellido1}" />
+					</p:column>
+		
+					<p:column headerText="Apellido2" filterBy="#{a.Apellido2}"
+						filterMatchMode="contains">
+						<p:outputLabel value="#{a.Apellido2}" />
+					</p:column>
+		
+					<p:column headerText="Email_Institucional"
+						filterBy="#{a.Email_Institucional}" filterMatchMode="contains">
+						<p:outputLabel value="#{a.Email_Institucional}" />
+					</p:column>
+		
+					<p:column headerText="Email_Personal" filterBy="#{a.Email_Personal}"
+						filterMatchMode="contains">
+						<p:outputLabel value="#{a.Email_Personal}" />
+					</p:column>
+		
+					<p:column headerText="Móvil" filterBy="#{a.Movil}"
+						filterMatchMode="contains">
+						<p:outputLabel value="#{a.Movil}" />
+					</p:column>
+		
+					<p:column headerText="Direccion" filterBy="#{a.Direccion}"
+						filterMatchMode="contains">
+						<p:outputLabel value="#{a.Direccion}" />
+					</p:column>
+		
+					<p:column headerText="Localidad" filterBy="#{a.Localidad}"
+						filterMatchMode="contains">
+						<p:outputLabel value="#{a.Localidad}" />
+					</p:column>
+		
+					<p:column headerText="Provincia" filterBy="#{a.Provincia}"
+						filterMatchMode="contains">
+						<p:outputLabel value="#{a.Provincia}" />
+					</p:column>
+		
+					<p:column headerText="CP" filterBy="#{a.CP}"
+						filterMatchMode="contains">
+						<p:outputLabel value="#{a.CP}" />
+					</p:column>
+				</p:dataTable>
+			</h:form>
+		</div>
+	</ui:fragment>
+
+	<ui:fragment rendered="#{InfoSension.personal != null eq true}">
+		<h:form styleClass="centrado">
+			<p:commandButton value="Mostar" actionListener="#{alumnoBB.alumnos}" update="dtAlumnos" />
 	
-	<table>
-	    <tr>
-	        <td>DNI: </td>
-	        <td><h:inputText  value="#{AlumnoBB.al.DNI}"></h:inputText></td>
-	    </tr>
-	    
-	    <tr>
-	        <td>Nombre: </td>
-	 		<td><h:inputText  value="#{AlumnoBB.al.Nombre}"></h:inputText></td>
-	 	</tr>
-	 		<p:commandButton value="Añadir" actionListener="#{alumnoBB.aniadirAlumno}"/>
-	 	<tr>
-	       
-	 	</tr>
-    </table>
-
-	<h:form>
-		<p:commandButton value="Mostar" actionListener="#{alumnos.}" update="dtAlumnos" />
-
-		<p:dataTable id="dtAlumnos" value="#{AlumnoBB.listaAl}" var="a">
-			<p:column headerText="DNI" filterBy="#{a.DNI}"
-				filterMatchMode="contains">
-				<p:outputLabel value="#{a.DNI}" />
-			</p:column>
-
-			<p:column headerText="Nombre" filterBy="#{a.Nombre}"
-				filterMatchMode="contains">
-				<p:outputLabel value="#{a.Nombre}" />
-			</p:column>
-
-			<p:column headerText="Apellido1" filterBy="#{a.Apellido1}"
-				filterMatchMode="contains">
-				<p:outputLabel value="#{a.Apellido1}" />
-			</p:column>
-
-			<p:column headerText="Apellido2" filterBy="#{a.Apellido2}"
-				filterMatchMode="contains">
-				<p:outputLabel value="#{a.Apellido2}" />
-			</p:column>
-
-			<p:column headerText="Email_Institucional"
-				filterBy="#{a.Email_Institucional}" filterMatchMode="contains">
-				<p:outputLabel value="#{a.Email_Institucional}" />
-			</p:column>
-
-			<p:column headerText="Email_Personal" filterBy="#{a.Email_Personal}"
-				filterMatchMode="contains">
-				<p:outputLabel value="#{a.Email_Personal}" />
-			</p:column>
-
-			<p:column headerText="Móvil" filterBy="#{a.Movil}"
-				filterMatchMode="contains">
-				<p:outputLabel value="#{a.Movil}" />
-			</p:column>
-
-			<p:column headerText="Direccion" filterBy="#{a.Direccion}"
-				filterMatchMode="contains">
-				<p:outputLabel value="#{a.Direccion}" />
-			</p:column>
-
-			<p:column headerText="Localidad" filterBy="#{a.Localidad}"
-				filterMatchMode="contains">
-				<p:outputLabel value="#{a.Localidad}" />
-			</p:column>
-
-			<p:column headerText="Provincia" filterBy="#{a.Provincia}"
-				filterMatchMode="contains">
-				<p:outputLabel value="#{a.Provincia}" />
-			</p:column>
-
-			<p:column headerText="CP" filterBy="#{a.CP}"
-				filterMatchMode="contains">
-				<p:outputLabel value="#{a.CP}" />
-			</p:column>
-
-			<p:column headerText="CAMBIOS" sortBy="#{a.DNI}">
-				<p:cellEditor>
-					<f:facet name="output">
-						<h:outputText value="#{a.DNI}" />
-					</f:facet>
-					<f:facet name="input">
-						<p:inputText id="name" value="#{a.DNI}"
-							label="CAMBIOS" />
-					</f:facet>
-				</p:cellEditor>
-			</p:column>
-
-		</p:dataTable>
-	</h:form>
-
-	<div class="pie">Universidad de Málaga · Avda. Cervantes, 2.
-		29071 MÁLAGA · Tel. 952131000 · info@uma.es</div>
+			<p:dataTable id="dtAlumnos" value="#{alumnoBB.alumnos}" var="a">
+				<p:column headerText="DNI" filterBy="#{a.DNI}"
+					filterMatchMode="contains">
+					<p:outputLabel value="#{a.DNI}" />
+				</p:column>
+	
+				<p:column headerText="Nombre" filterBy="#{a.Nombre}"
+					filterMatchMode="contains">
+					<p:outputLabel value="#{a.Nombre}" />
+				</p:column>
+	
+				<p:column headerText="Apellido1" filterBy="#{a.Apellido1}"
+					filterMatchMode="contains">
+					<p:outputLabel value="#{a.Apellido1}" />
+				</p:column>
+	
+				<p:column headerText="Apellido2" filterBy="#{a.Apellido2}"
+					filterMatchMode="contains">
+					<p:outputLabel value="#{a.Apellido2}" />
+				</p:column>
+	
+				<p:column headerText="Email_Institucional"
+					filterBy="#{a.Email_Institucional}" filterMatchMode="contains">
+					<p:outputLabel value="#{a.Email_Institucional}" />
+				</p:column>
+	
+				<p:column headerText="Email_Personal" filterBy="#{a.Email_Personal}"
+					filterMatchMode="contains">
+					<p:outputLabel value="#{a.Email_Personal}" />
+				</p:column>
+	
+				<p:column headerText="Móvil" filterBy="#{a.Movil}"
+					filterMatchMode="contains">
+					<p:outputLabel value="#{a.Movil}" />
+				</p:column>
+	
+				<p:column headerText="Direccion" filterBy="#{a.Direccion}"
+					filterMatchMode="contains">
+					<p:outputLabel value="#{a.Direccion}" />
+				</p:column>
+	
+				<p:column headerText="Localidad" filterBy="#{a.Localidad}"
+					filterMatchMode="contains">
+					<p:outputLabel value="#{a.Localidad}" />
+				</p:column>
+	
+				<p:column headerText="Provincia" filterBy="#{a.Provincia}"
+					filterMatchMode="contains">
+					<p:outputLabel value="#{a.Provincia}" />
+				</p:column>
+	
+				<p:column headerText="CP" filterBy="#{a.CP}"
+					filterMatchMode="contains">
+					<p:outputLabel value="#{a.CP}" />
+				</p:column>
+	
+				<p:column headerText="CAMBIOS" sortBy="#{a.DNI}">
+					<p:cellEditor>
+						<f:facet name="output">
+							<h:outputText value="#{a.DNI}" />
+						</f:facet>
+						<f:facet name="input">
+							<p:inputText id="name" value="#{a.DNI}"
+								label="CAMBIOS" />
+						</f:facet>
+					</p:cellEditor>
+				</p:column>
+	
+			</p:dataTable>
+		</h:form>
+	</ui:fragment>
+	
+	<div class="pie">Universidad de Málaga · Avda. Cervantes, 2. 29071 MÁLAGA · Tel. 952131000 · info@uma.es</div>
 
 </h:body>
 </html>

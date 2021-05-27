@@ -15,7 +15,7 @@ public interface InterfazTitulacion {
 	  Este método debe importar una titulacion en la base de datos.
 
 	 */
-	public void importarTitulacion() throws TitulacionException;
 	Titulacion leerTitulacion(Long cod) throws TitulacionException;
 	public List<Titulacion> leerTitulaciones() throws TitulacionException;
+	void importarTitulacion(String fileName) throws TitulacionException;
 }

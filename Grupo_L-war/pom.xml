@@ -42,5 +42,17 @@
 	  		<type>ejb</type>
 	  		<scope>provided</scope>
 	  	</dependency>
-	  	</dependencies>
+	  	<dependency>
+	  		<groupId>es.uma.informatica.es</groupId>
+	  		<artifactId>Grupo_L-ejb</artifactId>
+	  		<version>0.0.1-SNAPSHOT</version>
+	  			<exclusions>
+		  			<exclusion>
+		  				<groupId>groupId>org.javassist</groupId>
+		  				<artifactId>javassist</artifactId>
+		  			</exclusion>
+	  			</exclusions>
+		</dependency>
+  </dependencies>
+  
 </project>

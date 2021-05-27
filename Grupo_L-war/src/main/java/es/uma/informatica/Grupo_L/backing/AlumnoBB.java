@@ -6,6 +6,8 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import es.uma.informatica.Entidades.Alumno;
+import es.uma.informatica.Entidades.Expediente;
+import es.uma.informatica.Entidades.Matricula;
 import es.uma.informatica.Exception.AlumnoException;
 import es.uma.informatica.Interfaces.InterfazAlumno;
 
@@ -16,13 +18,20 @@ public class AlumnoBB {
 	@Inject
 	private InterfazAlumno alejb;
 
-	private List<Alumno> listaAl = new ArrayList();
 	private Alumno al;
 
 	public AlumnoBB() {
 		al = new Alumno();
 	}
+	
+	public Alumno getAl() {
+		return al;
+	}
 
+	public void setAl(Alumno al) {
+		this.al = al;
+	}
+	
 	public String eliminar(Alumno a) {
 		try {
 			alejb.eliminarAlumno(a.getID());
@@ -39,28 +48,25 @@ public class AlumnoBB {
 		return "edicionAlumno.xhtml";
 	}
 
-	public void listarAlumnos() throws AlumnoException {
-		for (Alumno alumno : alejb.listaAlumno()) {
-			al.setDNI(alumno.getDNI());
-			al.setNombre(alumno.getNombre());
-			al.setApellido1(alumno.getApellido1());
-			al.setApellido2(alumno.getApellido2());
-			al.setEmail_Institucional(alumno.getEmail_Institucional());
-			al.setEmail_Personal(alumno.getEmail_Personal());
-			al.setMovil(alumno.getMovil());
-			al.setDireccion(alumno.getDireccion());
-			al.setLocalidad(alumno.getLocalidad());
-			al.setProvincia(alumno.getProvincia());
-			al.setCP(alumno.getCP());
-
-			listaAl.add(al);
+	//METODO PARA LEER UN ALUMNO
+	public  synchronized List<Alumno> getAlumno(){
+		List<Alumno> alum = new ArrayList<Alumno>();
+		
+        for (Alumno a : alum) {
+			if(a.getDNI().equals(al.getDNI())) {
+				alum.add(a);
+			}
 		}
+        return alum;
 	}
 	
-	public void aniadirAlumno() {
-		al.setDNI(al.getDNI());
-		al.setNombre(al.getNombre());
+	//METODO PARA LEER TODOS LOS ALUMNOS
+	public  synchronized List<Alumno> getAlumnos(){
+		List<Alumno> alum = new ArrayList<Alumno>();
 		
-		listaAl.add(al);
+        for (Alumno a : alum) {
+			alum.add(a);
+		}
+        return alum;
 	}
 }
