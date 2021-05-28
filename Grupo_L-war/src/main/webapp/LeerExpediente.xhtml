@@ -49,9 +49,9 @@
 		</div>
 		
         <h:form id="expediente">
-            <p:commandButton value="Mostar" actionListener="#{exejb.getExpediente}" update="dtExpediente" />
+            <p:commandButton value="Mostar" actionListener="#{expedienteBB.expediente}" update="dtExpediente" />
 
-		<p:dataTable id="dtExpediente" value="#{exejb.getExpediente}" var="e">
+		<p:dataTable id="dtExpediente" value="#{expedienteBB.expediente}" var="e">
 		
 			<p:column headerText="Num_Expediente" filterBy="#{e.Num_Expediente}"
 				filterMatchMode="contains">
@@ -68,37 +68,37 @@
 				<p:outputLabel value="#{e.nota_Media}" />
 			</p:column>
 			
-			<p:column headerText="Creditos_Superados" filterBy="#{e.creditos_Superados}"
+			<p:column headerText="Creditos_Superados" filterBy="#{e.Creditos_Superados}"
 				filterMatchMode="contains">
 				<p:outputLabel value="#{e.creditos_Superados}" />
 			</p:column>
 			
-			<p:column headerText="Creditos_FB" filterBy="#{e.creditos_FB}"
+			<p:column headerText="Creditos_FB" filterBy="#{e.Creditos_FB}"
 				filterMatchMode="contains">
 				<p:outputLabel value="#{e.creditos_FB}" />
 			</p:column>
 			
-			<p:column headerText="Creditos_OB" filterBy="#{e.creditos_OB}"
+			<p:column headerText="Creditos_OB" filterBy="#{e.Creditos_OB}"
 				filterMatchMode="contains">
 				<p:outputLabel value="#{e.creditos_OB}" />
 			</p:column>
 			
-			<p:column headerText="Creditos_OP" filterBy="#{e.creditos_OP}"
+			<p:column headerText="Creditos_OP" filterBy="#{e.Creditos_OP}"
 				filterMatchMode="contains">
 				<p:outputLabel value="#{e.creditos_OP}" />
 			</p:column>
 			
-			<p:column headerText="Creditos_CF" filterBy="#{e.creditos_CF}"
+			<p:column headerText="Creditos_CF" filterBy="#{e.Creditos_CF}"
 				filterMatchMode="contains">
 				<p:outputLabel value="#{e.creditos_CF}" />
 			</p:column>
 			
-			<p:column headerText="Creditos_PE" filterBy="#{e.creditos_PE}"
+			<p:column headerText="Creditos_PE" filterBy="#{e.Creditos_PE}"
 				filterMatchMode="contains">
 				<p:outputLabel value="#{e.creditos_PE}" />
 			</p:column>
 			
-			<p:column headerText="Creditos_TF" filterBy="#{e.creditos_TF}"
+			<p:column headerText="Creditos_TF" filterBy="#{e.Creditos_TF}"
 				filterMatchMode="contains">
 				<p:outputLabel value="#{e.creditos_TF}" />
 			</p:column>
@@ -116,10 +116,10 @@
 			<b>Expedientes: </b> <br></br>
 		</div>
 		
-        <h:form id="expediente">
-            <p:commandButton value="Mostar" actionListener="#{exejb.getExpedientes}" update="dtExpediente" />
+        <h:form id="listaexpediente">
+            <p:commandButton value="Mostar" actionListener="#{expedienteBB.expedientes}" update="dtExpediente" />
 
-		<p:dataTable id="dtExpediente" value="#{exejb.getExpedientes}" var="e">
+		<p:dataTable id="dtExpediente" value="#{expedienteBB.expedientes}" var="e">
 		
 			<p:column headerText="Num_Expediente" filterBy="#{e.Num_Expediente}"
 				filterMatchMode="contains">
@@ -136,37 +136,37 @@
 				<p:outputLabel value="#{e.nota_Media}" />
 			</p:column>
 			
-			<p:column headerText="Creditos_Superados" filterBy="#{e.creditos_Superados}"
+			<p:column headerText="Creditos_Superados" filterBy="#{e.Creditos_Superados}"
 				filterMatchMode="contains">
 				<p:outputLabel value="#{e.creditos_Superados}" />
 			</p:column>
 			
-			<p:column headerText="Creditos_FB" filterBy="#{e.creditos_FB}"
+			<p:column headerText="Creditos_FB" filterBy="#{e.Creditos_FB}"
 				filterMatchMode="contains">
 				<p:outputLabel value="#{e.creditos_FB}" />
 			</p:column>
 			
-			<p:column headerText="Creditos_OB" filterBy="#{e.creditos_OB}"
+			<p:column headerText="Creditos_OB" filterBy="#{e.Creditos_OB}"
 				filterMatchMode="contains">
 				<p:outputLabel value="#{e.creditos_OB}" />
 			</p:column>
 			
-			<p:column headerText="Creditos_OP" filterBy="#{e.creditos_OP}"
+			<p:column headerText="Creditos_OP" filterBy="#{e.Creditos_OP}"
 				filterMatchMode="contains">
 				<p:outputLabel value="#{e.creditos_OP}" />
 			</p:column>
 			
-			<p:column headerText="Creditos_CF" filterBy="#{e.creditos_CF}"
+			<p:column headerText="Creditos_CF" filterBy="#{e.Creditos_CF}"
 				filterMatchMode="contains">
 				<p:outputLabel value="#{e.creditos_CF}" />
 			</p:column>
 			
-			<p:column headerText="Creditos_PE" filterBy="#{e.creditos_PE}"
+			<p:column headerText="Creditos_PE" filterBy="#{e.Creditos_PE}"
 				filterMatchMode="contains">
 				<p:outputLabel value="#{e.creditos_PE}" />
 			</p:column>
 			
-			<p:column headerText="Creditos_TF" filterBy="#{e.creditos_TF}"
+			<p:column headerText="Creditos_TF" filterBy="#{e.Creditos_TF}"
 				filterMatchMode="contains">
 				<p:outputLabel value="#{e.creditos_TF}" />
 			</p:column>

@@ -77,16 +77,16 @@ public class UsuarioEJB implements InterfazUsuario{
 	}
 	@Override
 	public Alumno loginAlumno(String email, String pass) throws UsuarioException{
-		TypedQuery <Usuario> query = em.createQuery("SELECT a FROM Usuario a "
+		/*TypedQuery <Usuario> query = em.createQuery("SELECT a FROM Usuario a "
 	            + "WHERE a.Email_Institucional LIKE :correo", Usuario.class);        
         
 		query.setParameter("correo", email);
 		
-		Usuario u = query.getSingleResult();
+		Usuario u = query.getSingleResult();*/
 		
         TypedQuery <Alumno> query2 = em.createQuery("SELECT a FROM Alumno a "
-	            + "WHERE a.ID LIKE :id", Alumno.class);
-		query2.setParameter("id", u.getID());
+	            + "WHERE a.Email_Institucional LIKE :correo", Alumno.class);
+        query2.setParameter("correo", email);
 		Alumno a = query2.getSingleResult();
 		
 		return a;        

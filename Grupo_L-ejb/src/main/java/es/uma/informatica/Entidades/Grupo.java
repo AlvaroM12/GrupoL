@@ -242,8 +242,7 @@ public class Grupo implements Serializable {
 	public String toString() {
 		return "Grupo [ID=" + ID + ", Curso=" + Curso + ", Letra=" + Letra + ", Turno_Mañana_Tarde="
 				+ Turno_Maniana_Tarde + ", Ingles=" + Ingles + ", Visible=" + Visible + ", Asignar=" + Asignar
-				+ ", Plazas=" + Plazas + ", TG=" + TG + ", asignaturasMatriculas=" + asignaturasMatriculas + ", grupos="
-				+ grupos + ", gruposPorAsig=" + gruposPorAsig + ", GG=" + GG + ", clases=" + clases + "]";
+				+ ", Plazas=" + Plazas ;
 	}	
    
 }

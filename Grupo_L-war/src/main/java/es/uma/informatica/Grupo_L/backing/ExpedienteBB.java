@@ -8,7 +8,9 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import es.uma.informatica.Entidades.Alumno;
+import es.uma.informatica.Entidades.Asignaturas_Matricula;
 import es.uma.informatica.Entidades.Expediente;
+import es.uma.informatica.Entidades.Matricula;
 import es.uma.informatica.Exception.ExpedienteException;
 import es.uma.informatica.Interfaces.InterfazExpediente;
 
@@ -20,7 +22,9 @@ public class ExpedienteBB {
     @Inject
     private InterfazExpediente exejb;
     
-    private Alumno al;
+    @Inject
+	private InfoSesion infosesion;
+    
     private Expediente ex;
     
     
@@ -39,7 +43,16 @@ public class ExpedienteBB {
         return null;
     }
     
-  //METODO PARA LEER TODAS LAS ASIG_MATRICULAS(S)
+    public List<Expediente> getExpediente()
+    {
+		List<Expediente> expedientes = new ArrayList<Expediente>();
+        for (Expediente ex : infosesion.getAlumno().getExpedientes()) {
+			expedientes.add(ex);			
+		}
+        return expedientes;
+    }
+    
+  //METODO PARA LEER TODAS LAS EXPEDIENTES(S)
   	public  synchronized List<Expediente> getExpedientes(){
   		
   		try {
@@ -50,7 +63,7 @@ public class ExpedienteBB {
   		return null;
   	}
   	//Leer expedientes de un alumno
-  	public  synchronized List<Expediente> getExpediente(){
+  	/*public  synchronized List<Expediente> getExpediente(){
 		List<Expediente> exp = new ArrayList<Expediente>();
 		
         for (Expediente e : exp) {
@@ -59,6 +72,6 @@ public class ExpedienteBB {
 			}
 		}
         return exp;
-	}
+	}*/
    
 }

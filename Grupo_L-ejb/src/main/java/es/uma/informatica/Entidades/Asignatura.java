@@ -259,8 +259,6 @@ public class Asignatura implements Serializable {
 		return "Asignatura [Referencia=" + Referencia + ", Codigo=" + Codigo + ", Créditos_Teoricos="
 				+ Creditos_Teoricos + ", Créditos_Practicos=" + Creditos_Practicos + ", Total_Créditos="
 				+ Total_Creditos + ", Ofertada=" + Ofertada + ", Nombre=" + Nombre + ", Curso=" + Curso + ", Plazas="
-				+ Plazas + ", Cuatrimestre=" + Cuatrimestre + ", Idioma_de_imparticion=" + Idioma_de_imparticion
-				+ ", TA=" + TA + ", clases=" + clases + ", asignaturasMatricula=" + asignaturasMatricula
-				+ ", gruposPorAsignatura=" + gruposPorAsignatura + "]";
+				+ Plazas + ", Cuatrimestre=" + Cuatrimestre + ", Idioma_de_imparticion=" + Idioma_de_imparticion;
 	}
 }

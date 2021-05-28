@@ -76,7 +76,7 @@ public class Matricula implements Serializable {
 	@JoinColumn(name="EM")
 	private Expediente EM;
 	
-	@OneToMany(mappedBy = "matricula", cascade = CascadeType.REMOVE)
+	@OneToMany(mappedBy = "matricula", cascade = CascadeType.REMOVE, fetch=FetchType.EAGER)
 	private List<Asignaturas_Matricula> asigMatricula;
 
 	
@@ -213,8 +213,7 @@ public class Matricula implements Serializable {
 	public String toString() {
 		return "Matrícula [Curso_Academico=" + Curso_Academico + ", Estado=" + Estado + ", Num_Archivo=" + Num_Archivo
 				+ ", Turno_Preferente=" + Turno_Preferente + ", Fecha_De_Matrícula=" + Fecha_De_Matricula
-				+ ", Nuevo_Ingreso=" + Nuevo_Ingreso + ", a=" + a + ", EM=" + EM + ", asigMatricula=" + asigMatricula
-				+ "]";
+				+ ", Nuevo_Ingreso=" + Nuevo_Ingreso;
 	}
 	   
 }

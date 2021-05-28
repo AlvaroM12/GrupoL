@@ -41,7 +41,7 @@ public class Expediente implements Serializable {
 	private Alumno AE;
 	
 	
-	@OneToMany(mappedBy = "EM", cascade = {CascadeType.REMOVE, CascadeType.PERSIST})
+	@OneToMany(mappedBy = "EM", cascade = {CascadeType.REMOVE, CascadeType.PERSIST}, fetch=FetchType.EAGER)
 	private List<Matricula> matriculas;
 	
 	@OneToMany(mappedBy = "EE" , cascade = {CascadeType.REMOVE, CascadeType.PERSIST})
@@ -91,6 +91,35 @@ public class Expediente implements Serializable {
 
 	public void setNota_Media(Float nota_Media) {
 		Nota_Media = nota_Media;
+	}
+
+	
+	public Double getCreditos_Superados() {
+		return Creditos_Superados;
+	}
+
+	public Double getCreditos_FB() {
+		return Creditos_FB;
+	}
+
+	public Double getCreditos_OB() {
+		return Creditos_OB;
+	}
+
+	public Double getCreditos_OP() {
+		return Creditos_OP;
+	}
+
+	public Double getCreditos_CF() {
+		return Creditos_CF;
+	}
+
+	public Double getCreditos_PE() {
+		return Creditos_PE;
+	}
+
+	public Double getCreditos_TF() {
+		return Creditos_TF;
 	}
 
 	public void setCreditos_Superados(Double creditos_Superados) {

@@ -26,8 +26,11 @@ public class GrupoBB {
 	@Inject
 	private InterfazGrupo grupo;
 	
+	@Inject
+	private InfoSesion infosesion;
+	
 	private Asignaturas_Matricula asigmat;
-	private Alumno alum;
+	
 	
 	
 	public GrupoBB() {
@@ -45,22 +48,13 @@ public class GrupoBB {
 	}
 	
 	
-	
-	public Alumno getAlum() {
-		return alum;
-	}
-
-
-	public void setAlum(Alumno alum) {
-		this.alum = alum;
-	}
 
 
 	//NO SE SI FUNCIONA PORQUE SON 3 FOREACH ANIDADOS
-	public synchronized List<Asignaturas_Matricula> getAsignaturasMatriculasAlumno()
+	public List<Asignaturas_Matricula> getAsignaturasMatriculasAlumno()
     {
 		List<Asignaturas_Matricula> asigmatalum = new ArrayList<Asignaturas_Matricula>();
-        for (Expediente ex : alum.getExpedientes()) {
+        for (Expediente ex : infosesion.getAlumno().getExpedientes()) {
 			for (Matricula mat : ex.getMatriculas()) {
 				for (Asignaturas_Matricula asignaturasmat: mat.getAsigMatricula()) {
 					asigmatalum.add(asignaturasmat);
@@ -71,7 +65,7 @@ public class GrupoBB {
     }
 	
 	//METODO PARA LEER TODAS LAS ASIG_MATRICULAS(S)
-	public  synchronized List<Asignaturas_Matricula> getAsignaturasMatriculas(){
+	public List<Asignaturas_Matricula> getAsignaturasMatriculas(){
 		
 		try {
 			return grupo.leerAsignaturasMatricula();
@@ -98,9 +92,9 @@ public class GrupoBB {
 	public synchronized void refrescarUsuario()
     {
         try {
-	        if (alum != null)
+	        if (infosesion.getAlumno() != null)
 	        {
-	        	alumno.actualizarAlumno(alum);
+	        	alumno.actualizarAlumno(infosesion.getAlumno());
 	        }
         }
         catch (AlumnoException e) {
