@@ -2,6 +2,7 @@ package es.uma.informatica.Grupo_L.backing;
 
 
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -48,6 +49,16 @@ public class ExpedienteBB {
   		}
   		return null;
   	}
-    
+  	//Leer expedientes de un alumno
+  	public  synchronized List<Expediente> getExpediente(){
+		List<Expediente> exp = new ArrayList<Expediente>();
+		
+        for (Expediente e : exp) {
+			if(e.getNum_Expediente().equals(ex.getNum_Expediente())) {
+				exp.add(e);
+			}
+		}
+        return exp;
+	}
    
 }

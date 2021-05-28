@@ -4,7 +4,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
-	xmlns:f="http://xmlns.jcp.org/jsf/core">
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	 xmlns:p="http://primefaces.org/ui">
 
 <h:head>
 	<title>Expediente</title>
@@ -40,96 +41,144 @@
 			<a href="#" style="text-decoration: none">Leer Clase</a><br></br> 
 			<a href="LeerExpediente.xhtml" style="text-decoration: none">Leer Expediente</a>
 		</div>
-
+		
+		
 		<div class="centro">
-			<div>
-				<h:form styleClass="alumnos">
-					<h:dataTable value="#{expedienteBB.leerExpediente()}" var="e">
-						<h:column>
-	                            <f:facet name="header">Num_Expediente  </f:facet>
-	                            <h:outputText value="#{e.Num_Expediente}"/>
-	                        </h:column>
-	                        <h:column>
-	                            <f:facet name="header">Activo</f:facet>
-	                            <h:outputText value="#{e.Activo}"/>
-	                        </h:column>
-	                        
-	                        <h:column>
-	                            <f:facet name="header">  Nota_Media</f:facet>
-	                            <h:outputText value="#{e.Nota_Media}"/>
-	                        </h:column>
-	                        <h:column>
-	                            <f:facet name="header">  Creditos_Superados</f:facet>
-	                            <h:outputText value="#{e.Creditos_Superados}"/>
-	                        </h:column><h:column>
-	                            <f:facet name="header">  Creditos_FB</f:facet>
-	                            <h:outputText value="#{e.Creditos_FB}"/>
-	                        </h:column><h:column>
-	                            <f:facet name="header">  Creditos_OB</f:facet>
-	                            <h:outputText value="#{e.Creditos_OB}"/>
-	                        </h:column><h:column>
-	                            <f:facet name="header">  Creditos_OP</f:facet>
-	                            <h:outputText value="#{e.Creditos_OP}"/>
-	                        </h:column><h:column>
-	                            <f:facet name="header">  Creditos_CF</f:facet>
-	                            <h:outputText value="#{e.Creditos_CF}"/>
-	                        </h:column><h:column>
-	                            <f:facet name="header">  Creditos_PE</f:facet>
-	                            <h:outputText value="#{e.Creditos_PE}"/>
-	                        </h:column><h:column>
-	                            <f:facet name="header">  Creditos_TF</f:facet>
-	                            <h:outputText value="#{e.Creditos_TF}"/>
-	                        </h:column>
-	                        
-	                        
-					</h:dataTable>
-				</h:form>
-			</div>
+	 	<div class="izquierdaCentro">
+			<b>Expedientes: </b> <br></br>
 		</div>
+		
+        <h:form id="expediente">
+            <p:commandButton value="Mostar" actionListener="#{exejb.getExpediente}" update="dtExpediente" />
+
+		<p:dataTable id="dtExpediente" value="#{exejb.getExpediente}" var="e">
+		
+			<p:column headerText="Num_Expediente" filterBy="#{e.Num_Expediente}"
+				filterMatchMode="contains">
+				<p:outputLabel value="#{e.num_Expediente}" />
+			</p:column>
+			
+			<p:column headerText="Activo" filterBy="#{e.Activo}"
+				filterMatchMode="contains">
+				<p:outputLabel value="#{e.activo}" />
+			</p:column>
+			
+			<p:column headerText="Nota_Media" filterBy="#{e.Nota_Media}"
+				filterMatchMode="contains">
+				<p:outputLabel value="#{e.nota_Media}" />
+			</p:column>
+			
+			<p:column headerText="Creditos_Superados" filterBy="#{e.creditos_Superados}"
+				filterMatchMode="contains">
+				<p:outputLabel value="#{e.creditos_Superados}" />
+			</p:column>
+			
+			<p:column headerText="Creditos_FB" filterBy="#{e.creditos_FB}"
+				filterMatchMode="contains">
+				<p:outputLabel value="#{e.creditos_FB}" />
+			</p:column>
+			
+			<p:column headerText="Creditos_OB" filterBy="#{e.creditos_OB}"
+				filterMatchMode="contains">
+				<p:outputLabel value="#{e.creditos_OB}" />
+			</p:column>
+			
+			<p:column headerText="Creditos_OP" filterBy="#{e.creditos_OP}"
+				filterMatchMode="contains">
+				<p:outputLabel value="#{e.creditos_OP}" />
+			</p:column>
+			
+			<p:column headerText="Creditos_CF" filterBy="#{e.creditos_CF}"
+				filterMatchMode="contains">
+				<p:outputLabel value="#{e.creditos_CF}" />
+			</p:column>
+			
+			<p:column headerText="Creditos_PE" filterBy="#{e.creditos_PE}"
+				filterMatchMode="contains">
+				<p:outputLabel value="#{e.creditos_PE}" />
+			</p:column>
+			
+			<p:column headerText="Creditos_TF" filterBy="#{e.creditos_TF}"
+				filterMatchMode="contains">
+				<p:outputLabel value="#{e.creditos_TF}" />
+			</p:column>
+	 	</p:dataTable>
+        </h:form>
+	 </div>
 	</ui:fragment>
 	
 	
+	
+	
 	<ui:fragment rendered="#{not empty infoSesion.personal}">
-		<div>
-			<h:form styleClass="alumnos">
-				<h:dataTable value="#{expedienteBB.expedientes}" var="e">
-					<h:column>
-		                <f:facet name="header">Numero Expediente  </f:facet>
-		                <h:outputText value="#{e.num_Expediente}"/>
-		            </h:column>
-		            <h:column>
-		                <f:facet name="header">Activo</f:facet>
-		                <h:outputText value="#{e.activo}"/>
-		            </h:column>
-		            <h:column>
-		                <f:facet name="header">  Nota Media</f:facet>
-		                <h:outputText value="#{e.nota_Media}"/>
-		            </h:column>
-		            <h:column>
-		                <f:facet name="header">  Creditos Superados</f:facet>
-		                <h:outputText value="#{e.creditos_Superados}"/>
-		            </h:column><h:column>
-		                <f:facet name="header">  Creditos FB</f:facet>
-		                <h:outputText value="#{e.creditos_FB}"/>
-		            </h:column><h:column>
-		                <f:facet name="header">  Creditos OB</f:facet>
-		                <h:outputText value="#{e.creditos_OB}"/>
-		            </h:column><h:column>
-		                <f:facet name="header">  Creditos OP</f:facet>
-		                <h:outputText value="#{e.creditos_OP}"/>
-		            </h:column><h:column>
-		                <f:facet name="header">  Creditos CF</f:facet>
-		                <h:outputText value="#{e.creditos_CF}"/>
-		            </h:column><h:column>
-		                <f:facet name="header">  Creditos PE</f:facet>
-		                <h:outputText value="#{e.creditos_PE}"/>
-		            </h:column><h:column>
-		                <f:facet name="header">  Creditos TF</f:facet>
-		                <h:outputText value="#{e.creditos_TF}"/>
-		            </h:column>
-				</h:dataTable>
-			</h:form>
+		<div class="centro">
+	 	<div class="izquierdaCentro">
+			<b>Expedientes: </b> <br></br>
 		</div>
+		
+        <h:form id="expediente">
+            <p:commandButton value="Mostar" actionListener="#{exejb.getExpedientes}" update="dtExpediente" />
+
+		<p:dataTable id="dtExpediente" value="#{exejb.getExpedientes}" var="e">
+		
+			<p:column headerText="Num_Expediente" filterBy="#{e.Num_Expediente}"
+				filterMatchMode="contains">
+				<p:outputLabel value="#{e.num_Expediente}" />
+			</p:column>
+			
+			<p:column headerText="Activo" filterBy="#{e.Activo}"
+				filterMatchMode="contains">
+				<p:outputLabel value="#{e.activo}" />
+			</p:column>
+			
+			<p:column headerText="Nota_Media" filterBy="#{e.Nota_Media}"
+				filterMatchMode="contains">
+				<p:outputLabel value="#{e.nota_Media}" />
+			</p:column>
+			
+			<p:column headerText="Creditos_Superados" filterBy="#{e.creditos_Superados}"
+				filterMatchMode="contains">
+				<p:outputLabel value="#{e.creditos_Superados}" />
+			</p:column>
+			
+			<p:column headerText="Creditos_FB" filterBy="#{e.creditos_FB}"
+				filterMatchMode="contains">
+				<p:outputLabel value="#{e.creditos_FB}" />
+			</p:column>
+			
+			<p:column headerText="Creditos_OB" filterBy="#{e.creditos_OB}"
+				filterMatchMode="contains">
+				<p:outputLabel value="#{e.creditos_OB}" />
+			</p:column>
+			
+			<p:column headerText="Creditos_OP" filterBy="#{e.creditos_OP}"
+				filterMatchMode="contains">
+				<p:outputLabel value="#{e.creditos_OP}" />
+			</p:column>
+			
+			<p:column headerText="Creditos_CF" filterBy="#{e.creditos_CF}"
+				filterMatchMode="contains">
+				<p:outputLabel value="#{e.creditos_CF}" />
+			</p:column>
+			
+			<p:column headerText="Creditos_PE" filterBy="#{e.creditos_PE}"
+				filterMatchMode="contains">
+				<p:outputLabel value="#{e.creditos_PE}" />
+			</p:column>
+			
+			<p:column headerText="Creditos_TF" filterBy="#{e.creditos_TF}"
+				filterMatchMode="contains">
+				<p:outputLabel value="#{e.creditos_TF}" />
+			</p:column>
+	 	</p:dataTable>
+        </h:form>
+	 </div>
+		
+		
+		
+	 
+		
+		
 	</ui:fragment>
 	
 	<div class="pie"> Universidad de Málaga · Avda. Cervantes, 2. 29071 MÁLAGA · Tel. 952131000 · info@uma.es </div>
