@@ -37,7 +37,7 @@ public class MatriculaBB {
 
 	
 
-	//METODO PARA LEER UNA MATRICULA
+	//METODO PARA LEER UNA MATRICULA (ALUMNO)
 	public  synchronized List<Matricula> getMatriculaAlumno() throws MatriculaException{
 		List<Matricula> matalum = new ArrayList<Matricula>();
 		

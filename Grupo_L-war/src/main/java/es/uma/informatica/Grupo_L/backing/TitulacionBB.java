@@ -21,30 +21,33 @@ public class TitulacionBB {
     private InterfazTitulacion titulacion;
     
     private Titulacion tit;
-    private Centro centro;
+    
     
     public TitulacionBB() {
         
         
     }    
     
-    public Titulacion gettit() {
-    	return tit;
-    }
-    
-    
-    public List<Titulacion> getTitulacion()
+       public Titulacion getTit() {
+		return tit;
+	}
+
+	public void setTit(Titulacion tit) {
+		this.tit = tit;
+	}
+	
+	//Leer expedientes de un alumno (FUNCIONA)
+	public List<Titulacion> getTitulacion()
     {
 		List<Titulacion> titula = new ArrayList<Titulacion>();
-        for (Expediente e : infosesion.getAlumno().getExpedientes()) {
-			
-				titula.add(e.getTE());	
-				
+        for (Expediente e : infosesion.getAlumno().getExpedientes()) {			
+				titula.add(e.getTE());					
 		}
         return titula;
     }
     
-    public  synchronized List<Titulacion> getTitulaciones(){
+	//Leer todas las titulaciones (FUNCIONA)
+    public  List<Titulacion> getTitulaciones(){
 		
 		try {
 			return titulacion.leerTitulaciones();
@@ -54,6 +57,7 @@ public class TitulacionBB {
 		return null;
 	}
     
+    //Metodo para consultar una titulacion por su codigo
     public Titulacion leerTitulacion(Titulacion t) {
         try {
             tit =  titulacion.consultarTitulacion(t.getCodigo());

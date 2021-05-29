@@ -19,10 +19,11 @@ import es.uma.informatica.Entidades.Personal_de_secretaria;
 @Named(value = "infoSesion")
 @SessionScoped
 public class InfoSesion implements Serializable {
-	private static final Logger LOGGER = Logger.getLogger(LoginBB.class.getCanonicalName());
-
-    
-    private Alumno alumno;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private Alumno alumno;
     private Personal_de_secretaria personal;
     
     /**
@@ -33,7 +34,6 @@ public class InfoSesion implements Serializable {
 
     public synchronized void setAlumno(Alumno alumno) {
         this.alumno = alumno;
-        LOGGER.info(alumno.getApellido1());
     }
 
     public synchronized Alumno getAlumno() {
