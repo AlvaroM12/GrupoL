@@ -62,7 +62,7 @@ public class Asignatura implements Serializable {
 	@OneToMany(mappedBy = "A_GPA")
 	private List<GruposPorAsignatura> gruposPorAsignatura;
 	
-	@ManyToOne
+	@ManyToOne 
 	private Matricula matriculas;
 	
 	private static final long serialVersionUID = 1L;

@@ -44,10 +44,10 @@
 			<b>Titulaciones: </b> <br></br>
 		</div>
 		
-        <h:form id="expediente">
-            <p:commandButton value="Mostar" actionListener="#{titulacion.titulaciones}" update="dtTitulacion" />
+        <h:form id="titulacionalum">
+            <p:commandButton value="Mostar" actionListener="#{titulacion.titulacion}" update="dtTitulacion" />
 
-		<p:dataTable id="dtTitulacion" value="#{titulacion.titulaciones}" var="t">
+		<p:dataTable id="dtTitulacion" value="#{titulacion.titulacion}" var="t">
 		
 			<p:column headerText="Codigo" filterBy="#{t.Codigo}"
 				filterMatchMode="contains">
@@ -74,7 +74,7 @@
 			<b>Titulaciones: </b> <br></br>
 		</div>
 		
-        <h:form id="expediente">
+        <h:form id="titulacion">
             <p:commandButton value="Mostar" actionListener="#{titulacion.titulaciones}" update="dtTitulacion" />
 
 		<p:dataTable id="dtTitulacion" value="#{titulacion.titulaciones}" var="t">
