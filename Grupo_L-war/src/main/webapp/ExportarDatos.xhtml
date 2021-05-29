@@ -4,7 +4,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
-	xmlns:f="http://xmlns.jcp.org/jsf/core">
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	 xmlns:p="http://primefaces.org/ui">
+
 
 <h:head>
 	<title>Exportar Datos</title>
@@ -22,21 +24,33 @@
 	<div class="inicio"> <h:button value="INICIO" outcome="Principal.xhtml" /> </div>
 
 	<h1 class="titulo"> FLM-SECRETARIA </h1>
-
+	<h:form>
 	<div class="centrado">
 		<b>Exportar Datos</b> <br></br><br></br>
 		
-		<select name="so">
-	 		 <option value="" selected="selected">Titulaciones</option>
-			 <option value="1041">Ingeniería Informática</option>
-			 <option value="1042">Ingeniería del Software</option>
-			 <option value="1043">Ingeniería de la Salud</option>
-			 <option value="1056">Ingeniería de Computadores</option>
-			 <option value="1073">Ingeniería Informatica y Matemáticas</option>
-		</select>
+        <div class="ui-fluid p-formgrid p-grid">
+            <div class="p-field p-col-12 p-md-4">
+                <p:outputLabel for="@next" value="Basic"/>
+                <p:selectOneMenu id="option" value="#{exportar.selectedOption}">
+                    <f:selectItem itemLabel="Titulaciones" itemValue=""/>
+                    <f:selectItem itemLabel="Ingeniería Informática" itemValue="1703"/>
+                    <f:selectItem itemLabel="Ingeniería del Software" itemValue="1042"/>
+                    <f:selectItem itemLabel="Ingeniería de la Salud" itemValue="1043"/>
+                    <f:selectItem itemLabel="Ingeniería de Computadores" itemValue="1056"/>
+                    <f:selectItem itemLabel="Ingeniería Informatica y Matemáticas" itemValue="1073"/>
+                    <f:facet name="footer">
+                        <p:divider styleClass="p-mt-0" />
+                        <h:outputText value="5 options" style="font-weight:bold;"/>
+                    </f:facet>
+                </p:selectOneMenu>
+            </div>
+            </div>
+		
 		<br></br><br></br>
-		<h:commandButton value="EXPORTAR" action="@{}" />
-	</div>
+		
+		 <h:commandButton action="#{exportar.exDatos()}">EXPORTAR</h:commandButton> 
+		</div>
+	</h:form>
 
 	<div class="pie"> 
 		Universidad de Málaga · Avda. Cervantes, 2. 29071 MÁLAGA · Tel. 952131000 · info@uma.es	
