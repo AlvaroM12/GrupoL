@@ -19,7 +19,9 @@ public class MatriculaBB {
 	private InterfazMatricula matricula;
 	
 	private Matricula mat;
-	private Alumno alum;
+	
+	@Inject
+	private InfoSesion infosesion;
 	
 	public MatriculaBB() {
 		
@@ -33,21 +35,15 @@ public class MatriculaBB {
 		this.mat = mat;
 	}
 
-	public Alumno getAlum() {
-		return alum;
-	}
-
-	public void setAlum(Alumno alum) {
-		this.alum = alum;
-	}
+	
 
 	//METODO PARA LEER UNA MATRICULA
-	public  synchronized List<Matricula> getMatriculaAlumno(){
+	public  synchronized List<Matricula> getMatriculaAlumno() throws MatriculaException{
 		List<Matricula> matalum = new ArrayList<Matricula>();
 		
-        for (Expediente ex : alum.getExpedientes()) {
-			for (Matricula mat : ex.getMatriculas()) {
-					matalum.add(mat);
+        for (Expediente ex : infosesion.getAlumno().getExpedientes()) {
+			for (Matricula matricula : matricula.buscarMatriculas(ex)) {
+				matalum.add(matricula);
 			}
 		}
         return matalum;
