@@ -4,11 +4,11 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.nio.file.Path;
-import java.sql.Date;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.List;
+import java.util.Locale;
 import java.util.logging.Logger;
 
 import javax.ejb.Stateless;
@@ -16,19 +16,13 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
-import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
-import org.apache.poi.xssf.usermodel.XSSFCell;
-import org.apache.poi.xssf.usermodel.XSSFRow;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import es.uma.informatica.Exception.MatriculaException;
 import es.uma.informatica.Interfaces.InterfazMatricula;
 import es.uma.informatica.Entidades.Expediente;
 import es.uma.informatica.Entidades.Matricula;
-import es.uma.informatica.Entidades.Usuario;
 import es.uma.informatica.Entidades.Matricula.MatriculaId;
 
 /**
@@ -66,16 +60,10 @@ public class MatriculaEJB implements InterfazMatricula {
 	        	Long Narchivo = (long) sheet.getRow(fila).getCell(5).getNumericCellValue();
 	        	m.setNum_Archivo(Narchivo);
 	        	LOGGER.info("--------------------- num arch");
-	        	
-	        	
-	        	String fmat = sheet.getRow(fila).getCell(14).getStringCellValue();
-	        	SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy hh:mm");
-	        	Date parsed = (Date) formatter.parse(fmat);
-	        	java.sql.Date sql = new java.sql.Date(parsed.getTime());
-	        	m.setFecha_De_Matricula(sql);
-	        	
-	        	
-	        	
+	        	String fecha = sheet.getRow(fila).getCell(14).getStringCellValue();
+	        	DateFormat formatter = new SimpleDateFormat("DD/MM/YYYY hh:mm", Locale.ENGLISH);
+	        	java.util.Date parsed = formatter.parse(fecha);
+	        	m.setFecha_De_Matricula(parsed);
 	        	LOGGER.info("--------------------- date");
 	        	String turnoPref = sheet.getRow(fila).getCell(15).getStringCellValue();
 	        	m.setTurno_Preferente(turnoPref);
