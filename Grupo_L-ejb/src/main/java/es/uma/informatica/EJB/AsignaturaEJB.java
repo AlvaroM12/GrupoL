@@ -1,11 +1,18 @@
 package es.uma.informatica.EJB;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
+
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import es.uma.informatica.Entidades.Asignatura;
@@ -26,15 +33,18 @@ public class AsignaturaEJB implements InterfazAsignatura {
 	private EntityManager em;
 
 	@Override
-	public void importarAsignatura() throws AsignaturaException {
+	public void importarAsignatura(String path) throws AsignaturaException {
 		try {
-			String directorio_de_ejecucion_de_la_aplicacion;
-			directorio_de_ejecucion_de_la_aplicacion = new java.io.File( "." ).getCanonicalPath();
-			String sFile = directorio_de_ejecucion_de_la_aplicacion + "/" +"Oferta asignaturas.xlsx"; 
-			XSSFWorkbook workbook = new XSSFWorkbook(sFile);
-	        XSSFSheet sheet = workbook.getSheet("GII");
-	       	        
-	    	for(int fila=1; fila<83; fila++) {
+	        File f = new File(path);
+			//LOGGER.info("--------------------- FILE CREADA");
+		    InputStream inp = new FileInputStream(f);
+		    Workbook wb = WorkbookFactory.create(inp);
+			Sheet sheet = wb.getSheet("GII");
+	        int row = sheet.getLastRowNum();
+	        
+	        
+	        
+	    	for(int fila=1; fila<row; fila++) {
 	        	
 	        	Asignatura a = new Asignatura();
 	 	        Titulacion t = new Titulacion();
