@@ -60,7 +60,7 @@ public class Encuesta implements Serializable {
 	private Long Fecha_De_Envio;
 	private static final long serialVersionUID = 1L;
 	
-	@ManyToMany(mappedBy = "E_GPA")
+	@ManyToMany(mappedBy = "E_GPA",  fetch=FetchType.EAGER)
 	private List<GruposPorAsignatura> gruposPorAsignaturas;
 	
 	@Id
@@ -139,7 +139,6 @@ public class Encuesta implements Serializable {
 	
 	@Override
 	public String toString() {
-		return "Encuesta [Fecha_De_Envío=" + Fecha_De_Envio + ", gruposPorAsignaturas=" + gruposPorAsignaturas + ", EE="
-				+ EE + "]";
+		return "Encuesta [Fecha_De_Envío=" + Fecha_De_Envio + "]";
 	}
 }

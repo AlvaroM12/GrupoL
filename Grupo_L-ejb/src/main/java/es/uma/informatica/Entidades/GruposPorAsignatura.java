@@ -159,8 +159,7 @@ public class GruposPorAsignatura implements Serializable {
 	}
 	@Override
 	public String toString() {
-		return "GruposPorAsignatura [Curso_Academico=" + Curso_Academico + ", Oferta=" + Oferta + ", E_GPA=" + E_GPA
-				+ ", A_GPA=" + A_GPA + ", G_GPA=" + G_GPA + "]";
+		return "GruposPorAsignatura [Curso_Academico=" + Curso_Academico + ", Oferta=" + Oferta  + "]";
 	}
 	
 	
