@@ -29,7 +29,7 @@ public class ExportarDatosBB {
     }
 
     public void setSelectedOption(String selectedOption) {
-        //this.selectedOption = selectedOption;
+        this.selectedOption = selectedOption;
     }
     
     public void exDatos() throws DatosException, IOException, TitulacionException {
