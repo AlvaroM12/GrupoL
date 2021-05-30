@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import es.uma.informatica.Entidades.Asignatura;
@@ -26,7 +27,8 @@ public class AsignaturaT {
 		BaseDatos.inicializaBaseDatos(UNIDAD_PERSITENCIA_PRUEBAS);
 	}
 	
-	@Test
+	@Test 
+	@Ignore
 	@Requisitos({"RF2"})
 	public void testImportarAsignatura() throws AsignaturaException {
 		try {
