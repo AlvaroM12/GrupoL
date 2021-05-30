@@ -8,9 +8,10 @@ import es.uma.informatica.Exception.ExpedienteException;
 public interface InterfazExpediente {
 	/**
 	  Este método debe importar un expediente en la base de datos.
+	 * @param path 
 	 
 	 */
-	public void importarExpediente() throws ExpedienteException;
+	public void importarExpediente(String path) throws ExpedienteException;
 	
 	public Expediente leerExpediente (Long num) throws ExpedienteException;
 

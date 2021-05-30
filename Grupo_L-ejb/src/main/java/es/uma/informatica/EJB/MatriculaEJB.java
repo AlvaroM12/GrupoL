@@ -51,6 +51,8 @@ public class MatriculaEJB implements InterfazMatricula {
 	       
 	        LOGGER.info("--------------------- ANTES DEL FOR");
 	        for(int fila=4; fila<sheet.getLastRowNum(); fila++) {
+	        	String curso = sheet.getRow(0).getCell(1).getStringCellValue();
+	        	m.setCurso_Academico(curso);
 	        	LOGGER.info("--------------------- dentro DEL FOR");
 	        	String nExp = sheet.getRow(fila).getCell(4).getStringCellValue();
 	        	long nE= Long.parseLong(nExp);

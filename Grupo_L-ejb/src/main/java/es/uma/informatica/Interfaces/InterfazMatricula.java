@@ -1,6 +1,5 @@
 package es.uma.informatica.Interfaces;
 
-import java.nio.file.Path;
 import java.text.ParseException;
 import java.util.List;
 import javax.ejb.Local;

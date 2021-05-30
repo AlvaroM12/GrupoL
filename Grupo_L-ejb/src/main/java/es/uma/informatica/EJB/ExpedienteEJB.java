@@ -1,11 +1,18 @@
 package es.uma.informatica.EJB;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
+
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import es.uma.informatica.Entidades.Alumno;
@@ -23,14 +30,13 @@ public class ExpedienteEJB implements InterfazExpediente {
 	private EntityManager em;
 
 	@Override
-	public void importarExpediente() throws ExpedienteException {
+	public void importarExpediente(String path) throws ExpedienteException {
 		
 		try {
-			String directorio_de_ejecucion_de_la_aplicacion;
-			directorio_de_ejecucion_de_la_aplicacion = new java.io.File( "." ).getCanonicalPath();
-			String sFile = directorio_de_ejecucion_de_la_aplicacion + "/" +"Datos alumnadoFAKE.xlsx"; 
-			XSSFWorkbook workbook = new XSSFWorkbook(sFile);
-			XSSFSheet sheet = workbook.getSheet("Hoja1");
+			File f = new File(path);
+		    InputStream inp = new FileInputStream(f);
+		    Workbook wb = WorkbookFactory.create(inp);
+			Sheet sheet = wb.getSheet("Hoja1");
 	        
 	        
 	        for(int fila=4; fila<1512; fila++) {
@@ -49,6 +55,8 @@ public class ExpedienteEJB implements InterfazExpediente {
 	        	
 	        	String Nota_Media = sheet.getRow(fila).getCell(17).getStringCellValue();
 	        	e.setNota_Media(Float.parseFloat(Nota_Media));
+	        	
+	        	e.setActivo("Si");
 	        	
 	        	String Creditos_Superados = sheet.getRow(fila).getCell(18).getStringCellValue();
 	        	e.setCreditos_Superados(Double.parseDouble(Creditos_Superados));

@@ -25,9 +25,10 @@
 	<h1 class="titulo"> IMPORTAR EXPEDIENTE </h1>
 
 	<div class="centrado">
-	    <h:form>
-			<p:fileUpload listener="#{fileUploadView.handleFileUpload}" mode="advanced" dragDropSupport="true" update="messages" allowTypes="/(\.|\/)(csv|xls|xlsx)$/"/>
-			<p:growl id="messages" showDetail="true"/>
+	    <h:form enctype="multipart/form-data">
+	    	<p:fileUpload value="#{expedienteBB.file}" mode="simple" skinSimple="true"/>
+			<p:commandButton value="Submit" ajax="false" action="#{expedienteBB.uploadExpediente}" styleClass="p-mt-3 ui-button-outlined p-d-block"/>
+            <p:growl id="messages" showDetail="true"/>
 		</h:form>
 	</div>
 
