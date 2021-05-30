@@ -35,8 +35,9 @@ public class ExportarDatosBB {
     public void exDatos() throws DatosException, IOException, TitulacionException {
     	long codigo=Long.parseLong(selectedOption);
     	Titulacion t=titulacion.consultarTitulacion(codigo);
-    	
     	datosejb.exportarDatos(t);
+    	
+		
     }
     
     

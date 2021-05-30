@@ -8,6 +8,7 @@ import java.io.OutputStream;
 import java.nio.file.CopyOption;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.text.ParseException;
 import java.util.logging.Logger;
 
 import javax.enterprise.context.RequestScoped;
@@ -21,8 +22,10 @@ import org.primefaces.event.FileUploadEvent;
 import org.primefaces.model.file.UploadedFile;
 
 import es.uma.informatica.EJB.MatriculaEJB;
+import es.uma.informatica.Exception.AsignaturaException;
 import es.uma.informatica.Exception.MatriculaException;
 import es.uma.informatica.Exception.TitulacionException;
+import es.uma.informatica.Interfaces.InterfazAsignatura;
 import es.uma.informatica.Interfaces.InterfazMatricula;
 import es.uma.informatica.Interfaces.InterfazTitulacion;
 
@@ -37,6 +40,9 @@ public class FileUploadView {
     @Inject
     private InterfazTitulacion tit;
     
+    @Inject
+    private InterfazAsignatura asig;
+    
     private final static Logger LOGGER=Logger.getLogger(MatriculaEJB.class.getCanonicalName());
 
     public UploadedFile getFile() {
@@ -47,24 +53,13 @@ public class FileUploadView {
         this.file = file;
     }
 
-    public void upload() throws MatriculaException, IOException, TitulacionException{
+    public void upload() throws MatriculaException, IOException, TitulacionException, ParseException{
     	 if (file != null) {
-             
-         
-             LOGGER.info("Antes de llamar al metodo importar ejb");
-             File file_name = new File(file.getFileName());
-             
-             //matricula.importarMatricula(file.getFileName(), file_name.toString());	// Sale el mensaje de exito pero da error en la terminal wildfly
-             //tit.importarTitulacion(file_name.toString());								// sale ifual q matricula
-    	 
-    	  
-    	 // COPIAR ARCHIVO A OTRO DIRECTORIO
-        
-          	 //File path_name = new File("/home/alumno/Temporal_Primefaces/" + file.getFileName());
-             //OutputStream output = new FileOutputStream(path_name);			// Se pilla aqui, no se copia el archivo.
-            // IOUtils.copy(file.getInputStream(), output);
-             Path temp = Files.createTempFile(file_name.getName(), ".xlsx");
-             matricula.importarMatricula(file.getFileName(), temp);
+             Path path = Files.createTempFile("Matricula_", ".xlsx");
+             File file_name = new File(path.toString());
+             OutputStream output = new FileOutputStream(file_name);
+             IOUtils.copy(file.getInputStream(), output);
+             matricula.importarMatricula(path.toString());
               
              
              FacesMessage message = new FacesMessage("Successful", file.getFileName() + " is uploaded.");
@@ -80,7 +75,7 @@ public class FileUploadView {
         Path temp;
 		try {
 			temp = Files.createTempFile(file_name.getName(), ".xlsx");
-			matricula.importarMatricula(file_name.getName(), temp);
+			//matricula.importarMatricula(file_name.getName(), temp);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

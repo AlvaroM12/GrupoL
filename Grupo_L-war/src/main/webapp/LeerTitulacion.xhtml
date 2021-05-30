@@ -26,7 +26,7 @@
 	<div class="inicio"> <h:button value="INICIO" outcome="Principal.xhtml" /> </div>
 
 	<h1 class="titulo"> Titulacion </h1>
-	
+	<ui:fragment rendered="#{not empty infoSesion.alumno}">	
 	<div class="izquierda">
 		<b>MIS DATOS </b><br></br><br></br> 
 		<a href="#" style="text-decoration: none">Leer Encuesta</a><br></br>
@@ -44,7 +44,37 @@
 			<b>Titulaciones: </b> <br></br>
 		</div>
 		
-        <h:form id="expediente">
+        <h:form id="titulacionalum">
+            <p:commandButton value="Mostar" actionListener="#{titulacion.titulacion}" update="dtTitulacion" />
+
+		<p:dataTable id="dtTitulacion" value="#{titulacion.titulacion}" var="t">
+		
+			<p:column headerText="Codigo" filterBy="#{t.Codigo}"
+				filterMatchMode="contains">
+				<p:outputLabel value="#{t.codigo}" />
+			</p:column>
+			
+			<p:column headerText="Nombre" filterBy="#{t.Nombre}"
+				filterMatchMode="contains">
+				<p:outputLabel value="#{t.nombre}" />
+			</p:column>
+			
+			<p:column headerText="Créditos" filterBy="#{t.Creditos}"
+				filterMatchMode="contains">
+				<p:outputLabel value="#{t.creditos}" />
+			</p:column>
+	 	</p:dataTable>
+        </h:form>
+	 </div>
+	 </ui:fragment>
+	 
+	 <ui:fragment rendered="#{not empty infoSesion.personal}">
+	 <div class="centro">
+	 	<div class="izquierdaCentro">
+			<b>Titulaciones: </b> <br></br>
+		</div>
+		
+        <h:form id="titulacion">
             <p:commandButton value="Mostar" actionListener="#{titulacion.titulaciones}" update="dtTitulacion" />
 
 		<p:dataTable id="dtTitulacion" value="#{titulacion.titulaciones}" var="t">
@@ -66,9 +96,7 @@
 	 	</p:dataTable>
         </h:form>
 	 </div>
-	 
-	 
-	 
+	 </ui:fragment>
 
 	<div class="pie"> 
 		Universidad de Málaga · Avda. Cervantes, 2. 29071 MÁLAGA · Tel. 952131000 · info@uma.es	

@@ -50,7 +50,7 @@ public class GrupoBB {
 	
 
 
-	//NO SE SI FUNCIONA PORQUE SON 3 FOREACH ANIDADOS
+	//LEE LA ASIGNATURAS MATRICULA DE UN ALUMNO (FUNCIONA)
 	public List<Asignaturas_Matricula> getAsignaturasMatriculasAlumno()
     {
 		List<Asignaturas_Matricula> asigmatalum = new ArrayList<Asignaturas_Matricula>();

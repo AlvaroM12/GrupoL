@@ -24,7 +24,7 @@ public class Centro implements Serializable {
 	private Long TLF_Conserjeria;
 	private static final long serialVersionUID = 1L;
 	
-	@ManyToMany
+	@ManyToMany(fetch=FetchType.EAGER)
 	private List<Titulacion> TC;
 	
 	
@@ -119,7 +119,7 @@ public class Centro implements Serializable {
 	@Override
 	public String toString() {
 		return "Centro [ID=" + ID + ", Nombre=" + Nombre + ", Direccion=" + Direccion + ", TLF_Conserjeria="
-				+ TLF_Conserjeria + ", TC=" + TC + "]";
+				+ TLF_Conserjeria + "]";
 	}
 	
    

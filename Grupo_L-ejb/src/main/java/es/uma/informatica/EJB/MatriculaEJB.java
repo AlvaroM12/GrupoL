@@ -1,11 +1,14 @@
 package es.uma.informatica.EJB;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
-import java.nio.file.Path;
-import java.sql.Date;
+import java.io.InputStream;
+import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.List;
+import java.util.Locale;
 import java.util.logging.Logger;
 
 import javax.ejb.Stateless;
@@ -13,19 +16,13 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
-import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
-import org.apache.poi.xssf.usermodel.XSSFCell;
-import org.apache.poi.xssf.usermodel.XSSFRow;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import es.uma.informatica.Exception.MatriculaException;
 import es.uma.informatica.Interfaces.InterfazMatricula;
 import es.uma.informatica.Entidades.Expediente;
 import es.uma.informatica.Entidades.Matricula;
-
 import es.uma.informatica.Entidades.Matricula.MatriculaId;
 
 /**
@@ -39,40 +36,40 @@ public class MatriculaEJB implements InterfazMatricula {
 	private final static Logger LOGGER=Logger.getLogger(MatriculaEJB.class.getCanonicalName());
 
 	@Override
-	public void importarMatricula(String fileName, Path path){
+	public void importarMatricula(String path) throws ParseException{
 		try {
-			//String directorio_de_ejecucion_de_la_aplicacion = "/home/alumno/.cache/vmware/drag_and_drop/GCw5oe";
-			//String sFile = path + "/" + fileName ; 
 			LOGGER.info("PATH DEL ARCHIVO --------------------- " + path);
 			
-			
-			Workbook wb = WorkbookFactory.create(path);	// El path ya te da el nombre incluido
-			//XSSFWorkbook workbook = new XSSFWorkbook(path);
-	        Sheet sheet = wb.getSheet("Hoja1");
-	        Row row = sheet.getRow(0);
-	        //XSSFCell cell = null;
+			File f = new File(path);
+			LOGGER.info("--------------------- FILE CREADA");
+		    InputStream inp = new FileInputStream(f);
+		    Workbook wb = WorkbookFactory.create(inp);
+			Sheet sheet = wb.getSheet("Hoja1");
+	        
 	        Matricula m = new Matricula();
 	        Expediente e = new Expediente();
-	        
-	        for(int fila=4; fila<row.getRowNum(); fila++) {
-	        	String nExp = sheet.getRow(4).getCell(4).getStringCellValue();
+	       
+	        LOGGER.info("--------------------- ANTES DEL FOR");
+	        for(int fila=4; fila<sheet.getLastRowNum(); fila++) {
+	        	LOGGER.info("--------------------- dentro DEL FOR");
+	        	String nExp = sheet.getRow(fila).getCell(4).getStringCellValue();
 	        	long nE= Long.parseLong(nExp);
 	        	e.setNum_Expediente(nE);
 	        	m.setEM(e);
-	        	Long Narchivo = (long) sheet.getRow(4).getCell(5).getNumericCellValue();
+	        	LOGGER.info("--------------------- exp");
+	        	Long Narchivo = (long) sheet.getRow(fila).getCell(5).getNumericCellValue();
 	        	m.setNum_Archivo(Narchivo);
-	        	String fmat = sheet.getRow(4).getCell(14).getStringCellValue();
-	        	SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy hh:mm");
-	        	Date date = null;
-				try {
-					date = (Date) formatter.parse(fmat);
-				} catch (java.text.ParseException e1) {
-					e1.printStackTrace();
-				}
-	        	m.setFecha_De_Matricula(date);
-	        	String turnoPref = sheet.getRow(4).getCell(15).getStringCellValue();
+	        	LOGGER.info("--------------------- num arch");
+	        	String fecha = sheet.getRow(fila).getCell(14).getStringCellValue();
+	        	DateFormat formatter = new SimpleDateFormat("DD/MM/YYYY hh:mm", Locale.ENGLISH);
+	        	java.util.Date parsed = formatter.parse(fecha);
+	        	m.setFecha_De_Matricula(parsed);
+	        	LOGGER.info("--------------------- date");
+	        	String turnoPref = sheet.getRow(fila).getCell(15).getStringCellValue();
 	        	m.setTurno_Preferente(turnoPref);
-	        	em.persist(m);;
+	        	LOGGER.info("--------------------- FILA LEIDA");
+	        	em.persist(m);
+	        	LOGGER.info("--------------------- FILA IMPORTADA");
 	        }
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -92,6 +89,17 @@ public class MatriculaEJB implements InterfazMatricula {
     public List<Matricula> leerMatriculas() throws MatriculaException{
  
     	TypedQuery <Matricula> query = em.createQuery("SELECT a FROM Matricula a ", Matricula.class);
+    	List<Matricula> list = query.getResultList();
+		
+		return list;    	
+    }
+	
+	@Override
+    public List<Matricula> buscarMatriculas(Expediente Exp) throws MatriculaException{
+ 
+    	TypedQuery <Matricula> query = em.createQuery("SELECT a FROM Matricula a "
+    			+ "WHERE a.EM LIKE : expediente", Matricula.class);
+    	query.setParameter("expediente", Exp);
     	List<Matricula> list = query.getResultList();
 		
 		return list;    	
