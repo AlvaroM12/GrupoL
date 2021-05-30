@@ -28,7 +28,7 @@ import es.uma.informatica.Exception.MatriculaException;
 import es.uma.informatica.Interfaces.InterfazMatricula;
 import es.uma.informatica.Entidades.Expediente;
 import es.uma.informatica.Entidades.Matricula;
-
+import es.uma.informatica.Entidades.Usuario;
 import es.uma.informatica.Entidades.Matricula.MatriculaId;
 
 /**
@@ -101,6 +101,17 @@ public class MatriculaEJB implements InterfazMatricula {
     public List<Matricula> leerMatriculas() throws MatriculaException{
  
     	TypedQuery <Matricula> query = em.createQuery("SELECT a FROM Matricula a ", Matricula.class);
+    	List<Matricula> list = query.getResultList();
+		
+		return list;    	
+    }
+	
+	@Override
+    public List<Matricula> buscarMatriculas(Expediente Exp) throws MatriculaException{
+ 
+    	TypedQuery <Matricula> query = em.createQuery("SELECT a FROM Matricula a "
+    			+ "WHERE a.EM LIKE : expediente", Matricula.class);
+    	query.setParameter("expediente", Exp);
     	List<Matricula> list = query.getResultList();
 		
 		return list;    	

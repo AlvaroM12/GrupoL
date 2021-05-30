@@ -28,7 +28,7 @@ public class Alumno extends Usuario implements Serializable {
 	private Long CP;
 	private static final long serialVersionUID = 1L;
 	
-	@OneToMany(mappedBy = "AE", cascade = CascadeType.REMOVE)
+	@OneToMany(mappedBy = "AE", cascade = CascadeType.REMOVE, fetch=FetchType.EAGER)
 	private List<Expediente> expedientes;
 	
 	

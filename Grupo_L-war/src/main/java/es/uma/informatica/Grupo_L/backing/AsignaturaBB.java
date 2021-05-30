@@ -23,6 +23,7 @@ import es.uma.informatica.EJB.MatriculaEJB;
 import es.uma.informatica.Entidades.Alumno;
 import es.uma.informatica.Entidades.Asignatura;
 import es.uma.informatica.Entidades.Expediente;
+import es.uma.informatica.Entidades.Titulacion;
 import es.uma.informatica.Exception.AsignaturaException;
 import es.uma.informatica.Exception.TitulacionException;
 import es.uma.informatica.Interfaces.InterfazAsignatura;
@@ -36,8 +37,11 @@ public class AsignaturaBB {
 	@Inject
 	private InterfazAsignatura asignatura;
 	
+	@Inject
+	private InfoSesion infosesion;
+	
 	private Asignatura asig;
-	private Alumno alum;
+	
 	
 	private UploadedFile file;
     
@@ -62,23 +66,19 @@ public class AsignaturaBB {
 		this.asig = as;
 	}
 	
-	public Alumno getAlum() {
-		return alum;
-	}
-
-	public void setAlum(Alumno alum) {
-		this.alum = alum;
-	}
+	
 	
 	//METODO PARA LEER UNA ASIGNATURA
 	public  synchronized List<Asignatura> getAsignaturaAlumno(){
 		List<Asignatura> asigalum = new ArrayList<Asignatura>();
 		
-        for (Expediente ex : alum.getExpedientes()) {
+        for (Expediente ex : infosesion.getAlumno().getExpedientes()) {
         	
-			for (Asignatura a : ex.getTE().getAsignaturas()) {
-				asigalum.add(a);
+			Titulacion ti = ex.getTE();
+			for (Asignatura asignatura : ti.getAsignaturas()) {
+				asigalum.add(asignatura);
 			}
+					
 		}
         return asigalum;
 	}
