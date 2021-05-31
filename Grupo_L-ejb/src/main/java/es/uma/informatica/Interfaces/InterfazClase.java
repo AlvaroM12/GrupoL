@@ -1,6 +1,10 @@
 package es.uma.informatica.Interfaces;
 
+import java.util.List;
+
 import javax.ejb.Local;
+
+import es.uma.informatica.Entidades.Alumno;
 import es.uma.informatica.Entidades.Clase;
 import es.uma.informatica.Entidades.Clase.ClaseId;
 import es.uma.informatica.Exception.ClaseException;
@@ -14,5 +18,5 @@ public interface InterfazClase {
 	 */
 	public void Importar_Horario() throws ClaseException;
 	
-	public Clase leerClase(ClaseId cl) throws ClaseException;
+	public List<Clase> leerClasesAlumno(Alumno al) throws ClaseException;
 }

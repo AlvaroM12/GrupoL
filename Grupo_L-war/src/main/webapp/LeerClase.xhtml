@@ -36,22 +36,22 @@
 		</div>
 		
 		<h:form styleClass="centrado">
-			<h:dataTable styleClass="card" value="#{matriculaBB.matriculas}" var="mat">
+			<h:dataTable styleClass="card" value="#{claseBB.clases}" var="c">
 				<h:column>
 					<f:facet name="header">Asignatura</f:facet> 
-					<h:outputText value="#{mat.curso_Academico}" />
+					<h:outputText value="#{c.AC.referencia}" />
 				</h:column>
 				<h:column>
 					<f:facet name="header">Dia</f:facet> 
-					<h:outputText value="#{mat.estado}" />
+					<h:outputText value="#{c.dia}" />
 				</h:column>
 				<h:column>
 					<f:facet name="header">Hora Inicio</f:facet> 
-					<h:outputText value="#{mat.num_Archivo}" />
+					<h:outputText value="#{c.horaInicio}" />
 				</h:column>
 				<h:column>
 					<f:facet name="header">Hora Fin</f:facet> 
-					<h:outputText value="#{mat.turno_Preferente}" />
+					<h:outputText value="#{c.horaFin}" />
 				</h:column>
 			</h:dataTable>
 		</h:form>
