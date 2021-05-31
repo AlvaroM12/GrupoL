@@ -86,6 +86,7 @@ public class ExpedienteEJB implements InterfazExpediente {
 		}
 	}
 	
+	@Override
 	public Expediente leerExpediente(Long num) throws ExpedienteException {
 		Expediente e = em.find(Expediente.class, num );
 		if(e==null) {

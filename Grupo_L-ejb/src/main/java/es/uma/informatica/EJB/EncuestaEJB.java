@@ -46,6 +46,7 @@ public class EncuestaEJB implements InterfazEncuesta {
 		
 	}
 	
+	
 	 @Override
 	    public List<Encuesta> leerEncuestas() throws EncuestaException{
 	    	

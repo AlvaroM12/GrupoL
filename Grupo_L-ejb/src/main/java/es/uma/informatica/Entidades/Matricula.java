@@ -67,7 +67,7 @@ public class Matricula implements Serializable {
 	@Temporal(TemporalType.DATE)
 	private Date Fecha_De_Matricula;
 	private String Nuevo_Ingreso;
-	@OneToMany(mappedBy="matriculas")
+	@OneToMany(mappedBy="matriculas", fetch=FetchType.EAGER)
 	private List<Asignatura> a;
 	private static final long serialVersionUID = 1L;
 	
@@ -76,7 +76,7 @@ public class Matricula implements Serializable {
 	@JoinColumn(name="EM")
 	private Expediente EM;
 	
-	@OneToMany(mappedBy = "matricula", cascade = CascadeType.REMOVE, fetch=FetchType.EAGER)
+	@OneToMany(mappedBy = "matricula", cascade = CascadeType.REMOVE)
 	private List<Asignaturas_Matricula> asigMatricula;
 
 	

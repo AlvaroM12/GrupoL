@@ -18,8 +18,8 @@ public interface InterfazMatricula {
 
 	public Matricula leerMatricula(MatriculaId ma) throws MatriculaException;
 
-	public List<Matricula> leerMatriculas() throws MatriculaException;
-
 	public List<Matricula> buscarMatriculas(Expediente Exp) throws MatriculaException;
+
+	public List<Matricula> leerMatriculasSecretaria() throws MatriculaException;
 	
 }

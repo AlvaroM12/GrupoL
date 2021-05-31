@@ -87,8 +87,9 @@ public class MatriculaEJB implements InterfazMatricula {
 		return m;
 	}
 	
+	//METODO PARA LEER LAS MATRICULAS DESDE SECRETARIA
 	@Override
-    public List<Matricula> leerMatriculas() throws MatriculaException{
+    public List<Matricula> leerMatriculasSecretaria() throws MatriculaException{
  
     	TypedQuery <Matricula> query = em.createQuery("SELECT a FROM Matricula a ", Matricula.class);
     	List<Matricula> list = query.getResultList();

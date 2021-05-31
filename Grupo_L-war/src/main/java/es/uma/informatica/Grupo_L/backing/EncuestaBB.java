@@ -35,6 +35,7 @@ public class EncuestaBB {
 		this.e = e;
 	}
 	
+	//METODO PARA LEER LA ENCUESTA DESDE ALUMNO
 	public List<Encuesta> getEncuesta()
     {
 		List<Encuesta> encuestas = new ArrayList<Encuesta>();
@@ -58,7 +59,7 @@ public class EncuestaBB {
         return encuesta;*/
     }
 
-	//METODO PARA LEER TODAS LAS ENCUESTAS
+	//METODO PARA LEER LAS ENCUESTAS DESDE SECRETARIA
 	public List<Encuesta> getEncuestas(){
 		
 		try {

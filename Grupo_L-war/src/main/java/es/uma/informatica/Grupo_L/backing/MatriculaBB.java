@@ -50,11 +50,11 @@ public class MatriculaBB {
 	}
 
 
-	//METODO PARA LEER TODAS LAS ASIG_MATRICULAS(S)
+	//METODO PARA LEER TODAS LAS MATRICULAS(S)
 	public  synchronized List<Matricula> getMatriculas(){
 		
 		try {
-			return matricula.leerMatriculas();
+			return matricula.leerMatriculasSecretaria();
 		} catch (MatriculaException e) {
 			e.printStackTrace();
 		}
