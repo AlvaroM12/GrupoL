@@ -28,7 +28,7 @@ public class ExpedienteT {
 	@Requisitos({"RF6"})
 	public void testImportarExpediente() {
 		try {
-			expediente.importarExpediente();
+			//expediente.importarExpediente();
 			Expediente ex = expediente.leerExpediente((long) 104200001);
 			if((long)104200001 != ex.getNum_Expediente()) {
 				fail("No deberia lanzar excepcion1");
