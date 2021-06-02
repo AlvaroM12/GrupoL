@@ -16,6 +16,7 @@ import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import es.uma.informatica.Entidades.Asignatura;
+import es.uma.informatica.Entidades.Expediente;
 import es.uma.informatica.Entidades.Titulacion;
 import es.uma.informatica.Exception.AsignaturaException;
 import es.uma.informatica.Interfaces.InterfazAsignatura;
@@ -33,18 +34,16 @@ public class AsignaturaEJB implements InterfazAsignatura {
 	private EntityManager em;
 
 	@Override
-	public void importarAsignatura(String path) throws AsignaturaException {
+	public void importarAsignatura(File fichero) throws AsignaturaException {
 		try {
-	        File f = new File(path);
-			//LOGGER.info("--------------------- FILE CREADA");
-		    InputStream inp = new FileInputStream(f);
-		    Workbook wb = WorkbookFactory.create(inp);
-			Sheet sheet = wb.getSheet("GII");
-	        int row = sheet.getLastRowNum();
+			Workbook wb = WorkbookFactory.create(fichero);	// El path ya te da el nombre incluido
+	        Sheet sheet = wb.getSheet("GII");
+	        
+	      
 	        
 	        
 	        
-	    	for(int fila=1; fila<row; fila++) {
+	    	for(int fila=1; fila<83; fila++) {
 	        	
 	        	Asignatura a = new Asignatura();
 	 	        Titulacion t = new Titulacion();
@@ -85,7 +84,7 @@ public class AsignaturaEJB implements InterfazAsignatura {
 	        	
 	        	String idioma = sheet.getRow(fila).getCell(11).getStringCellValue();
 	        	a.setIdioma_de_imparticion(idioma);
-	        	em.persist(a);        
+	        	em.merge(a);        
 	        }
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -104,6 +103,14 @@ public class AsignaturaEJB implements InterfazAsignatura {
 	@Override
 	public List<Asignatura> leerAsignaturas() {
 		TypedQuery <Asignatura> query = em.createQuery("SELECT a FROM Asignatura a ", Asignatura.class);
+    	List<Asignatura> list = query.getResultList();
+		return list;
+	}
+	
+	@Override
+	public List<Asignatura> leerAsignaturasTitulacion(Titulacion t) {
+		TypedQuery <Asignatura> query = em.createQuery("SELECT a FROM Asignatura a "+ "WHERE a.TA LIKE : titula", Asignatura.class);
+		query.setParameter("titula", t);
     	List<Asignatura> list = query.getResultList();
 		return list;
 	}

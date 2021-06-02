@@ -1,5 +1,6 @@
 package es.uma.informatica.EJB;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,6 +11,9 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
@@ -38,20 +42,23 @@ public class ClaseEJB implements InterfazClase{
 
 	
 	@Override
-	public void Importar_Horario() throws ClaseException {
+	public void Importar_Horario(File fichero) throws ClaseException {
 		try {
-			String directorio_de_ejecucion_de_la_aplicacion;
+			/*String directorio_de_ejecucion_de_la_aplicacion;
 			directorio_de_ejecucion_de_la_aplicacion = new java.io.File( "." ).getCanonicalPath();
-			String sFile = directorio_de_ejecucion_de_la_aplicacion + "/" +"Oferta asignaturas.xlsx"; 
-			XSSFWorkbook workbook = new XSSFWorkbook(sFile);
-			XSSFSheet sheet = workbook.getSheet("GII");
+			String sFile = directorio_de_ejecucion_de_la_aplicacion + "/" +"Oferta asignaturas.xlsx"; */
+			Workbook wb = WorkbookFactory.create(fichero);	// El path ya te da el nombre incluido
+	        Sheet sheet = wb.getSheet("GII");
 	        
 
-	        for(int fila=1; fila<83; fila++) {
+	        for(int fila=1; fila<4; fila++) {
 	        	
 	        	Clase c = new Clase();
 		        Asignatura a = new Asignatura();
 		        Grupo g = new Grupo();
+		        
+		        Long idGrupo = (long)sheet.getRow(fila).getCell(21).getNumericCellValue();
+	        	g.setID(idGrupo);
 	        	
 	        	Long ref = (long) sheet.getRow(fila).getCell(3).getNumericCellValue();
 	        	a.setReferencia(ref);
@@ -65,7 +72,9 @@ public class ClaseEJB implements InterfazClase{
 	        	
 	        	String hfin = sheet.getRow(fila).getCell(23).getStringCellValue();
 	        	c.setHoraFin(hfin);
-	        	em.persist(c);
+	        	c.setGC(g);
+	        	em.merge(c);
+	        	c.setAC(a);
 	        	
 	        	String dia2 = sheet.getRow(fila).getCell(15).getStringCellValue();
 	        	c.setDia(dia2);
@@ -75,7 +84,9 @@ public class ClaseEJB implements InterfazClase{
 	        	
 	        	String hfin2 = sheet.getRow(fila).getCell(25).getStringCellValue();
 	        	c.setHoraFin(hfin2);
-	        	em.persist(c);
+	        	c.setGC(g);
+	        	em.merge(c);
+	        	c.setAC(a);
 	        	
 	        	String dia3 = sheet.getRow(fila).getCell(18).getStringCellValue();
 	        	c.setDia(dia3);
@@ -86,16 +97,26 @@ public class ClaseEJB implements InterfazClase{
 	        	String hfin3 = sheet.getRow(fila).getCell(27).getStringCellValue();
 	        	c.setHoraFin(hfin3);
 	        	
-	        	Long idGrupo = (long)sheet.getRow(fila).getCell(21).getNumericCellValue();
-	        	g.setID(idGrupo);
+	        	
 	        	c.setGC(g);
-	        	em.persist(c);
+	        	em.merge(c);
 	        }
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
 	}
 	
+	@Override
+	public Clase leerClase(ClaseId cl) throws ClaseException {
+		Clase c = em.find(Clase.class, cl );
+		if(c==null) {
+			throw new ClaseException();
+		}
+		return c;
+	}
+	
+	
+	@Override
 	public List<Clase> leerClasesAlumno(Alumno al) throws ClaseException {
 						  	      
 	

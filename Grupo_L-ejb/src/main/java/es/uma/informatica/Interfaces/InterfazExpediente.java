@@ -1,5 +1,6 @@
 package es.uma.informatica.Interfaces;
 
+import java.io.File;
 import java.util.List;
 import javax.ejb.Local;
 import es.uma.informatica.Entidades.Expediente;
@@ -11,11 +12,12 @@ public interface InterfazExpediente {
 	 * @param path 
 	 
 	 */
-	public void importarExpediente(String path) throws ExpedienteException;
+	public void importarExpediente(File fichero) throws ExpedienteException;
 	
 	public Expediente leerExpediente (Long num) throws ExpedienteException;
 
 	public List<Expediente> leerExpedientes() throws ExpedienteException;
+
 
 	
 

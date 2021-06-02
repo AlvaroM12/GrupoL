@@ -2,6 +2,7 @@ package es.uma.informatica.Entidades;
 
 import java.io.Serializable;
 import java.lang.Long;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.*;
@@ -16,12 +17,12 @@ public class Encuesta implements Serializable {
 
 	public static class EncuestaId implements Serializable{
 		private Long EE;
-		private Long Fecha_De_Envio;
+		private Date Fecha_De_Envio;
 		
 		public EncuestaId() {
 		}
 		
-		public EncuestaId(Long ne, Long f) {
+		public EncuestaId(Long ne, Date f) {
 			EE=ne;
 			Fecha_De_Envio=f;
 		}
@@ -57,7 +58,7 @@ public class Encuesta implements Serializable {
 	}
 	   
 	@Id 
-	private Long Fecha_De_Envio;
+	private Date Fecha_De_Envio;
 	private static final long serialVersionUID = 1L;
 	
 	@ManyToMany(mappedBy = "E_GPA",  fetch=FetchType.EAGER)
@@ -67,7 +68,7 @@ public class Encuesta implements Serializable {
 	@ManyToOne
 	private Expediente EE;
 
-	public Encuesta(Long fecha_De_Envío) {
+	public Encuesta(Date fecha_De_Envío) {
 		super();
 		Fecha_De_Envio = fecha_De_Envío;
 	}
@@ -76,14 +77,15 @@ public class Encuesta implements Serializable {
 		super();
 	}   
 	
-	public Long getFecha_De_Envio() {
-		return this.Fecha_De_Envio;
+	
+	public Date getFecha_De_Envio() {
+		return Fecha_De_Envio;
 	}
 
-	public void setFecha_De_Envio(Long Fecha_De_Envío) {
-		this.Fecha_De_Envio = Fecha_De_Envío;
+	public void setFecha_De_Envio(Date fecha_De_Envio) {
+		Fecha_De_Envio = fecha_De_Envio;
 	}
-    
+
 	public List<GruposPorAsignatura> getGruposPorAsignaturas() {
 		return gruposPorAsignaturas;
 	}

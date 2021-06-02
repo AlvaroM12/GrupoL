@@ -1,24 +1,31 @@
 package es.uma.informatica.EJB;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
+
+import es.uma.informatica.Exception.EncuestaException;
 import es.uma.informatica.Exception.GrupoAsigErrorException;
 import es.uma.informatica.Exception.GrupoErrorException;
 import es.uma.informatica.Exception.GrupoException;
 import es.uma.informatica.Exception.GrupoExistenteException;
 import es.uma.informatica.Exception.GrupoNullException;
+import es.uma.informatica.Exception.TitulacionException;
 import es.uma.informatica.Interfaces.InterfazGrupo;
+import es.uma.informatica.Interfaces.InterfazTitulacion;
 import es.uma.informatica.Entidades.Alumno;
 import es.uma.informatica.Entidades.Asignatura;
 import es.uma.informatica.Entidades.Asignaturas_Matricula;
+import es.uma.informatica.Entidades.Encuesta;
 import es.uma.informatica.Entidades.Asignaturas_Matricula.Asignaturas_MatriculaId;
 import es.uma.informatica.Entidades.Expediente;
 import es.uma.informatica.Entidades.Grupo;
 import es.uma.informatica.Entidades.GruposPorAsignatura;
 import es.uma.informatica.Entidades.Matricula;
+import es.uma.informatica.Entidades.Titulacion;
 
 /**
  * Session Bean implementation class Grupo
@@ -28,6 +35,8 @@ public class GrupoEJB implements InterfazGrupo {
 	
 	@PersistenceContext(name="Grupo_L")
 	private EntityManager em;
+	
+	private InterfazTitulacion tit;
 
 	@Override
 	public void crearGrupo(Grupo g) throws GrupoException {
@@ -174,7 +183,7 @@ public class GrupoEJB implements InterfazGrupo {
 		}      
     }
 
-    
+    //BUSCA UN GRUPO POR ASIG PASANDOLE SU ID
     @Override
     public Asignaturas_Matricula leerGrupoAsignatura(Asignaturas_MatriculaId a) throws GrupoException{
     	Asignaturas_Matricula am = em.find(Asignaturas_Matricula.class, a);
@@ -184,6 +193,7 @@ public class GrupoEJB implements InterfazGrupo {
 		return am;
     }
     
+    //LEE TODAS LAS ASIG_MATRICULAS DE LA BD
     @Override
     public List<Asignaturas_Matricula> leerAsignaturasMatricula() throws GrupoException{
     	
@@ -193,15 +203,28 @@ public class GrupoEJB implements InterfazGrupo {
 		return list;    	
     }
     
-    /*
-	 public List<Asignaturas_Matrícula> leerAsignaturasMatriculaAlumno(Alumno a) throws GrupoException{
-	    	
-	    	TypedQuery <Asignaturas_Matrícula> query = em.createQuery("SELECT a FROM Asignatura_Matrícula a ", Asignaturas_Matrícula.class);
-	    	List<Asignaturas_Matrícula> list = query.getResultList();
-			
-			return list;    	
-	}*/
+    //METODO PARA LEER LAS ASIG_MATRICULA DE UN ALUMNO
+    @Override
+    public List<Asignaturas_Matricula> leerAsigMatriculaAlumno(Alumno al) throws GrupoException{
+    	
+    	TypedQuery <Expediente> query = em.createQuery("SELECT e FROM Expediente e " + "WHERE e.AE LIKE : alumno", Expediente.class);
+    	query.setParameter("alumno", al);
+    	List<Expediente> listExpediente = query.getResultList();
+    	List<Asignaturas_Matricula> listAsigMatricula = new ArrayList <Asignaturas_Matricula>();
+    	List<Asignaturas_Matricula> listAsigMatricula2 = new ArrayList <Asignaturas_Matricula>();
+    	
+    	for (Expediente expediente : listExpediente) {
+    		TypedQuery <Asignaturas_Matricula> query3 = em.createQuery("SELECT en FROM Asignaturas_Matricula en " + "WHERE en.EM LIKE : ex", Asignaturas_Matricula.class);
+	    	query3.setParameter("ex", expediente.getNum_Expediente());
+	    	listAsigMatricula = query3.getResultList();	
+	    	for (Asignaturas_Matricula asignaturas_Matricula : listAsigMatricula) {
+	    		listAsigMatricula2.add(asignaturas_Matricula);
+			}
+		}		
+		return listAsigMatricula2;    	
+    }
     
+    //LEE TODOS LOS GRUPOS QUE HAY EN LA BD
     @Override
     public List<Grupo> leerGrupos() throws GrupoException{
     	
@@ -211,20 +234,21 @@ public class GrupoEJB implements InterfazGrupo {
 		return list;    	
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    //LEER LETRA PARA VISTA ASIG_MATRICULA
+    @Override
+    public List<String> leerLetraGrupo(Long curso, Long codigo) throws GrupoException, TitulacionException{
+   	    	
+    	Titulacion t = tit.consultarTitulacion(codigo);
+    	TypedQuery <Grupo> query = em.createQuery("SELECT g FROM Grupo g " + "WHERE g.Curso LIKE : curs AND g.TG LIKE : titulacion", Grupo.class);
+    	query.setParameter("curs", curso);
+    	query.setParameter("titulacion", t);
+    	List<Grupo> listGrupos = query.getResultList();
+    	List<String> listLetras = new ArrayList <String>();
+    	
+    	for (Grupo gr : listGrupos) {
+    		listLetras.add(gr.getLetra());
+		}
+    	
+		return listLetras;    	
+    }   
 }

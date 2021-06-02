@@ -21,27 +21,22 @@
 	<div class="centro">
 		<h:form>
 			<img src="resources/imagenes/uma.png" width="200" />
+			<br></br>
 			
-			<h:panelGrid columns="3">
-				<h:outputText value="Email:" />
-				<h:inputText id="user" required="true"
-					value="#{loginBB.usuario.email_Institucional}" />
-				<h:message for="user" />
-
-				<h:outputText value="Nueva contraseña:" />
-				<h:inputSecret id="pass" required="true"
-					value="#{}" />
-				<h:message for="pass" />
-				
-				<h:outputText value="Repetir nueva contraseña:" />
-				<h:inputSecret id="pass" required="true"/>
-
-				<h:message for="pass" />
-				
-				<h:button value="Guardar Cambios" outcome="Login.xhtml" /> 
-
-			</h:panelGrid>
+			<h:outputLabel value="Email: " for="email"/>
+			<h:inputText id="email" required="true" value="#{usuarioBB.email}" />
+			<br></br>
 			
+			<h:outputLabel value="Nueva contraseña: " for="passwd"/>
+			<h:inputSecret id="passwd" required="true" value="#{usuarioBB.passwd}" />
+			<br></br>
+			
+			<h:outputLabel value="Repetir nueva contraseña: " for="passwd2"/>
+			<h:inputSecret id="passwd2" required="true" value="#{usuarioBB.passwd2}" />
+			<br></br>
+			
+			<h:commandButton value="Guardar Cambios" outcome="Login.xhtml" action="#{usuarioBB.validar}"/> 
+
 		</h:form>
 	</div>
 

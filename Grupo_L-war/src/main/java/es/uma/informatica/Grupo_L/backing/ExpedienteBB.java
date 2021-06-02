@@ -37,20 +37,13 @@ public class ExpedienteBB {
 	private InfoSesion infosesion;
     
     private Expediente ex;
-    private UploadedFile file;
+    
     
     
     public ExpedienteBB() {
         ex = new Expediente(); 
     }
     
-    public UploadedFile getFile() {
-        return file;
-    }
-
-    public void setFile(UploadedFile file) {
-        this.file = file;
-    }
 	
     public String leerExpediente(Expediente ex) {
         try {
@@ -70,18 +63,7 @@ public class ExpedienteBB {
         return expedientes;
     }
     
-    public void uploadExpediente() throws IOException, ParseException, ExpedienteException{
-      	 if (file != null) {
-               Path path = Files.createTempFile("Expedientes_", ".xlsx");
-               File file_name = new File(path.toString());
-               OutputStream output = new FileOutputStream(file_name);
-               IOUtils.copy(file.getInputStream(), output);
-               exejb.importarExpediente(path.toString());
-               
-               FacesMessage message = new FacesMessage("Successful", file.getFileName() + " is uploaded.");
-               FacesContext.getCurrentInstance().addMessage(null, message);
-      	 }
-      }
+    
     
   //METODO PARA LEER TODAS LAS EXPEDIENTES(S)
   	public  synchronized List<Expediente> getExpedientes(){

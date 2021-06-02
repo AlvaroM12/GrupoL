@@ -1,15 +1,12 @@
 package es.uma.informatica.Grupo_L.backing;
 
-import java.util.ArrayList;
+
 import java.util.List;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
-import es.uma.informatica.Entidades.Alumno;
 import es.uma.informatica.Entidades.Asignaturas_Matricula;
-import es.uma.informatica.Entidades.Expediente;
 import es.uma.informatica.Entidades.Grupo;
-import es.uma.informatica.Entidades.Matricula;
 import es.uma.informatica.Exception.AlumnoException;
 import es.uma.informatica.Exception.GrupoException;
 import es.uma.informatica.Interfaces.InterfazAlumno;
@@ -53,15 +50,12 @@ public class GrupoBB {
 	//LEE LA ASIGNATURAS MATRICULA DE UN ALUMNO (FUNCIONA)
 	public List<Asignaturas_Matricula> getAsignaturasMatriculasAlumno()
     {
-		List<Asignaturas_Matricula> asigmatalum = new ArrayList<Asignaturas_Matricula>();
-        for (Expediente ex : infosesion.getAlumno().getExpedientes()) {
-			for (Matricula mat : ex.getMatriculas()) {
-				for (Asignaturas_Matricula asignaturasmat: mat.getAsigMatricula()) {
-					asigmatalum.add(asignaturasmat);
-				}
-			}
-		}
-        return asigmatalum;
+		try {
+			return grupo.leerAsigMatriculaAlumno(infosesion.getAlumno());
+		} catch (GrupoException e) {
+			e.printStackTrace();
+		} 
+		return null;
     }
 	
 	//METODO PARA LEER TODAS LAS ASIG_MATRICULAS(S)
@@ -89,8 +83,7 @@ public class GrupoBB {
 		
 		
 	
-	public synchronized void refrescarUsuario()
-    {
+	public synchronized void refrescarUsuario(){
         try {
 	        if (infosesion.getAlumno() != null)
 	        {
@@ -101,11 +94,4 @@ public class GrupoBB {
             // TODO
         }
     }
-	
-	
-	
-	
-	
-	
-
 }

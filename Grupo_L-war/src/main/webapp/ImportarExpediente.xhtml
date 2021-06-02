@@ -26,9 +26,17 @@
 
 	<div class="centrado">
 	    <h:form enctype="multipart/form-data">
-	    	<p:fileUpload value="#{expedienteBB.file}" mode="simple" skinSimple="true"/>
-			<p:commandButton value="Submit" ajax="false" action="#{expedienteBB.uploadExpediente}" styleClass="p-mt-3 ui-button-outlined p-d-block"/>
-            <p:growl id="messages" showDetail="true"/>
+	    	<p:growl id="messages" showDetail="true"/>
+       		 <p:fileUpload mode="advanced"
+                      multiple="false"
+                      sizeLimit="10240000" allowTypes="/(\.|\/)(xlsx)$/"
+                      invalidSizeMessage="Maximum file size allowed is 10 MB"
+                      invalidFileMessage="Solo se permite el tipo XLSX "
+                      update="messages cropperPanel"
+                      listener="#{uploadExpediente.handleFileUpload}"/>
+                      
+                      
+             <p:outputPanel id="cropperPanel"></p:outputPanel>
 		</h:form>
 	</div>
 

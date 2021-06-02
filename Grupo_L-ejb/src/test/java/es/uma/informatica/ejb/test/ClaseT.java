@@ -24,7 +24,7 @@ public class ClaseT {
 		clase = (InterfazClase) SuiteTest.ctx.lookup(Clase_EJB);
 		BaseDatos.inicializaBaseDatos(UNIDAD_PERSITENCIA_PRUEBAS);
 	}
-
+	/*
 	@Test
 	@Ignore
 	@Requisitos({"RF7"})
@@ -55,5 +55,5 @@ public class ClaseT {
 		} catch (ClaseException e) {
 				fail("No deberia lanzar excepcion2");
 		}
-	}
+	}*/
 }

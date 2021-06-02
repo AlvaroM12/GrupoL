@@ -18,7 +18,7 @@ public class Expediente implements Serializable {
 
 	private static final long serialVersionUID = 1L;   
 	
-	@Id @GeneratedValue
+	@Id
 	private Long Num_Expediente;
 	private String Activo;
 	private Float Nota_Media;
@@ -41,7 +41,7 @@ public class Expediente implements Serializable {
 	private Alumno AE;
 	
 	
-	@OneToMany(mappedBy = "EM", cascade = {CascadeType.REMOVE, CascadeType.PERSIST}, fetch=FetchType.EAGER)
+	@OneToMany(mappedBy = "EM")
 	private List<Matricula> matriculas;
 	
 	@OneToMany(mappedBy = "EE" , cascade = {CascadeType.REMOVE, CascadeType.PERSIST})

@@ -61,7 +61,18 @@ public class UsuarioEJB implements InterfazUsuario{
 			
 			Usuario u = query.getSingleResult();
 			
-			if(!u.getContrasenia().equalsIgnoreCase(pass)) {
+			byte[] newPassword = null;
+		    try {
+		        newPassword = MessageDigest.getInstance("SHA").digest(pass.getBytes("UTF-8"));
+		    } catch (NoSuchAlgorithmException e) {
+		        e.printStackTrace();
+		    } catch (UnsupportedEncodingException e) {
+		        e.printStackTrace();
+		    }
+
+		    String encriptado = Base64.getEncoder().encodeToString(newPassword);
+			
+			if(!encriptado.equalsIgnoreCase(u.getContrasenia())) {
 			throw new UsuarioErrorException();
 			}else {
 				if(u instanceof Alumno) {
@@ -108,14 +119,31 @@ public class UsuarioEJB implements InterfazUsuario{
 			throw new UsuarioNullException();
 		}
 		
-		TypedQuery <Alumno> query = em.createQuery("SELECT a FROM Alumno a "
-	            + "WHERE a.Email_Personal LIKE :correo", Alumno.class);
+		TypedQuery <Usuario> query = em.createQuery("SELECT u FROM Usuario u "
+	            + "WHERE u.Email_Institucional LIKE :correo", Usuario.class);
 		query.setParameter("correo", email);
-		Alumno a = query.getSingleResult();	
+		Usuario u = query.getSingleResult();	
 		
-		if(a==null) {
+		if(u==null) {
 			throw new UsuarioNullException();
 		}
+	}
+	
+	@Override
+	public Usuario encontrarUsuarioCorreo(String email) throws UsuarioException{
+		if(email==null) {
+			throw new UsuarioNullException();
+		}
+		
+		TypedQuery <Usuario> query = em.createQuery("SELECT u FROM Usuario u "
+	            + "WHERE u.Email_Institucional LIKE :correo", Usuario.class);
+		query.setParameter("correo", email);
+		Usuario u = query.getSingleResult();	
+		
+		if(u==null) {
+			throw new UsuarioNullException();
+		}
+		return u;
 	}
 
 	@Override

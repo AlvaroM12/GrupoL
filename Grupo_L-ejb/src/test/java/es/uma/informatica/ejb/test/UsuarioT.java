@@ -6,6 +6,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Base64;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import es.uma.informatica.Entidades.Alumno;
 import es.uma.informatica.Entidades.Usuario;
@@ -81,6 +82,7 @@ public class UsuarioT {
 	}
 
 	@Test
+	@Ignore
 	@Requisitos({"RF15"})
 	public void testSolicitarRecuperarContrasenia() {
 		try {

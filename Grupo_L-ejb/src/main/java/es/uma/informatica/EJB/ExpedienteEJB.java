@@ -5,6 +5,8 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
+import java.util.logging.Logger;
+
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -28,18 +30,22 @@ public class ExpedienteEJB implements InterfazExpediente {
 
 	@PersistenceContext(name="Grupo_L")
 	private EntityManager em;
+	
+	private final static Logger LOGGER=Logger.getLogger(MatriculaEJB.class.getCanonicalName());
 
 	@Override
-	public void importarExpediente(String path) throws ExpedienteException {
+	public void importarExpediente(File fichero) throws ExpedienteException {
 		
 		try {
-			File f = new File(path);
-		    InputStream inp = new FileInputStream(f);
-		    Workbook wb = WorkbookFactory.create(inp);
-			Sheet sheet = wb.getSheet("Hoja1");
+			
+			/*String directorio_de_ejecucion_de_la_aplicacion;
+			directorio_de_ejecucion_de_la_aplicacion = new java.io.File( "." ).getCanonicalPath();
+			String sFile = directorio_de_ejecucion_de_la_aplicacion + "/" +"Datos alumnadoFAKE.xlsx"; */
+			Workbook wb = WorkbookFactory.create(fichero);	// El path ya te da el nombre incluido
+	        Sheet sheet = wb.getSheet("Hoja1");
 	        
 	        
-	        for(int fila=4; fila<1512; fila++) {
+	        for(int fila=4; fila<7; fila++) {
 	        	
 	        	Expediente e = new Expediente();
 		        Alumno a = new Alumno();
@@ -51,6 +57,7 @@ public class ExpedienteEJB implements InterfazExpediente {
 	        	e.setAE(a);
 	        	
 	        	String Num_Expediente = sheet.getRow(fila).getCell(4).getStringCellValue();
+	        	LOGGER.info(Num_Expediente);
 	        	e.setNum_Expediente(Long.parseLong(Num_Expediente));
 	        	
 	        	String Nota_Media = sheet.getRow(fila).getCell(17).getStringCellValue();
@@ -79,7 +86,7 @@ public class ExpedienteEJB implements InterfazExpediente {
 	        	String Creditos_TF = sheet.getRow(fila).getCell(24).getStringCellValue();
 
 	        	e.setCreditos_TF(Double.parseDouble(Creditos_TF));
-	        	em.persist(e);
+	        	em.merge(e);
 	        }
 		} catch (IOException e1) {
 			e1.printStackTrace();

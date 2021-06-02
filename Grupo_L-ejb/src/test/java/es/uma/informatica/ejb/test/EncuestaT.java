@@ -1,6 +1,9 @@
 package es.uma.informatica.ejb.test;
 
 import static org.junit.Assert.*;
+
+import java.util.Date;
+
 import org.junit.Before;
 import org.junit.Test;
 import es.uma.informatica.Entidades.Encuesta;
@@ -27,7 +30,7 @@ public class EncuestaT {
 	public void testResponderEncuesta() {
 		try {
 			
-			EncuestaId id = new EncuestaId((long) 12,(long)14);
+			EncuestaId id = new EncuestaId((long)12,new Date(14/02/21));
 			Encuesta EleccionGrupo = encuesta.leerEncuesta(id);
 			String texto = "Hola";
 			encuesta.responderEncuesta(texto, EleccionGrupo);
@@ -40,9 +43,9 @@ public class EncuestaT {
 	@Requisitos({"RF20"})
 	public void testLeerEncuesta() {
 		try {
-			EncuestaId id = new EncuestaId((long) 12,(long)14);
+			EncuestaId id = new EncuestaId((long) 12,new Date(14/02/21));
 			Encuesta EleccionGrupo = encuesta.leerEncuesta(id);
-            if((long)14 != EleccionGrupo.getFecha_De_Envio()) {
+            if(new Date(14/02/21) != EleccionGrupo.getFecha_De_Envio()) {
             	fail("No esta");
             }
 		} catch (EncuestaException e) {

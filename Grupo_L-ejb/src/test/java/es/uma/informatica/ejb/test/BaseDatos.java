@@ -129,10 +129,10 @@ public class BaseDatos {
 		Expediente e4 = new Expediente ( (long) 33, "inactivo", (float)7.01, (double) 300, (double) 120, (double) 60, (double) 60, (double) 60, (double) 0, (double)0);
 		
 		
-		Encuesta EleccionGrupo = new Encuesta ((long) 14);
-		Encuesta EleccionCurso = new Encuesta ((long) 1);
-		Encuesta EleccionTurno = new Encuesta ((long) 30);
-		Encuesta EleccionClase = new Encuesta ((long) 26);
+		Encuesta EleccionGrupo = new Encuesta (new Date(14/02/21));
+		Encuesta EleccionCurso = new Encuesta ( new Date(15/02/21));
+		Encuesta EleccionTurno = new Encuesta ( new Date(16/02/21));
+		Encuesta EleccionClase = new Encuesta ( new Date(18/02/21));
 		
 		
 		e1.setAE(Rocío);

@@ -67,9 +67,9 @@ public class AlumnoEJB implements InterfazAlumno {
 		al.setNombre(a.getNombre());
 		al.setProvincia(a.getProvincia());
 		al.setTelefono(a.getTelefono());
-		em.merge(al);	
+		em.merge(al);
 	}
-
+	
 	@Override
 	public void eliminarAlumno(Long id) throws AlumnoException{
 		Alumno a1 = leerAlumno(id);

@@ -3,33 +3,63 @@ package es.uma.informatica.Grupo_L.backing;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
-import es.uma.informatica.Entidades.Usuario;
+import es.uma.informatica.Exception.UsuarioException;
 import es.uma.informatica.Interfaces.InterfazUsuario;
 
 
-@Named(value = "usuario")
+@Named()
 @RequestScoped
 public class UsuarioBB {
 	
 	@Inject
-    private InterfazUsuario usuejb;
+    private InterfazUsuario usuario;
     
-	private String rol;
-    private Usuario usu;
+    private String email;
+    private String passwd;
+    private String passwd2;
     
     public UsuarioBB() {
-    	usu = new Usuario();
     }
+    
+    public String getEmail() {
+		return email;
+	}
 
-    /*
-     * public String validar() {
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+
+	public String getPasswd() {
+		return passwd;
+	}
+
+
+	public void setPasswd(String passwd) {
+		this.passwd = passwd;
+	}
+
+
+	public String getPasswd2() {
+		return passwd2;
+	}
+
+
+	public void setPasswd2(String passwd2) {
+		this.passwd2 = passwd2;
+	}
+
+
+	public String validar() {
         try{
-            rol = usuejb.validarAcceso(email, usu.getContraseña());
-            
-        }catch (AlumnoException e) {
-            return "IndexAlumno.xhtml";
+        	if(passwd.equals(passwd2)){
+        		usuario.solicitarRecuperarContrasenia(email);
+        		usuario.generarNuevaContrasenia(usuario.encontrarUsuarioCorreo(email), passwd);
+        	}
+        }catch (UsuarioException e) {
+            e.printStackTrace();
         }
-        return rol;
+        return "Login.xhtml";
     } 
-     */
 }
