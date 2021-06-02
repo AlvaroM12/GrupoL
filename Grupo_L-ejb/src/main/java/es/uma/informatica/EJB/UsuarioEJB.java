@@ -61,7 +61,18 @@ public class UsuarioEJB implements InterfazUsuario{
 			
 			Usuario u = query.getSingleResult();
 			
-			if(!u.getContrasenia().equalsIgnoreCase(pass)) {
+			byte[] newPassword = null;
+		    try {
+		        newPassword = MessageDigest.getInstance("SHA").digest(pass.getBytes("UTF-8"));
+		    } catch (NoSuchAlgorithmException e) {
+		        e.printStackTrace();
+		    } catch (UnsupportedEncodingException e) {
+		        e.printStackTrace();
+		    }
+
+		    String encriptado = Base64.getEncoder().encodeToString(newPassword);
+			
+			if(!encriptado.equalsIgnoreCase(u.getContrasenia())) {
 			throw new UsuarioErrorException();
 			}else {
 				if(u instanceof Alumno) {

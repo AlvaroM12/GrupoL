@@ -2,6 +2,7 @@ package es.uma.informatica.ejb.test;
 
 import static org.junit.Assert.*;
 
+import java.io.File;
 import java.io.IOException;
 
 import org.junit.Before;
@@ -42,7 +43,7 @@ public class TitulacionT {
 			String directorio_de_ejecucion_de_la_aplicacion; 
 			directorio_de_ejecucion_de_la_aplicacion = new java.io.File( "." ).getCanonicalPath();
 			String sFile = directorio_de_ejecucion_de_la_aplicacion + "/" +"Titulacion.xlsx";
-			titulacion.importarTitulacion(sFile);
+			titulacion.importarTitulacion(new File(sFile));
 			Titulacion t = titulacion.leerTitulacion((long) 1041);
 			if((long)1041 != t.getCodigo()) {
 				fail("No deberia lanzar excepcion1");

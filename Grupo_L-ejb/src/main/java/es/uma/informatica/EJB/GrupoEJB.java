@@ -183,7 +183,7 @@ public class GrupoEJB implements InterfazGrupo {
 		}      
     }
 
-    
+    //BUSCA UN GRUPO POR ASIG PASANDOLE SU ID
     @Override
     public Asignaturas_Matricula leerGrupoAsignatura(Asignaturas_MatriculaId a) throws GrupoException{
     	Asignaturas_Matricula am = em.find(Asignaturas_Matricula.class, a);
@@ -193,6 +193,7 @@ public class GrupoEJB implements InterfazGrupo {
 		return am;
     }
     
+    //LEE TODAS LAS ASIG_MATRICULAS DE LA BD
     @Override
     public List<Asignaturas_Matricula> leerAsignaturasMatricula() throws GrupoException{
     	
@@ -202,15 +203,28 @@ public class GrupoEJB implements InterfazGrupo {
 		return list;    	
     }
     
-    /*
-	 public List<Asignaturas_Matrícula> leerAsignaturasMatriculaAlumno(Alumno a) throws GrupoException{
-	    	
-	    	TypedQuery <Asignaturas_Matrícula> query = em.createQuery("SELECT a FROM Asignatura_Matrícula a ", Asignaturas_Matrícula.class);
-	    	List<Asignaturas_Matrícula> list = query.getResultList();
-			
-			return list;    	
-	}*/
+    //METODO PARA LEER LAS ASIG_MATRICULA DE UN ALUMNO
+    @Override
+    public List<Asignaturas_Matricula> leerAsigMatriculaAlumno(Alumno al) throws GrupoException{
+    	
+    	TypedQuery <Expediente> query = em.createQuery("SELECT e FROM Expediente e " + "WHERE e.AE LIKE : alumno", Expediente.class);
+    	query.setParameter("alumno", al);
+    	List<Expediente> listExpediente = query.getResultList();
+    	List<Asignaturas_Matricula> listAsigMatricula = new ArrayList <Asignaturas_Matricula>();
+    	List<Asignaturas_Matricula> listAsigMatricula2 = new ArrayList <Asignaturas_Matricula>();
+    	
+    	for (Expediente expediente : listExpediente) {
+    		TypedQuery <Asignaturas_Matricula> query3 = em.createQuery("SELECT en FROM Asignaturas_Matricula en " + "WHERE en.EM LIKE : ex", Asignaturas_Matricula.class);
+	    	query3.setParameter("ex", expediente.getNum_Expediente());
+	    	listAsigMatricula = query3.getResultList();	
+	    	for (Asignaturas_Matricula asignaturas_Matricula : listAsigMatricula) {
+	    		listAsigMatricula2.add(asignaturas_Matricula);
+			}
+		}		
+		return listAsigMatricula2;    	
+    }
     
+    //LEE TODOS LOS GRUPOS QUE HAY EN LA BD
     @Override
     public List<Grupo> leerGrupos() throws GrupoException{
     	
@@ -220,7 +234,7 @@ public class GrupoEJB implements InterfazGrupo {
 		return list;    	
     }
     
-    
+    //LEER LETRA PARA VISTA ASIG_MATRICULA
     @Override
     public List<String> leerLetraGrupo(Long curso, Long codigo) throws GrupoException, TitulacionException{
    	    	
@@ -236,21 +250,5 @@ public class GrupoEJB implements InterfazGrupo {
 		}
     	
 		return listLetras;    	
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    }   
 }

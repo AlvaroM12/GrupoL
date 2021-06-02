@@ -1,5 +1,6 @@
 package es.uma.informatica.Interfaces;
 
+import java.io.File;
 import java.util.List;
 
 import javax.ejb.Local;
@@ -16,9 +17,11 @@ public interface InterfazClase {
 	  En caso de que haya algun dato incorrecto, se lanza la excepción HorarioErrorException.
 	  En caso de que el horario sea null, se lanza la excepción HorarioNullException.
 	 */
-	public void Importar_Horario() throws ClaseException;
+	public void Importar_Horario(File fichero) throws ClaseException;
 	
 	public List<Clase> leerClasesAlumno(Alumno al) throws ClaseException;
 
 	public Clase leerClase(ClaseId cl) throws ClaseException;
+
+	
 }

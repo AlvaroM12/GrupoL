@@ -16,7 +16,7 @@ import javax.persistence.*;
 public class Asignatura implements Serializable {
 
 	   
-	@Id @GeneratedValue
+	@Id 
 	private Long Referencia;
 	private Long Codigo;
 	private Long Creditos_Teoricos;

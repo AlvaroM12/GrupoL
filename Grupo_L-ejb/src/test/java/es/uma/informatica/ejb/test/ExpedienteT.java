@@ -1,6 +1,10 @@
 package es.uma.informatica.ejb.test;
 
 import static org.junit.Assert.*;
+
+import java.io.File;
+import java.io.IOException;
+
 import org.junit.Before;
 import org.junit.Test;
 import es.uma.informatica.Entidades.Expediente;
@@ -26,9 +30,12 @@ public class ExpedienteT {
 
 	@Test
 	@Requisitos({"RF6"})
-	public void testImportarExpediente() {
+	public void testImportarExpediente() throws IOException {
 		try {
-			//expediente.importarExpediente();
+			String directorio_de_ejecucion_de_la_aplicacion; 
+			directorio_de_ejecucion_de_la_aplicacion = new java.io.File( "." ).getCanonicalPath();
+			String sFile = directorio_de_ejecucion_de_la_aplicacion + "/" +"Datos alumnadoFAKE.xlsx";
+			expediente.importarExpediente(new File(sFile));
 			Expediente ex = expediente.leerExpediente((long) 104200001);
 			if((long)104200001 != ex.getNum_Expediente()) {
 				fail("No deberia lanzar excepcion1");

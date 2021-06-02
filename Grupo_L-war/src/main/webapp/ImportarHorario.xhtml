@@ -27,9 +27,18 @@
 	<h1 class="titulo"> IMPORTAR HORARIO </h1>
 
 	<div class="centrado">
-	    <h:form>
-			<p:fileUpload listener="#{fileUploadView.handleFileUpload}" mode="advanced" dragDropSupport="true" update="messages" allowTypes="/(\.|\/)(csv|xls|xlsx)$/"/>
-			<p:growl id="messages" showDetail="true"/>
+	     <h:form enctype="multipart/form-data">
+	    	<p:growl id="messages" showDetail="true"/>
+       		 <p:fileUpload mode="advanced"
+                      multiple="false"
+                      sizeLimit="10240000" allowTypes="/(\.|\/)(xlsx)$/"
+                      invalidSizeMessage="Maximum file size allowed is 10 MB"
+                      invalidFileMessage="Solo se permite el tipo XLSX "
+                      update="messages cropperPanel"
+                      listener="#{uploadHorario.handleFileUpload}"/>
+                      
+                      
+             <p:outputPanel id="cropperPanel"></p:outputPanel>
 		</h:form>
 	</div>
 

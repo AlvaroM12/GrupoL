@@ -97,17 +97,4 @@ public class AsignaturaBB {
 		return "";
 	}
 	
-	public void upload() throws IOException, TitulacionException, AsignaturaException{
-	   	 if (file != null) {
-	            Path path = Files.createTempFile("Asignatura_", ".xlsx");
-	            File file_name = new File(path.toString());
-	            OutputStream output = new FileOutputStream(file_name);
-	            IOUtils.copy(file.getInputStream(), output);
-	            asignatura.importarAsignatura(path.toString());
-	             
-	            
-	            FacesMessage message = new FacesMessage("Successful", file.getFileName() + " is uploaded.");
-	            FacesContext.getCurrentInstance().addMessage(null, message);
-	   	 }
-	   }
 }

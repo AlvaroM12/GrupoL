@@ -6,7 +6,9 @@ import es.uma.informatica.Entidades.Alumno;
 import es.uma.informatica.Entidades.Asignatura;
 import es.uma.informatica.Entidades.Asignaturas_Matricula;
 import es.uma.informatica.Entidades.Asignaturas_Matricula.Asignaturas_MatriculaId;
+import es.uma.informatica.Entidades.Encuesta;
 import es.uma.informatica.Entidades.Grupo;
+import es.uma.informatica.Exception.EncuestaException;
 import es.uma.informatica.Exception.GrupoException;
 import es.uma.informatica.Exception.PlazasException;
 import es.uma.informatica.Exception.TitulacionException;
@@ -75,6 +77,8 @@ public interface InterfazGrupo {
 	public List<Grupo> leerGrupos() throws GrupoException;
 
 	public List<String> leerLetraGrupo(Long curso, Long codigo) throws GrupoException, TitulacionException;
+
+	public List<Asignaturas_Matricula> leerAsigMatriculaAlumno(Alumno al) throws GrupoException;
 
 	
 }

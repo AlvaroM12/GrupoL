@@ -38,17 +38,17 @@ public class TitulacionEJB implements InterfazTitulacion{
 	}
 
 	@Override
-	public void importarTitulacion(String fileName) throws TitulacionException {		
+	public void importarTitulacion(File fichero) throws TitulacionException {		
 		try {
 			//String directorio_de_ejecucion_de_la_aplicacion; 
 			//directorio_de_ejecucion_de_la_aplicacion = new java.io.File( "." ).getCanonicalPath();
 			//String sFile = directorio_de_ejecucion_de_la_aplicacion + "/" +"Titulacion.xlsx";
-			/*
-	        Workbook wb = WorkbookFactory.create(new File(fileName));	// El path ya te da el nombre incluido
-	        Sheet sheet = wb.getSheet("Hoja1");*/
-			XSSFWorkbook workbook = new XSSFWorkbook(fileName);
+			
+	        Workbook wb = WorkbookFactory.create(fichero);	// El path ya te da el nombre incluido
+	        Sheet sheet = wb.getSheet("Hoja1");
+			/*XSSFWorkbook workbook = new XSSFWorkbook(fileName);
 			XSSFSheet sheet = workbook.getSheet("Hoja1");
-	        Row row = sheet.getRow(0);
+	        Row row = sheet.getRow(0);*/
 	       
 	        
 	        

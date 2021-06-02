@@ -18,7 +18,7 @@ public class Expediente implements Serializable {
 
 	private static final long serialVersionUID = 1L;   
 	
-	@Id @GeneratedValue
+	@Id
 	private Long Num_Expediente;
 	private String Activo;
 	private Float Nota_Media;
