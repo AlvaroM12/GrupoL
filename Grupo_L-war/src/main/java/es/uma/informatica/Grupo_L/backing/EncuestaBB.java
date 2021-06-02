@@ -10,7 +10,10 @@ import es.uma.informatica.Entidades.Encuesta;
 import es.uma.informatica.Entidades.Expediente;
 import es.uma.informatica.Entidades.Titulacion;
 import es.uma.informatica.Exception.EncuestaException;
+import es.uma.informatica.Exception.GrupoException;
+import es.uma.informatica.Exception.TitulacionException;
 import es.uma.informatica.Interfaces.InterfazEncuesta;
+import es.uma.informatica.Interfaces.InterfazGrupo;
 
 @Named(value = "encuesta")
 @RequestScoped
@@ -19,9 +22,13 @@ public class EncuestaBB {
 	@Inject
 	private InfoSesion infosesion;
 	@Inject
-	private InterfazEncuesta encuesta;
+	private InterfazEncuesta encuesta;	
+	@Inject
+	private InterfazGrupo grupo;
 	
 	private Encuesta e;
+	
+	private String letra;
 	
 	public EncuestaBB() {
 		
@@ -35,7 +42,15 @@ public class EncuestaBB {
 		this.e = e;
 	}
 	
-	//METODO PARA LEER LA ENCUESTA DESDE ALUMNO
+	public String getLetra() {
+		return letra;
+	}
+
+	public void setLetra(String letra) {
+		this.letra = letra;
+	}
+
+	//METODO PARA LEER LAS ENCUESTA DE UN ALUMNO
 	public List<Encuesta> getEncuesta()
     {
 		List<Encuesta> encuestas = new ArrayList<Encuesta>();
@@ -46,20 +61,9 @@ public class EncuestaBB {
 			e.printStackTrace();
 		}
 		return encuestas;
-		
-		
-		
-		/*List<Encuesta> encuesta = new ArrayList<Encuesta>();
-        for (Expediente e : infosesion.getAlumno().getExpedientes()) {	
-        	for (Encuesta encuesta2 : e.getEncuestas()) {
-				encuesta.add(encuesta2);
-			}
-        						
-		}
-        return encuesta;*/
     }
 
-	//METODO PARA LEER LAS ENCUESTAS DESDE SECRETARIA
+	//METODO PARA LEER TODAS LAS ENCUESTAS
 	public List<Encuesta> getEncuestas(){
 		
 		try {
@@ -68,6 +72,20 @@ public class EncuestaBB {
 			e.printStackTrace();
 		}
 		return null;
+	}
+	
+	public List<String> getLetras(Long curso, Long tit) {
+		
+		try {
+			return grupo.leerLetraGrupo(curso, tit);
+		} catch (GrupoException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (TitulacionException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;		
 	}
 	
 }

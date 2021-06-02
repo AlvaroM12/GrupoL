@@ -16,6 +16,7 @@ import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import es.uma.informatica.Entidades.Asignatura;
+import es.uma.informatica.Entidades.Expediente;
 import es.uma.informatica.Entidades.Titulacion;
 import es.uma.informatica.Exception.AsignaturaException;
 import es.uma.informatica.Interfaces.InterfazAsignatura;
@@ -104,6 +105,14 @@ public class AsignaturaEJB implements InterfazAsignatura {
 	@Override
 	public List<Asignatura> leerAsignaturas() {
 		TypedQuery <Asignatura> query = em.createQuery("SELECT a FROM Asignatura a ", Asignatura.class);
+    	List<Asignatura> list = query.getResultList();
+		return list;
+	}
+	
+	@Override
+	public List<Asignatura> leerAsignaturasTitulacion(Titulacion t) {
+		TypedQuery <Asignatura> query = em.createQuery("SELECT a FROM Asignatura a "+ "WHERE a.TA LIKE : titula", Asignatura.class);
+		query.setParameter("titula", t);
     	List<Asignatura> list = query.getResultList();
 		return list;
 	}

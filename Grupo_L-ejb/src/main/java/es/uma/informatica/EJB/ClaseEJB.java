@@ -92,6 +92,17 @@ public class ClaseEJB implements InterfazClase{
 		}
 	}
 	
+	@Override
+	public Clase leerClase(ClaseId cl) throws ClaseException {
+		Clase c = em.find(Clase.class, cl );
+		if(c==null) {
+			throw new ClaseException();
+		}
+		return c;
+	}
+	
+	
+	@Override
 	public List<Clase> leerClasesAlumno(Alumno al) throws ClaseException {
 		
 		

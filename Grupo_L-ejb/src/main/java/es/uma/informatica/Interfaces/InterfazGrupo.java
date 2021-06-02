@@ -9,6 +9,7 @@ import es.uma.informatica.Entidades.Asignaturas_Matricula.Asignaturas_MatriculaI
 import es.uma.informatica.Entidades.Grupo;
 import es.uma.informatica.Exception.GrupoException;
 import es.uma.informatica.Exception.PlazasException;
+import es.uma.informatica.Exception.TitulacionException;
 @Local
 public interface InterfazGrupo {
 	
@@ -72,6 +73,8 @@ public interface InterfazGrupo {
 	public List<Asignaturas_Matricula> leerAsignaturasMatricula() throws GrupoException;
 
 	public List<Grupo> leerGrupos() throws GrupoException;
+
+	public List<String> leerLetraGrupo(Long curso, Long codigo) throws GrupoException, TitulacionException;
 
 	
 }
