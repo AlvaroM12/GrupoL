@@ -10,8 +10,10 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import es.uma.informatica.Entidades.Clase;
 import es.uma.informatica.Entidades.Encuesta;
+import es.uma.informatica.Exception.AsignaturaException;
 import es.uma.informatica.Exception.ClaseException;
 import es.uma.informatica.Exception.EncuestaException;
+import es.uma.informatica.Interfaces.InterfazAsignatura;
 import es.uma.informatica.Interfaces.InterfazClase;
 
 @Named
@@ -20,6 +22,8 @@ public class ClaseBB {
 
 	@Inject
 	private InterfazClase clase;
+	
+	
 	
 	@Inject
 	private InfoSesion infosesion;

@@ -3,6 +3,7 @@ package es.uma.informatica.EJB;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -32,6 +33,9 @@ public class ClaseEJB implements InterfazClase{
 
 	@PersistenceContext(name="Clase")
 	private EntityManager em;
+	
+	private final static Logger LOGGER=Logger.getLogger(ClaseEJB.class.getCanonicalName());
+
 	
 	@Override
 	public void Importar_Horario() throws ClaseException {
@@ -93,30 +97,31 @@ public class ClaseEJB implements InterfazClase{
 	}
 	
 	public List<Clase> leerClasesAlumno(Alumno al) throws ClaseException {
-		
-		
+						  	      
+	
+		TypedQuery <Expediente> query = em.createQuery("SELECT e FROM Expediente e " + "WHERE e.AE LIKE : alumno", Expediente.class);
+        query.setParameter("alumno", al);
+        List<Expediente> listExpediente = query.getResultList();
+        List<Asignaturas_Matricula> listAsigMatricula = new ArrayList <Asignaturas_Matricula>();
 		List<Clase> listClase = new ArrayList <Clase>();
 		
-		TypedQuery <Expediente> query = em.createQuery("SELECT e FROM Expediente e " + "WHERE e.AE LIKE : alumno", Expediente.class);
-    	query.setParameter("alumno", al);
-    	List<Expediente> listExpediente = query.getResultList();
     	
 		for(Expediente expediente : listExpediente) {
-			TypedQuery <Matricula> query2 = em.createQuery("SELECT a FROM Matricula a " + "WHERE a.EM LIKE : expediente", Matricula.class);
-	    	query2.setParameter("expediente", expediente);
-	    	List<Matricula> listMatricula = query2.getResultList();
-			for (Matricula matricula : listMatricula) {
-				TypedQuery <Asignaturas_Matricula> query3 = em.createQuery("SELECT a FROM Asignaturas_Matricula a " + "WHERE a.matricula LIKE : matricula", Asignaturas_Matricula.class);
-		    	query3.setParameter("matricula", matricula);
-		    	List<Asignaturas_Matricula> listAsigMatricula = query3.getResultList();
+			TypedQuery <Asignaturas_Matricula> query3 = em.createQuery("SELECT en FROM Asignaturas_Matricula en " + "WHERE en.EM LIKE : ex", Asignaturas_Matricula.class);
+            query3.setParameter("ex", expediente.getNum_Expediente());
+            listAsigMatricula = query3.getResultList();
+	    
 				for (Asignaturas_Matricula asigmatricula : listAsigMatricula) {
-					TypedQuery <Asignatura> query4 = em.createQuery("SELECT a FROM Asignatura a " + "WHERE a.asignatura LIKE : asigmatricula", Asignatura.class);
-			    	query4.setParameter("asigmatricula", asigmatricula);
+					TypedQuery <Asignatura> query4 = em.createQuery("SELECT a FROM Asignatura a " + "WHERE a.Referencia LIKE : asigmatricula", Asignatura.class);
+			    	query4.setParameter("asigmatricula", asigmatricula.getAsignatura().getReferencia());
 			    	List<Asignatura> listAsignaturas = query4.getResultList();
+			    	
+			    	
 					for (Asignatura asignatura : listAsignaturas) {
 						TypedQuery <Clase> query5 = em.createQuery("SELECT a FROM Clase a " + "WHERE a.AC LIKE : asignatura", Clase.class);
 				    	query5.setParameter("asignatura", asignatura);
 				    	List<Clase> listClase2 = query5.getResultList();
+				    	
 						for (Clase clase : listClase2) {
 							listClase.add(clase);
 						}
@@ -124,7 +129,7 @@ public class ClaseEJB implements InterfazClase{
 				}
 			}
 		
-		}
+		
     	
     	return listClase;	
 	}
