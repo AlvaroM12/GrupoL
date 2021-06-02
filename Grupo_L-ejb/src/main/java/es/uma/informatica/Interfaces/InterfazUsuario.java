@@ -50,6 +50,9 @@ public interface InterfazUsuario {
 	public void generarNuevaContrasenia(Usuario u, String contrasenia) throws UsuarioException;
 
 
+	public Usuario encontrarUsuarioCorreo(String email) throws UsuarioException;
+
+
 	
 
 

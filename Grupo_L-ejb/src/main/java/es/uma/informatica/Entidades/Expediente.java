@@ -41,7 +41,7 @@ public class Expediente implements Serializable {
 	private Alumno AE;
 	
 	
-	@OneToMany(mappedBy = "EM", cascade = {CascadeType.REMOVE, CascadeType.PERSIST}, fetch=FetchType.EAGER)
+	@OneToMany(mappedBy = "EM")
 	private List<Matricula> matriculas;
 	
 	@OneToMany(mappedBy = "EE" , cascade = {CascadeType.REMOVE, CascadeType.PERSIST})

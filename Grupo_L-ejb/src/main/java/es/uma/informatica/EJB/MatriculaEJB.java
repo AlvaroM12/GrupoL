@@ -46,11 +46,11 @@ public class MatriculaEJB implements InterfazMatricula {
 		    Workbook wb = WorkbookFactory.create(inp);
 			Sheet sheet = wb.getSheet("Hoja1");
 	        
-	        Matricula m = new Matricula();
-	        Expediente e = new Expediente();
-	       
 	        LOGGER.info("--------------------- ANTES DEL FOR");
 	        for(int fila=4; fila<sheet.getLastRowNum(); fila++) {
+	        	Matricula m = new Matricula();
+		        Expediente e = new Expediente();
+		        
 	        	String curso = sheet.getRow(0).getCell(1).getStringCellValue();
 	        	m.setCurso_Academico(curso);
 	        	LOGGER.info("--------------------- dentro DEL FOR");
@@ -70,7 +70,7 @@ public class MatriculaEJB implements InterfazMatricula {
 	        	String turnoPref = sheet.getRow(fila).getCell(15).getStringCellValue();
 	        	m.setTurno_Preferente(turnoPref);
 	        	LOGGER.info("--------------------- FILA LEIDA");
-	        	em.persist(m);
+	        	em.persist(m.getClass());
 	        	LOGGER.info("--------------------- FILA IMPORTADA");
 	        }
 		} catch (IOException e) {
