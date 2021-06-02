@@ -46,7 +46,6 @@ public class EncuestaEJB implements InterfazEncuesta {
 		
 	}
 	
-	
 	 @Override
 	    public List<Encuesta> leerEncuestas() throws EncuestaException{
 	    	
@@ -56,6 +55,7 @@ public class EncuestaEJB implements InterfazEncuesta {
 			return list;    	
 	    }
 	
+	 //METODO PARA DEVOLVER LAS ENCUESTAS DE UN ALUMNO
 	 @Override
 	    public List<Encuesta> leerEncuestasAlumno(Alumno al) throws EncuestaException{
 	    	
@@ -72,8 +72,6 @@ public class EncuestaEJB implements InterfazEncuesta {
 					listEncuesta.add(encuesta);
 				}
 			}
-	    	
-			
 			
 			return listEncuesta;    	
 	    }

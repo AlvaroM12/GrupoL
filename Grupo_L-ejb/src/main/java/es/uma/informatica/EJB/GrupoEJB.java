@@ -1,24 +1,31 @@
 package es.uma.informatica.EJB;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
+
+import es.uma.informatica.Exception.EncuestaException;
 import es.uma.informatica.Exception.GrupoAsigErrorException;
 import es.uma.informatica.Exception.GrupoErrorException;
 import es.uma.informatica.Exception.GrupoException;
 import es.uma.informatica.Exception.GrupoExistenteException;
 import es.uma.informatica.Exception.GrupoNullException;
+import es.uma.informatica.Exception.TitulacionException;
 import es.uma.informatica.Interfaces.InterfazGrupo;
+import es.uma.informatica.Interfaces.InterfazTitulacion;
 import es.uma.informatica.Entidades.Alumno;
 import es.uma.informatica.Entidades.Asignatura;
 import es.uma.informatica.Entidades.Asignaturas_Matricula;
+import es.uma.informatica.Entidades.Encuesta;
 import es.uma.informatica.Entidades.Asignaturas_Matricula.Asignaturas_MatriculaId;
 import es.uma.informatica.Entidades.Expediente;
 import es.uma.informatica.Entidades.Grupo;
 import es.uma.informatica.Entidades.GruposPorAsignatura;
 import es.uma.informatica.Entidades.Matricula;
+import es.uma.informatica.Entidades.Titulacion;
 
 /**
  * Session Bean implementation class Grupo
@@ -28,6 +35,8 @@ public class GrupoEJB implements InterfazGrupo {
 	
 	@PersistenceContext(name="Grupo_L")
 	private EntityManager em;
+	
+	private InterfazTitulacion tit;
 
 	@Override
 	public void crearGrupo(Grupo g) throws GrupoException {
@@ -211,6 +220,23 @@ public class GrupoEJB implements InterfazGrupo {
 		return list;    	
     }
     
+    
+    @Override
+    public List<String> leerLetraGrupo(Long curso, Long codigo) throws GrupoException, TitulacionException{
+   	    	
+    	Titulacion t = tit.consultarTitulacion(codigo);
+    	TypedQuery <Grupo> query = em.createQuery("SELECT g FROM Grupo g " + "WHERE g.Curso LIKE : curs AND g.TG LIKE : titulacion", Grupo.class);
+    	query.setParameter("curs", curso);
+    	query.setParameter("titulacion", t);
+    	List<Grupo> listGrupos = query.getResultList();
+    	List<String> listLetras = new ArrayList <String>();
+    	
+    	for (Grupo gr : listGrupos) {
+    		listLetras.add(gr.getLetra());
+		}
+    	
+		return listLetras;    	
+    }
     
     
     

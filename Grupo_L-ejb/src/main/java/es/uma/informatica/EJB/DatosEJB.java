@@ -1,11 +1,26 @@
 package es.uma.informatica.EJB;
 
+import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.URL;
+import java.nio.channels.Channels;
+import java.nio.channels.ReadableByteChannel;
+import java.nio.file.FileSystems;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.List;
 
 import javax.ejb.Stateless;
+import javax.faces.context.ExternalContext;
+import javax.faces.context.FacesContext;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -23,6 +38,7 @@ import es.uma.informatica.Entidades.Expediente;
 import es.uma.informatica.Entidades.GruposPorAsignatura;
 import es.uma.informatica.Entidades.Titulacion;
 import es.uma.informatica.Exception.DatosException;
+import es.uma.informatica.Interfaces.InterfazAsignatura;
 import es.uma.informatica.Interfaces.InterfazDatos;
 
 /**
@@ -33,16 +49,20 @@ public class DatosEJB implements InterfazDatos{
 	
 	@PersistenceContext(name="Grupo_L")
 	private EntityManager em;
+	
+	private InterfazAsignatura iasig;
 
 	public void exportarDatos(Titulacion t) throws DatosException, IOException{
 		try{
         	// Sacando datos de la bd
-        	Asignatura a = em.find(Asignatura.class, (long)1);
+        	Asignatura a = em.find(Asignatura.class, (long)1512);
         	
         	Query queryAsig = em.createQuery("SELECT a FROM Asignatura a");
         	List<Asignatura> asigList = queryAsig.getResultList();
         	
-        	t.getAsignaturas();
+        	//t.getAsignaturas();
+			//List<Asignatura> asigList = iasig.leerAsignaturasTitulacion(t);
+			
         	// Creacion archivo
 			XSSFWorkbook workbook = new XSSFWorkbook();
 	        
@@ -60,17 +80,32 @@ public class DatosEJB implements InterfazDatos{
 			
 	        // Exportacion archivo
 	        System.out.println("Exportando Archivo");
-			try (FileOutputStream file = new FileOutputStream("/home/alumno/eclipse-workspace/Grupo_L/ExportarDatos/" + t.getNombre() + ".xls")){
+			try (FileOutputStream file = new FileOutputStream("wildfly/docs/" + t.getNombre() + ".xls")){
 				workbook.write(file);
-			} catch (FileNotFoundException f) {
-				f.printStackTrace();
+				
 			}   
 			workbook.close();
+			
+		
+			
+			
         }catch (NullPointerException n) {
         	n.printStackTrace();
+        } catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		Path origenPath = FileSystems.getDefault().getPath("wildfly/docs/" + t.getNombre() + ".xls");
+        Path destinoPath = FileSystems.getDefault().getPath("/home/alumno/eclipse-workspace/Grupo_L/ExportarDatos/");
+
+        try {
+            Files.move(origenPath, destinoPath, StandardCopyOption.REPLACE_EXISTING);
+        } catch (IOException e) {
+            System.err.println(e);
         }
 	}
 	
+
 	
 	private void creacionHojasExcel(XSSFWorkbook workbook, Titulacion t, Asignatura asig) throws DatosException, IOException {
 		XSSFSheet sheet = workbook.createSheet(asig.getNombre());

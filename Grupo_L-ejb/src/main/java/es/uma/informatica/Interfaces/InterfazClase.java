@@ -19,4 +19,6 @@ public interface InterfazClase {
 	public void Importar_Horario() throws ClaseException;
 	
 	public List<Clase> leerClasesAlumno(Alumno al) throws ClaseException;
+
+	public Clase leerClase(ClaseId cl) throws ClaseException;
 }
