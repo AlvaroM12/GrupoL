@@ -5,6 +5,7 @@ package es.uma.informatica.Grupo_L.backing;
 import java.io.IOException;
 
 import javax.enterprise.context.RequestScoped;
+
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -18,11 +19,15 @@ import es.uma.informatica.Interfaces.InterfazTitulacion;
 @RequestScoped
 public class ExportarDatosBB {
 	
+	
+	private String name;
     @Inject
     private InterfazDatos datosejb;
     @Inject
     private InterfazTitulacion titulacion;
     private String selectedOption;
+    
+    
     
     public String getSelectedOption() {
         return selectedOption;
@@ -32,18 +37,20 @@ public class ExportarDatosBB {
         this.selectedOption = selectedOption;
     }
     
-    public void exDatos() throws DatosException, IOException, TitulacionException {
+    
+    public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void exDatos() throws DatosException, IOException, TitulacionException {
     	long codigo=Long.parseLong(selectedOption);
     	Titulacion t=titulacion.consultarTitulacion(codigo);
-    	datosejb.exportarDatos(t);
-    	
-		
-    }
-    
-    
-    
-	
-  
-    
+    	name=t.getNombre();
+    	datosejb.exportarDatos(t);			
+    }  
    
 }

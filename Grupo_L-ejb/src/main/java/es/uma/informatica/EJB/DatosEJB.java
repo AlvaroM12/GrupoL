@@ -17,6 +17,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.List;
+import java.util.logging.Logger;
 
 import javax.ejb.Stateless;
 import javax.faces.context.ExternalContext;
@@ -51,6 +52,8 @@ public class DatosEJB implements InterfazDatos{
 	private EntityManager em;
 	
 	private InterfazAsignatura iasig;
+	
+	private final static Logger LOGGER=Logger.getLogger(DatosEJB.class.getCanonicalName());
 
 	public void exportarDatos(Titulacion t) throws DatosException, IOException{
 		try{
@@ -80,7 +83,7 @@ public class DatosEJB implements InterfazDatos{
 			
 	        // Exportacion archivo
 	        System.out.println("Exportando Archivo");
-			try (FileOutputStream file = new FileOutputStream("wildfly/docs/" + t.getNombre() + ".xls")){
+			try (FileOutputStream file = new FileOutputStream("/opt/jboss/wildfly/docs/" + t.getNombre() + ".xls")){
 				workbook.write(file);
 				
 			}   
@@ -95,14 +98,16 @@ public class DatosEJB implements InterfazDatos{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		Path origenPath = FileSystems.getDefault().getPath("wildfly/docs/" + t.getNombre() + ".xls");
-        Path destinoPath = FileSystems.getDefault().getPath("/home/alumno/eclipse-workspace/Grupo_L/ExportarDatos/");
+		Path origenPath = FileSystems.getDefault().getPath("/opt/jboss/wildfly/docs/" + t.getNombre() + ".xls");
+		File f = origenPath.toFile();
+		LOGGER.info("fichero existe" + f.exists()) ;
+        /*Path destinoPath = FileSystems.getDefault().getPath("/home/alumno/eclipse-workspace/Grupo_L/ExportarDatos/" + t.getNombre() + ".xls");
 
         try {
             Files.move(origenPath, destinoPath, StandardCopyOption.REPLACE_EXISTING);
         } catch (IOException e) {
             System.err.println(e);
-        }
+        }*/
 	}
 	
 

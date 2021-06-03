@@ -12,6 +12,18 @@
 	<title>Exportar Datos</title>
 	<h:outputStylesheet library="css" name="Layout.css"/>
 	<h:outputStylesheet library="css" name="Estilos.css" />
+	
+	<script type="text/javascript">
+	    //<![CDATA[
+	    function start() {
+	        PF('statusDialog').show();
+	    }
+	
+	    function stop() {
+	        PF('statusDialog').hide();
+	    }
+	    //]]>
+	</script>
 </h:head>
 
 <h:body>
@@ -51,6 +63,26 @@
 		 <h:commandButton action="#{exportar.exDatos()}">EXPORTAR</h:commandButton> 
 		</div>
 	</h:form>
+	
+
+
+<div class="card">
+    <p:dialog modal="true" widgetVar="statusDialog" header="Status" draggable="false" closable="false"
+              resizable="false">
+              <i class="pi pi-spinner pi-spin" style="font-size:3rem"></i>
+    </p:dialog>
+
+    <h:form>
+        <p:commandButton value="Download" ajax="false" onclick="PrimeFaces.monitorDownload(start, stop);"
+                         icon="pi pi-arrow-down" styleClass="p-mr-2">
+            <p:fileDownload value="#{fileDownloadView.file}"/>
+        </p:commandButton>
+
+        <p:commandButton value="Ajax Download" icon="pi pi-arrow-down" styleClass="ui-button-outlined">
+            <p:fileDownload value="#{fileDownloadView.file}"/>
+        </p:commandButton>
+    </h:form>
+</div>
 
 	<div class="pie"> 
 		Universidad de Málaga · Avda. Cervantes, 2. 29071 MÁLAGA · Tel. 952131000 · info@uma.es	
