@@ -88,6 +88,7 @@ public class ExpedienteEJB implements InterfazExpediente {
 	        	e.setCreditos_TF(Double.parseDouble(Creditos_TF));
 	        	em.merge(e);
 	        }
+	      wb.close();
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}

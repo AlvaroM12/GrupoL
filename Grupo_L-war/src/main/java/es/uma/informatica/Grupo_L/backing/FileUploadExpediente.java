@@ -54,6 +54,8 @@ public class FileUploadExpediente {
             	
             	 try {
 					expediente.importarExpediente(new File("wildfly/docs/"+fileupload.getFileName()));
+					Path p = Paths.get("wildfly/docs/"+fileupload.getFileName());
+					Files.delete(p);
 				 } catch (ExpedienteException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
