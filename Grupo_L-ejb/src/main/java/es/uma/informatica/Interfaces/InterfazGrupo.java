@@ -76,9 +76,9 @@ public interface InterfazGrupo {
 
 	public List<Grupo> leerGrupos() throws GrupoException;
 
-	public List<String> leerLetraGrupo(Long curso, Long codigo) throws GrupoException, TitulacionException;
-
 	public List<Asignaturas_Matricula> leerAsigMatriculaAlumno(Alumno al) throws GrupoException;
+
+	public List<String> leerLetraGrupo(Long curso, Long codigo) throws GrupoException, TitulacionException;
 
 	
 }
