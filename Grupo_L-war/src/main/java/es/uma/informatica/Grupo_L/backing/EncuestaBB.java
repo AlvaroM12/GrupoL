@@ -52,7 +52,7 @@ public class EncuestaBB {
 
 	//METODO PARA LEER LAS ENCUESTA DE UN ALUMNO
 	public List<Encuesta> getEncuesta()
-    {
+	{
 		List<Encuesta> encuestas = new ArrayList<Encuesta>();
 		try {
 			encuestas = encuesta.leerEncuestasAlumno(infosesion.getAlumno());
@@ -61,11 +61,11 @@ public class EncuestaBB {
 			e.printStackTrace();
 		}
 		return encuestas;
-    }
+	}
 
 	//METODO PARA LEER TODAS LAS ENCUESTAS
 	public List<Encuesta> getEncuestas(){
-		
+
 		try {
 			return encuesta.leerEncuestas();
 		} catch (EncuestaException e) {
@@ -73,11 +73,11 @@ public class EncuestaBB {
 		}
 		return null;
 	}
-	
-	public List<String> getLetras(Long curso, Long tit) {
-		
+
+	public List<String> getLetraPrimero() {
+
 		try {
-			return grupo.leerLetraGrupo(curso, tit);
+			return grupo.leerLetraGrupo((long)1, (long)1703);
 		} catch (GrupoException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -87,5 +87,47 @@ public class EncuestaBB {
 		}
 		return null;		
 	}
-	
+
+	public List<String> getLetraSegundo() {
+
+		try {
+			return grupo.leerLetraGrupo((long)2, (long)1703);
+		} catch (GrupoException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (TitulacionException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;		
+	}
+
+	public List<String> getLetraTercero() {
+
+		try {
+			return grupo.leerLetraGrupo((long)3, (long)1703);
+		} catch (GrupoException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (TitulacionException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;		
+	}
+
+	public List<String> getLetraCuarto() {
+
+		try {
+			return grupo.leerLetraGrupo((long)4, (long)1703);
+		} catch (GrupoException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (TitulacionException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;		
+	}
+
 }
