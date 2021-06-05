@@ -39,11 +39,7 @@ public class AsignaturaEJB implements InterfazAsignatura {
 			Workbook wb = WorkbookFactory.create(fichero);	// El path ya te da el nombre incluido
 	        Sheet sheet = wb.getSheet("GII");
 	        
-	      
-	        
-	        
-	        
-	    	for(int fila=1; fila<83; fila++) {
+	    	for(int fila=1; fila<4; fila++) {
 	        	
 	        	Asignatura a = new Asignatura();
 	 	        Titulacion t = new Titulacion();
@@ -86,6 +82,7 @@ public class AsignaturaEJB implements InterfazAsignatura {
 	        	a.setIdioma_de_imparticion(idioma);
 	        	em.merge(a);        
 	        }
+	    	wb.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
