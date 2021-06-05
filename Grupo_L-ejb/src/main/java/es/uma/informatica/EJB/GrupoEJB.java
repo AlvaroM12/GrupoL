@@ -36,7 +36,8 @@ public class GrupoEJB implements InterfazGrupo {
 	@PersistenceContext(name="Grupo_L")
 	private EntityManager em;
 	
-	private InterfazTitulacion tit;
+	
+	private TitulacionEJB tit;
 
 	@Override
 	public void crearGrupo(Grupo g) throws GrupoException {
@@ -238,7 +239,7 @@ public class GrupoEJB implements InterfazGrupo {
     @Override
     public List<String> leerLetraGrupo(Long curso, Long codigo) throws GrupoException, TitulacionException{
    	    	
-    	Titulacion t = tit.consultarTitulacion(codigo);
+    	Titulacion t = tit.leerTitulacion(codigo);
     	TypedQuery <Grupo> query = em.createQuery("SELECT g FROM Grupo g " + "WHERE g.Curso LIKE : curs AND g.TG LIKE : titulacion", Grupo.class);
     	query.setParameter("curs", curso);
     	query.setParameter("titulacion", t);
