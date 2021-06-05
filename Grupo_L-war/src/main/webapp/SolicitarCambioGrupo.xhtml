@@ -4,7 +4,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
-	xmlns:f="http://xmlns.jcp.org/jsf/core">
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+	
 
 <h:head>
 	<title>Solicitar cambio de grupo</title>
@@ -26,37 +28,37 @@
 
 	<div class="izquierda">
 		<b>MIS DATOS </b><br></br><br></br> 
-		<a href="#" style="text-decoration: none">Leer Encuesta</a><br></br>
-		<a href="#" style="text-decoration: none">Leer Asignatura Matricula</a><br></br>
+		<a href="LeerEncuesta.xhtml" style="text-decoration: none">Leer Encuesta</a><br></br>
+		<a href="LeerAsignaturaMatricula.xhtml" style="text-decoration: none">Leer Asignatura Matricula</a><br></br>
 		<a href="LeerMatricula.xhtml" style="text-decoration: none">Leer Matricula</a><br></br> 
 		<a href="LeerTitulacion.xhtml" style="text-decoration: none">Leer Titulacion</a><br></br> 
 		<a href="LeerAlumnos.xhtml" style="text-decoration: none">Leer Usuario</a><br></br> 
 		<a href="LeerAsignaturas.xhtml" style="text-decoration: none">Leer Asignatura</a><br></br> 
-		<a href="#" style="text-decoration: none">Leer Clase</a><br></br> 
+		<a href="LeerClase.xhtml" style="text-decoration: none">Leer Clase</a><br></br> 
 		<a href="LeerExpediente.xhtml" style="text-decoration: none">Leer Expediente</a>
 	</div>
 
 	<div class="centro">
-		<label for="curso">Curso:</label>
-		<select name="curso">
-			 <option value="1">1º</option>
-			 <option value="2">2º</option>
-		</select><br></br>
-
-		<label for="grupo">Grupo:</label>
-		<select name="grupo">
-			 <option value="a">A</option>
-			 <option value="b">B</option>
-		</select><br></br>
+		
+    <h:form>
+        <a>Titulación:</a>
+        
+      
+       <h:selectOneMenu id="titulacion" value="#{solicitar.t}">
+   			 <f:selectItems value="#{solicitar.titulaciones}"/>
+   			  <f:ajax event = "change" update="curso" execute="@this" render="curso"></f:ajax>
+		</h:selectOneMenu>
+		
+		 <h:selectOneMenu id="curso" value="#{solicitar.curso}">
+   			 <f:selectItems value="#{solicitar.cursos}"/>   			  
+		</h:selectOneMenu>
+		
+		<h:outputText id="tSeleccionada" value="#{solictar.t}"></h:outputText>
+        
+    </h:form>
 		
 		<label for="asig">Motivo:</label>
 		<textarea name="comentarios" rows="10" cols="40"></textarea><br></br>
-	
-		<label for="asig">Asignatura:</label>
-		<select name="asig">
-			 <option value="1041">Calculo</option>
-			 <option value="1042">SII</option>
-		</select>
 		
 		<br></br><br></br><input type="submit" name="leerEncuesta" value="Cancelar"/>
 		<input type="submit" name="leerEncuesta" value="Aceptar"/>

@@ -12,15 +12,16 @@ import javax.persistence.*;
  *
  */
 @Entity
+@Table(uniqueConstraints={
+	    @UniqueConstraint(columnNames = {"Curso", "Letra"})
+	}) 
 
 public class Grupo implements Serializable {
 
 	   
 	@Id @GeneratedValue
 	private Long ID;
-	@Column(unique=true)
 	private Long Curso;
-	@Column(unique=true)
 	private String Letra;
 	private String Turno_Maniana_Tarde;
 	private String Ingles;
