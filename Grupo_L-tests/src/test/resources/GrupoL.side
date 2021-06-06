@@ -1,0 +1,130 @@
+{
+  "id": "8281fdb0-fc19-4b77-8028-ffcaf115d271",
+  "version": "2.0",
+  "name": "GrupoL",
+  "url": "http://localhost:8080/Grupo_L-war/",
+  "tests": [{
+    "id": "c7f61be4-066a-48c5-bf35-f06b6f288563",
+    "name": "Login",
+    "commands": [{
+      "id": "c8d7b28b-6421-4fe7-a3f6-4838318aee35",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/Grupo_L-war/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "66ee5cf4-adef-4486-b73e-fea51e906592",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "977x715",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "9ad11a6a-813d-4831-b0dd-a2f7d7c55257",
+      "comment": "",
+      "command": "click",
+      "target": "id=inicio",
+      "targets": [
+        ["id=inicio", "id"],
+        ["css=#inicio", "css:finder"],
+        ["xpath=//input[@id='inicio']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e3e91878-51a4-4461-8327-5a062561556a",
+      "comment": "",
+      "command": "click",
+      "target": "id=j_idt7:user",
+      "targets": [
+        ["id=j_idt7:user", "id"],
+        ["name=j_idt7:user", "name"],
+        ["css=#j_idt7\\3Auser", "css:finder"],
+        ["xpath=//input[@id='j_idt7:user']", "xpath:attributes"],
+        ["xpath=//form[@id='j_idt7']/table/tbody/tr/td[2]/input", "xpath:idRelative"],
+        ["xpath=//td[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e4606800-13ad-47dd-b7b3-34d571768fdd",
+      "comment": "",
+      "command": "type",
+      "target": "id=j_idt7:user",
+      "targets": [
+        ["id=j_idt7:user", "id"],
+        ["name=j_idt7:user", "name"],
+        ["css=#j_idt7\\3Auser", "css:finder"],
+        ["xpath=//input[@id='j_idt7:user']", "xpath:attributes"],
+        ["xpath=//form[@id='j_idt7']/table/tbody/tr/td[2]/input", "xpath:idRelative"],
+        ["xpath=//td[2]/input", "xpath:position"]
+      ],
+      "value": "rocio22@uma.es"
+    }, {
+      "id": "aad6f1b5-641b-4b6d-9d1b-e26b9f014d90",
+      "comment": "",
+      "command": "click",
+      "target": "id=j_idt7:pass",
+      "targets": [
+        ["id=j_idt7:pass", "id"],
+        ["name=j_idt7:pass", "name"],
+        ["css=#j_idt7\\3Apass", "css:finder"],
+        ["xpath=//input[@id='j_idt7:pass']", "xpath:attributes"],
+        ["xpath=//form[@id='j_idt7']/table/tbody/tr[2]/td[2]/input", "xpath:idRelative"],
+        ["xpath=//tr[2]/td[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "33fe37b7-b717-41cb-b6d0-c1de654a21f8",
+      "comment": "",
+      "command": "type",
+      "target": "id=j_idt7:pass",
+      "targets": [
+        ["id=j_idt7:pass", "id"],
+        ["name=j_idt7:pass", "name"],
+        ["css=#j_idt7\\3Apass", "css:finder"],
+        ["xpath=//input[@id='j_idt7:pass']", "xpath:attributes"],
+        ["xpath=//form[@id='j_idt7']/table/tbody/tr[2]/td[2]/input", "xpath:idRelative"],
+        ["xpath=//tr[2]/td[2]/input", "xpath:position"]
+      ],
+      "value": "123"
+    }, {
+      "id": "c8c9aad7-2604-4f00-b59f-f78863972e2d",
+      "comment": "",
+      "command": "click",
+      "target": "id=j_idt7:entrar",
+      "targets": [
+        ["id=j_idt7:entrar", "id"],
+        ["name=j_idt7:entrar", "name"],
+        ["css=#j_idt7\\3A entrar", "css:finder"],
+        ["xpath=//input[@id='j_idt7:entrar']", "xpath:attributes"],
+        ["xpath=//form[@id='j_idt7']/table/tbody/tr[3]/td/input", "xpath:idRelative"],
+        ["xpath=//tr[3]/td/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a19d6e5d-0cc1-4411-b2c7-03996e5e649c",
+      "comment": "",
+      "command": "assertText",
+      "target": "id=nombre",
+      "targets": [
+        ["id=nombre", "id"],
+        ["css=#nombre", "css:finder"],
+        ["xpath=//p[@id='nombre']", "xpath:attributes"],
+        ["xpath=//p", "xpath:position"],
+        ["xpath=//p[contains(.,'Hola, Rocio.')]", "xpath:innerText"]
+      ],
+      "value": "Hola, Rocio."
+    }]
+  }],
+  "suites": [{
+    "id": "3b7c1180-ffbf-472f-b323-d6469705cd01",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["c7f61be4-066a-48c5-bf35-f06b6f288563"]
+  }],
+  "urls": ["http://localhost:8080/", "http://localhost:8080/Grupo_L-war/"],
+  "plugins": []
+}
