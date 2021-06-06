@@ -1,5 +1,6 @@
 package es.uma.informatica.Interfaces;
 
+import java.io.File;
 import java.text.ParseException;
 import java.util.List;
 import javax.ejb.Local;
@@ -14,7 +15,7 @@ public interface InterfazMatricula {
 	  Este método debe importar una matricula en la base de datos.
 	 
 	 */
-	public void importarMatricula(String path) throws ParseException;
+	public void importarMatricula(File file) throws ParseException;
 
 	public Matricula leerMatricula(MatriculaId ma) throws MatriculaException;
 

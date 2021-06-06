@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import java.util.Date;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import es.uma.informatica.Entidades.Encuesta;
 import es.uma.informatica.Entidades.Encuesta.EncuestaId;
@@ -39,7 +40,9 @@ public class EncuestaT {
 		}
 	}
 	
+	
 	@Test
+	@Ignore
 	@Requisitos({"RF20"})
 	public void testLeerEncuesta() {
 		try {

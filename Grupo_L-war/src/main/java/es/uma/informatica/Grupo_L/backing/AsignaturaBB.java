@@ -41,20 +41,9 @@ public class AsignaturaBB {
 	private InfoSesion infosesion;
 	
 	private Asignatura asig;
-	
-	
-	private UploadedFile file;
     
     private final static Logger LOGGER=Logger.getLogger(MatriculaEJB.class.getCanonicalName());
 
-    public UploadedFile getFile() {
-        return file;
-    }
-
-    public void setFile(UploadedFile file) {
-        this.file = file;
-    }
-	
 	public AsignaturaBB(){
 	}
 	
@@ -66,19 +55,16 @@ public class AsignaturaBB {
 		this.asig = as;
 	}
 	
-	
-	
 	//METODO PARA LEER UNA ASIGNATURA
 	public  synchronized List<Asignatura> getAsignaturaAlumno(){
 		List<Asignatura> asigalum = new ArrayList<Asignatura>();
 		
         for (Expediente ex : infosesion.getAlumno().getExpedientes()) {
-        	
 			Titulacion ti = ex.getTE();
-			for (Asignatura asignatura : ti.getAsignaturas()) {
-				asigalum.add(asignatura);
+			List<Asignatura> asigtit = asignatura.leerAsignaturasTitulacion(ti);
+			for (Asignatura a : asigalum) {
+				asigalum.add(a);
 			}
-					
 		}
         return asigalum;
 	}

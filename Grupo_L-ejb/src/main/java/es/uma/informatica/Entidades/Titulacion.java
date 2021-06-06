@@ -148,7 +148,7 @@ public class Titulacion implements Serializable {
 	}
 	@Override
 	public String toString() {
-		return "Titulacion [Código=" + Codigo + ", Nombre=" + Nombre + ", Créditos=" + Creditos + "]";
+		return Nombre;
 	}
 	  
 }

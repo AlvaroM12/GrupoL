@@ -82,15 +82,18 @@
 				</h:column>
 			</h:dataTable>
 		</h:form>
-
 	</ui:fragment>
-
-
 
 	<ui:fragment rendered="#{not empty infoSesion.personal}">
 		<h:form styleClass="centrado">
-		<p:commandButton value="Mostar" actionListener="#{matriculaBB.matriculas}" update="dtGrupos" />
-	
+		
+			<div class="importarMatricula">
+				<h:button value="Importar Matricula"
+					outcome="ImportarMatricula.xhtml" />
+			</div>
+			
+			<p:commandButton value="Mostar" actionListener="#{matriculaBB.matriculas}" update="dtGrupos" />
+		
 			<p:dataTable id="dtGrupos" value="#{matriculaBB.matriculas}" var="m">
 	
 				<p:column headerText="Curso Academico" filterBy="#{m.curso_Academico}"
@@ -135,11 +138,6 @@
 	
 			</p:dataTable>
 		</h:form>
-		<div class="importarMatricula">
-			<h:button value="Importar Matricula"
-				outcome="ImportarMatricula.xhtml" />
-		</div>
-		
 	</ui:fragment>
 
 	<div class="pie">Universidad de Málaga · Avda. Cervantes, 2.

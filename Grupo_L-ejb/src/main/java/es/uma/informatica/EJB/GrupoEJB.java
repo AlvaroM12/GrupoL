@@ -235,6 +235,21 @@ public class GrupoEJB implements InterfazGrupo {
 		return list;    	
     }
     
+    //LEE TODOS LOS GRUPOS QUE HAY EN LA BD
+    @Override
+    public List<Long> leerCursosTitulacion(Titulacion t) throws GrupoException{
+    	
+    	TypedQuery <Grupo> query = em.createQuery("SELECT a FROM Grupo a "+ "WHERE a.TG LIKE : titulacion", Grupo.class);
+    	query.setParameter("titulacion", t);
+    	List<Grupo> list = query.getResultList();
+    	List<Long> cursos = new ArrayList<Long>();
+    	for (Grupo g : list) {
+			cursos.add(g.getCurso());
+		}
+		
+		return cursos;    	
+    }
+    
     //LEER LETRA PARA VISTA ASIG_MATRICULA
     @Override
     public List<String> leerLetraGrupo(Long curso, Long codigo) throws GrupoException, TitulacionException{

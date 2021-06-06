@@ -36,43 +36,37 @@ public class MatriculaEJB implements InterfazMatricula {
 	private final static Logger LOGGER=Logger.getLogger(MatriculaEJB.class.getCanonicalName());
 
 	@Override
-	public void importarMatricula(String path) throws ParseException{
+	public void importarMatricula(File file) throws ParseException{
 		try {
-			LOGGER.info("PATH DEL ARCHIVO --------------------- " + path);
-			
-			File f = new File(path);
-			LOGGER.info("--------------------- FILE CREADA");
-		    InputStream inp = new FileInputStream(f);
-		    Workbook wb = WorkbookFactory.create(inp);
+		    Workbook wb = WorkbookFactory.create(file);
 			Sheet sheet = wb.getSheet("Hoja1");
-	        
-	        LOGGER.info("--------------------- ANTES DEL FOR");
-	        for(int fila=4; fila<sheet.getLastRowNum(); fila++) {
+			
+	        for(int fila=4; fila<7; fila++) {
 	        	Matricula m = new Matricula();
 		        Expediente e = new Expediente();
 		        
 	        	String curso = sheet.getRow(0).getCell(1).getStringCellValue();
 	        	m.setCurso_Academico(curso);
-	        	LOGGER.info("--------------------- dentro DEL FOR");
-	        	String nExp = sheet.getRow(fila).getCell(4).getStringCellValue();
-	        	long nE= Long.parseLong(nExp);
-	        	e.setNum_Expediente(nE);
+	        	
+	        	String Num_Expediente = sheet.getRow(fila).getCell(4).getStringCellValue();
+	        	LOGGER.info(Num_Expediente);
+	        	e.setNum_Expediente(Long.parseLong(Num_Expediente));
 	        	m.setEM(e);
-	        	LOGGER.info("--------------------- exp");
+	        	
 	        	Long Narchivo = (long) sheet.getRow(fila).getCell(5).getNumericCellValue();
 	        	m.setNum_Archivo(Narchivo);
-	        	LOGGER.info("--------------------- num arch");
+	        	
 	        	String fecha = sheet.getRow(fila).getCell(14).getStringCellValue();
 	        	DateFormat formatter = new SimpleDateFormat("DD/MM/YYYY hh:mm", Locale.ENGLISH);
 	        	java.util.Date parsed = formatter.parse(fecha);
 	        	m.setFecha_De_Matricula(parsed);
-	        	LOGGER.info("--------------------- date");
+	        	
 	        	String turnoPref = sheet.getRow(fila).getCell(15).getStringCellValue();
 	        	m.setTurno_Preferente(turnoPref);
-	        	LOGGER.info("--------------------- FILA LEIDA");
-	        	em.persist(m.getClass());
-	        	LOGGER.info("--------------------- FILA IMPORTADA");
+	        	
+	        	em.merge(m);
 	        }
+	        wb.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
