@@ -11,11 +11,11 @@ import javax.persistence.*;
  * Entity implementation class for Entity: Grupo
  *
  */
+
 @Entity
 @Table(uniqueConstraints={
-	    @UniqueConstraint(columnNames = {"Curso", "Letra"})
+	    @UniqueConstraint(columnNames = {"TG_Codigo", "Curso", "Letra"})
 	}) 
-
 public class Grupo implements Serializable {
 
 	   
