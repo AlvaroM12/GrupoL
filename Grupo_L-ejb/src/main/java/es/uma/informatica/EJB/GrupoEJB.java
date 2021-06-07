@@ -243,7 +243,9 @@ public class GrupoEJB implements InterfazGrupo {
     	List<Grupo> list = query.getResultList();
     	List<Long> cursos = new ArrayList<Long>();
     	for (Grupo g : list) {
+    		if(!cursos.contains(g.getCurso())) {
 			cursos.add(g.getCurso());
+    		}
 		}
 		
 		return cursos;    	
@@ -251,9 +253,8 @@ public class GrupoEJB implements InterfazGrupo {
     
     //LEER LETRA PARA VISTA ASIG_MATRICULA
     @Override
-    public List<String> leerLetraGrupo(Long curso, Long codigo) throws GrupoException, TitulacionException{
+    public List<String> leerLetraGrupo(Long curso, Titulacion t) throws GrupoException{
    	    	
-    	Titulacion t = tit.consultarTitulacion(codigo);
     	TypedQuery <Grupo> query = em.createQuery("SELECT g FROM Grupo g " + "WHERE g.Curso LIKE : curs AND g.TG LIKE : titulacion", Grupo.class);
     	query.setParameter("curs", curso);
     	query.setParameter("titulacion", t);
@@ -265,5 +266,34 @@ public class GrupoEJB implements InterfazGrupo {
 		}
     	
 		return listLetras;    	
-    }   
+    } 
+    
+  //METODO PARA ASIGNAR 
+    @Override
+    public void asignaGrupo(Alumno al, Grupo g, Asignatura a, Titulacion t) throws GrupoException{
+    	
+    	TypedQuery <Expediente> query = em.createQuery("SELECT e FROM Expediente e " + "WHERE e.AE LIKE : alumno AND e.TE LIKE : titula", Expediente.class);
+    	query.setParameter("alumno", al);
+    	query.setParameter("titula", t);
+    	List<Expediente> listExpediente = query.getResultList();
+    	//List<Asignaturas_Matricula> listAsigMatricula = new ArrayList <Asignaturas_Matricula>();
+    	
+    	for (Expediente expediente : listExpediente) {
+    		Asignaturas_Matricula am=new Asignaturas_Matricula();
+    		am.setAsignatura(a);
+    		am.setG_AM(g);
+    		Matricula m=em.find(Matricula.class, expediente.getNum_Expediente());
+    		am.setMatricula(m);
+    		em.merge(am);
+    		/*TypedQuery <Asignaturas_Matricula> query3 = em.createQuery("SELECT en FROM Asignaturas_Matricula en " + "WHERE en.EM LIKE : ex", Asignaturas_Matricula.class);
+	    	query3.setParameter("ex", expediente.getNum_Expediente());
+	    	listAsigMatricula = query3.getResultList();	
+	    	for (Asignaturas_Matricula asignaturas_Matricula : listAsigMatricula) {
+	    		if(asignaturas_Matricula.getAsignatura().equals(a)) {
+	    			asignaturas_Matricula.setG_AM(g);
+	    		}
+			}*/
+		}		
+		   	
+    }
 }

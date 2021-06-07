@@ -73,7 +73,7 @@ public class EncuestaBB {
 		}
 		return null;
 	}
-
+/*
 	public List<String> getLetraPrimero() {
 
 		try {
@@ -129,5 +129,5 @@ public class EncuestaBB {
 		}
 		return null;		
 	}
-
+*/
 }
