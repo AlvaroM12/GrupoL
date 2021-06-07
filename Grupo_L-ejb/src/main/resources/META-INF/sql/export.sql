@@ -38,11 +38,11 @@ INSERT INTO Centro (ID, Direccion, Nombre, TLF_Conserjeria) VALUES (2, 'Peñalos
 --  DDL for Titulacion
 --------------------------------------------------------
 
-INSERT INTO Titulacion (Codigo, Creditos, Nombre) VALUES (1041, 240, 'Grado en Ingeniería Informática');
-INSERT INTO Titulacion (Codigo, Creditos, Nombre) VALUES (1042, 240, 'Grado en Ingeniería del Software');
-INSERT INTO Titulacion (Codigo, Creditos, Nombre) VALUES (1043, 240, 'Grado en Ingeniería de Computadores');
-INSERT INTO Titulacion (Codigo, Creditos, Nombre) VALUES (1056, 240, 'Grado en Ingeniería de la Salud');
-INSERT INTO Titulacion (Codigo, Creditos, Nombre) VALUES (1073, 372, 'Doble Grado en Ingeniería Informatica y Matemáticas');
+INSERT INTO Titulacion (Codigo, Creditos, Nombre) VALUES (1041, 240, 'Grado en Ingenieria Informatica');
+INSERT INTO Titulacion (Codigo, Creditos, Nombre) VALUES (1042, 240, 'Grado en Ingenieria del Software');
+INSERT INTO Titulacion (Codigo, Creditos, Nombre) VALUES (1043, 240, 'Grado en Ingenieria de Computadores');
+INSERT INTO Titulacion (Codigo, Creditos, Nombre) VALUES (1056, 240, 'Grado en Ingenieria de la Salud');
+INSERT INTO Titulacion (Codigo, Creditos, Nombre) VALUES (1073, 372, 'Doble Grado en Ingenieria Informatica y Matematicas');
 
 --------------------------------------------------------
 --  DDL for Table Centro_Titulacion
@@ -70,12 +70,12 @@ INSERT INTO Expediente (Num_Expediente, Activo, Creditos_CF, Creditos_FB, Credit
 --  DDL for Table Asignatura
 --------------------------------------------------------
 
-INSERT INTO Asignatura (Referencia, Codigo, Creditos_Practicos, Creditos_Teoricos, Cuatrimestre, Curso, Idioma_de_imparticion, Nombre, Ofertada, Plazas, Total_Creditos, TA_Codigo, matriculas_Curso_Academico, matriculas_EM) VALUES (40658, 101, 0, 6, '1º Semestre', 1, 'No', 'Analisis y diseño de Algoritmos', 'Sí', '-', 6, 1042, null, null);
-INSERT INTO Asignatura (Referencia, Codigo, Creditos_Practicos, Creditos_Teoricos, Cuatrimestre, Curso, Idioma_de_imparticion, Nombre, Ofertada, Plazas, Total_Creditos, TA_Codigo, matriculas_Curso_Academico, matriculas_EM) VALUES (40659, 102, 0, 6, '1º Semestre', 1, 'No', 'Bases de datos', 'Sí', '-', 6, 1043, null, null);
-INSERT INTO Asignatura (Referencia, Codigo, Creditos_Practicos, Creditos_Teoricos, Cuatrimestre, Curso, Idioma_de_imparticion, Nombre, Ofertada, Plazas, Total_Creditos, TA_Codigo, matriculas_Curso_Academico, matriculas_EM) VALUES (40660, 103, 0, 6, '1º Semestre', 1, 'No', 'EDA', 'Sí', '-', 6, 1056, null, null);
-INSERT INTO Asignatura (Referencia, Codigo, Creditos_Practicos, Creditos_Teoricos, Cuatrimestre, Curso, Idioma_de_imparticion, Nombre, Ofertada, Plazas, Total_Creditos, TA_Codigo, matriculas_Curso_Academico, matriculas_EM) VALUES (50658, 101, 0, 6, '1º Semestre', 1, 'No', 'Cálculo para la Computación', 'Sí', '-', 6, 1041, null, null);
-INSERT INTO Asignatura (Referencia, Codigo, Creditos_Practicos, Creditos_Teoricos, Cuatrimestre, Curso, Idioma_de_imparticion, Nombre, Ofertada, Plazas, Total_Creditos, TA_Codigo, matriculas_Curso_Academico, matriculas_EM) VALUES (50659, 102, 0, 6, '1º Semestre', 1, 'No', 'Fundamentos Físicos de la Informática', 'Sí', '-', 6, 1041, null, null);
-INSERT INTO Asignatura (Referencia, Codigo, Creditos_Practicos, Creditos_Teoricos, Cuatrimestre, Curso, Idioma_de_imparticion, Nombre, Ofertada, Plazas, Total_Creditos, TA_Codigo, matriculas_Curso_Academico, matriculas_EM) VALUES (50660, 103, 0, 6, '1º Semestre', 1, 'No', 'Electrónica', 'Sí', '-', 6, 1073, null, null);
+INSERT INTO Asignatura (Referencia, Codigo, Creditos_Practicos, Creditos_Teoricos, Cuatrimestre, Curso, Idioma_de_imparticion, Nombre, Ofertada, Plazas, Total_Creditos, TA_Codigo, matriculas_Curso_Academico, matriculas_EM) VALUES (40658, 101, 0, 6, '1 Semestre', 2, 'No', 'Analisis y disenio de Algoritmos', 'Si', '-', 6, 1042, null, null);
+INSERT INTO Asignatura (Referencia, Codigo, Creditos_Practicos, Creditos_Teoricos, Cuatrimestre, Curso, Idioma_de_imparticion, Nombre, Ofertada, Plazas, Total_Creditos, TA_Codigo, matriculas_Curso_Academico, matriculas_EM) VALUES (40659, 102, 0, 6, '1 Semestre', 2, 'No', 'Bases de datos', 'Si', '-', 6, 1043, null, null);
+INSERT INTO Asignatura (Referencia, Codigo, Creditos_Practicos, Creditos_Teoricos, Cuatrimestre, Curso, Idioma_de_imparticion, Nombre, Ofertada, Plazas, Total_Creditos, TA_Codigo, matriculas_Curso_Academico, matriculas_EM) VALUES (40660, 103, 0, 6, '1 Semestre', 3, 'No', 'EDA', 'Si', '-', 6, 1056, null, null);
+INSERT INTO Asignatura (Referencia, Codigo, Creditos_Practicos, Creditos_Teoricos, Cuatrimestre, Curso, Idioma_de_imparticion, Nombre, Ofertada, Plazas, Total_Creditos, TA_Codigo, matriculas_Curso_Academico, matriculas_EM) VALUES (50658, 101, 0, 6, '1 Semestre', 1, 'No', 'Calculo para la Computacion', 'Si', '-', 6, 1041, null, null);
+INSERT INTO Asignatura (Referencia, Codigo, Creditos_Practicos, Creditos_Teoricos, Cuatrimestre, Curso, Idioma_de_imparticion, Nombre, Ofertada, Plazas, Total_Creditos, TA_Codigo, matriculas_Curso_Academico, matriculas_EM) VALUES (50659, 102, 0, 6, '1 Semestre', 1, 'No', 'Fundamentos Fisicos de la Informatica', 'Si', '-', 6, 1041, null, null);
+INSERT INTO Asignatura (Referencia, Codigo, Creditos_Practicos, Creditos_Teoricos, Cuatrimestre, Curso, Idioma_de_imparticion, Nombre, Ofertada, Plazas, Total_Creditos, TA_Codigo, matriculas_Curso_Academico, matriculas_EM) VALUES (50660, 103, 0, 6, '1 Semestre', 1, 'No', 'Electronica', 'Si', '-', 6, 1073, null, null);
 
 --------------------------------------------------------
 --  DDL for Optativa
@@ -85,13 +85,13 @@ INSERT INTO Asignatura (Referencia, Codigo, Creditos_Practicos, Creditos_Teorico
 --  DDL for Table Grupo
 --------------------------------------------------------
 
-INSERT INTO Grupo (ID, Asignar, Curso, Ingles, Letra, Plazas, Turno_Maniana_Tarde, Visible, GG_ID, TG_Codigo) VALUES (1, 60, 3, 'NO', 'A', 120, 'MAÑANA', null, null, 1041);
-INSERT INTO Grupo (ID, Asignar, Curso, Ingles, Letra, Plazas, Turno_Maniana_Tarde, Visible, GG_ID, TG_Codigo) VALUES (2, 120, 2, 'NO', 'B', 120, 'MAÑANA', null, null, 1041);
-INSERT INTO Grupo (ID, Asignar, Curso, Ingles, Letra, Plazas, Turno_Maniana_Tarde, Visible, GG_ID, TG_Codigo) VALUES (3, 35, 1, 'NO', 'C', 120, 'MAÑANA', null, null, 1042);
-INSERT INTO Grupo (ID, Asignar, Curso, Ingles, Letra, Plazas, Turno_Maniana_Tarde, Visible, GG_ID, TG_Codigo) VALUES (4, 60, 4, 'NO', 'D', 120, 'TARDE', null, null, 1043);
-INSERT INTO Grupo (ID, Asignar, Curso, Ingles, Letra, Plazas, Turno_Maniana_Tarde, Visible, GG_ID, TG_Codigo) VALUES (5, 60, 2, 'NO', 'A', 120, 'MAÑANA', null, null, 1056);
-INSERT INTO Grupo (ID, Asignar, Curso, Ingles, Letra, Plazas, Turno_Maniana_Tarde, Visible, GG_ID, TG_Codigo) VALUES (6, 60, 3, 'NO', 'D', 120, 'TARDE', null, null, 1073);
-INSERT INTO Grupo (ID, Asignar, Curso, Ingles, Letra, Plazas, Turno_Maniana_Tarde, Visible, GG_ID, TG_Codigo) VALUES (7, 60, 1, 'NO', 'B', 120, 'MAÑANA', null, null, 1042);
+INSERT INTO Grupo (ID, Asignar, Curso, Ingles, Letra, Plazas, Turno_Maniana_Tarde, Visible, GG_ID, TG_Codigo) VALUES (1, 60, 1, 'NO', 'A', 120, 'MANIANA', null, null, 1041);
+INSERT INTO Grupo (ID, Asignar, Curso, Ingles, Letra, Plazas, Turno_Maniana_Tarde, Visible, GG_ID, TG_Codigo) VALUES (2, 120, 1, 'NO', 'B', 120, 'MANIANA', null, null, 1041);
+INSERT INTO Grupo (ID, Asignar, Curso, Ingles, Letra, Plazas, Turno_Maniana_Tarde, Visible, GG_ID, TG_Codigo) VALUES (3, 35, 2, 'NO', 'C', 120, 'MANIANA', null, null, 1042);
+INSERT INTO Grupo (ID, Asignar, Curso, Ingles, Letra, Plazas, Turno_Maniana_Tarde, Visible, GG_ID, TG_Codigo) VALUES (4, 60, 2, 'NO', 'D', 120, 'TARDE', null, null, 1043);
+INSERT INTO Grupo (ID, Asignar, Curso, Ingles, Letra, Plazas, Turno_Maniana_Tarde, Visible, GG_ID, TG_Codigo) VALUES (5, 60, 3, 'NO', 'A', 120, 'MANIANA', null, null, 1056);
+INSERT INTO Grupo (ID, Asignar, Curso, Ingles, Letra, Plazas, Turno_Maniana_Tarde, Visible, GG_ID, TG_Codigo) VALUES (6, 60, 1, 'NO', 'D', 120, 'TARDE', null, null, 1073);
+INSERT INTO Grupo (ID, Asignar, Curso, Ingles, Letra, Plazas, Turno_Maniana_Tarde, Visible, GG_ID, TG_Codigo) VALUES (7, 60, 1, 'NO', 'B', 120, 'MANIANA', null, null, 1042);
 
 --------------------------------------------------------
 --  DDL for Table Clase

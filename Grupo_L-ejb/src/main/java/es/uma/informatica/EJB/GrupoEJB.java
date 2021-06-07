@@ -284,7 +284,7 @@ public class GrupoEJB implements InterfazGrupo {
     		am.setG_AM(g);
     		Matricula m=em.find(Matricula.class, expediente.getNum_Expediente());
     		am.setMatricula(m);
-    		em.merge(am);
+    		em.persist(em.merge(am));
     		/*TypedQuery <Asignaturas_Matricula> query3 = em.createQuery("SELECT en FROM Asignaturas_Matricula en " + "WHERE en.EM LIKE : ex", Asignaturas_Matricula.class);
 	    	query3.setParameter("ex", expediente.getNum_Expediente());
 	    	listAsigMatricula = query3.getResultList();	
@@ -293,7 +293,15 @@ public class GrupoEJB implements InterfazGrupo {
 	    			asignaturas_Matricula.setG_AM(g);
 	    		}
 			}*/
-		}		
-		   	
+		}   	
+    }
+    @Override
+    public Grupo buscarGrupo(Long curso, String letra, Titulacion titulacion) {
+    	TypedQuery <Grupo> query = em.createQuery("SELECT g FROM Grupo g " + "WHERE g.Curso LIKE : curs AND g.Letra LIKE : l AND g.TG LIKE : titula", Grupo.class);
+    	query.setParameter("curs", curso);
+    	query.setParameter("l", letra);
+    	query.setParameter("titula", titulacion);
+    	Grupo g = query.getSingleResult();
+    	return g;
     }
 }

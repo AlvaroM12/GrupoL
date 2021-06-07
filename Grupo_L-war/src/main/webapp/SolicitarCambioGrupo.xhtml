@@ -73,18 +73,21 @@
 		<h:selectOneMenu id="asignatura" value="#{solicitar.asig}">
 			<f:selectItem itemLabel="--Seleccione asignatura--" itemValue=""/>
    			 <f:selectItems value="#{solicitar.asignaturas}"
-   			 var="a" itemLabel="#{a.nombre}" itemValue="#{a.referencia}"/> 
-   			 <f:ajax execute="desplegable" render="asignatura" ></f:ajax>   			  
+   			 var="a" itemLabel="#{a.nombre}" />    			  
 		</h:selectOneMenu><br></br>		
 		<br></br>
 		
-    </h:form>
 		
 		<label for="asig">Motivo:</label>
 		<textarea name="comentarios" rows="10" cols="40"></textarea><br></br>
 		
-		<br></br><br></br><input type="submit" name="leerEncuesta" value="Cancelar"/>
-		<input type="submit" name="" value="Aceptar"/>
+		<br></br><br></br>
+		
+		<h:commandButton id="aceptar" value="Aceptar" action="#{solicitar.asigna()}" />
+		
+    </h:form>
+		
+		
 		
 	</div>
 	

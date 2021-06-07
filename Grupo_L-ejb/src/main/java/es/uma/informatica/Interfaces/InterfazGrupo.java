@@ -85,6 +85,10 @@ public interface InterfazGrupo {
 
 	public void asignaGrupo(Alumno al, Grupo g, Asignatura a, Titulacion t) throws GrupoException;
 
+	public Grupo buscarGrupo(Long curso, String letra, Titulacion titulacion);
+
+	
+
 	
 
 	
