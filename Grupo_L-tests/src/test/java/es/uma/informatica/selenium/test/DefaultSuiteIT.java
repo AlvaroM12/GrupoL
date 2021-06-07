@@ -54,4 +54,20 @@ public class DefaultSuiteIT {
 	    driver.findElement(By.id("j_idt7:entrar")).click();
 	    assertThat(driver.findElement(By.id("nombre")).getText(), is("Hola, Rocio."));
 	  }
+	
+	 @Test
+	  public void leerTitu() {
+			driver.get("http://localhost:8080/Grupo_L-war/");
+		    driver.manage().window().setSize(new Dimension(977, 715));
+		    driver.findElement(By.id("inicio")).click();
+		    driver.findElement(By.id("j_idt7:user")).click();
+		    driver.findElement(By.id("j_idt7:user")).sendKeys("rocio22@uma.es");
+		    driver.findElement(By.id("j_idt7:pass")).click();
+		    driver.findElement(By.id("j_idt7:pass")).sendKeys("123");
+		    driver.findElement(By.id("j_idt7:entrar")).click();
+		    assertThat(driver.findElement(By.id("nombre")).getText(), is("Hola, Rocio."));
+		    
+	  }
+	
+
 }
