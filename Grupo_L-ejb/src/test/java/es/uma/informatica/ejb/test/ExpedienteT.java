@@ -6,6 +6,7 @@ import java.io.File;
 import java.io.IOException;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import es.uma.informatica.Entidades.Expediente;
 import es.uma.informatica.Exception.ExpedienteException;
@@ -29,6 +30,7 @@ public class ExpedienteT {
 
 
 	@Test
+	@Ignore
 	@Requisitos({"RF6"})
 	public void testImportarExpediente() throws IOException {
 		try {

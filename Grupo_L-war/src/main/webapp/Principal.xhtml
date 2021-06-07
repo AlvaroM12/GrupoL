@@ -17,10 +17,10 @@
 <h:body>
 
 	<ui:fragment rendered="#{not empty infoSesion.alumno}">
-	<div class="inicio"><p>Hola, <h:outputText value="#{infoSesion.alumno.nombre}"/>.</p></div>
+	<div class="inicio"><p id="nombre">Hola, <h:outputText value="#{infoSesion.alumno.nombre}"/>.</p></div>
 	</ui:fragment>
 	<ui:fragment rendered="#{not empty infoSesion.personal}">	
-	<div class="inicio"><p>Hola, <h:outputText value="#{infoSesion.personal.rango}"/>.</p></div>
+	<div  class="inicio"><p id="nombre2" >Hola, <h:outputText value="#{infoSesion.personal.rango}"/>.</p></div>
 	</ui:fragment>
 	<h:form>
 	<div class="cerrar"> <h:commandLink action="#{infoSesion.invalidarSesion()}">Cerrar Sesion</h:commandLink> </div>

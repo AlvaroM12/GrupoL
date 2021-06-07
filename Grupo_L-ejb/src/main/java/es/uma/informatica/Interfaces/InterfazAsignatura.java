@@ -26,5 +26,7 @@ public interface InterfazAsignatura {
 
 	public List<Asignatura> leerAsignaturasTitulacion(Titulacion t);
 
+	public List<Asignatura> leerAsignaturas(Long curso, Titulacion t) throws AsignaturaException;
+
 	
 }

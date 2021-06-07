@@ -40,28 +40,51 @@
 
 	<div class="centro">
 		
-    <h:form>
+    <h:form id="desplegable">
         <a>Titulación:</a>
-        
-      
        <h:selectOneMenu id="titulacion" value="#{solicitar.t}">
-   			 <f:selectItems value="#{solicitar.titulaciones}"/>
-   			  <f:ajax event = "change" update="curso" execute="@this" render="curso"></f:ajax>
+       		<f:selectItem itemLabel="--Seleccione titulacion--" itemValue=""/>
+   			 <f:selectItems value="#{solicitar.todasTitulaciones}"
+   			 var="t" itemLabel="#{t.nombre}" itemValue="#{t.codigo}"/> 
+   			 <f:ajax execute="desplegable" render="curso" ></f:ajax>  			  
 		</h:selectOneMenu>
+		<br></br><br></br>
 		
-		 <h:selectOneMenu id="curso" value="#{solicitar.curso}">
-   			 <f:selectItems value="#{solicitar.cursos}"/>   			  
-		</h:selectOneMenu>
 		
-		<h:outputText id="tSeleccionada" value="#{solictar.t}"></h:outputText>
-        
+		<a>Curso:</a>		
+		<h:selectOneMenu id="curso" value="#{solicitar.curso}">
+			<f:selectItem itemLabel="--Seleccione curso--" itemValue=""/>
+   			 <f:selectItems value="#{solicitar.cursos}"/> 
+   			  <f:ajax execute="desplegable" render="letra" ></f:ajax>   			  
+		</h:selectOneMenu><br></br>		
+		<br></br>
+		
+		
+		<a>Grupo:</a>		
+		<h:selectOneMenu id="letra" value="#{solicitar.letra}">
+			<f:selectItem itemLabel="--Seleccione grupo--" itemValue=""/>
+   			 <f:selectItems value="#{solicitar.letras}"/> 
+   			 <f:ajax execute="desplegable" render="asignatura" ></f:ajax>   			  
+		</h:selectOneMenu><br></br>		
+		<br></br>
+		
+		
+		<a>Asignatura:</a>		
+		<h:selectOneMenu id="asignatura" value="#{solicitar.asig}">
+			<f:selectItem itemLabel="--Seleccione asignatura--" itemValue=""/>
+   			 <f:selectItems value="#{solicitar.asignaturas}"
+   			 var="a" itemLabel="#{a.nombre}" itemValue="#{a.referencia}"/> 
+   			 <f:ajax execute="desplegable" render="asignatura" ></f:ajax>   			  
+		</h:selectOneMenu><br></br>		
+		<br></br>
+		
     </h:form>
 		
 		<label for="asig">Motivo:</label>
 		<textarea name="comentarios" rows="10" cols="40"></textarea><br></br>
 		
 		<br></br><br></br><input type="submit" name="leerEncuesta" value="Cancelar"/>
-		<input type="submit" name="leerEncuesta" value="Aceptar"/>
+		<input type="submit" name="" value="Aceptar"/>
 		
 	</div>
 	

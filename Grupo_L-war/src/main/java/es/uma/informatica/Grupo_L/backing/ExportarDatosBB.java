@@ -27,6 +27,9 @@ public class ExportarDatosBB {
     private InterfazTitulacion titulacion;
     private String selectedOption;
     
+    @Inject
+    private FileDownloadView descargar;
+    
     
     
     public String getSelectedOption() {

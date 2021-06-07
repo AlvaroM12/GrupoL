@@ -1,30 +1,17 @@
 package es.uma.informatica.EJB;
 
-import java.io.BufferedInputStream;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.net.URL;
-import java.nio.channels.Channels;
-import java.nio.channels.ReadableByteChannel;
 import java.nio.file.FileSystems;
-import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.file.StandardCopyOption;
 import java.util.List;
 import java.util.logging.Logger;
 
 import javax.ejb.Stateless;
-import javax.faces.context.ExternalContext;
-import javax.faces.context.FacesContext;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 
 import org.apache.poi.ss.usermodel.CellStyle;
 
@@ -39,7 +26,6 @@ import es.uma.informatica.Entidades.Expediente;
 import es.uma.informatica.Entidades.GruposPorAsignatura;
 import es.uma.informatica.Entidades.Titulacion;
 import es.uma.informatica.Exception.DatosException;
-import es.uma.informatica.Interfaces.InterfazAsignatura;
 import es.uma.informatica.Interfaces.InterfazDatos;
 
 /**
@@ -51,67 +37,43 @@ public class DatosEJB implements InterfazDatos{
 	@PersistenceContext(name="Grupo_L")
 	private EntityManager em;
 	
-	private InterfazAsignatura iasig;
-	
 	private final static Logger LOGGER=Logger.getLogger(DatosEJB.class.getCanonicalName());
 
 	public void exportarDatos(Titulacion t) throws DatosException, IOException{
 		try{
         	// Sacando datos de la bd
-        	Asignatura a = em.find(Asignatura.class, (long)1512);
-        	
-        	Query queryAsig = em.createQuery("SELECT a FROM Asignatura a");
-        	List<Asignatura> asigList = queryAsig.getResultList();
-        	
-        	//t.getAsignaturas();
-			//List<Asignatura> asigList = iasig.leerAsignaturasTitulacion(t);
+			
+        	TypedQuery <Asignatura> query = em.createQuery("SELECT a FROM Asignatura a "+ "WHERE a.TA LIKE : titula", Asignatura.class);
+    		query.setParameter("titula", t);
+        	List<Asignatura> asigList = query.getResultList();
 			
         	// Creacion archivo
 			XSSFWorkbook workbook = new XSSFWorkbook();
 	        
 			// Creacion subcategorías por hojas 
-			// (Se crean todas las asignaturas por un fallo en la lista de asignaturas, me devuelve una asignatura repetida)
-			if(asigList.get(0).getTA().getCodigo().equals(t.getCodigo())) {
-				creacionHojasExcel(workbook, t,  asigList.get(0));
-			}else if(asigList.get(1).getTA().getCodigo().equals(t.getCodigo())) {
-				creacionHojasExcel(workbook, t,  asigList.get(1));
-			}else if(asigList.get(2).getTA().getCodigo().equals(t.getCodigo())) {
-				creacionHojasExcel(workbook, t,  asigList.get(2));
-			}else {
-				creacionHojasExcel(workbook, t,  asigList.get(3));
+			for (Asignatura a : asigList) {
+				LOGGER.info("Asignatura "+ a);
+				creacionHojasExcel(workbook, t,  a);
 			}
 			
 	        // Exportacion archivo
 	        System.out.println("Exportando Archivo");
-			try (FileOutputStream file = new FileOutputStream("/opt/jboss/wildfly/docs/" + t.getNombre() + ".xls")){
+			try (FileOutputStream file = new FileOutputStream("/opt/jboss/wildfly/docs/Exportacion.xls")){
 				workbook.write(file);
-				
 			}   
 			workbook.close();
-			
-		
-			
 			
         }catch (NullPointerException n) {
         	n.printStackTrace();
         } catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		Path origenPath = FileSystems.getDefault().getPath("/opt/jboss/wildfly/docs/" + t.getNombre() + ".xls");
+		Path origenPath = FileSystems.getDefault().getPath("/opt/jboss/wildfly/docs/Exportacion.xls");
 		File f = origenPath.toFile();
 		LOGGER.info("fichero existe" + f.exists()) ;
-        /*Path destinoPath = FileSystems.getDefault().getPath("/home/alumno/eclipse-workspace/Grupo_L/ExportarDatos/" + t.getNombre() + ".xls");
-
-        try {
-            Files.move(origenPath, destinoPath, StandardCopyOption.REPLACE_EXISTING);
-        } catch (IOException e) {
-            System.err.println(e);
-        }*/
 	}
 	
 
-	
 	private void creacionHojasExcel(XSSFWorkbook workbook, Titulacion t, Asignatura asig) throws DatosException, IOException {
 		XSSFSheet sheet = workbook.createSheet(asig.getNombre());
 		

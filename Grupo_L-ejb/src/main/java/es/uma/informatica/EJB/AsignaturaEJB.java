@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -17,8 +18,10 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import es.uma.informatica.Entidades.Asignatura;
 import es.uma.informatica.Entidades.Expediente;
+import es.uma.informatica.Entidades.Grupo;
 import es.uma.informatica.Entidades.Titulacion;
 import es.uma.informatica.Exception.AsignaturaException;
+import es.uma.informatica.Exception.GrupoException;
 import es.uma.informatica.Interfaces.InterfazAsignatura;
 
 
@@ -120,4 +123,16 @@ public class AsignaturaEJB implements InterfazAsignatura {
 		}
 		em.remove(a);		
 	}
+	
+	//LEER ASIG 
+    @Override
+    public List<Asignatura> leerAsignaturas(Long curso, Titulacion t) throws AsignaturaException{
+   	    	
+    	TypedQuery <Asignatura> query = em.createQuery("SELECT a FROM Asignatura a " + "WHERE a.Curso LIKE : curs AND a.TA LIKE : titulacion", Asignatura.class);
+    	query.setParameter("curs", curso);
+    	query.setParameter("titulacion", t);
+    	List<Asignatura> listAsignaturas = query.getResultList();
+    	
+		return listAsignaturas;    	
+    }   
 }
