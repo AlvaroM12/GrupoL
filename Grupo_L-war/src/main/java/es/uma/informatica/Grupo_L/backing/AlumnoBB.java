@@ -32,6 +32,19 @@ public class AlumnoBB {
 		this.al = al;
 	}
 	
+	public String crear() {
+		
+			try {
+				alejb.crearAlumno(al);
+			} catch (AlumnoException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return null;
+
+		
+	}
+	
 	public String eliminar(Alumno a) {
 		try {
 			alejb.eliminarAlumno(a.getID());
