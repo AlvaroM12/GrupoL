@@ -5,12 +5,12 @@
 --  DDL for Table USUARIO
 --------------------------------------------------------
 
-INSERT INTO Usuario (ID, Email_Institucional, Telefono, contrasenia) VALUES (1, 'alvaromm@uma.es', 664184557, '123');
+INSERT INTO Usuario (ID, Email_Institucional, Telefono, contrasenia) VALUES (1, 'alvaromm@uma.es', 664184557, 'QL0AFWMIX8NRZTKeof9cXsvbvu8=');
 INSERT INTO Usuario (ID, Email_Institucional, Telefono, contrasenia) VALUES (2, 'rocio22@uma.es', 664184557, 'QL0AFWMIX8NRZTKeof9cXsvbvu8=');
 INSERT INTO Usuario (ID, Email_Institucional, Telefono, contrasenia) VALUES (3, 'pepe@uma.es', 648152385, 'QL0AFWMIX8NRZTKeof9cXsvbvu8=');
-INSERT INTO Usuario (ID, Email_Institucional, Telefono, contrasenia) VALUES (4, 'marta@uma.es', 664184557, '123');
-INSERT INTO Usuario (ID, Email_Institucional, Telefono, contrasenia) VALUES (5, 'caba@uma.es', 664184557, null);
-INSERT INTO Usuario (ID, Email_Institucional, Telefono, contrasenia) VALUES (6, 'javi@uma.es', 664184557, null);
+INSERT INTO Usuario (ID, Email_Institucional, Telefono, contrasenia) VALUES (4, 'marta@uma.es', 664184557, 'QL0AFWMIX8NRZTKeof9cXsvbvu8=');
+INSERT INTO Usuario (ID, Email_Institucional, Telefono, contrasenia) VALUES (5, 'caba@uma.es', 664184557, 'QL0AFWMIX8NRZTKeof9cXsvbvu8=');
+INSERT INTO Usuario (ID, Email_Institucional, Telefono, contrasenia) VALUES (6, 'javi@uma.es', 664184557, 'QL0AFWMIX8NRZTKeof9cXsvbvu8=');
 
 --------------------------------------------------------
 --  DDL for Table ALUMNO
