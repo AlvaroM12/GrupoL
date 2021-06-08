@@ -66,18 +66,50 @@ public class DefaultSuiteIT {
 	  }
 	
 	
-	 @Test
-	  public void leerTitu() {
-			driver.get("http://localhost:8080/Grupo_L-war/");
-		    driver.manage().window().setSize(new Dimension(977, 715));
-		    driver.findElement(By.id("inicio")).click();
-		    driver.findElement(By.id("j_idt7:user")).click();
-		    driver.findElement(By.id("j_idt7:user")).sendKeys("rocio22@uma.es");
-		    driver.findElement(By.id("j_idt7:pass")).click();
-		    driver.findElement(By.id("j_idt7:pass")).sendKeys("123");
-		    driver.findElement(By.id("j_idt7:entrar")).click();
-		    assertThat(driver.findElement(By.id("nombre")).getText(), is("Hola, Rocio."));
-		    
+	@Test
+	  public void leerTitulaSec() {
+	    driver.get("http://0.0.0.0:8080/Grupo_L-war/");
+	    driver.manage().window().setSize(new Dimension(679, 616));
+	    driver.findElement(By.id("inicio")).click();
+	    driver.findElement(By.id("j_idt7:user")).click();
+	    driver.findElement(By.id("j_idt7:pass")).sendKeys("123");
+	    driver.findElement(By.id("j_idt7:user")).sendKeys("pepe@uma.es");
+	    driver.findElement(By.id("j_idt7:entrar")).click();
+	    driver.findElement(By.id("leerTitulacion")).click();
+	    assertThat(driver.findElement(By.id("titulacion:dtTitulacion:0:j_idt32")).getText(), is("1041"));
+	    assertThat(driver.findElement(By.id("titulacion:dtTitulacion:4:j_idt32")).getText(), is("1073"));
+	  }
+	
+	@Test
+	  public void leertituusu() {
+	    driver.get("http://0.0.0.0:8080/Grupo_L-war/");
+	    driver.manage().window().setSize(new Dimension(679, 616));
+	    driver.findElement(By.id("inicio")).click();
+	    driver.findElement(By.id("j_idt7:user")).click();
+	    driver.findElement(By.id("j_idt7:pass")).sendKeys("123");
+	    driver.findElement(By.id("j_idt7:user")).sendKeys("rocio22@uma.es");
+	    driver.findElement(By.id("j_idt7:entrar")).click();
+	    driver.findElement(By.id("leerTitulacion")).click();
+	    assertThat(driver.findElement(By.id("titulacionalum:dtTitulacion:0:j_idt25")).getText(), is("1041"));
+	    assertThat(driver.findElement(By.id("titulacionalum:dtTitulacion:1:j_idt25")).getText(), is("1043"));
+	  }
+	
+	@Test
+	  public void expedienteAlumno() {
+	    driver.get("http://0.0.0.0:8080/Grupo_L-war/");
+	    driver.manage().window().setSize(new Dimension(679, 616));
+	    driver.findElement(By.id("inicio")).click();
+	    driver.findElement(By.id("j_idt7:user")).click();
+	    driver.findElement(By.id("j_idt7:pass")).sendKeys("123");
+	    driver.findElement(By.id("j_idt7:user")).sendKeys("rocio22@uma.es");
+	    driver.findElement(By.id("j_idt7:entrar")).click();
+	    driver.findElement(By.id("leerExpediente")).click();
+	    {
+	      List<WebElement> elements = driver.findElements(By.id("a"));
+	      assert(elements.size() > 0);
+	    }
+	    assertThat(driver.findElement(By.id("expediente:dtExpediente:0:j_idt26")).getText(), is("104195486"));
+	    assertThat(driver.findElement(By.id("expediente:dtExpediente:1:j_idt26")).getText(), is("104300002"));
 	  }
 	 
 	 @Test
