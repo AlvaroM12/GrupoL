@@ -12,6 +12,7 @@ import es.uma.informatica.Entidades.Alumno;
 import es.uma.informatica.Entidades.Encuesta;
 import es.uma.informatica.Entidades.Encuesta.EncuestaId;
 import es.uma.informatica.Entidades.Expediente;
+import es.uma.informatica.Entidades.Titulacion;
 import es.uma.informatica.Exception.AlumnoException;
 import es.uma.informatica.Exception.AlumnoExistenteException;
 import es.uma.informatica.Exception.EncuestaException;
@@ -82,19 +83,21 @@ public class EncuestaEJB implements InterfazEncuesta {
 	    }
 	 
 	 @Override
-	 public long obtenerExpTitu(long t, long id) {
+	 public Expediente obtenerExpTitu(Titulacion t, Alumno id) {
 		 
 		TypedQuery <Expediente> query = em.createQuery("SELECT e FROM Expediente e " + "WHERE e.AE LIKE : alumno and e.TE LIKE : titulacion" , Expediente.class);
 		query.setParameter("alumno", id);
 		query.setParameter("titulacion", t);
 		Expediente exp = query.getSingleResult();
-		return exp.getNum_Expediente();
+		return exp;
 		 
 	 }
 	 
 	 @Override
-	 public void crearEncuesta(Date fecha, long exp) throws EncuestaException {
-			EncuestaId enc = new EncuestaId(exp,fecha);
+	 public void crearEncuesta(Date fecha, Expediente exp) throws EncuestaException {
+			Encuesta enc = new Encuesta();
+			enc.setFecha_De_Envio(fecha);
+			enc.setEE(exp);
 			em.persist(enc);	
 		}
 }

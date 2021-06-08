@@ -140,17 +140,22 @@ public class EncuestaBB {
 
     }
 	
-	public void aceptarEncuesta() {
-		long id = infosesion.getAlumno().getID();
-		long exp = encuesta.obtenerExpTitu(1041, id);
-		Date fecha = new Date();
+	public String aceptarEncuesta() {
+		
 		try {
+			Expediente exp = encuesta.obtenerExpTitu(titulacion.leerTitulacion((long)1041), infosesion.getAlumno());
+			Date fecha = new Date();
 			encuesta.crearEncuesta(fecha,exp);
+		} catch (TitulacionException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
 		} catch (EncuestaException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-				
+		return "LeerEncuesta.xhtml";
+		
+			
 	}
 
 }
