@@ -111,6 +111,114 @@ public class DefaultSuiteIT {
 		assertThat(driver.findElement(By.id("expediente:dtExpediente:0:j_idt26")).getText(), is("104195486"));
 		assertThat(driver.findElement(By.id("expediente:dtExpediente:1:j_idt26")).getText(), is("104300002"));
 	}
+	
+	
+	@Test
+	  public void leerAlumSec() {
+	    driver.get("http://0.0.0.0:8080/Grupo_L-war/");
+	    driver.manage().window().setSize(new Dimension(679, 616));
+	    driver.findElement(By.id("inicio")).click();
+	    driver.findElement(By.id("j_idt7:user")).click();
+	    driver.findElement(By.id("j_idt7:pass")).sendKeys("123");
+	    driver.findElement(By.id("j_idt7:user")).sendKeys("pepe@uma.es");
+	    driver.findElement(By.id("j_idt7:entrar")).click();
+	    driver.findElement(By.id("leerAlumnos")).click();
+	    driver.findElement(By.id("j_idt39:crear")).click();
+	    driver.findElement(By.id("j_idt19:user")).click();
+	    driver.findElement(By.id("j_idt19:user")).click();
+	    driver.findElement(By.id("j_idt19:user")).click();
+	    {
+	      WebElement element = driver.findElement(By.id("j_idt19:user"));
+	      Actions builder = new Actions(driver);
+	      builder.doubleClick(element).perform();
+	    }
+	    driver.findElement(By.id("j_idt19:user")).click();
+	    driver.findElement(By.id("j_idt19:user")).sendKeys("26262008x");
+	    driver.findElement(By.id("j_idt19:ape")).click();
+	    driver.findElement(By.id("j_idt19:ape")).click();
+	    {
+	      WebElement element = driver.findElement(By.id("j_idt19:ape"));
+	      Actions builder = new Actions(driver);
+	      builder.doubleClick(element).perform();
+	    }
+	    driver.findElement(By.id("j_idt19:ape")).sendKeys("Garcia");
+	    driver.findElement(By.id("j_idt19:e")).click();
+	    driver.findElement(By.id("j_idt19:e")).click();
+	    {
+	      WebElement element = driver.findElement(By.id("j_idt19:e"));
+	      Actions builder = new Actions(driver);
+	      builder.doubleClick(element).perform();
+	    }
+	    driver.findElement(By.id("j_idt19:e")).sendKeys("jorgeganto@uma.es");
+	    driver.findElement(By.id("j_idt19:m")).click();
+	    driver.findElement(By.id("j_idt19:m")).click();
+	    {
+	      WebElement element = driver.findElement(By.id("j_idt19:m"));
+	      Actions builder = new Actions(driver);
+	      builder.doubleClick(element).perform();
+	    }
+	    driver.findElement(By.id("j_idt19:m")).sendKeys("645425258");
+	    driver.findElement(By.id("j_idt19:l")).click();
+	    driver.findElement(By.id("j_idt19:l")).click();
+	    {
+	      WebElement element = driver.findElement(By.id("j_idt19:l"));
+	      Actions builder = new Actions(driver);
+	      builder.doubleClick(element).perform();
+	    }
+	    driver.findElement(By.id("j_idt19:l")).sendKeys("Alhaurin");
+	    driver.findElement(By.id("j_idt19:c")).click();
+	    driver.findElement(By.id("j_idt19:c")).click();
+	    {
+	      WebElement element = driver.findElement(By.id("j_idt19:c"));
+	      Actions builder = new Actions(driver);
+	      builder.doubleClick(element).perform();
+	    }
+	    driver.findElement(By.id("j_idt19:c")).sendKeys("29130");
+	    driver.findElement(By.id("j_idt19:nom")).click();
+	    driver.findElement(By.id("j_idt19:nom")).click();
+	    {
+	      WebElement element = driver.findElement(By.id("j_idt19:nom"));
+	      Actions builder = new Actions(driver);
+	      builder.doubleClick(element).perform();
+	    }
+	    driver.findElement(By.id("j_idt19:nom")).sendKeys("Jorge");
+	    driver.findElement(By.id("j_idt19:a2")).click();
+	    driver.findElement(By.id("j_idt19:a2")).click();
+	    {
+	      WebElement element = driver.findElement(By.id("j_idt19:a2"));
+	      Actions builder = new Actions(driver);
+	      builder.doubleClick(element).perform();
+	    }
+	    driver.findElement(By.id("j_idt19:a2")).sendKeys("Lopez");
+	    driver.findElement(By.id("j_idt19:ep")).click();
+	    driver.findElement(By.id("j_idt19:ep")).click();
+	    {
+	      WebElement element = driver.findElement(By.id("j_idt19:ep"));
+	      Actions builder = new Actions(driver);
+	      builder.doubleClick(element).perform();
+	    }
+	    driver.findElement(By.id("j_idt19:ep")).sendKeys("jorgeganto@gmail.com");
+	    driver.findElement(By.id("j_idt19:d")).click();
+	    driver.findElement(By.id("j_idt19:d")).sendKeys("los carmenes");
+	    driver.findElement(By.id("j_idt19:pr")).click();
+	    driver.findElement(By.id("j_idt19:pr")).click();
+	    driver.findElement(By.id("j_idt19:pr")).sendKeys("Malaga");
+	    driver.findElement(By.id("j_idt19:crear")).click();
+	    
+	    assertThat(driver.findElement(By.id("j_idt39:dtAlumnos:5:j_idt42")).getText(), is("26262008x"));
+	    driver.findElement(By.id("j_idt39:dtAlumnos:5:Modificar")).click();
+	    driver.findElement(By.id("j_idt19:d")).click();
+	    driver.findElement(By.id("j_idt19:d")).clear();
+	    driver.findElement(By.id("j_idt19:d")).sendKeys("los santos");
+	    driver.findElement(By.id("j_idt19:modificar")).click();
+	    assertThat(driver.findElement(By.id("j_idt39:dtAlumnos:5:j_idt49")).getText(), is("los santos"));
+	    driver.findElement(By.id("j_idt39:dtAlumnos:5:eliminar")).click();
+	    driver.findElement(By.id("j_idt39:dtAlumnos:4:j_idt42")).click();
+	    {
+	      List<WebElement> elements = driver.findElements(By.id("j_idt39:dtAlumnos:5:j_idt42"));
+	      assert(elements.size() == 0);
+	    }
+	  }
 
 	@Test
 	public void leerEncuestaA() {
