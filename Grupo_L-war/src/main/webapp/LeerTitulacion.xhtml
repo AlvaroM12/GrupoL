@@ -27,37 +27,39 @@
 
 	<h1 class="titulo"> Titulacion </h1>
 	<ui:fragment rendered="#{not empty infoSesion.alumno}">	
-	<div class="izquierda"   >
-			<b>MIS DATOS </b><br></br><br></br> 
-			<a href="LeerEncuesta.xhtml" style="text-decoration: none">Leer Encuesta</a><br></br>
-			<a href="LeerAsignaturaMatricula.xhtml" style="text-decoration: none">Leer Asignatura Matricula</a><br></br>
-			<a href="LeerMatricula.xhtml" style="text-decoration: none">Leer Matricula</a><br></br> 
-			<a href="LeerTitulacion.xhtml" style="text-decoration: none">Leer Titulacion</a><br></br> 
-			<a href="LeerAlumnos.xhtml" style="text-decoration: none">Leer Usuario</a><br></br> 
-			<a href="LeerAsignaturas.xhtml" style="text-decoration: none">Leer Asignatura</a><br></br> 
-			<a href="LeerClase.xhtml" style="text-decoration: none">Leer Clase</a><br></br> 
-			<a href="LeerExpediente.xhtml" style="text-decoration: none">Leer Expediente</a>
-		</div>
+	<div id="h" class="izquierda">
+		<b>MIS DATOS </b><br></br><br></br> 
+		<a href="LeerEncuesta.xhtml" style="text-decoration: none">Leer Encuesta</a><br></br>
+		<a href="LeerAsignarMatricula.xhtml" style="text-decoration: none">Leer Asignatura Matricula</a><br></br>
+		<a href="LeerMatricula.xhtml" style="text-decoration: none">Leer Matricula</a><br></br> 
+		<a href="LeerTitulacion.xhtml" style="text-decoration: none">Leer Titulacion</a><br></br> 
+		<a href="LeerAlumnos.xhtml" style="text-decoration: none">Leer Usuario</a><br></br> 
+		<a href="LeerAsignaturas.xhtml" style="text-decoration: none">Leer Asignatura</a><br></br> 
+		<a href="LeerClase.xhtml" style="text-decoration: none">Leer Clase</a><br></br> 
+		<a href="LeerExpediente.xhtml" style="text-decoration: none">Leer Expediente</a>
+	</div>
 	
-	<div class="centrado">
-	 	
+	<div class="centro">
+	 	<div class="izquierdaCentro">
+			<b>Titulaciones: </b> <br></br>
+		</div>
 		
         <h:form id="titulacionalum">
-            <p:commandButton value="Mostar" actionListener="#{titulacion.titulacion}" update="dtTitulacion" />
+            <p:commandButton  value="Mostar" actionListener="#{titulacion.titulacion}" update="dtTitulacion" />
 
 		<p:dataTable id="dtTitulacion" value="#{titulacion.titulacion}" var="t">
 		
-			<p:column headerText="Codigo" filterBy="#{t.codigo}"
+			<p:column id="a" headerText="Codigo" filterBy="#{t.codigo}"
 				filterMatchMode="contains">
 				<p:outputLabel value="#{t.codigo}" />
 			</p:column>
 			
-			<p:column headerText="Nombre" filterBy="#{t.nombre}"
+			<p:column id="b" headerText="Nombre" filterBy="#{t.nombre}"
 				filterMatchMode="contains">
 				<p:outputLabel value="#{t.nombre}" />
 			</p:column>
 			
-			<p:column headerText="Créditos" filterBy="#{t.creditos}"
+			<p:column id="c" headerText="Créditos" filterBy="#{t.creditos}"
 				filterMatchMode="contains">
 				<p:outputLabel value="#{t.creditos}" />
 			</p:column>
@@ -68,24 +70,26 @@
 	 
 	 <ui:fragment rendered="#{not empty infoSesion.personal}">
 	 <div class="centrado">
-	 	
+	 	<div class="izquierdaCentro">
+			<b>Titulaciones: </b> <br></br>
+		</div>
 		
         <h:form id="titulacion">
             <p:commandButton value="Mostar" actionListener="#{titulacion.titulaciones}" update="dtTitulacion" />
 
 		<p:dataTable id="dtTitulacion" value="#{titulacion.titulaciones}" var="t">
 		
-			<p:column headerText="Codigo" filterBy="#{t.codigo}"
+			<p:column id="d" headerText="Codigo" filterBy="#{t.codigo}"
 				filterMatchMode="contains">
 				<p:outputLabel value="#{t.codigo}" />
 			</p:column>
 			
-			<p:column headerText="Nombre" filterBy="#{t.nombre}"
+			<p:column id="e" headerText="Nombre" filterBy="#{t.nombre}"
 				filterMatchMode="contains">
 				<p:outputLabel value="#{t.nombre}" />
 			</p:column>
 			
-			<p:column headerText="Créditos" filterBy="#{t.creditos}"
+			<p:column id="f" headerText="Créditos" filterBy="#{t.creditos}"
 				filterMatchMode="contains">
 				<p:outputLabel value="#{t.creditos}" />
 			</p:column>
