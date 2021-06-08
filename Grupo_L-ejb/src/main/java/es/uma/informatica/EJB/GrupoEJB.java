@@ -2,6 +2,8 @@ package es.uma.informatica.EJB;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
+
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -36,7 +38,7 @@ public class GrupoEJB implements InterfazGrupo {
 	@PersistenceContext(name="Grupo_L")
 	private EntityManager em;
 	
-	
+	private static final Logger LOGGER = Logger.getLogger(GrupoEJB.class.getName());
 	private TitulacionEJB tit;
 
 	@Override
@@ -275,25 +277,19 @@ public class GrupoEJB implements InterfazGrupo {
     	TypedQuery <Expediente> query = em.createQuery("SELECT e FROM Expediente e " + "WHERE e.AE LIKE : alumno AND e.TE LIKE : titula", Expediente.class);
     	query.setParameter("alumno", al);
     	query.setParameter("titula", t);
-    	List<Expediente> listExpediente = query.getResultList();
-    	//List<Asignaturas_Matricula> listAsigMatricula = new ArrayList <Asignaturas_Matricula>();
+    	Expediente expediente = query.getSingleResult();
+    	LOGGER.info(expediente.toString());
     	
-    	for (Expediente expediente : listExpediente) {
-    		Asignaturas_Matricula am=new Asignaturas_Matricula();
-    		am.setAsignatura(a);
-    		am.setG_AM(g);
-    		Matricula m=em.find(Matricula.class, expediente.getNum_Expediente());
-    		am.setMatricula(m);
-    		em.persist(em.merge(am));
-    		/*TypedQuery <Asignaturas_Matricula> query3 = em.createQuery("SELECT en FROM Asignaturas_Matricula en " + "WHERE en.EM LIKE : ex", Asignaturas_Matricula.class);
-	    	query3.setParameter("ex", expediente.getNum_Expediente());
-	    	listAsigMatricula = query3.getResultList();	
-	    	for (Asignaturas_Matricula asignaturas_Matricula : listAsigMatricula) {
-	    		if(asignaturas_Matricula.getAsignatura().equals(a)) {
-	    			asignaturas_Matricula.setG_AM(g);
-	    		}
-			}*/
-		}   	
+	
+		Asignaturas_Matricula am=new Asignaturas_Matricula();
+		am.setAsignatura(a);
+		am.setG_AM(g);
+		Matricula.MatriculaId mid = new Matricula.MatriculaId("2020/2021", expediente.getNum_Expediente());
+		Matricula m=em.find(Matricula.class, mid);
+		am.setMatricula(m);
+		LOGGER.info(am.toString());
+		em.merge(am);
+		  	
     }
     @Override
     public Grupo buscarGrupo(Long curso, String letra, Titulacion titulacion) {

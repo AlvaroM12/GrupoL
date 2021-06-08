@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.faces.event.AjaxBehaviorEvent;
 import javax.faces.model.SelectItem;
 import javax.faces.view.ViewScoped;
@@ -30,7 +32,8 @@ public class SolicitarCambioGrupoBB implements Serializable {
 	private Long t;
 	private Long curso;	
 	private String letra;
-	private Asignatura asig;
+	private Long asig;
+	private String texto;
 	
 	@Inject
 	private InterfazGrupo interfazGrupo;		
@@ -54,7 +57,7 @@ public class SolicitarCambioGrupoBB implements Serializable {
 	
 	public List<Titulacion> getTodasTitulaciones(){
 		try {
-			return interfazTitulacion.leerTitulaciones();
+			return interfazTitulacion.leerTitulacionesAlumno(infosesion.getAlumno());
 		} catch (TitulacionException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -113,15 +116,16 @@ public class SolicitarCambioGrupoBB implements Serializable {
 		return null;				
 	}
 
-	public Asignatura getAsig() {
+	
+	
+	public Long getAsig() {
 		return asig;
 	}
 
-	public void setAsig(Asignatura asig) {
+	public void setAsig(Long asig) {
 		this.asig = asig;
 	}
-	
-	
+
 	public List<Asignatura> getAsignaturas(){
 		if(t==null && curso==null && letra==null) {
 			return null;
@@ -139,17 +143,26 @@ public class SolicitarCambioGrupoBB implements Serializable {
 		return null;					
 	}
 	
-	public String asigna() {
+	public String atras() {
+		
+		return "Principal.xhtml";
+		
+	}
+	
+	public String asigna() {	
+		LOGGER.info("He entrado");
+		if(texto==null) {
+			FacesMessage fm = new FacesMessage("Rellene el campo de texto");
+			FacesContext.getCurrentInstance().addMessage("login:user", fm);
+		}
+		
 		try {
-			LOGGER.info("He entrado");
-			interfazGrupo.asignaGrupo(infosesion.getAlumno(), interfazGrupo.buscarGrupo(curso, letra,interfazTitulacion.leerTitulacion(t)), asig, interfazTitulacion.leerTitulacion(t));
-		} catch (GrupoException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (TitulacionException e) {
+			interfazGrupo.asignaGrupo(infosesion.getAlumno(), interfazGrupo.buscarGrupo(curso, letra,interfazTitulacion.leerTitulacion(t)), interfazAsignatura.leerAsignatura(asig), interfazTitulacion.leerTitulacion(t));
+		} catch (GrupoException | TitulacionException | AsignaturaException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 		return "Principal.xhtml";
 		
 	}

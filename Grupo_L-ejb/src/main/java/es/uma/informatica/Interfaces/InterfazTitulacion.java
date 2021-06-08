@@ -3,6 +3,8 @@ package es.uma.informatica.Interfaces;
 import java.io.File;
 import java.util.List;
 import javax.ejb.Local;
+
+import es.uma.informatica.Entidades.Alumno;
 import es.uma.informatica.Entidades.Titulacion;
 import es.uma.informatica.Exception.TitulacionException;
 @Local
@@ -19,5 +21,6 @@ public interface InterfazTitulacion {
 	Titulacion leerTitulacion(Long cod) throws TitulacionException;
 	public List<Titulacion> leerTitulaciones() throws TitulacionException;
 	void importarTitulacion(File fichero) throws TitulacionException;
+	public List<Titulacion> leerTitulacionesAlumno(Alumno a) throws TitulacionException;
 	
 }
