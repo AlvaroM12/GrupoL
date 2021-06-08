@@ -41,46 +41,46 @@
 		</div>
 
 		<h:form styleClass="centro">
-			<p:commandButton value="Mostar" actionListener="#{matriculaBB.matriculaAlumno}" update="dtGrupos" />
+			<p:commandButton value="Mostar" actionListener="#{matriculaBB.matriculaAlumno}" update="dtMat" />
 		
-			<p:dataTable id="dtGrupos" value="#{matriculaBB.matriculas}" var="m">
+			<p:dataTable id="dtMat" value="#{matriculaBB.matriculaAlumno}" var="m">
 	
-				<p:column headerText="Curso Academico" filterBy="#{m.curso_Academico}"
+				<p:column id="a" headerText="Curso Academico" filterBy="#{m.curso_Academico}"
 					filterMatchMode="contains">
 					<p:outputLabel value="#{m.curso_Academico}" />
 				</p:column>
 	
-				<p:column headerText="Estado" filterBy="#{m.estado}"
+				<p:column id="b" headerText="Estado" filterBy="#{m.estado}"
 					filterMatchMode="contains">
 					<p:outputLabel value="#{m.estado}" />
 				</p:column>
 	
-				<p:column headerText="Numero Archivo" filterBy="#{m.num_Archivo}"
+				<p:column id="c" headerText="Numero Archivo" filterBy="#{m.num_Archivo}"
 					filterMatchMode="contains">
 					<p:outputLabel value="#{m.num_Archivo}" />
 				</p:column>
 	
-				<p:column headerText="Turno Preferente" filterBy="#{m.turno_Preferente}"
+				<p:column id="d" headerText="Turno Preferente" filterBy="#{m.turno_Preferente}"
 					filterMatchMode="contains">
 					<p:outputLabel value="#{m.turno_Preferente}" />
 				</p:column>
 	
-				<p:column headerText="Fecha de matricula" filterBy="#{m.fecha_De_Matricula}"
+				<p:column id="e" headerText="Fecha de matricula" filterBy="#{m.fecha_De_Matricula}"
 					 filterMatchMode="contains">
 					<p:outputLabel value="#{m.fecha_De_Matricula}" />
 				</p:column>
 	
-				<p:column headerText="Nuevo Ingreso" filterBy="#{m.nuevo_Ingreso}"
+				<p:column id="f" headerText="Nuevo Ingreso" filterBy="#{m.nuevo_Ingreso}"
 					filterMatchMode="contains">
 					<p:outputLabel value="#{m.nuevo_Ingreso}" />
 				</p:column>
 	
-				<p:column headerText="Listado Asignaturas" filterBy="#{m.a}"
+				<p:column id="g" headerText="Listado Asignaturas" filterBy="#{m.a}"
 					filterMatchMode="contains">
 					<p:outputLabel value="#{m.a}" />
 				</p:column>
 	
-				<p:column headerText="Expediente" filterBy="#{m.EM.num_Expediente}"
+				<p:column id="h" headerText="Expediente" filterBy="#{m.EM.num_Expediente}"
 					filterMatchMode="contains">
 					<p:outputLabel value="#{m.EM.num_Expediente}" />
 				</p:column>
