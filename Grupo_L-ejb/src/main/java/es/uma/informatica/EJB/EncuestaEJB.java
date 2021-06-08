@@ -12,6 +12,8 @@ import es.uma.informatica.Entidades.Alumno;
 import es.uma.informatica.Entidades.Encuesta;
 import es.uma.informatica.Entidades.Encuesta.EncuestaId;
 import es.uma.informatica.Entidades.Expediente;
+import es.uma.informatica.Exception.AlumnoException;
+import es.uma.informatica.Exception.AlumnoExistenteException;
 import es.uma.informatica.Exception.EncuestaException;
 import es.uma.informatica.Exception.EncuestaExistenteException;
 import es.uma.informatica.Interfaces.InterfazEncuesta;
@@ -37,6 +39,8 @@ public class EncuestaEJB implements InterfazEncuesta {
 			throw new EncuestaExistenteException("No existe ninguna encuesta");
 		}
 	}
+	
+	
 	
 	public Encuesta leerEncuesta(EncuestaId id) throws EncuestaException {
 		Encuesta e = em.find(Encuesta.class, id );
@@ -76,4 +80,21 @@ public class EncuestaEJB implements InterfazEncuesta {
 			
 			return listEncuesta;    	
 	    }
+	 
+	 @Override
+	 public long obtenerExpTitu(long t, long id) {
+		 
+		TypedQuery <Expediente> query = em.createQuery("SELECT e FROM Expediente e " + "WHERE e.AE LIKE : alumno and e.TE LIKE : titulacion" , Expediente.class);
+		query.setParameter("alumno", id);
+		query.setParameter("titulacion", t);
+		Expediente exp = query.getSingleResult();
+		return exp.getNum_Expediente();
+		 
+	 }
+	 
+	 @Override
+	 public void crearEncuesta(Date fecha, long exp) throws EncuestaException {
+			EncuestaId enc = new EncuestaId(exp,fecha);
+			em.persist(enc);	
+		}
 }

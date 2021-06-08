@@ -4,7 +4,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
-	xmlns:f="http://xmlns.jcp.org/jsf/core">
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
 	<title>Rellenar Encuesta</title>
@@ -36,28 +37,35 @@
 		</div>
 <h:form>
 	<div class="centro">
+	
 		<label for="curso">Primer curso:</label>
-		<select name="curso">
-		</select><br></br>
+		<h:selectOneMenu value="#{encuesta.letra}">
+    		<f:selectItems value="#{encuesta.letraPrimero}" />
+		</h:selectOneMenu>
+		<br></br><br></br>		
 		
 		<label for="curso">Segundo curso:</label>
-		<select name="curso">
-		</select><br></br>
-		
 		<h:selectOneMenu value="#{encuesta.letra}">
     		<f:selectItems value="#{encuesta.letraSegundo}" />
 		</h:selectOneMenu>
+		<br></br><br></br>		
 		
 		<label for="curso">Tercero curso:</label>
-		<select name="curso">
-		</select><br></br>
+		<h:selectOneMenu value="#{encuesta.letra}">
+    		<f:selectItems value="#{encuesta.letraTercero}" />
+		</h:selectOneMenu>
+		<br></br><br></br>
 		
 		<label for="curso">Cuarto curso:</label>
-		<select name="curso">
-		</select><br></br>
+		<h:selectOneMenu value="#{encuesta.letra}">
+    		<f:selectItems value="#{encuesta.letraCuarto}" />
+		</h:selectOneMenu>
+		<br></br><br></br>
 
-		<input type="submit" name="leerEncuesta" value="Cancelar"/>
-		<input type="submit" name="leerEncuesta" value="Enviar"/>
+
+		<p:commandButton action="#{encuesta.aceptarEncuesta}">Aceptar</p:commandButton> 
+		<p:commandButton id="cancelar" value="Cancelar" action="#{encuesta.atras}" /> 
+		
 		
 	</div>
 	</h:form>

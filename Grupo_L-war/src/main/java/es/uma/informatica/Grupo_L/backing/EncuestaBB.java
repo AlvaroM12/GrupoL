@@ -1,6 +1,7 @@
 package es.uma.informatica.Grupo_L.backing;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.enterprise.context.RequestScoped;
@@ -14,6 +15,7 @@ import es.uma.informatica.Exception.GrupoException;
 import es.uma.informatica.Exception.TitulacionException;
 import es.uma.informatica.Interfaces.InterfazEncuesta;
 import es.uma.informatica.Interfaces.InterfazGrupo;
+import es.uma.informatica.Interfaces.InterfazTitulacion;
 
 @Named(value = "encuesta")
 @RequestScoped
@@ -25,6 +27,8 @@ public class EncuestaBB {
 	private InterfazEncuesta encuesta;	
 	@Inject
 	private InterfazGrupo grupo;
+	@Inject 
+	private InterfazTitulacion titulacion;
 	
 	private Encuesta e;
 	
@@ -73,11 +77,11 @@ public class EncuestaBB {
 		}
 		return null;
 	}
-/*
+
 	public List<String> getLetraPrimero() {
 
 		try {
-			return grupo.leerLetraGrupo((long)1, (long)1703);
+			return grupo.leerLetraGrupo((long)1, titulacion.leerTitulacion((long)1041));
 		} catch (GrupoException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -91,7 +95,7 @@ public class EncuestaBB {
 	public List<String> getLetraSegundo() {
 
 		try {
-			return grupo.leerLetraGrupo((long)2, (long)1703);
+			return grupo.leerLetraGrupo((long)2, titulacion.leerTitulacion((long)1041));
 		} catch (GrupoException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -105,7 +109,7 @@ public class EncuestaBB {
 	public List<String> getLetraTercero() {
 
 		try {
-			return grupo.leerLetraGrupo((long)3, (long)1703);
+			return grupo.leerLetraGrupo((long)3, titulacion.leerTitulacion((long)1041));
 		} catch (GrupoException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -119,7 +123,7 @@ public class EncuestaBB {
 	public List<String> getLetraCuarto() {
 
 		try {
-			return grupo.leerLetraGrupo((long)4, (long)1703);
+			return grupo.leerLetraGrupo((long)4, titulacion.leerTitulacion((long)1041));
 		} catch (GrupoException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -129,5 +133,24 @@ public class EncuestaBB {
 		}
 		return null;		
 	}
-*/
+	
+	public String atras() {
+
+        return "Principal.xhtml";
+
+    }
+	
+	public void aceptarEncuesta() {
+		long id = infosesion.getAlumno().getID();
+		long exp = encuesta.obtenerExpTitu(1041, id);
+		Date fecha = new Date();
+		try {
+			encuesta.crearEncuesta(fecha,exp);
+		} catch (EncuestaException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+				
+	}
+
 }
