@@ -48,12 +48,11 @@ INSERT INTO Titulacion (Codigo, Creditos, Nombre) VALUES (1073, 372, 'Doble Grad
 --  DDL for Table Centro_Titulacion
 --------------------------------------------------------
 
-INSERT INTO Centro_Titulacion (centros_ID, TC_Codigo) VALUES (1, 1703);
-INSERT INTO Centro_Titulacion (centros_ID, TC_Codigo) VALUES (2, 1703);
-INSERT INTO Centro_Titulacion (centros_ID, TC_Codigo) VALUES (1, 1703);
-INSERT INTO Centro_Titulacion (centros_ID, TC_Codigo) VALUES (2, 1703);
-INSERT INTO Centro_Titulacion (centros_ID, TC_Codigo) VALUES (1, 1703);
-INSERT INTO Centro_Titulacion (centros_ID, TC_Codigo) VALUES (2, 1703);
+INSERT INTO Centro_Titulacion (centros_ID, TC_Codigo) VALUES (1, 1041);
+INSERT INTO Centro_Titulacion (centros_ID, TC_Codigo) VALUES (1, 1042);
+INSERT INTO Centro_Titulacion (centros_ID, TC_Codigo) VALUES (1, 1043);
+INSERT INTO Centro_Titulacion (centros_ID, TC_Codigo) VALUES (1, 1056);
+INSERT INTO Centro_Titulacion (centros_ID, TC_Codigo) VALUES (1, 1073);
 
 --------------------------------------------------------
 --  DDL for Table Expediente

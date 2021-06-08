@@ -109,6 +109,61 @@ public class DefaultSuiteIT {
 	    assertThat(driver.findElement(By.id("encuestaAlum:dtEncuesta:1:j_idt37")).getText(), is("104195486"));
 	    assertThat(driver.findElement(By.id("encuestaAlum:dtEncuesta:1:j_idt39")).getText(), is("2020-06-08 05:55:07.0"));	    
 	  }
+	  
+	  @Test
+	  public void testPrincipalSecretaria() {
+		driver.get("http://localhost:8080/Grupo_L-war/faces/Login.xhtml");
+	    driver.manage().window().setSize(new Dimension(1158, 655));
+	    driver.findElement(By.id("j_idt7:user")).sendKeys("pepe@uma.es");
+	    driver.findElement(By.id("j_idt7:pass")).sendKeys("123");
+	    driver.findElement(By.id("j_idt7:entrar")).click();
+	    assertThat(driver.findElement(By.id("nombre2")).getText(), is("Hola, Jefe."));
+	    {
+	      List<WebElement> elements = driver.findElements(By.id("leerAlumnos"));
+	      assert(elements.size() > 0);
+	    }
+	    {
+	      List<WebElement> elements = driver.findElements(By.id("leerMatricula"));
+	      assert(elements.size() > 0);
+	    }
+	    {
+	      List<WebElement> elements = driver.findElements(By.id("leerGrupo"));
+	      assert(elements.size() > 0);
+	    }
+	    {
+	      List<WebElement> elements = driver.findElements(By.id("leerExpediente"));
+	      assert(elements.size() > 0);
+	    }
+	    {
+	      List<WebElement> elements = driver.findElements(By.id("leerTitulacion"));
+	      assert(elements.size() > 0);
+	    }
+	    {
+	      List<WebElement> elements = driver.findElements(By.id("leerEncuesta"));
+	      assert(elements.size() > 0);
+	    }
+	    {
+	      List<WebElement> elements = driver.findElements(By.id("leerAsignaturas"));
+	      assert(elements.size() > 0);
+	    }
+	    {
+	      List<WebElement> elements = driver.findElements(By.id("leerCentro"));
+	      assert(elements.size() > 0);
+	    }
+	    {
+	      List<WebElement> elements = driver.findElements(By.id("leerAsigMa"));
+	      assert(elements.size() > 0);
+	    }
+	    {
+	      List<WebElement> elements = driver.findElements(By.id("exportarDatos"));
+	      assert(elements.size() > 0);
+	    }
+	    {
+	      List<WebElement> elements = driver.findElements(By.id("importarHorario"));
+	      assert(elements.size() > 0);
+	    }
+	  }
+	  
 	
 
 }
