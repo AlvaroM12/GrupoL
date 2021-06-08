@@ -122,7 +122,8 @@ INSERT INTO Asignaturas_Matricula (asignatura_Referencia, Curso_Academico, EM, G
 --------------------------------------------------------
 --  DDL for Table Encuesta
 --------------------------------------------------------
-
+INSERT INTO Encuesta (Fecha_De_Envio, EE_Num_Expediente) VALUES ('2021-06-08 05:54:59', 104100002);
+INSERT INTO Encuesta (Fecha_De_Envio, EE_Num_Expediente) VALUES ('2020-06-08 05:55:07', 104195486);
 --------------------------------------------------------
 --  DDL for Table Grupos_Por_Asignatura
 --------------------------------------------------------
@@ -137,5 +138,6 @@ INSERT INTO GruposPorAsignatura (Curso_Academico, Oferta, A_GPA_Referencia, G_GP
 --------------------------------------------------------
 --  DDL for Table Grupos_Por_Asignatura_Encuesta
 --------------------------------------------------------
-
+INSERT INTO GruposPorAsignatura_Encuesta (gruposPorAsignaturas_A_GPA_Referencia, gruposPorAsignaturas_Curso_Academico, gruposPorAsignaturas_G_GPA_ID, E_GPA_EE_Num_Expediente, E_GPA_Fecha_De_Envio) VALUES (50659, 2, 2, 104195486, '2020-06-08 05:55:07');
+INSERT INTO GruposPorAsignatura_Encuesta (gruposPorAsignaturas_A_GPA_Referencia, gruposPorAsignaturas_Curso_Academico, gruposPorAsignaturas_G_GPA_ID, E_GPA_EE_Num_Expediente, E_GPA_Fecha_De_Envio) VALUES (50659, 2, 2, 104100002, '2021-06-08 05:54:59');
 
