@@ -39,10 +39,8 @@
 		<a href="LeerExpediente.xhtml" style="text-decoration: none">Leer Expediente</a>
 	</div>
 	
-	<div class="centro">
-	 	<div class="izquierdaCentro">
-			<b>Titulaciones: </b> <br></br>
-		</div>
+	<div class="centrado">
+	 	
 		
         <h:form id="titulacionalum">
             <p:commandButton value="Mostar" actionListener="#{titulacion.titulacion}" update="dtTitulacion" />
@@ -69,10 +67,8 @@
 	 </ui:fragment>
 	 
 	 <ui:fragment rendered="#{not empty infoSesion.personal}">
-	 <div class="centro">
-	 	<div class="izquierdaCentro">
-			<b>Titulaciones: </b> <br></br>
-		</div>
+	 <div class="centrado">
+	 	
 		
         <h:form id="titulacion">
             <p:commandButton value="Mostar" actionListener="#{titulacion.titulaciones}" update="dtTitulacion" />
