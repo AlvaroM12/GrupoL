@@ -24,6 +24,9 @@ public class GrupoBB {
 	private InterfazGrupo grupo;
 	
 	@Inject
+	private ModificarGrupoBB mg;
+	
+	@Inject
 	private InfoSesion infosesion;
 	
 	private Asignaturas_Matricula asigmat;
@@ -81,17 +84,21 @@ public class GrupoBB {
 		return null;
 	}
 		
-		
+
 	
-	public synchronized void refrescarUsuario(){
-        try {
-	        if (infosesion.getAlumno() != null)
-	        {
-	        	alumno.actualizarAlumno(infosesion.getAlumno());
-	        }
-        }
-        catch (AlumnoException e) {
-            // TODO
-        }
-    }
+	//ELIMINAR GRUPO
+	public void eliminarGrupo(Grupo g) {
+		try {
+			grupo.eliminarGrupo(g);
+		} catch (GrupoException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public String actualizarGrupo(Grupo g) {
+		mg.setG(g);
+		return "ModificarGrupo.xhtml";
+	}
+	
 }

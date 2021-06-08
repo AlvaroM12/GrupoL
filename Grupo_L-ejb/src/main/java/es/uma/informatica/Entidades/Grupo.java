@@ -39,7 +39,7 @@ public class Grupo implements Serializable {
 	@OneToMany(mappedBy = "GG")
 	private List<Grupo> grupos;
 	
-	@OneToMany(mappedBy = "G_GPA")
+	@OneToMany(mappedBy = "G_GPA", cascade = CascadeType.REMOVE)
 	private List<GruposPorAsignatura> gruposPorAsig;
 	
 	@ManyToOne

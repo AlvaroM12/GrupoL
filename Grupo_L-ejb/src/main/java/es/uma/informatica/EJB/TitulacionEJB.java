@@ -64,7 +64,7 @@ public class TitulacionEJB implements InterfazTitulacion{
 	        	t.setNombre(nombre);
 	        	Long creditos = (long) sheet.getRow(fila).getCell(2).getNumericCellValue();
 	        	t.setCreditos(creditos);
-	        	em.persist(t);
+	        	em.merge(t);
 	        }
 		} catch (IOException e) {
 			e.printStackTrace();

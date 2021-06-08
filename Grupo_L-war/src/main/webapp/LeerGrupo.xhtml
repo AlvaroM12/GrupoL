@@ -88,6 +88,14 @@
 						</f:facet>
 					</p:cellEditor>
 				</p:column>
+				
+				<p:column headerText="eliminar">
+					<h:commandButton id="eliminar" action="#{grupoBB.eliminarGrupo(g)}" value="Eliminar"/>
+				</p:column>
+				
+				<p:column headerText="modificar">
+					<h:commandButton id="modificar" action="#{grupoBB.actualizarGrupo(g)}" value="Modificar"/>
+				</p:column>
 	
 			</p:dataTable>
 		</h:form>
