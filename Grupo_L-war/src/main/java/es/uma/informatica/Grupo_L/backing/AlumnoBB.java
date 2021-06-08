@@ -17,7 +17,9 @@ public class AlumnoBB {
 
 	@Inject
 	private InterfazAlumno alejb;
-
+	
+	
+	
 	private Alumno al;
 
 	public AlumnoBB() {
@@ -32,10 +34,10 @@ public class AlumnoBB {
 		this.al = al;
 	}
 	
-	public String crear() {
+	public String crear(Alumno a) {
 		
 			try {
-				alejb.crearAlumno(al);
+				alejb.crearAlumno(a);
 			} catch (AlumnoException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -45,9 +47,9 @@ public class AlumnoBB {
 		
 	}
 	
-	public String eliminar(Alumno a) {
+	public String eliminar() {
 		try {
-			alejb.eliminarAlumno(a.getID());
+			alejb.eliminarAlumno(al.getID());
 
 		} catch (AlumnoException e) {
 			return "IndexAlumno.xhtml";
@@ -66,6 +68,7 @@ public class AlumnoBB {
 		List<Alumno> alum = new ArrayList<Alumno>();
 		
         for (Alumno a : alum) {
+        
 			if(a.getDNI().equals(al.getDNI())) {
 				alum.add(a);
 			}
