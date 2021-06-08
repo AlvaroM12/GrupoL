@@ -7,6 +7,8 @@ import javax.ejb.Local;
 import es.uma.informatica.Entidades.Alumno;
 import es.uma.informatica.Entidades.Encuesta;
 import es.uma.informatica.Entidades.Encuesta.EncuestaId;
+import es.uma.informatica.Entidades.Expediente;
+import es.uma.informatica.Entidades.Titulacion;
 import es.uma.informatica.Exception.EncuestaException;
 @Local
 public interface InterfazEncuesta {
@@ -29,9 +31,9 @@ public interface InterfazEncuesta {
 	public List<Encuesta> leerEncuestasAlumno(Alumno al) throws EncuestaException;
 
 
-	public long obtenerExpTitu(long t, long id);
+	public void crearEncuesta(Date fecha, Expediente exp) throws EncuestaException;
 
 
-	public void crearEncuesta(Date fecha, long exp) throws EncuestaException;
+	public Expediente obtenerExpTitu(Titulacion t, Alumno id);
 }
 
