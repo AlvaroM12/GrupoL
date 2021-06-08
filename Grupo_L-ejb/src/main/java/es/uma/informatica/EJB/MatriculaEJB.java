@@ -63,7 +63,23 @@ public class MatriculaEJB implements InterfazMatricula {
 	        	
 	        	String turnoPref = sheet.getRow(fila).getCell(15).getStringCellValue();
 	        	m.setTurno_Preferente(turnoPref);
+	        	/*
+	        	String grupoAsig = sheet.getRow(fila).getCell(16).getStringCellValue();
+	        	List<Asignatura> asig = null;
 	        	
+	        	Long tit = Long.valueOf(Num_Expediente.substring(0, 3));
+	        	String[] parts = grupoAsig.split(",");
+	        	for (String s : parts) {
+	        		TypedQuery <Asignatura> query = em.createQuery("SELECT a FROM Asignatura a WHERE a.Referecia LIKE :ref AND a.TA LIKE :titula", Asignatura.class);
+	            	query.setParameter("ref", s);
+	            	query.setParameter("titula", tit);
+	        		Asignatura a = query.getSingleResult();
+	        		
+	        		asig.add(a);
+				}
+	        	
+	        	m.setA(asig);
+	        	*/
 	        	em.merge(m);
 	        }
 	        wb.close();

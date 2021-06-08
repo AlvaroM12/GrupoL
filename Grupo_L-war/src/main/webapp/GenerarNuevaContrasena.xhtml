@@ -35,12 +35,13 @@
 			<br></br>
 			
 			<h:outputLabel value="Repetir nueva contraseña: " for="passwd2"/>
-			<h:inputSecret id="passwd2" required="true" />
+			<h:inputSecret id="passwd2" required="true" value="#{usuarioBB.passwd2}" />
 			<h:message for="passwd2" />
 			<br></br>
 			
 			<o:validateEqual components="passwd passwd2" message = " ERROR: Las contraseñas no coinciden" showMessageFor = "passwd2" />		
-			<h:commandButton value="Guardar Cambios" outcome="Login.xhtml" action="#{usuarioBB.validar}" update="messages"/> 
+			<h:commandButton value="Guardar Cambios" outcome="Login.xhtml" action="#{usuarioBB.validar}" /> 
+			<h:button value="Cancelar" outcome="Login.xhtml" /> 
 		</h:form>
 	</div>
 

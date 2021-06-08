@@ -15,10 +15,10 @@
 
 <h:body>
 	<ui:fragment rendered="#{not empty infoSesion.alumno}">
-	<div class="inicio"><p>Hola, <h:outputText value="#{infoSesion.alumno.nombre}"/>.</p></div>
+	<div><p>Hola, <h:outputText value="#{infoSesion.alumno.nombre}"/>.</p></div>
 	</ui:fragment>
 	<ui:fragment rendered="#{not empty infoSesion.personal}">	
-	<div class="inicio"><p>Hola, <h:outputText value="#{infoSesion.personal.rango}"/>.</p></div>
+	<div><p>Hola, <h:outputText value="#{infoSesion.personal.rango}"/>.</p></div>
 	</ui:fragment>
 	
 	<h:form>
@@ -52,6 +52,9 @@
 			<p:dataTable styleClass="card" id="dtAsig" value="#{asignaturaBB.asignaturaAlumno}" var="a">
 				<p:column headerText="Referencia" filterBy="#{a.referencia}" filterMatchMode="contains">
 					<p:outputLabel value="#{a.referencia}" />
+				</p:column>
+				<p:column headerText="Titulacion" filterBy="#{a.tA}" filterMatchMode="contains">
+					<p:outputLabel value="#{a.TA}" />
 				</p:column>
 				<p:column headerText="Codigo" filterBy="#{a.codigo}" filterMatchMode="contains">
 					<p:outputLabel value="#{a.codigo}" />
@@ -89,10 +92,6 @@
 
 	<ui:fragment rendered="#{not empty infoSesion.personal}">
 		<h:form>
-			<div class="izquierdaCentro">
-				<b>Asignaturas: </b> <br></br>
-			</div>
-			
 			<p:commandButton value="Mostar" actionListener="#{asignaturaBB.asignaturas}" update="dtAsignaturas" />
 				
 			<p:dataTable styleClass="card" id="dtAsignaturas" value="#{asignaturaBB.asignaturas}" var="a">

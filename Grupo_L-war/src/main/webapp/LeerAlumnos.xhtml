@@ -15,7 +15,7 @@
 
 <h:body>
 	<ui:fragment rendered="#{not empty infoSesion.alumno}">
-	<div class="inicio"><p>Hola, <h:outputText value="#{infoSesion.alumno.nombre}"/>.</p></div>
+	<div><p>Hola, <h:outputText value="#{infoSesion.alumno.nombre}"/>.</p></div>
 	</ui:fragment>
 	<ui:fragment rendered="#{not empty infoSesion.personal}">	
 	<div class="inicio"><p>Hola, <h:outputText value="#{infoSesion.personal.rango}"/>.</p></div>
@@ -41,76 +41,72 @@
 			<a href="LeerExpediente.xhtml" style="text-decoration: none">Leer Expediente</a>
 		</div>
 		
-		<div class="centro">
-		 	
+		<div>
 			<h:form id="expediente">
             	<p:commandButton value="Mostar" actionListener="#{alumnoBB.alumno}" update="dtAlumno" />
 				
 				<p:dataTable id="dtAlumno" value="#{alumnoBB.alumno}" var="a">
 					<p:column headerText="DNI" filterBy="#{a.DNI}"
-						filterMatchMode="contains">
-						<p:outputLabel value="#{a.DNI}" />
-					</p:column>
-		
-					<p:column headerText="Nombre" filterBy="#{a.Nombre}"
-						filterMatchMode="contains">
-						<p:outputLabel value="#{a.Nombre}" />
-					</p:column>
-		
-					<p:column headerText="Apellido1" filterBy="#{a.Apellido1}"
-						filterMatchMode="contains">
-						<p:outputLabel value="#{a.Apellido1}" />
-					</p:column>
-		
-					<p:column headerText="Apellido2" filterBy="#{a.Apellido2}"
-						filterMatchMode="contains">
-						<p:outputLabel value="#{a.Apellido2}" />
-					</p:column>
-		
-					<p:column headerText="Email_Institucional"
-						filterBy="#{a.Email_Institucional}" filterMatchMode="contains">
-						<p:outputLabel value="#{a.Email_Institucional}" />
-					</p:column>
-		
-					<p:column headerText="Email_Personal" filterBy="#{a.Email_Personal}"
-						filterMatchMode="contains">
-						<p:outputLabel value="#{a.Email_Personal}" />
-					</p:column>
-		
-					<p:column headerText="Móvil" filterBy="#{a.Movil}"
-						filterMatchMode="contains">
-						<p:outputLabel value="#{a.Movil}" />
-					</p:column>
-		
-					<p:column headerText="Direccion" filterBy="#{a.Direccion}"
-						filterMatchMode="contains">
-						<p:outputLabel value="#{a.Direccion}" />
-					</p:column>
-		
-					<p:column headerText="Localidad" filterBy="#{a.Localidad}"
-						filterMatchMode="contains">
-						<p:outputLabel value="#{a.Localidad}" />
-					</p:column>
-		
-					<p:column headerText="Provincia" filterBy="#{a.Provincia}"
-						filterMatchMode="contains">
-						<p:outputLabel value="#{a.Provincia}" />
-					</p:column>
-		
-					<p:column headerText="CP" filterBy="#{a.CP}"
-						filterMatchMode="contains">
-						<p:outputLabel value="#{a.CP}" />
-					</p:column>
-					
-					
-					
+					filterMatchMode="contains">
+					<p:outputLabel value="#{a.DNI}" />
+				</p:column>
+	
+				<p:column headerText="Nombre" filterBy="#{a.nombre}"
+					filterMatchMode="contains">
+					<p:outputLabel value="#{a.nombre}" />
+				</p:column>
+	
+				<p:column headerText="Apellido1" filterBy="#{a.apellido1}"
+					filterMatchMode="contains">
+					<p:outputLabel value="#{a.apellido1}" />
+				</p:column>
+	
+				<p:column headerText="Apellido2" filterBy="#{a.apellido2}"
+					filterMatchMode="contains">
+					<p:outputLabel value="#{a.apellido2}" />
+				</p:column>
+	
+				<p:column headerText="Email_Institucional"
+					filterBy="#{a.email_Institucional}" filterMatchMode="contains">
+					<p:outputLabel value="#{a.email_Institucional}" />
+				</p:column>
+	
+				<p:column headerText="Email_Personal" filterBy="#{a.email_Personal}"
+					filterMatchMode="contains">
+					<p:outputLabel value="#{a.email_Personal}" />
+				</p:column>
+	
+				<p:column headerText="Móvil" filterBy="#{a.movil}"
+					filterMatchMode="contains">
+					<p:outputLabel value="#{a.movil}" />
+				</p:column>
+	
+				<p:column headerText="Direccion" filterBy="#{a.direccion}"
+					filterMatchMode="contains">
+					<p:outputLabel value="#{a.direccion}" />
+				</p:column>
+	
+				<p:column headerText="Localidad" filterBy="#{a.localidad}"
+					filterMatchMode="contains">
+					<p:outputLabel value="#{a.localidad}" />
+				</p:column>
+	
+				<p:column headerText="Provincia" filterBy="#{a.provincia}"
+					filterMatchMode="contains">
+					<p:outputLabel value="#{a.provincia}" />
+				</p:column>
+	
+				<p:column headerText="CP" filterBy="#{a.CP}"
+					filterMatchMode="contains">
+					<p:outputLabel value="#{a.CP}" />
+				</p:column>
 				</p:dataTable>
 			</h:form>
 		</div>
 	</ui:fragment>
 
 	<ui:fragment rendered="#{not empty infoSesion.personal}">
-		<h:form styleClass="centrado">
+		<h:form>
 								
 			<h:button id="crear" value="Crear alumno" outcome="CrearAlumno.xhtml" /><br></br>
 			<p:commandButton value="Mostar" actionListener="#{alumnoBB.alumnos}" update="dtAlumnos" />

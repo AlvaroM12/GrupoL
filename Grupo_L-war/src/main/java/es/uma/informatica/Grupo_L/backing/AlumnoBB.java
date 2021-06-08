@@ -20,7 +20,8 @@ public class AlumnoBB {
 	private InterfazAlumno alejb;
 	@Inject
 	private ModificarAlumnoBB ma;
-	
+	@Inject
+	private InfoSesion infosesion;
 	
 	private Alumno al;
 
@@ -71,12 +72,11 @@ public class AlumnoBB {
 	}
 
 	//METODO PARA LEER UN ALUMNO
-	public  synchronized List<Alumno> getAlumno(){
+	public  synchronized List<Alumno> getAlumno() throws AlumnoException{
 		List<Alumno> alum = new ArrayList<Alumno>();
 		
-        for (Alumno a : alum) {
-        
-			if(a.getDNI().equals(al.getDNI())) {
+        for (Alumno a : alejb.listaAlumno()) {
+			if(a.getDNI().equals(infosesion.getAlumno().getDNI())) {
 				alum.add(a);
 			}
 		}
@@ -88,7 +88,6 @@ public class AlumnoBB {
 		try {
 			return alejb.listaAlumno();
 		} catch (AlumnoException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return null;

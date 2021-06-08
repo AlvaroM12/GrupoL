@@ -62,7 +62,7 @@ public class AsignaturaBB {
         for (Expediente ex : infosesion.getAlumno().getExpedientes()) {
 			Titulacion ti = ex.getTE();
 			List<Asignatura> asigtit = asignatura.leerAsignaturasTitulacion(ti);
-			for (Asignatura a : asigalum) {
+			for (Asignatura a : asigtit) {
 				asigalum.add(a);
 			}
 		}
