@@ -19,9 +19,6 @@
 		<h:button value="INICIO" outcome="Principal.xhtml" />
 	</div>
 	
-	<ui:fragment rendered="#{not empty infoSesion.alumno}">
-	<div class="inicio"><p>Hola, <h:outputText value="#{infoSesion.alumno.nombre}"/>.</p></div>
-	</ui:fragment>
 	<ui:fragment rendered="#{not empty infoSesion.personal}">	
 	<div class="inicio"><p>Hola, <h:outputText value="#{infoSesion.personal.rango}"/>.</p></div>
 	</ui:fragment>
