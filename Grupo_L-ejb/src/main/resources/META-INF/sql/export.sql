@@ -6,7 +6,7 @@
 --------------------------------------------------------
 
 INSERT INTO Usuario (ID, Email_Institucional, Telefono, contrasenia) VALUES (1, 'alvaromm@uma.es', 664184557, '123');
-INSERT INTO Usuario (ID, Email_Institucional, Telefono, contrasenia) VALUES (2, 'rocio22@uma.es', 664184557, '123');
+INSERT INTO Usuario (ID, Email_Institucional, Telefono, contrasenia) VALUES (2, 'rocio22@uma.es', 664184557, 'QL0AFWMIX8NRZTKeof9cXsvbvu8=');
 INSERT INTO Usuario (ID, Email_Institucional, Telefono, contrasenia) VALUES (3, 'pepe@uma.es', 648152385, 'QL0AFWMIX8NRZTKeof9cXsvbvu8=');
 INSERT INTO Usuario (ID, Email_Institucional, Telefono, contrasenia) VALUES (4, 'marta@uma.es', 664184557, '123');
 INSERT INTO Usuario (ID, Email_Institucional, Telefono, contrasenia) VALUES (5, 'caba@uma.es', 664184557, null);
@@ -138,6 +138,6 @@ INSERT INTO GruposPorAsignatura (Curso_Academico, Oferta, A_GPA_Referencia, G_GP
 --------------------------------------------------------
 --  DDL for Table Grupos_Por_Asignatura_Encuesta
 --------------------------------------------------------
-INSERT INTO GruposPorAsignatura_Encuesta (gruposPorAsignaturas_A_GPA_Referencia, gruposPorAsignaturas_Curso_Academico, gruposPorAsignaturas_G_GPA_ID, E_GPA_EE_Num_Expediente, E_GPA_Fecha_De_Envio) VALUES (50659, 2, 2, 104195486, '2020-06-08 05:55:07');
-INSERT INTO GruposPorAsignatura_Encuesta (gruposPorAsignaturas_A_GPA_Referencia, gruposPorAsignaturas_Curso_Academico, gruposPorAsignaturas_G_GPA_ID, E_GPA_EE_Num_Expediente, E_GPA_Fecha_De_Envio) VALUES (50659, 2, 2, 104100002, '2021-06-08 05:54:59');
+--INSERT INTO GruposPorAsignatura_Encuesta (gruposPorAsignaturas_A_GPA_Referencia, gruposPorAsignaturas_Curso_Academico, gruposPorAsignaturas_G_GPA_ID, E_GPA_EE_Num_Expediente, E_GPA_Fecha_De_Envio) VALUES (50659, 2, 2, 104195486, '2020-06-08 05:55:07');
+--INSERT INTO GruposPorAsignatura_Encuesta (gruposPorAsignaturas_A_GPA_Referencia, gruposPorAsignaturas_Curso_Academico, gruposPorAsignaturas_G_GPA_ID, E_GPA_EE_Num_Expediente, E_GPA_Fecha_De_Envio) VALUES (50659, 2, 2, 104100002, '2021-06-08 05:54:59');
 

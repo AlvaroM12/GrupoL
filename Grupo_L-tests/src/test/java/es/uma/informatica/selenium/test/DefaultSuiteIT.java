@@ -94,6 +94,21 @@ public class DefaultSuiteIT {
 	    driver.findElement(By.id("leerEncuesta")).click();
 	    assertThat(driver.findElement(By.id("encuesta:dtEncuesta:0:j_idt27")).getText(), is("104195486"));
 	  }
+	 
+	  @Test
+	  public void leerEncuestaS() {
+	    driver.get("http://localhost:8080/Grupo_L-war/faces/Login.xhtml");
+	    driver.manage().window().setSize(new Dimension(1158, 655));
+	    driver.findElement(By.id("j_idt7:user")).sendKeys("pepe@uma.es");
+	    driver.findElement(By.id("j_idt7:pass")).sendKeys("123");
+	    driver.findElement(By.id("j_idt7:entrar")).click();
+	    assertThat(driver.findElement(By.id("nombre2")).getText(), is("Hola, Jefe."));
+	    driver.findElement(By.id("leerEncuesta")).click();
+	    assertThat(driver.findElement(By.id("encuestaAlum:dtEncuesta:0:j_idt37")).getText(), is("104100002"));
+	    assertThat(driver.findElement(By.id("encuestaAlum:dtEncuesta:0:j_idt39")).getText(), is("2021-06-08 05:54:59.0"));
+	    assertThat(driver.findElement(By.id("encuestaAlum:dtEncuesta:1:j_idt37")).getText(), is("104195486"));
+	    assertThat(driver.findElement(By.id("encuestaAlum:dtEncuesta:1:j_idt39")).getText(), is("2020-06-08 05:55:07.0"));	    
+	  }
 	
 
 }
