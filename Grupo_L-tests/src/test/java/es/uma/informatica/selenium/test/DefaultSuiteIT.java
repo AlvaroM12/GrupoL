@@ -43,127 +43,161 @@ public class DefaultSuiteIT {
 	}
 	
 	@Test
-	  public void inicioSesion() {
-		driver.get("http://localhost:8080/Grupo_L-war/");
-	    driver.manage().window().setSize(new Dimension(977, 715));
-	    driver.findElement(By.id("inicio")).click();
+	public void generarNuevaContrasea() {
+	    driver.get("http://0.0.0.0:8080/Grupo_L-war/faces/Login.xhtml");
+	    driver.manage().window().setSize(new Dimension(826, 694));
+	    driver.findElement(By.linkText("¿Has olvidado tu contraseña?")).click();
+	    driver.findElement(By.id("j_idt8:email")).click();
+	    driver.findElement(By.id("j_idt8:passwd")).sendKeys("123");
+	    driver.findElement(By.id("j_idt8:email")).sendKeys("marta@uma.es");
+	    driver.findElement(By.id("j_idt8:passwd2")).click();
+	    driver.findElement(By.id("j_idt8:passwd2")).sendKeys("123");
+	    driver.findElement(By.name("j_idt8:j_idt19")).click();
 	    driver.findElement(By.id("j_idt7:user")).click();
-	    driver.findElement(By.id("j_idt7:user")).sendKeys("rocio22@uma.es");
-	    driver.findElement(By.id("j_idt7:pass")).click();
+	    driver.findElement(By.id("j_idt7:user")).sendKeys("marta@uma.es");
 	    driver.findElement(By.id("j_idt7:pass")).sendKeys("123");
 	    driver.findElement(By.id("j_idt7:entrar")).click();
-	    assertThat(driver.findElement(By.id("nombre")).getText(), is("Hola, Rocio."));
+	    assertThat(driver.findElement(By.id("nombre")).getText(), is("Hola, Marta."));
+	    driver.findElement(By.cssSelector(".titulo")).click();
+	    assertThat(driver.findElement(By.cssSelector(".titulo")).getText(), is("PRINCIPAL"));
+	    driver.findElement(By.cssSelector("b")).click();
+	    assertThat(driver.findElement(By.cssSelector("b")).getText(), is("MIS DATOS"));
+	    driver.findElement(By.linkText("Cerrar Sesion")).click();
+	}
+	@Test
+	  public void leerMatriculaA() {
+	    driver.get("http://0.0.0.0:8080/Grupo_L-war/faces/Login.xhtml");
+	    driver.manage().window().setSize(new Dimension(826, 694));
+	    driver.findElement(By.id("j_idt7:user")).click();
+	    driver.findElement(By.id("j_idt7:user")).sendKeys("marta@uma.es");
+	    driver.findElement(By.id("j_idt7:pass")).sendKeys("123");
+	    driver.findElement(By.id("j_idt7:entrar")).click();
+	    driver.findElement(By.cssSelector(".inicio")).click();
+	    assertThat(driver.findElement(By.id("nombre")).getText(), is("Hola, Marta."));
+	    driver.findElement(By.cssSelector(".titulo")).click();
+	    assertThat(driver.findElement(By.cssSelector(".titulo")).getText(), is("PRINCIPAL"));
+	    driver.findElement(By.id("leerMatricula")).click();
+	    driver.findElement(By.cssSelector(".titulo")).click();
+	    assertThat(driver.findElement(By.cssSelector(".titulo")).getText(), is("MATRICULA"));
+	    driver.findElement(By.id("j_idt25:dtMat:0:j_idt34")).click();
+	    assertThat(driver.findElement(By.id("j_idt25:dtMat:0:j_idt34")).getText(), is("105600003"));
+	    assertThat(driver.findElement(By.id("j_idt25:dtMat:0:j_idt29")).getText(), is("306000004"));
+	    assertThat(driver.findElement(By.id("j_idt25:dtMat:0:j_idt31")).getText(), is("2019-12-29"));
+	    driver.findElement(By.linkText("Cerrar Sesion")).click();
 	  }
 	
 	@Test
-	  public void logginSecretaria() {
-	    driver.get("http://localhost:8080/Grupo_L-war/faces/Login.xhtml");
-	    driver.manage().window().setSize(new Dimension(1158, 655));
-	    driver.findElement(By.id("j_idt7:user")).sendKeys("pepe@uma.es");
-	    driver.findElement(By.id("j_idt7:pass")).sendKeys("123");
-	    driver.findElement(By.id("j_idt7:entrar")).click();
-	    assertThat(driver.findElement(By.id("nombre2")).getText(), is("Hola, Jefe."));
-	  }
-	
-	
-	 @Test
-	  public void leerTitu() {
-			driver.get("http://localhost:8080/Grupo_L-war/");
-		    driver.manage().window().setSize(new Dimension(977, 715));
-		    driver.findElement(By.id("inicio")).click();
-		    driver.findElement(By.id("j_idt7:user")).click();
-		    driver.findElement(By.id("j_idt7:user")).sendKeys("rocio22@uma.es");
-		    driver.findElement(By.id("j_idt7:pass")).click();
-		    driver.findElement(By.id("j_idt7:pass")).sendKeys("123");
-		    driver.findElement(By.id("j_idt7:entrar")).click();
-		    assertThat(driver.findElement(By.id("nombre")).getText(), is("Hola, Rocio."));
-		    
-	  }
-	 
-	 @Test
-	  public void leerEncuestaA() {
-		driver.get("http://localhost:8080/Grupo_L-war/");
-	    driver.manage().window().setSize(new Dimension(977, 715));
-	    driver.findElement(By.id("inicio")).click();
+	  public void leerAsignturaA() {
+	    driver.get("http://0.0.0.0:8080/Grupo_L-war/faces/Login.xhtml");
+	    driver.manage().window().setSize(new Dimension(826, 694));
 	    driver.findElement(By.id("j_idt7:user")).click();
-	    driver.findElement(By.id("j_idt7:user")).sendKeys("rocio22@uma.es");
+	    driver.findElement(By.id("j_idt7:user")).sendKeys("marta@uma.es");
 	    driver.findElement(By.id("j_idt7:pass")).click();
 	    driver.findElement(By.id("j_idt7:pass")).sendKeys("123");
 	    driver.findElement(By.id("j_idt7:entrar")).click();
-	    assertThat(driver.findElement(By.id("nombre")).getText(), is("Hola, Rocio."));
-	    driver.findElement(By.id("leerEncuesta")).click();
-	    assertThat(driver.findElement(By.id("encuesta:dtEncuesta:0:j_idt27")).getText(), is("104195486"));
+	    driver.findElement(By.cssSelector(".inicio")).click();
+	    assertThat(driver.findElement(By.id("nombre")).getText(), is("Hola, Marta."));
+	    driver.findElement(By.cssSelector(".titulo")).click();
+	    assertThat(driver.findElement(By.cssSelector(".titulo")).getText(), is("PRINCIPAL"));
+	    driver.findElement(By.id("leerAsignaturas")).click();
+	    driver.findElement(By.cssSelector(".titulo")).click();
+	    assertThat(driver.findElement(By.cssSelector(".titulo")).getText(), is("ASIGNATURAS"));
+	    assertThat(driver.findElement(By.id("j_idt25:dtAsig:0:j_idt28")).getText(), is("40660"));
+	    driver.findElement(By.id("j_idt25:dtAsig:0:j_idt29")).click();
+	    assertThat(driver.findElement(By.id("j_idt25:dtAsig:0:j_idt29")).getText(), is("Grado en Ingenieria de la Salud"));
+	    driver.findElement(By.id("j_idt25:dtAsig:0:j_idt30")).click();
+	    driver.findElement(By.cssSelector("td:nth-child(3)")).click();
+	    assertThat(driver.findElement(By.id("j_idt25:dtAsig:0:j_idt30")).getText(), is("103"));
+	    assertThat(driver.findElement(By.id("j_idt25:dtAsig:0:j_idt31")).getText(), is("6"));
+	    driver.findElement(By.cssSelector("td:nth-child(5)")).click();
+	    assertThat(driver.findElement(By.cssSelector("td:nth-child(5)")).getText(), is("0"));
+	    assertThat(driver.findElement(By.id("j_idt25:dtAsig:0:j_idt33")).getText(), is("6"));
+	    assertThat(driver.findElement(By.id("j_idt25:dtAsig:0:j_idt34")).getText(), is("Si"));
+	    assertThat(driver.findElement(By.id("j_idt25:dtAsig:0:j_idt35")).getText(), is("EDA"));
+	    driver.findElement(By.cssSelector("td:nth-child(9)")).click();
+	    assertThat(driver.findElement(By.id("j_idt25:dtAsig:0:j_idt36")).getText(), is("3"));
+	    assertThat(driver.findElement(By.id("j_idt25:dtAsig:0:j_idt38")).getText(), is("1 Semestre"));
+	    driver.findElement(By.cssSelector("td:nth-child(12)")).click();
+	    assertThat(driver.findElement(By.id("j_idt25:dtAsig:0:j_idt39")).getText(), is("No"));
+	    driver.findElement(By.linkText("Cerrar Sesion")).click();
 	  }
-	 
-	  @Test
-	  public void leerEncuestaS() {
-	    driver.get("http://localhost:8080/Grupo_L-war/faces/Login.xhtml");
-	    driver.manage().window().setSize(new Dimension(1158, 655));
+	
+	@Test
+	  public void leerAsignaturaS() {
+	    driver.get("http://0.0.0.0:8080/Grupo_L-war/faces/Login.xhtml");
+	    driver.manage().window().setSize(new Dimension(887, 631));
 	    driver.findElement(By.id("j_idt7:user")).sendKeys("pepe@uma.es");
 	    driver.findElement(By.id("j_idt7:pass")).sendKeys("123");
 	    driver.findElement(By.id("j_idt7:entrar")).click();
+	    driver.findElement(By.cssSelector(".inicio")).click();
 	    assertThat(driver.findElement(By.id("nombre2")).getText(), is("Hola, Jefe."));
-	    driver.findElement(By.id("leerEncuesta")).click();
-	    assertThat(driver.findElement(By.id("encuestaAlum:dtEncuesta:0:j_idt37")).getText(), is("104100002"));
-	    assertThat(driver.findElement(By.id("encuestaAlum:dtEncuesta:0:j_idt39")).getText(), is("2021-06-08 05:54:59.0"));
-	    assertThat(driver.findElement(By.id("encuestaAlum:dtEncuesta:1:j_idt37")).getText(), is("104195486"));
-	    assertThat(driver.findElement(By.id("encuestaAlum:dtEncuesta:1:j_idt39")).getText(), is("2020-06-08 05:55:07.0"));	    
-	  }
-	  
-	  @Test
-	  public void testPrincipalSecretaria() {
-		driver.get("http://localhost:8080/Grupo_L-war/faces/Login.xhtml");
-	    driver.manage().window().setSize(new Dimension(1158, 655));
-	    driver.findElement(By.id("j_idt7:user")).sendKeys("pepe@uma.es");
+	    driver.findElement(By.cssSelector(".titulo")).click();
+	    assertThat(driver.findElement(By.cssSelector(".titulo")).getText(), is("PRINCIPAL"));
+	    driver.findElement(By.id("leerAsignaturas")).click();
+	    driver.findElement(By.cssSelector(".titulo")).click();
+	    assertThat(driver.findElement(By.cssSelector(".titulo")).getText(), is("ASIGNATURAS"));
+	    driver.findElement(By.cssSelector(".ui-widget-content:nth-child(1) > td:nth-child(1)")).click();
+	    assertThat(driver.findElement(By.id("j_idt41:dtAsignaturas:0:j_idt43")).getText(), is("40658"));
+	    assertThat(driver.findElement(By.id("j_idt41:dtAsignaturas:0:j_idt44")).getText(), is("Grado en Ingenieria del Software"));
+	    assertThat(driver.findElement(By.id("j_idt41:dtAsignaturas:1:j_idt43")).getText(), is("40659"));
+	    assertThat(driver.findElement(By.id("j_idt41:dtAsignaturas:2:j_idt43")).getText(), is("40660"));
+	    driver.findElement(By.cssSelector(".ui-widget-content:nth-child(3) > td:nth-child(2)")).click();
+	    assertThat(driver.findElement(By.id("j_idt41:dtAsignaturas:2:j_idt44")).getText(), is("Grado en Ingenieria de la Salud"));
+	    driver.findElement(By.cssSelector(".ui-widget-content:nth-child(4) > td:nth-child(1)")).click();
+	    assertThat(driver.findElement(By.id("j_idt41:dtAsignaturas:3:j_idt43")).getText(), is("50658"));
+	    driver.findElement(By.cssSelector(".ui-widget-content:nth-child(4) > td:nth-child(2)")).click();
+	    assertThat(driver.findElement(By.id("j_idt41:dtAsignaturas:3:j_idt44")).getText(), is("Grado en Ingenieria Informatica"));
+	    driver.findElement(By.id("j_idt41:dtAsignaturas:4:j_idt43")).click();
+	    assertThat(driver.findElement(By.id("j_idt41:dtAsignaturas:4:j_idt43")).getText(), is("50659"));
+	    driver.findElement(By.cssSelector(".ui-widget-content:nth-child(5) > td:nth-child(2)")).click();
+	    assertThat(driver.findElement(By.id("j_idt41:dtAsignaturas:4:j_idt44")).getText(), is("Grado en Ingenieria Informatica"));
+	    driver.findElement(By.cssSelector(".ui-widget-content:nth-child(6) > td:nth-child(1)")).click();
+	    assertThat(driver.findElement(By.id("j_idt41:dtAsignaturas:5:j_idt43")).getText(), is("50660"));
+	    driver.findElement(By.cssSelector(".ui-widget-content:nth-child(6) > td:nth-child(2)")).click();
+	    assertThat(driver.findElement(By.id("j_idt41:dtAsignaturas:5:j_idt44")).getText(), is("Doble Grado en Ingenieria Informatica y Matematicas"));
+	    driver.findElement(By.linkText("Cerrar Sesion")).click();
+	}
+	
+	@Test
+	  public void leerAlumnoA() {
+	    driver.get("http://0.0.0.0:8080/Grupo_L-war/faces/Login.xhtml");
+	    driver.manage().window().setSize(new Dimension(826, 694));
+	    driver.findElement(By.id("j_idt7:user")).click();
 	    driver.findElement(By.id("j_idt7:pass")).sendKeys("123");
+	    driver.findElement(By.id("j_idt7:user")).sendKeys("marta@uma.es");
 	    driver.findElement(By.id("j_idt7:entrar")).click();
-	    assertThat(driver.findElement(By.id("nombre2")).getText(), is("Hola, Jefe."));
-	    {
-	      List<WebElement> elements = driver.findElements(By.id("leerAlumnos"));
-	      assert(elements.size() > 0);
-	    }
-	    {
-	      List<WebElement> elements = driver.findElements(By.id("leerMatricula"));
-	      assert(elements.size() > 0);
-	    }
-	    {
-	      List<WebElement> elements = driver.findElements(By.id("leerGrupo"));
-	      assert(elements.size() > 0);
-	    }
-	    {
-	      List<WebElement> elements = driver.findElements(By.id("leerExpediente"));
-	      assert(elements.size() > 0);
-	    }
-	    {
-	      List<WebElement> elements = driver.findElements(By.id("leerTitulacion"));
-	      assert(elements.size() > 0);
-	    }
-	    {
-	      List<WebElement> elements = driver.findElements(By.id("leerEncuesta"));
-	      assert(elements.size() > 0);
-	    }
-	    {
-	      List<WebElement> elements = driver.findElements(By.id("leerAsignaturas"));
-	      assert(elements.size() > 0);
-	    }
-	    {
-	      List<WebElement> elements = driver.findElements(By.id("leerCentro"));
-	      assert(elements.size() > 0);
-	    }
-	    {
-	      List<WebElement> elements = driver.findElements(By.id("leerAsigMa"));
-	      assert(elements.size() > 0);
-	    }
-	    {
-	      List<WebElement> elements = driver.findElements(By.id("exportarDatos"));
-	      assert(elements.size() > 0);
-	    }
-	    {
-	      List<WebElement> elements = driver.findElements(By.id("importarHorario"));
-	      assert(elements.size() > 0);
-	    }
+	    driver.findElement(By.cssSelector(".inicio")).click();
+	    assertThat(driver.findElement(By.id("nombre")).getText(), is("Hola, Marta."));
+	    driver.findElement(By.cssSelector(".titulo")).click();
+	    assertThat(driver.findElement(By.cssSelector(".titulo")).getText(), is("PRINCIPAL"));
+	    driver.findElement(By.id("leerAlumnos")).click();
+	    driver.findElement(By.cssSelector(".titulo")).click();
+	    assertThat(driver.findElement(By.cssSelector(".titulo")).getText(), is("ALUMNOS"));
+	    driver.findElement(By.cssSelector("td:nth-child(1)")).click();
+	    assertThat(driver.findElement(By.id("alumnos:dtAlumno:0:j_idt26")).getText(), is("57400152C"));
+	    driver.findElement(By.id("alumnos:dtAlumno:0:j_idt27")).click();
+	    assertThat(driver.findElement(By.id("alumnos:dtAlumno:0:j_idt27")).getText(), is("Marta"));
+	    driver.findElement(By.cssSelector("td:nth-child(3)")).click();
+	    assertThat(driver.findElement(By.id("alumnos:dtAlumno:0:j_idt28")).getText(), is("Lopez"));
+	    driver.findElement(By.cssSelector("td:nth-child(4)")).click();
+	    assertThat(driver.findElement(By.id("alumnos:dtAlumno:0:j_idt29")).getText(), is("Perez"));
+	    driver.findElement(By.cssSelector("td:nth-child(5)")).click();
+	    assertThat(driver.findElement(By.id("alumnos:dtAlumno:0:j_idt30")).getText(), is("marta@uma.es"));
+	    driver.findElement(By.cssSelector("td:nth-child(6)")).click();
+	    assertThat(driver.findElement(By.id("alumnos:dtAlumno:0:j_idt31")).getText(), is("IsidreBlancoZambrano@dayrep.com"));
+	    driver.findElement(By.cssSelector("td:nth-child(7)")).click();
+	    assertThat(driver.findElement(By.id("alumnos:dtAlumno:0:j_idt32")).getText(), is("760544184"));
+	    driver.findElement(By.cssSelector("td:nth-child(8)")).click();
+	    assertThat(driver.findElement(By.id("alumnos:dtAlumno:0:j_idt33")).getText(), is("Reisedor 77"));
+	    driver.findElement(By.cssSelector("td:nth-child(9)")).click();
+	    assertThat(driver.findElement(By.id("alumnos:dtAlumno:0:j_idt34")).getText(), is("Almassera"));
+	    driver.findElement(By.cssSelector("td:nth-child(10)")).click();
+	    assertThat(driver.findElement(By.id("alumnos:dtAlumno:0:j_idt35")).getText(), is("MALAGA"));
+	    driver.findElement(By.cssSelector("td:nth-child(11)")).click();
+	    assertThat(driver.findElement(By.id("alumnos:dtAlumno:0:j_idt36")).getText(), is("46132"));
+	    driver.findElement(By.linkText("Cerrar Sesion")).click();
 	  }
-	  
+	
 	
 
 }
