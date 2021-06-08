@@ -61,7 +61,7 @@ public class AlumnoBB {
 	
 	public String actualizar(Alumno a) {
 		ma.setA(a);
-		return "ModificarGrupo.xhtml";
+		return "ModificarAlumno.xhtml";
 	}
 
 	public String modificar(Alumno a) {
