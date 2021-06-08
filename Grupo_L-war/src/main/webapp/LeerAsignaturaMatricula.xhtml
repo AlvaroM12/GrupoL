@@ -72,14 +72,14 @@
 			</p:column>
 	 	</p:dataTable>
          
-         <h:commandButton value="Refrescar" action="#{grupoBB.refrescarUsuario}"/>
+         
 	</h:form>
 	 </div>
 	</ui:fragment>
 	
 	
 	<ui:fragment rendered="#{not empty infoSesion.personal}">
-	 <div class="centro">
+	 <div class="centrado">
         <h:form id="asigm">
             <p:commandButton value="Mostar" actionListener="#{grupoBB.asignaturasMatriculas}" update="dtAsigM" />
 
@@ -106,7 +106,7 @@
 			</p:column>
 	 	</p:dataTable>
          
-         <h:commandButton value="Refrescar" action="#{grupoBB.refrescarUsuario}"/>
+        
 	</h:form>
 	 </div>
 	 </ui:fragment>

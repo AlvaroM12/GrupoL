@@ -69,5 +69,37 @@ public class ModificarGrupoBB {
 		return "LeerGrupo.xhtml";
 	}
 	
+	public Long autoID() {
+		Long id = (long)0;
+		try {
+			List<Grupo> grupos = interfazGrupo.leerGrupos();			
+			for (Grupo g : grupos) {
+				if(g.getID()>id) {
+					id=g.getID();
+				}
+			}
+		} catch (GrupoException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return id + (long)1;
+	}
+	
+	public String crear() {
+		try {
+			g.setID(autoID());
+			g.setTG(interfazTitulacion.leerTitulacion(t));
+			interfazGrupo.crearGrupo(g);
+		} catch (GrupoException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (TitulacionException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return "LeerGrupo.xhtml";
+	}
+	
 
 }

@@ -96,9 +96,15 @@ public class GrupoBB {
 		}
 	}
 	
+	//MODIFICAR GRUPO
 	public String actualizarGrupo(Grupo g) {
 		mg.setG(g);
 		return "ModificarGrupo.xhtml";
+	}
+	
+	//CREAR GRUPO
+	public String crearGrupo() {
+		return "CrearGrupo.xhtml";
 	}
 	
 }

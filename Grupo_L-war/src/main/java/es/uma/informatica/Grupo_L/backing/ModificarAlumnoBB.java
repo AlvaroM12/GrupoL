@@ -44,10 +44,27 @@ public class ModificarAlumnoBB {
 	}
 
 
+	public Long autoID() {
+		Long id = (long)0;
+		try {
+			List<Alumno> alumnos = interfazAlumno.listaAlumno();			
+			for (Alumno a : alumnos) {
+				if(a.getID()>id) {
+					id=a.getID();
+				}
+			}
+		}catch (AlumnoException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return id + (long)1;
+	}
 
 	public String crear() {
 		
 		try {
+			a.setID(autoID());
 			interfazAlumno.crearAlumno(a);
 		} catch (AlumnoException e) {
 			// TODO Auto-generated catch block

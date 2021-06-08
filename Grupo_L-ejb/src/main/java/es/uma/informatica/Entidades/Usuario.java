@@ -13,7 +13,7 @@ import javax.persistence.*;
 public class Usuario implements Serializable {
 
 	   
-	@Id @GeneratedValue
+	@Id 
 	private Long ID;
 	private Long Telefono;
 	private String Email_Institucional;
