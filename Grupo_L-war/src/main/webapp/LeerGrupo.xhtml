@@ -27,9 +27,9 @@
 	<div class="cerrar"> <h:commandLink action="#{infoSesion.invalidarSesion()}">Cerrar Sesion</h:commandLink> </div>
 	</h:form>
 	
-	<h1 class="titulo"> Leer Grupo </h1>
+	<h1 id="grupos" class="titulo"> Leer Grupo </h1>
 		
-		<h:form styleClass="centrado">
+		<h:form id="tabla" styleClass="centrado">
 			<p:commandButton value="Mostar" actionListener="#{grupoBB.grupos}" update="dtGrupos" />
 			
 			<h:commandButton id="crear" action="#{grupoBB.crearGrupo()}" value="Crear grupo"/>
@@ -37,47 +37,47 @@
 	
 			<p:dataTable id="dtGrupos" value="#{grupoBB.grupos}" var="g">
 			
-				<p:column headerText="ID" filterBy="#{g.ID}"
+				<p:column id="ID" headerText="ID" filterBy="#{g.ID}"
 					filterMatchMode="contains">
 					<p:outputLabel value="#{g.ID}" />
 				</p:column>
 	
-				<p:column headerText="Curso" filterBy="#{g.curso}"
+				<p:column id="curso" headerText="Curso" filterBy="#{g.curso}"
 					filterMatchMode="contains">
 					<p:outputLabel value="#{g.curso}" />
 				</p:column>
 	
-				<p:column headerText="Letra" filterBy="#{g.letra}"
+				<p:column id="letra" headerText="Letra" filterBy="#{g.letra}"
 					filterMatchMode="contains">
 					<p:outputLabel value="#{g.letra}" />
 				</p:column>
 	
-				<p:column headerText="Turno" filterBy="#{g.turno_Maniana_Tarde}"
+				<p:column id="turno" headerText="Turno" filterBy="#{g.turno_Maniana_Tarde}"
 					filterMatchMode="contains">
 					<p:outputLabel value="#{g.turno_Maniana_Tarde}" />
 				</p:column>
 	
-				<p:column headerText="Ingles"
+				<p:column id="ingles" headerText="Ingles"
 					filterBy="#{g.ingles}" filterMatchMode="contains">
 					<p:outputLabel value="#{g.ingles}" />
 				</p:column>
 	
-				<p:column headerText="Visible" filterBy="#{g.visible}"
+				<p:column id="visible" headerText="Visible" filterBy="#{g.visible}"
 					filterMatchMode="contains">
 					<p:outputLabel value="#{g.visible}" />
 				</p:column>
 	
-				<p:column headerText="Asignar" filterBy="#{g.asignar}"
+				<p:column id="asignar" headerText="Asignar" filterBy="#{g.asignar}"
 					filterMatchMode="contains">
 					<p:outputLabel value="#{g.asignar}" />
 				</p:column>
 	
-				<p:column headerText="Plazas" filterBy="#{g.plazas}"
+				<p:column id="plazas" headerText="Plazas" filterBy="#{g.plazas}"
 					filterMatchMode="contains">
 					<p:outputLabel value="#{g.plazas}" />
 				</p:column>
 				
-				<p:column headerText="Titulacion" filterBy="#{g.TG.codigo}"
+				<p:column id="tgCodigo" headerText="Titulacion" filterBy="#{g.TG.codigo}"
 					filterMatchMode="contains">
 					<p:outputLabel value="#{g.TG.codigo}" />
 				</p:column>
