@@ -19,6 +19,7 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import es.uma.informatica.Entidades.Alumno;
 import es.uma.informatica.Entidades.Expediente;
+import es.uma.informatica.Entidades.Titulacion;
 import es.uma.informatica.Exception.ExpedienteException;
 import es.uma.informatica.Interfaces.InterfazExpediente;
 
@@ -45,15 +46,17 @@ public class ExpedienteEJB implements InterfazExpediente {
 	        Sheet sheet = wb.getSheet("Hoja1");
 	        
 	        
-	        for(int fila=4; fila<7; fila++) {
+	        for(int fila=4; fila<5; fila++) {
 	        	
 	        	Expediente e = new Expediente();
 		        Alumno a = new Alumno();
+		        Titulacion t = new Titulacion();
 	        	
 	        	String alum = sheet.getRow(fila).getCell(0).getStringCellValue();
 	        	Long id = (long)sheet.getRow(fila).getCell(25).getNumericCellValue();
 	        	a.setID(id);
-	        	a.setDNI(alum);	        	
+	        	a.setDNI(alum);	
+	        	
 	        	e.setAE(a);
 	        	
 	        	String Num_Expediente = sheet.getRow(fila).getCell(4).getStringCellValue();
@@ -84,8 +87,12 @@ public class ExpedienteEJB implements InterfazExpediente {
 	        	e.setCreditos_PE(Double.parseDouble(Creditos_PE));
 	        	
 	        	String Creditos_TF = sheet.getRow(fila).getCell(24).getStringCellValue();
-
 	        	e.setCreditos_TF(Double.parseDouble(Creditos_TF));
+	        	
+	        	String tit = sheet.getRow(fila).getCell(26).getStringCellValue();
+	        	t.setCodigo(Long.valueOf(tit));
+	        	e.setTE(t);
+	        	
 	        	em.merge(e);
 	        }
 	      wb.close();
