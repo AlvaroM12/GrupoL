@@ -28,7 +28,7 @@
 	<h1 class="titulo"> Principal </h1>
 
 	<ui:fragment rendered="#{not empty infoSesion.alumno}">
-		<div class="izquierda"   >
+		<div id="caja" class="izquierda"   >
 			<b>MIS DATOS </b><br></br><br></br> 
 			<a id="leerEncuesta" href="LeerEncuesta.xhtml" style="text-decoration: none">Leer Encuesta</a><br></br>
 			<a id="leerAsigMa" href="LeerAsignaturaMatricula.xhtml" style="text-decoration: none">Leer Asignatura Matricula</a><br></br>
@@ -42,13 +42,13 @@
 	
 	
 	<div class="centro">
-		<h:button value="Rellenar encuesta" outcome="RellenarEncuesta.xhtml" /> <br></br><br></br>
-		<h:button value="Solicitar cambio de grupo" outcome="SolicitarCambioGrupo.xhtml" />
+		<h:button id="rellenarEncuesta" value="Rellenar encuesta" outcome="RellenarEncuesta.xhtml" /> <br></br><br></br>
+		<h:button id="solicitarCambioGrupo" value="Solicitar cambio de grupo" outcome="SolicitarCambioGrupo.xhtml" />
 	</div>
 	</ui:fragment>
 	
 	<ui:fragment rendered="#{not empty infoSesion.personal}">		
-		<div class="centrado" >
+		<div id="cajaS" class="centrado" >
 			<h:button id="leerAlumnos" value="Alumnos" outcome="LeerAlumnos.xhtml" /> <br></br><br></br>
 			<h:button id="leerMatricula" value="Matricula" outcome="LeerMatricula.xhtml" /> <br></br><br></br>
 			<h:button id="leerGrupo" value="Grupos" outcome="LeerGrupo.xhtml" /> <br></br><br></br>

@@ -32,7 +32,7 @@
 	<h1 class="titulo"> Leer Asignatura-Matricula </h1>
 
 	<ui:fragment rendered="#{not empty infoSesion.alumno}">	
-		<div class="izquierda"   >
+		<div id = "caja" class="izquierda"   >
 			<b>MIS DATOS </b><br></br><br></br> 
 			<a href="LeerEncuesta.xhtml" style="text-decoration: none">Leer Encuesta</a><br></br>
 			<a href="LeerAsignaturaMatricula.xhtml" style="text-decoration: none">Leer Asignatura Matricula</a><br></br>
@@ -44,29 +44,29 @@
 			<a href="LeerExpediente.xhtml" style="text-decoration: none">Leer Expediente</a>
 		</div>
 		
-		<div class="centro">
+		<div id = "tabla" class="centro">
         <h:form id="asigmatri">
             <p:commandButton value="Mostar" actionListener="#{grupoBB.asignaturasMatriculasAlumno}" update="dtAsigM" />
 
 		<p:dataTable id="dtAsigM" value="#{grupoBB.asignaturasMatriculasAlumno}" var="asig">
 		
 			
-			<p:column headerText="Matricula" filterBy="#{asig.matricula.num_Archivo}"
+			<p:column id = "matricula" headerText="Matricula" filterBy="#{asig.matricula.num_Archivo}"
 				filterMatchMode="contains">
 				<p:outputLabel value="#{asig.matricula.num_Archivo}" />
 			</p:column>
 			
-			<p:column headerText="Asignatura" filterBy="#{asig.asignatura.referencia}"
+			<p:column id = "asignatura" headerText="Asignatura" filterBy="#{asig.asignatura.referencia}"
 				filterMatchMode="contains">
 				<p:outputLabel value="#{asig.asignatura.referencia}" />
 			</p:column>
 			
-			<p:column headerText="Grupo_Curso" filterBy="#{asig.g_AM.curso}"
+			<p:column id="grupo" headerText="Grupo_Curso" filterBy="#{asig.g_AM.curso}"
 				filterMatchMode="contains">
 				<p:outputLabel value="#{asig.g_AM.curso}" />
 			</p:column>
 			
-			<p:column headerText="Grupo_Letra" filterBy="#{asig.g_AM.letra}"
+			<p:column id="letra" headerText="Grupo_Letra" filterBy="#{asig.g_AM.letra}"
 				filterMatchMode="contains">
 				<p:outputLabel value="#{asig.g_AM.letra}" />
 			</p:column>
@@ -79,28 +79,28 @@
 	
 	
 	<ui:fragment rendered="#{not empty infoSesion.personal}">
-	 <div class="centrado">
+	 <div id = "tabla" class="centrado">
         <h:form id="asigm">
             <p:commandButton value="Mostar" actionListener="#{grupoBB.asignaturasMatriculas}" update="dtAsigM" />
 
 		<p:dataTable id="dtAsigM" value="#{grupoBB.asignaturasMatriculas}" var="asig">
 		
-			<p:column headerText="Matricula" filterBy="#{asig.matricula.num_Archivo}"
+			<p:column id="matricula" headerText="Matricula" filterBy="#{asig.matricula.num_Archivo}"
 				filterMatchMode="contains">
 				<p:outputLabel value="#{asig.matricula.num_Archivo}" />
 			</p:column>
 			
-			<p:column headerText="Asignatura" filterBy="#{asig.asignatura.referencia}"
+			<p:column id="asignatura" headerText="Asignatura" filterBy="#{asig.asignatura.referencia}"
 				filterMatchMode="contains">
 				<p:outputLabel value="#{asig.asignatura.referencia}" />
 			</p:column>
 			
-			<p:column headerText="Grupo_Curso" filterBy="#{asig.g_AM.curso}"
+			<p:column id = "grupo" headerText="Grupo_Curso" filterBy="#{asig.g_AM.curso}"
 				filterMatchMode="contains">
 				<p:outputLabel value="#{asig.g_AM.curso}" />
 			</p:column>
 			
-			<p:column headerText="Grupo_Letra" filterBy="#{asig.g_AM.letra}"
+			<p:column id= "letra" headerText="Grupo_Letra" filterBy="#{asig.g_AM.letra}"
 				filterMatchMode="contains">
 				<p:outputLabel value="#{asig.g_AM.letra}" />
 			</p:column>

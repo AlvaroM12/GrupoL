@@ -164,6 +164,142 @@ public class DefaultSuiteIT {
 	    }
 	  }
 	  
-	
+	  @Test
+	  public void testPrincipalAlumno() {
+		driver.get("http://localhost:8080/Grupo_L-war/");
+	    driver.manage().window().setSize(new Dimension(977, 715));
+	    driver.findElement(By.id("inicio")).click();
+	    driver.findElement(By.id("j_idt7:user")).click();
+	    driver.findElement(By.id("j_idt7:user")).sendKeys("rocio22@uma.es");
+	    driver.findElement(By.id("j_idt7:pass")).click();
+	    driver.findElement(By.id("j_idt7:pass")).sendKeys("123");
+	    driver.findElement(By.id("j_idt7:entrar")).click();
+	    assertThat(driver.findElement(By.id("nombre")).getText(), is("Hola, Rocio."));
+	    {
+	      List<WebElement> elements = driver.findElements(By.id("rellenarEncuesta"));
+	      assert(elements.size() > 0);
+	    }
+	    {
+	      List<WebElement> elements = driver.findElements(By.id("solicitarCambioGrupo"));
+	      assert(elements.size() > 0);
+	    }
+	    {
+	      List<WebElement> elements = driver.findElements(By.id("caja"));
+	      assert(elements.size() > 0);
+	    }
+	    assertThat(driver.findElement(By.linkText("Cerrar Sesion")).getText(), is("Cerrar Sesion"));
+	  }
+	  
+	  @Test
+	  public void testGrupo() {
+		driver.get("http://localhost:8080/Grupo_L-war/faces/Login.xhtml");
+	    driver.manage().window().setSize(new Dimension(1158, 655));
+	    driver.findElement(By.id("j_idt7:user")).sendKeys("pepe@uma.es");
+	    driver.findElement(By.id("j_idt7:pass")).sendKeys("123");
+	    driver.findElement(By.id("j_idt7:entrar")).click();
+	    assertThat(driver.findElement(By.id("nombre2")).getText(), is("Hola, Jefe."));
+	    driver.findElement(By.id("leerGrupo")).click();
+	    {
+	      List<WebElement> elements = driver.findElements(By.id("tabla"));
+	      assert(elements.size() > 0);
+	    }
+	    assertThat(driver.findElement(By.id("tabla:dtGrupos:0:j_idt21")).getText(), is("1"));
+	    assertThat(driver.findElement(By.id("tabla:dtGrupos:6:j_idt21")).getText(), is("7"));
+	    {
+	      List<WebElement> elements = driver.findElements(By.id("tabla:crear"));
+	      assert(elements.size() > 0);
+	    }
+	    driver.findElement(By.id("tabla:crear")).click();
+	    driver.findElement(By.id("j_idt19:asignar")).click();
+	    driver.findElement(By.id("j_idt19:asignar")).sendKeys("150");
+	    driver.findElement(By.id("j_idt19:curso")).click();
+	    driver.findElement(By.id("j_idt19:curso")).sendKeys("4");
+	    driver.findElement(By.id("j_idt19:letra")).click();
+	    driver.findElement(By.id("j_idt19:letra")).sendKeys("B");
+	    driver.findElement(By.id("j_idt19:turno")).click();
+	    driver.findElement(By.id("j_idt19:turno")).sendKeys("MANIANA");
+	    driver.findElement(By.id("j_idt19:ingles")).click();
+	    driver.findElement(By.id("j_idt19:ingles")).sendKeys("SI");
+	    driver.findElement(By.cssSelector("table")).click();
+	    driver.findElement(By.id("j_idt19:plazas")).click();
+	    driver.findElement(By.id("j_idt19:plazas")).sendKeys("90");
+	    driver.findElement(By.id("j_idt19:visible")).click();
+	    driver.findElement(By.id("j_idt19:visible")).sendKeys("90");
+	    driver.findElement(By.id("j_idt19:titulacion")).click();
+	    {
+	      WebElement dropdown = driver.findElement(By.id("j_idt19:titulacion"));
+	      dropdown.findElement(By.xpath("//option[. = 'Grado en Ingenieria del Software']")).click();
+	    }
+	    driver.findElement(By.cssSelector("option:nth-child(2)")).click();
+	    driver.findElement(By.id("j_idt19:crear")).click();
+	    driver.findElement(By.cssSelector(".ui-widget-content:nth-child(8) > td:nth-child(1)")).click();
+	    assertThat(driver.findElement(By.id("tabla:dtGrupos:7:j_idt21")).getText(), is("8"));
+	    driver.findElement(By.id("tabla:dtGrupos:7:j_idt22")).click();
+	    assertThat(driver.findElement(By.id("tabla:dtGrupos:7:j_idt22")).getText(), is("4"));
+	    assertThat(driver.findElement(By.id("tabla:dtGrupos:7:j_idt23")).getText(), is("B"));
+	    {
+	      List<WebElement> elements = driver.findElements(By.id("tabla:dtGrupos:7:eliminar"));
+	      assert(elements.size() > 0);
+	    }
+	    driver.findElement(By.id("tabla:dtGrupos:7:eliminar")).click();
+	    driver.findElement(By.cssSelector(".ui-widget-content:nth-child(7) > td:nth-child(1)")).click();
+	    {
+	      List<WebElement> elements = driver.findElements(By.id("tabla:dtGrupos:7:j_idt21"));
+	      assert(elements.size() == 0);
+	    }
+	    {
+	      List<WebElement> elements = driver.findElements(By.id("tabla:dtGrupos:6:modificar"));
+	      assert(elements.size() > 0);
+	    }
+	    driver.findElement(By.id("tabla:dtGrupos:6:modificar")).click();
+	    driver.findElement(By.id("j_idt19:plazas")).click();
+	    driver.findElement(By.id("j_idt19:plazas")).clear();
+	    driver.findElement(By.id("j_idt19:plazas")).sendKeys("180");
+	    driver.findElement(By.id("j_idt19:modificar")).click();
+	    driver.findElement(By.cssSelector(".ui-widget-content:nth-child(7) > td:nth-child(8)")).click();
+	    assertThat(driver.findElement(By.id("tabla:dtGrupos:6:j_idt28")).getText(), is("180"));
+	  }
+	  
+	  @Test
+	  public void testCentro() {
+		  driver.get("http://localhost:8080/Grupo_L-war/faces/Login.xhtml");
+	    driver.manage().window().setSize(new Dimension(1158, 655));
+	    driver.findElement(By.id("j_idt7:user")).sendKeys("pepe@uma.es");
+	    driver.findElement(By.id("j_idt7:pass")).sendKeys("123");
+	    driver.findElement(By.id("j_idt7:entrar")).click();
+	    assertThat(driver.findElement(By.id("nombre2")).getText(), is("Hola, Jefe."));
+	    driver.findElement(By.id("leerCentro")).click();
+	    assertThat(driver.findElement(By.id("centro:dtCentro:0:j_idt21")).getText(), is("1"));
+	    assertThat(driver.findElement(By.id("centro:dtCentro:0:j_idt22")).getText(), is("E.T.S Ingenieria Informatica"));
+	    assertThat(driver.findElement(By.id("centro:dtCentro:1:j_idt21")).getText(), is("2"));
+	    assertThat(driver.findElement(By.id("centro:dtCentro:1:j_idt22")).getText(), is("Escuela de Ingenierias Industriales"));
+	    {
+	      List<WebElement> elements = driver.findElements(By.id("centro"));
+	    }
+	  }
+	  
+	  @Test
+	  public void testAsigMatS() {
+		driver.get("http://localhost:8080/Grupo_L-war/faces/Login.xhtml");
+	    driver.manage().window().setSize(new Dimension(1158, 655));
+	    driver.findElement(By.id("j_idt7:user")).sendKeys("pepe@uma.es");
+	    driver.findElement(By.id("j_idt7:pass")).sendKeys("123");
+	    driver.findElement(By.id("j_idt7:entrar")).click();
+	    assertThat(driver.findElement(By.id("nombre2")).getText(), is("Hola, Jefe."));
+	    driver.findElement(By.id("leerAsigMa")).click();
+	    {
+	      List<WebElement> elements = driver.findElements(By.id("asigm"));
+	      assert(elements.size() > 0);
+	    }
+	    assertThat(driver.findElement(By.id("asigm:dtAsigM:0:j_idt35")).getText(), is("306000002"));
+	    assertThat(driver.findElement(By.id("asigm:dtAsigM:1:j_idt35")).getText(), is("306000005"));
+	    assertThat(driver.findElement(By.id("asigm:dtAsigM:2:j_idt35")).getText(), is("306000001"));
+	    assertThat(driver.findElement(By.id("asigm:dtAsigM:3:j_idt35")).getText(), is("306000003"));
+	    assertThat(driver.findElement(By.id("asigm:dtAsigM:4:j_idt35")).getText(), is("306000004"));
+	    assertThat(driver.findElement(By.id("asigm:dtAsigM:5:j_idt35")).getText(), is("306000006"));
+	    driver.findElement(By.id("asigm:dtAsigM:matricula:filter")).click();
+	    driver.findElement(By.id("asigm:dtAsigM:matricula:filter")).sendKeys("306000005");
+	    driver.findElement(By.id("asigm:dtAsigM:matricula:filter")).sendKeys(Keys.ENTER);
+	  }
 
 }
