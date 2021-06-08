@@ -25,17 +25,23 @@
 		
 				<h:form>
             	<div class="centro">
-				<h:panelGrid columns="4">
+				<h:panelGrid columns="5">
 				
+					<h:outputText value="ID:" />
+				<h:inputText id="id" required="true"
+					value="#{alumnoBB.al.ID}" />
+					
 				<h:outputText value="DNI:" />
 				<h:inputText id="user" required="true"
 					value="#{alumnoBB.al.DNI}" />
+
+					
 				<h:outputText value="Nombre:" />
-				<h:inputText id="user" required="true"
+				<h:inputText id="nom" required="true"
 					value="#{alumnoBB.al.nombre}" />
 					
 					<h:outputText value="Apellido1:" />
-				<h:inputText id="user" required="true"
+				<h:inputText id="ape" required="true"
 					value="#{alumnoBB.al.apellido1}" />
 					
 			

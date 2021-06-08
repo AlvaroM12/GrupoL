@@ -102,6 +102,9 @@
 						filterMatchMode="contains">
 						<p:outputLabel value="#{a.CP}" />
 					</p:column>
+					
+					
+					
 				</p:dataTable>
 			</h:form>
 		</div>
@@ -113,6 +116,8 @@
 				<b>Alumnos: </b> <br></br>
 			</div>
 			
+						
+					<h:button id="crear" value="Crear alumno" outcome="CrearAlumno.xhtml" />
 			<p:commandButton value="Mostar" actionListener="#{alumnoBB.alumnos}" update="dtAlumnos" />
 	
 			<p:dataTable id="dtAlumnos" value="#{alumnoBB.alumnos}" var="a">
@@ -182,8 +187,16 @@
 								label="APELLIDOS" />
 						</f:facet>
 					</p:cellEditor>
+					
+					
 				</p:column>
-	
+				
+				<p:column headerText="Eliminar" >
+						<h:commandButton id="eliminar" value="Eliminar" action="#{alumnoBB.eliminar()}" /> 
+					</p:column>
+					<p:column headerText="Modificar" >
+						<h:commandButton id="mod" value="Modificar" action="#{alumnoBB.eliminar}" /> 
+					</p:column>
 			</p:dataTable>
 		</h:form>
 	</ui:fragment>
