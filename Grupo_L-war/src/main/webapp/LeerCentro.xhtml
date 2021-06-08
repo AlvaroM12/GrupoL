@@ -31,37 +31,41 @@
 	</h:form>
 	
 	<h1 class="titulo"> Leer Centro </h1>
+	<div class="centrado">
+		<h:form id="centro">
+            <p:commandButton value="Mostar" actionListener="#{centroBB.centro}" update="dtCentro" />
+
+		<p:dataTable id="dtCentro" value="#{centroBB.centro}" var="c">
 		
-		<h:form styleClass="centrado" >
-		
-		 <h:dataTable styleClass="card" value="#{centroBB.centro}" var="centro">
-             <h:column>
-                 <f:facet name="header">ID</f:facet>
-                 <h:outputText value="#{centro.ID}"/>
-             </h:column>
-             
-             <h:column>
-                 <f:facet name="header">Nombre</f:facet>
-                 <h:outputText value="#{centro.nombre}"/>
-             </h:column>  
-             
-             <h:column>
-                 <f:facet name="header">Dirección</f:facet>
-                 <h:outputText value="#{centro.direccion}"/>
-             </h:column>
-             
-             <h:column>
-                 <f:facet name="header">Teléfono conserjería</f:facet>
-                 <h:outputText value="#{centro.TLF_Conserjeria}"/>
-             </h:column>
-             
-             <h:column>
-                 <f:facet name="header">Titulación</f:facet>
-                 <h:outputText value="#{centro.TC}"/>
-             </h:column>
-             
-         </h:dataTable>
+			
+			<p:column headerText="ID" filterBy="#{c.ID}"
+				filterMatchMode="contains">
+				<p:outputLabel value="#{c.ID}" />
+			</p:column>
+			
+			<p:column headerText="Nombre" filterBy="#{centro.nombre}"
+				filterMatchMode="contains">
+				<p:outputLabel value="#{c.nombre}" />
+			</p:column>
+			
+			<p:column headerText="Direccion" filterBy="#{centro.direccion}"
+				filterMatchMode="contains">
+				<p:outputLabel value="#{c.direccion}" />
+			</p:column>
+			
+			<p:column headerText="TLF_Conserjeria" filterBy="#{centro.TLF_Conserjeria}"
+				filterMatchMode="contains">
+				<p:outputLabel value="#{c.TLF_Conserjeria}" />
+			</p:column>
+			
+			<p:column headerText="Titulacion" filterBy="#{centro.TC}"
+				filterMatchMode="contains">
+				<p:outputLabel value="#{c.TC}" />
+			</p:column>
+	 	</p:dataTable>  
+         
 	</h:form>
+	</div>
 	
 	<div class="pie"> 
 		Universidad de Málaga · Avda. Cervantes, 2. 29071 MÁLAGA · Tel. 952131000 · info@uma.es	

@@ -1,6 +1,8 @@
 package es.uma.informatica.Grupo_L.backing;
 
 import javax.enterprise.context.RequestScoped;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 import es.uma.informatica.Exception.UsuarioException;
@@ -53,10 +55,10 @@ public class UsuarioBB {
 
 	public String validar() {
         try{
-        	if(passwd.equals(passwd2)){
+        	if(passwd.contentEquals(passwd2)){
         		usuario.solicitarRecuperarContrasenia(email);
         		usuario.generarNuevaContrasenia(usuario.encontrarUsuarioCorreo(email), passwd);
-        	}
+        	}	
         }catch (UsuarioException e) {
             e.printStackTrace();
         }

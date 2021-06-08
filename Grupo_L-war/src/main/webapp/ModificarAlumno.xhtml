@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<h:head>
+	<title>Alumno</title>
+	<h:outputStylesheet library="css" name="Layout.css" />
+	<h:outputStylesheet library="css" name="Estilos.css" />
+</h:head>
+
+<h:body>
+	<ui:fragment rendered="#{not empty infoSesion.personal}">	
+		<div class="inicio"><p>Hola, <h:outputText value="#{infoSesion.personal.rango}"/>.</p></div>
+	</ui:fragment>
+	<h:form>
+	<div class="cerrar"> <h:commandLink action="#{infoSesion.invalidarSesion()}">Cerrar Sesion</h:commandLink> </div>
+	</h:form>
+	<div class="inicio"> <h:button value="INICIO" outcome="Principal.xhtml" /> </div>
+	<h1 class="titulo"> Modificar Alumno </h1>	
+				<h:form>
+            	<div class="centro">
+				<h:panelGrid columns="4">
+				
+					
+				<h:outputText value="DNI:" />
+				<h:inputText id="user" required="true"
+					value="#{ma.a.DNI}" />
+
+					
+				<h:outputText value="Nombre:" />
+				<h:inputText id="nom" required="true"
+					value="#{ma.a.nombre}" />
+					
+					<h:outputText value="Apellido1:" />
+				<h:inputText id="ape" required="true"
+					value="#{ma.a.apellido1}" />
+					
+			
+				<h:outputText value="Apellido2:" />
+				<h:inputText id="a2" required="true"
+					value="#{ma.a.apellido2}" />
+					
+				<h:outputText value="Email_Institucional:" />
+				<h:inputText id="e" required="true"
+					value="#{ma.a.email_Institucional}" />
+
+				<h:outputText value="Email_Personal" />
+				<h:inputText id="ep" required="true"
+					value="#{ma.a.email_Personal}" />
+					
+				<h:outputText value="Móvil" />
+				<h:inputText id="m" required="true"
+					value="#{ma.a.movil}" />
+						
+				<h:outputText value="Direccion" />
+				<h:inputText id="d" required="true"
+					value="#{ma.a.direccion}" />
+					
+				<h:outputText value="Localidad" />
+				<h:inputText id="l" required="true"
+					value="#{ma.a.localidad}" />
+					
+				<h:outputText value="Provincia" />
+				<h:inputText id="pr" required="true"
+					value="#{ma.a.provincia}" />
+					
+				<h:outputText value="CP" />
+				<h:inputText id="c" required="true"
+					value="#{ma.a.CP}" />
+					<h:inputHidden value="#{ma.a.ID}"/>
+				
+					
+				<h:commandButton id="modificar" value="Modificar" action="#{ma.modificar()}" /> 
+			
+				
+
+			</h:panelGrid>
+			
+			</div>
+				</h:form>
+		<div class="pie">Universidad de Málaga · Avda. Cervantes, 2. 29071 MÁLAGA · Tel. 952131000 · info@uma.es</div>
+		
+</h:body>
+</html>

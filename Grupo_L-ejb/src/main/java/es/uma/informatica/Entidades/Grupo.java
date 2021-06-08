@@ -19,7 +19,7 @@ import javax.persistence.*;
 public class Grupo implements Serializable {
 
 	   
-	@Id @GeneratedValue
+	@Id 
 	private Long ID;
 	private Long Curso;
 	private String Letra;
@@ -33,13 +33,13 @@ public class Grupo implements Serializable {
 	@ManyToOne
 	private Titulacion TG;
 	
-	@OneToMany(mappedBy = "G_AM" , cascade = CascadeType.REMOVE)
+	@OneToMany(mappedBy = "G_AM" , cascade = {CascadeType.REMOVE, CascadeType.MERGE})
 	private List<Asignaturas_Matricula> asignaturasMatriculas;
 	
-	@OneToMany(mappedBy = "GG")
+	@OneToMany(mappedBy = "GG", cascade = {CascadeType.REMOVE,CascadeType.MERGE})
 	private List<Grupo> grupos;
 	
-	@OneToMany(mappedBy = "G_GPA")
+	@OneToMany(mappedBy = "G_GPA", cascade = {CascadeType.REMOVE,CascadeType.MERGE})
 	private List<GruposPorAsignatura> gruposPorAsig;
 	
 	@ManyToOne

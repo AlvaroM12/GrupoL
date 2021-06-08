@@ -1,10 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-	xmlns:h="http://xmlns.jcp.org/jsf/html"
-	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<html 	xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+		xmlns:h="http://xmlns.jcp.org/jsf/html"
+		xmlns:f="http://xmlns.jcp.org/jsf/core"
+		xmlns:p="http://primefaces.org/ui"
+		xmlns:o="http://omnifaces.org/ui">
 
 <h:head>
 	<title>Recuperar contraseña</title>
@@ -16,10 +18,10 @@
 
 	<h1 class="titulo">Recuperar contraseña</h1>
 
-	<div class="izquierda"> <img src="resources/imagenes/logo.jpg" width="400" /> </div>
+	<div class="izquierda"> <img src="resources/imagenes/logoFLM.png" width="400" /> </div>
 
 	<div class="centro">
-		<h:form>
+		<h:form>			
 			<img src="resources/imagenes/uma.png" width="200" />
 			<br></br>
 			
@@ -29,14 +31,16 @@
 			
 			<h:outputLabel value="Nueva contraseña: " for="passwd"/>
 			<h:inputSecret id="passwd" required="true" value="#{usuarioBB.passwd}" />
+			<h:message for="passwd" />
 			<br></br>
 			
 			<h:outputLabel value="Repetir nueva contraseña: " for="passwd2"/>
-			<h:inputSecret id="passwd2" required="true" value="#{usuarioBB.passwd2}" />
+			<h:inputSecret id="passwd2" required="true" />
+			<h:message for="passwd2" />
 			<br></br>
 			
-			<h:commandButton value="Guardar Cambios" outcome="Login.xhtml" action="#{usuarioBB.validar}"/> 
-
+			<o:validateEqual components="passwd passwd2" message = " ERROR: Las contraseñas no coinciden" showMessageFor = "passwd2" />		
+			<h:commandButton value="Guardar Cambios" outcome="Login.xhtml" action="#{usuarioBB.validar}" update="messages"/> 
 		</h:form>
 	</div>
 

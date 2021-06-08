@@ -19,9 +19,6 @@
 		<h:button value="INICIO" outcome="Principal.xhtml" />
 	</div>
 	
-	<ui:fragment rendered="#{not empty infoSesion.alumno}">
-	<div class="inicio"><p>Hola, <h:outputText value="#{infoSesion.alumno.nombre}"/>.</p></div>
-	</ui:fragment>
 	<ui:fragment rendered="#{not empty infoSesion.personal}">	
 	<div class="inicio"><p>Hola, <h:outputText value="#{infoSesion.personal.rango}"/>.</p></div>
 	</ui:fragment>
@@ -34,6 +31,9 @@
 		
 		<h:form styleClass="centrado">
 			<p:commandButton value="Mostar" actionListener="#{grupoBB.grupos}" update="dtGrupos" />
+			
+			<h:commandButton id="crear" action="#{grupoBB.crearGrupo()}" value="Crear grupo"/>
+			
 	
 			<p:dataTable id="dtGrupos" value="#{grupoBB.grupos}" var="g">
 			
@@ -76,6 +76,11 @@
 					filterMatchMode="contains">
 					<p:outputLabel value="#{g.plazas}" />
 				</p:column>
+				
+				<p:column headerText="Titulacion" filterBy="#{g.TG.codigo}"
+					filterMatchMode="contains">
+					<p:outputLabel value="#{g.TG.codigo}" />
+				</p:column>
 	
 				<p:column headerText="CURSO" sortBy="#{g.curso}">
 					<p:cellEditor>
@@ -87,6 +92,14 @@
 								label="CURSO" />
 						</f:facet>
 					</p:cellEditor>
+				</p:column>
+				
+				<p:column headerText="Eliminar">
+					<h:commandButton id="eliminar" action="#{grupoBB.eliminarGrupo(g)}" value="Eliminar"/>
+				</p:column>
+				
+				<p:column headerText="Modificar">
+					<h:commandButton id="modificar" action="#{grupoBB.actualizarGrupo(g)}" value="Modificar"/>
 				</p:column>
 	
 			</p:dataTable>

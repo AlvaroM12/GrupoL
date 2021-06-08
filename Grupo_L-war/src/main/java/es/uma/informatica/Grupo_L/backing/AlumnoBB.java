@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import es.uma.informatica.Entidades.Alumno;
 import es.uma.informatica.Entidades.Expediente;
+import es.uma.informatica.Entidades.Grupo;
 import es.uma.informatica.Entidades.Matricula;
 import es.uma.informatica.Exception.AlumnoException;
 import es.uma.informatica.Interfaces.InterfazAlumno;
@@ -17,7 +18,10 @@ public class AlumnoBB {
 
 	@Inject
 	private InterfazAlumno alejb;
-
+	@Inject
+	private ModificarAlumnoBB ma;
+	
+	
 	private Alumno al;
 
 	public AlumnoBB() {
@@ -32,6 +36,19 @@ public class AlumnoBB {
 		this.al = al;
 	}
 	
+	public String crear() {
+		
+			try {
+				alejb.crearAlumno(al);
+			} catch (AlumnoException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return null;
+
+		
+	}
+	
 	public String eliminar(Alumno a) {
 		try {
 			alejb.eliminarAlumno(a.getID());
@@ -40,6 +57,11 @@ public class AlumnoBB {
 			return "IndexAlumno.xhtml";
 		}
 		return null;
+	}
+	
+	public String actualizar(Alumno a) {
+		ma.setA(a);
+		return "ModificarAlumno.xhtml";
 	}
 
 	public String modificar(Alumno a) {
@@ -53,6 +75,7 @@ public class AlumnoBB {
 		List<Alumno> alum = new ArrayList<Alumno>();
 		
         for (Alumno a : alum) {
+        
 			if(a.getDNI().equals(al.getDNI())) {
 				alum.add(a);
 			}

@@ -56,7 +56,7 @@ public class GruposPorAsignatura implements Serializable {
 		}
 	}	   
 
-	@Id @GeneratedValue
+	@Id
 	private Long Curso_Academico;
 	private Long Oferta;
 	private static final long serialVersionUID = 1L;
@@ -159,7 +159,7 @@ public class GruposPorAsignatura implements Serializable {
 	}
 	@Override
 	public String toString() {
-		return "GruposPorAsignatura [Curso_Academico=" + Curso_Academico + ", Oferta=" + Oferta  + "]";
+		return "Curso_Academico=" + Curso_Academico + ", Oferta=" + Oferta;
 	}
 	
 	

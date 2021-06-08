@@ -29,11 +29,10 @@
 	<h1 class="titulo">ALUMNOS</h1>
 
 	<ui:fragment rendered="#{not empty infoSesion.alumno}">
-		<div class="izquierda">
-			<b> MIS DATOS </b><br></br>
-			<br></br> 
-			<a href="LeerEncuestra.xhtml" style="text-decoration: none">Leer Encuesta</a><br></br>
-			<a href="LeerAsignaturaMatricula.xhtml" style="text-decoration: none">Leer Asignatura Matricula</a><br></br> 
+		<div class="izquierda"   >
+			<b>MIS DATOS </b><br></br><br></br> 
+			<a href="LeerEncuesta.xhtml" style="text-decoration: none">Leer Encuesta</a><br></br>
+			<a href="LeerAsignaturaMatricula.xhtml" style="text-decoration: none">Leer Asignatura Matricula</a><br></br>
 			<a href="LeerMatricula.xhtml" style="text-decoration: none">Leer Matricula</a><br></br> 
 			<a href="LeerTitulacion.xhtml" style="text-decoration: none">Leer Titulacion</a><br></br> 
 			<a href="LeerAlumnos.xhtml" style="text-decoration: none">Leer Usuario</a><br></br> 
@@ -102,6 +101,9 @@
 						filterMatchMode="contains">
 						<p:outputLabel value="#{a.CP}" />
 					</p:column>
+					
+					
+					
 				</p:dataTable>
 			</h:form>
 		</div>
@@ -109,10 +111,8 @@
 
 	<ui:fragment rendered="#{not empty infoSesion.personal}">
 		<h:form styleClass="centrado">
-			<div class="izquierdaCentro">
-				<b>Alumnos: </b> <br></br>
-			</div>
-			
+								
+			<h:button id="crear" value="Crear alumno" outcome="CrearAlumno.xhtml" /><br></br>
 			<p:commandButton value="Mostar" actionListener="#{alumnoBB.alumnos}" update="dtAlumnos" />
 	
 			<p:dataTable id="dtAlumnos" value="#{alumnoBB.alumnos}" var="a">
@@ -181,9 +181,15 @@
 							<p:inputText id="name" value="#{a.apellido1}"
 								label="APELLIDOS" />
 						</f:facet>
-					</p:cellEditor>
+					</p:cellEditor>				
 				</p:column>
-	
+				
+				<p:column headerText="Eliminar" >
+						<h:commandButton id="eliminar" value="Eliminar" action="#{alumnoBB.eliminar(a)}" /> 
+				</p:column>
+				<p:column headerText="Modificar" >
+					<h:commandButton id="Modificar" value="Modificar" action="#{alumnoBB.actualizar(a)}" />
+				</p:column>
 			</p:dataTable>
 		</h:form>
 	</ui:fragment>

@@ -30,7 +30,7 @@
 			
 	    <h:form enctype="multipart/form-data">
 			<p:growl id="messages" showDetail="true"/>
-       		 <p:fileUpload mode="advanced"
+       		<p:fileUpload mode="advanced"
                       multiple="false"
                       sizeLimit="10240000" allowTypes="/(\.|\/)(xlsx)$/"
                       invalidSizeMessage="Maximum file size allowed is 10 MB"
@@ -38,7 +38,7 @@
                       update="messages cropperPanel"
                       listener="#{uploadMatricula.handleFileUpload}"/>
                       
-             <p:outputPanel id="cropperPanel"></p:outputPanel>
+            <p:outputPanel id="cropperPanel"></p:outputPanel>
 		</h:form>
 	</div>
 

@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<h:head>
+	<title>Modificar/Crear Grupo</title>
+	<h:outputStylesheet library="css" name="Layout.css" />
+	<h:outputStylesheet library="css" name="Estilos.css" />
+</h:head>
+
+<h:body>
+	<ui:fragment rendered="#{not empty infoSesion.personal}">	
+		<div class="inicio"><p>Hola, <h:outputText value="#{infoSesion.personal.rango}"/>.</p></div>
+	</ui:fragment>
+	<h:form>
+	<div class="cerrar"> <h:commandLink action="#{infoSesion.invalidarSesion()}">Cerrar Sesion</h:commandLink> </div>
+	</h:form>
+	<div class="inicio"> <h:button value="INICIO" outcome="Principal.xhtml" /> </div>
+	
+		<h1 class="titulo"> Modificar Grupo </h1>
+				<h:form>
+            	<div class="centrado">
+				<h:panelGrid columns="4">
+				
+					<h:outputText value="Asignar:" />
+					<h:inputText id="asignar" required="true"
+						value="#{mgBB.g.asignar}" />
+						
+					<h:outputText value="Curso:" />
+					<h:inputText id="curso" required="true"
+						value="#{mgBB.g.curso}" />
+						
+						<h:outputText value="Ingles:" />
+					<h:inputText id="ingles" required="true"
+						value="#{mgBB.g.ingles}" />
+						
+				
+					<h:outputText value="Letra:" />
+					<h:inputText id="letra" required="true"
+						value="#{mgBB.g.letra}" />
+						
+						
+					<h:outputText value="Plazas:" />
+					<h:inputText id="plazas" required="true"
+						value="#{mgBB.g.plazas}" />
+	
+					<h:outputText value="Turno:" />
+					<h:inputText id="turno" required="true"
+						value="#{mgBB.g.turno_Maniana_Tarde}" />
+						
+					<h:outputText value="Visible:" />
+					<h:inputText id="visible" 
+						value="#{mgBB.g.visible}" />
+							
+					<h:inputHidden value="#{mgBB.g.ID}"/>
+					
+					<br></br>
+				<h:commandButton id="modificar" value="Modificar" action="#{mgBB.modificar()}" /> 
+			
+				
+
+			</h:panelGrid>
+			
+			</div>
+				</h:form>
+		<div class="pie">Universidad de Málaga · Avda. Cervantes, 2. 29071 MÁLAGA · Tel. 952131000 · info@uma.es</div>
+		
+</h:body>
+</html>

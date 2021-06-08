@@ -2,6 +2,7 @@ package es.uma.informatica.EJB;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -14,6 +15,9 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+import es.uma.informatica.Entidades.Alumno;
+import es.uma.informatica.Entidades.Expediente;
 import es.uma.informatica.Entidades.Titulacion;
 import es.uma.informatica.Exception.TitulacionException;
 import es.uma.informatica.Exception.TitulacionNullException;
@@ -60,7 +64,7 @@ public class TitulacionEJB implements InterfazTitulacion{
 	        	t.setNombre(nombre);
 	        	Long creditos = (long) sheet.getRow(fila).getCell(2).getNumericCellValue();
 	        	t.setCreditos(creditos);
-	        	em.persist(t);
+	        	em.merge(t);
 	        }
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -85,4 +89,18 @@ public class TitulacionEJB implements InterfazTitulacion{
 			
 			return list;    	
 	    }
+	 
+	 @Override
+     public List<Titulacion> leerTitulacionesAlumno(Alumno a) throws TitulacionException{
+	 	TypedQuery <Expediente> query = em.createQuery("SELECT e FROM Expediente e " + "WHERE e.AE LIKE : alumno", Expediente.class);
+    	query.setParameter("alumno", a);	    	
+    	List<Expediente> expedientes = query.getResultList();
+    	List<Titulacion> titulacion = new ArrayList<Titulacion>();
+    	for (Expediente expediente : expedientes) {
+			titulacion.add(expediente.getTE());
+		}
+    	
+		
+		return titulacion;    	
+    }
 }

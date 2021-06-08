@@ -27,22 +27,20 @@
 
 	<h1 class="titulo"> Titulacion </h1>
 	<ui:fragment rendered="#{not empty infoSesion.alumno}">	
-	<div class="izquierda">
-		<b>MIS DATOS </b><br></br><br></br> 
-		<a href="LeerEncuesta.xhtml" style="text-decoration: none">Leer Encuesta</a><br></br>
-		<a href="LeerAsignarMatricula.xhtml" style="text-decoration: none">Leer Asignatura Matricula</a><br></br>
-		<a href="LeerMatricula.xhtml" style="text-decoration: none">Leer Matricula</a><br></br> 
-		<a href="LeerTitulacion.xhtml" style="text-decoration: none">Leer Titulacion</a><br></br> 
-		<a href="LeerAlumnos.xhtml" style="text-decoration: none">Leer Usuario</a><br></br> 
-		<a href="LeerAsignaturas.xhtml" style="text-decoration: none">Leer Asignatura</a><br></br> 
-		<a href="LeerClase.xhtml" style="text-decoration: none">Leer Clase</a><br></br> 
-		<a href="LeerExpediente.xhtml" style="text-decoration: none">Leer Expediente</a>
-	</div>
-	
-	<div class="centro">
-	 	<div class="izquierdaCentro">
-			<b>Titulaciones: </b> <br></br>
+	<div class="izquierda"   >
+			<b>MIS DATOS </b><br></br><br></br> 
+			<a href="LeerEncuesta.xhtml" style="text-decoration: none">Leer Encuesta</a><br></br>
+			<a href="LeerAsignaturaMatricula.xhtml" style="text-decoration: none">Leer Asignatura Matricula</a><br></br>
+			<a href="LeerMatricula.xhtml" style="text-decoration: none">Leer Matricula</a><br></br> 
+			<a href="LeerTitulacion.xhtml" style="text-decoration: none">Leer Titulacion</a><br></br> 
+			<a href="LeerAlumnos.xhtml" style="text-decoration: none">Leer Usuario</a><br></br> 
+			<a href="LeerAsignaturas.xhtml" style="text-decoration: none">Leer Asignatura</a><br></br> 
+			<a href="LeerClase.xhtml" style="text-decoration: none">Leer Clase</a><br></br> 
+			<a href="LeerExpediente.xhtml" style="text-decoration: none">Leer Expediente</a>
 		</div>
+	
+	<div class="centrado">
+	 	
 		
         <h:form id="titulacionalum">
             <p:commandButton value="Mostar" actionListener="#{titulacion.titulacion}" update="dtTitulacion" />
@@ -69,10 +67,8 @@
 	 </ui:fragment>
 	 
 	 <ui:fragment rendered="#{not empty infoSesion.personal}">
-	 <div class="centro">
-	 	<div class="izquierdaCentro">
-			<b>Titulaciones: </b> <br></br>
-		</div>
+	 <div class="centrado">
+	 	
 		
         <h:form id="titulacion">
             <p:commandButton value="Mostar" actionListener="#{titulacion.titulaciones}" update="dtTitulacion" />
