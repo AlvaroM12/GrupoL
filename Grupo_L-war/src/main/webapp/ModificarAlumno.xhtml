@@ -25,7 +25,7 @@
 	<h1 class="titulo"> Modificar Alumno </h1>	
 				<h:form>
             	<div class="centro">
-				<h:panelGrid columns="5">
+				<h:panelGrid columns="4">
 				
 					
 				<h:outputText value="DNI:" />
@@ -73,10 +73,10 @@
 				<h:outputText value="CP" />
 				<h:inputText id="c" required="true"
 					value="#{ma.a.CP}" />
-					
+					<h:inputHidden value="#{ma.a.ID}"/>
 				
 					
-				<h:commandButton id="crear" value="Crear" action="#{ma.modificar(a)}" /> 
+				<h:commandButton id="modificar" value="Modificar" action="#{ma.modificar()}" /> 
 			
 				
 

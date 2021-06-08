@@ -36,10 +36,10 @@ public class AlumnoBB {
 		this.al = al;
 	}
 	
-	public String crear(Alumno a) {
+	public String crear() {
 		
 			try {
-				alejb.crearAlumno(a);
+				alejb.crearAlumno(al);
 			} catch (AlumnoException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

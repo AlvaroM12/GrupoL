@@ -45,7 +45,18 @@ public class ModificarAlumnoBB {
 
 
 
+	public String crear() {
+		
+		try {
+			interfazAlumno.crearAlumno(a);
+		} catch (AlumnoException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return "LeerAlumnos.xhtml";
 
+	
+}
 
 
 	public String modificar() {
@@ -55,7 +66,7 @@ public class ModificarAlumnoBB {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return "LeerAlumno.xhtml";
+		return "LeerAlumnos.xhtml";
 	}
 	
 
