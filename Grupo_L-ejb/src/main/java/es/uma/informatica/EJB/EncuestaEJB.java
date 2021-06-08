@@ -98,6 +98,6 @@ public class EncuestaEJB implements InterfazEncuesta {
 			Encuesta enc = new Encuesta();
 			enc.setFecha_De_Envio(fecha);
 			enc.setEE(exp);
-			em.persist(enc);	
+			em.merge(enc);	
 		}
 }
