@@ -50,40 +50,40 @@
 			<p:commandButton value="Mostar" actionListener="#{asignaturaBB.asignaturaAlumno}" update="dtAsig" />
 				
 			<p:dataTable styleClass="card" id="dtAsig" value="#{asignaturaBB.asignaturaAlumno}" var="a">
-				<p:column headerText="Referencia" filterBy="#{a.referencia}" filterMatchMode="contains">
+				<p:column id="a" headerText="Referencia" filterBy="#{a.referencia}" filterMatchMode="contains">
 					<p:outputLabel value="#{a.referencia}" />
 				</p:column>
-				<p:column headerText="Titulacion" filterBy="#{a.tA}" filterMatchMode="contains">
+				<p:column id="b" headerText="Titulacion" filterBy="#{a.tA}" filterMatchMode="contains">
 					<p:outputLabel value="#{a.TA}" />
 				</p:column>
-				<p:column headerText="Codigo" filterBy="#{a.codigo}" filterMatchMode="contains">
+				<p:column id="c" headerText="Codigo" filterBy="#{a.codigo}" filterMatchMode="contains">
 					<p:outputLabel value="#{a.codigo}" />
 				</p:column>
-				<p:column headerText="Créditos Teoricos" filterBy="#{a.creditos_Teoricos}" filterMatchMode="contains">
+				<p:column id="d" headerText="Créditos Teoricos" filterBy="#{a.creditos_Teoricos}" filterMatchMode="contains">
 					<p:outputLabel value="#{a.creditos_Teoricos}" />
 				</p:column>
-				<p:column headerText="Créditos Practicos" filterBy="#{a.creditos_Practicos}" filterMatchMode="contains">
+				<p:column id="e" headerText="Créditos Practicos" filterBy="#{a.creditos_Practicos}" filterMatchMode="contains">
 					<p:outputLabel value="#{a.creditos_Practicos}" />
 				</p:column>
-				<p:column headerText="Total Créditos" filterBy="#{a.total_Creditos}" filterMatchMode="contains">
+				<p:column id="f" headerText="Total Créditos" filterBy="#{a.total_Creditos}" filterMatchMode="contains">
 					<p:outputLabel value="#{a.total_Creditos}" />
 				</p:column>
-				<p:column headerText="Ofertada" filterBy="#{a.ofertada}" filterMatchMode="contains">
+				<p:column id="g" headerText="Ofertada" filterBy="#{a.ofertada}" filterMatchMode="contains">
 					<p:outputLabel value="#{a.ofertada}" />
 				</p:column>
-				<p:column headerText="Nombre" filterBy="#{a.nombre}" filterMatchMode="contains">
+				<p:column id="h" headerText="Nombre" filterBy="#{a.nombre}" filterMatchMode="contains">
 					<p:outputLabel value="#{a.nombre}" />
 				</p:column>
-				<p:column headerText="Curso" filterBy="#{a.curso}" filterMatchMode="contains">
+				<p:column id="i" headerText="Curso" filterBy="#{a.curso}" filterMatchMode="contains">
 					<p:outputLabel value="#{a.curso}" />
 				</p:column>
-				<p:column headerText="Plazas" filterBy="#{a.plazas}" filterMatchMode="contains">
+				<p:column id="j" headerText="Plazas" filterBy="#{a.plazas}" filterMatchMode="contains">
 					<p:outputLabel value="#{a.plazas}" />
 				</p:column>
-				<p:column headerText="Cuatrimestre" filterBy="#{a.cuatrimestre}" filterMatchMode="contains">
+				<p:column id="k" headerText="Cuatrimestre" filterBy="#{a.cuatrimestre}" filterMatchMode="contains">
 					<p:outputLabel value="#{a.cuatrimestre}" />
 				</p:column>
-				<p:column headerText="Idioma de imparticion" filterBy="#{a.idioma_de_imparticion}" filterMatchMode="contains">
+				<p:column id="l" headerText="Idioma de imparticion" filterBy="#{a.idioma_de_imparticion}" filterMatchMode="contains">
 					<p:outputLabel value="#{a.idioma_de_imparticion}" />
 				</p:column>
 			</p:dataTable>
@@ -95,37 +95,40 @@
 			<p:commandButton value="Mostar" actionListener="#{asignaturaBB.asignaturas}" update="dtAsignaturas" />
 				
 			<p:dataTable styleClass="card" id="dtAsignaturas" value="#{asignaturaBB.asignaturas}" var="a">
-				<p:column headerText="Referencia" filterBy="#{a.referencia}" filterMatchMode="contains">
+				<p:column id="a" headerText="Referencia" filterBy="#{a.referencia}" filterMatchMode="contains">
 					<p:outputLabel value="#{a.referencia}" />
 				</p:column>
-				<p:column headerText="Codigo" filterBy="#{a.codigo}" filterMatchMode="contains">
+				<p:column id="b" headerText="Titulacion" filterBy="#{a.tA}" filterMatchMode="contains">
+					<p:outputLabel value="#{a.TA}" />
+				</p:column>
+				<p:column id="c" headerText="Codigo" filterBy="#{a.codigo}" filterMatchMode="contains">
 					<p:outputLabel value="#{a.codigo}" />
 				</p:column>
-				<p:column headerText="Créditos Teoricos" filterBy="#{a.creditos_Teoricos}" filterMatchMode="contains">
+				<p:column id="d" headerText="Créditos Teoricos" filterBy="#{a.creditos_Teoricos}" filterMatchMode="contains">
 					<p:outputLabel value="#{a.creditos_Teoricos}" />
 				</p:column>
-				<p:column headerText="Créditos Practicos" filterBy="#{a.creditos_Practicos}" filterMatchMode="contains">
+				<p:column id="e" headerText="Créditos Practicos" filterBy="#{a.creditos_Practicos}" filterMatchMode="contains">
 					<p:outputLabel value="#{a.creditos_Practicos}" />
 				</p:column>
-				<p:column headerText="Total Créditos" filterBy="#{a.total_Creditos}" filterMatchMode="contains">
+				<p:column id="f" headerText="Total Créditos" filterBy="#{a.total_Creditos}" filterMatchMode="contains">
 					<p:outputLabel value="#{a.total_Creditos}" />
 				</p:column>
-				<p:column headerText="Ofertada" filterBy="#{a.ofertada}" filterMatchMode="contains">
+				<p:column id="g" headerText="Ofertada" filterBy="#{a.ofertada}" filterMatchMode="contains">
 					<p:outputLabel value="#{a.ofertada}" />
 				</p:column>
-				<p:column headerText="Nombre" filterBy="#{a.nombre}" filterMatchMode="contains">
+				<p:column id="h" headerText="Nombre" filterBy="#{a.nombre}" filterMatchMode="contains">
 					<p:outputLabel value="#{a.nombre}" />
 				</p:column>
-				<p:column headerText="Curso" filterBy="#{a.curso}" filterMatchMode="contains">
+				<p:column id="i" headerText="Curso" filterBy="#{a.curso}" filterMatchMode="contains">
 					<p:outputLabel value="#{a.curso}" />
 				</p:column>
-				<p:column headerText="Plazas" filterBy="#{a.plazas}" filterMatchMode="contains">
+				<p:column id="j" headerText="Plazas" filterBy="#{a.plazas}" filterMatchMode="contains">
 					<p:outputLabel value="#{a.plazas}" />
 				</p:column>
-				<p:column headerText="Cuatrimestre" filterBy="#{a.cuatrimestre}" filterMatchMode="contains">
+				<p:column id="k" headerText="Cuatrimestre" filterBy="#{a.cuatrimestre}" filterMatchMode="contains">
 					<p:outputLabel value="#{a.cuatrimestre}" />
 				</p:column>
-				<p:column headerText="Idioma de imparticion" filterBy="#{a.idioma_de_imparticion}" filterMatchMode="contains">
+				<p:column id="l" headerText="Idioma de imparticion" filterBy="#{a.idioma_de_imparticion}" filterMatchMode="contains">
 					<p:outputLabel value="#{a.idioma_de_imparticion}" />
 				</p:column>
 			</p:dataTable>
