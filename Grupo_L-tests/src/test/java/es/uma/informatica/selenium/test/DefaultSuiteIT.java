@@ -91,7 +91,7 @@ public class DefaultSuiteIT {
 	    driver.findElement(By.id("j_idt7:pass")).sendKeys("123");
 	    driver.findElement(By.id("j_idt7:entrar")).click();
 	    assertThat(driver.findElement(By.id("nombre")).getText(), is("Hola, Rocio."));
-	    driver.findElement(By.linkText("Leer Encuesta")).click();
+	    driver.findElement(By.id("leerEncuesta")).click();
 	    assertThat(driver.findElement(By.id("encuesta:dtEncuesta:0:j_idt27")).getText(), is("104195486"));
 	  }
 	
