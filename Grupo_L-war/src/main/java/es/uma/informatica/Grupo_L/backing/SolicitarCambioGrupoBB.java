@@ -156,12 +156,20 @@ public class SolicitarCambioGrupoBB implements Serializable {
 			FacesContext.getCurrentInstance().addMessage("login:user", fm);
 		}
 		
+		
 		try {
 			interfazGrupo.asignaGrupo(infosesion.getAlumno(), interfazGrupo.buscarGrupo(curso, letra,interfazTitulacion.leerTitulacion(t)), interfazAsignatura.leerAsignatura(asig), interfazTitulacion.leerTitulacion(t));
-		} catch (GrupoException | TitulacionException | AsignaturaException e) {
+		} catch (GrupoException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (TitulacionException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (AsignaturaException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 		
 		return "Principal.xhtml";
 		

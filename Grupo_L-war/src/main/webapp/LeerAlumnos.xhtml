@@ -112,12 +112,8 @@
 
 	<ui:fragment rendered="#{not empty infoSesion.personal}">
 		<h:form styleClass="centrado">
-			<div class="izquierdaCentro">
-				<b>Alumnos: </b> <br></br>
-			</div>
-			
-						
-					<h:button id="crear" value="Crear alumno" outcome="CrearAlumno.xhtml" />
+								
+			<h:button id="crear" value="Crear alumno" outcome="CrearAlumno.xhtml" /><br></br>
 			<p:commandButton value="Mostar" actionListener="#{alumnoBB.alumnos}" update="dtAlumnos" />
 	
 			<p:dataTable id="dtAlumnos" value="#{alumnoBB.alumnos}" var="a">
@@ -186,17 +182,15 @@
 							<p:inputText id="name" value="#{a.apellido1}"
 								label="APELLIDOS" />
 						</f:facet>
-					</p:cellEditor>
-					
-					
+					</p:cellEditor>				
 				</p:column>
 				
 				<p:column headerText="Eliminar" >
 						<h:commandButton id="eliminar" value="Eliminar" action="#{alumnoBB.eliminar(a)}" /> 
-					</p:column>
-					<p:column headerText="Modificar" >
-						<h:button id="Modificar" value="Modificar" outcome="alumnoBB.actualizar(a)" />
-					</p:column>
+				</p:column>
+				<p:column headerText="Modificar" >
+					<h:commandButton id="Modificar" value="Modificar" action="#{alumnoBB.actualizar(a)}" />
+				</p:column>
 			</p:dataTable>
 		</h:form>
 	</ui:fragment>
