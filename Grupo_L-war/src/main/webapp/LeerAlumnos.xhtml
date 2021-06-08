@@ -192,10 +192,10 @@
 				</p:column>
 				
 				<p:column headerText="Eliminar" >
-						<h:commandButton id="eliminar" value="Eliminar" action="#{alumnoBB.eliminar()}" /> 
+						<h:commandButton id="eliminar" value="Eliminar" action="#{alumnoBB.eliminar(a)}" /> 
 					</p:column>
 					<p:column headerText="Modificar" >
-						<h:commandButton id="mod" value="Modificar" action="#{alumnoBB.eliminar}" /> 
+						<h:button id="Modificar" value="Modificar" outcome="alumnoBB.actualizar(a)" />
 					</p:column>
 			</p:dataTable>
 		</h:form>

@@ -22,64 +22,61 @@
 	<div class="cerrar"> <h:commandLink action="#{infoSesion.invalidarSesion()}">Cerrar Sesion</h:commandLink> </div>
 	</h:form>
 	<div class="inicio"> <h:button value="INICIO" outcome="Principal.xhtml" /> </div>
-		<h1 class="titulo"> CrearAlumno </h1>
+	<h1 class="titulo"> Modificar Alumno </h1>	
 				<h:form>
             	<div class="centro">
 				<h:panelGrid columns="5">
 				
-					<h:outputText value="ID:" />
-				<h:inputText id="id" required="true"
-					value="#{alumnoBB.al.ID}" />
 					
 				<h:outputText value="DNI:" />
 				<h:inputText id="user" required="true"
-					value="#{alumnoBB.al.DNI}" />
+					value="#{ma.a.DNI}" />
 
 					
 				<h:outputText value="Nombre:" />
 				<h:inputText id="nom" required="true"
-					value="#{alumnoBB.al.nombre}" />
+					value="#{ma.a.nombre}" />
 					
 					<h:outputText value="Apellido1:" />
 				<h:inputText id="ape" required="true"
-					value="#{alumnoBB.al.apellido1}" />
+					value="#{ma.a.apellido1}" />
 					
 			
 				<h:outputText value="Apellido2:" />
 				<h:inputText id="a2" required="true"
-					value="#{alumnoBB.al.apellido2}" />
+					value="#{ma.a.apellido2}" />
 					
 				<h:outputText value="Email_Institucional:" />
 				<h:inputText id="e" required="true"
-					value="#{alumnoBB.al.email_Institucional}" />
+					value="#{ma.a.email_Institucional}" />
 
 				<h:outputText value="Email_Personal" />
 				<h:inputText id="ep" required="true"
-					value="#{alumnoBB.al.email_Personal}" />
+					value="#{ma.a.email_Personal}" />
 					
 				<h:outputText value="Móvil" />
 				<h:inputText id="m" required="true"
-					value="#{alumnoBB.al.movil}" />
+					value="#{ma.a.movil}" />
 						
 				<h:outputText value="Direccion" />
 				<h:inputText id="d" required="true"
-					value="#{alumnoBB.al.direccion}" />
+					value="#{ma.a.direccion}" />
 					
 				<h:outputText value="Localidad" />
 				<h:inputText id="l" required="true"
-					value="#{alumnoBB.al.localidad}" />
+					value="#{ma.a.localidad}" />
 					
 				<h:outputText value="Provincia" />
 				<h:inputText id="pr" required="true"
-					value="#{alumnoBB.al.provincia}" />
+					value="#{ma.a.provincia}" />
 					
 				<h:outputText value="CP" />
 				<h:inputText id="c" required="true"
-					value="#{alumnoBB.al.CP}" />
+					value="#{ma.a.CP}" />
 					
 				
 					
-				<h:commandButton id="crear" value="Crear" action="#{alumnoBB.crear}" /> 
+				<h:commandButton id="crear" value="Crear" action="#{ma.modificar(a)}" /> 
 			
 				
 
