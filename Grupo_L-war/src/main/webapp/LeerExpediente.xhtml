@@ -112,13 +112,14 @@
 	
 	
 	<ui:fragment rendered="#{not empty infoSesion.personal}">
-		<div class="centro">
+		
+		<h:form styleClass="centrado">
 	 	<div class="izquierdaCentro">
 			<b>Expedientes: </b> <br></br>
 		</div>
 		
-        <h:form id="listaexpediente">
-            <p:commandButton value="Mostar" actionListener="#{expedienteBB.expedientes}" update="dtExpediente" />
+        
+        <p:commandButton value="Mostar" actionListener="#{expedienteBB.expedientes}" update="dtExpediente" />
 
 		<p:dataTable id="dtExpediente" value="#{expedienteBB.expedientes}" var="e">
 		
@@ -173,7 +174,7 @@
 			</p:column>
 	 	</p:dataTable>
         </h:form>
-	 </div>
+	 
 		
 	<div class="importarExpediente">
 			<h:button value="Importar Expediente" outcome="ImportarExpediente.xhtml" />
