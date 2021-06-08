@@ -42,9 +42,6 @@
 		</div>
 		
 		<div class="centro">
-	 	<div class="izquierdaCentro">
-			<b>Encuestas: </b> <br></br>
-		</div>
 		
         <h:form id="encuesta">
             <p:commandButton value="Mostar" actionListener="#{encuesta.encuesta}" update="dtEncuesta" />
@@ -71,10 +68,7 @@
 	 </ui:fragment>
 	 
 	 <ui:fragment rendered="#{not empty infoSesion.personal}">
-	 <div class="centro">
-	 	<div class="izquierdaCentro">
-			<b>Encuestas: </b> <br></br>
-		</div>
+	 <div class="centrado">
 		
         <h:form id="encuestaAlum">
             <p:commandButton value="Mostar" actionListener="#{encuesta.encuestas}" update="dtEncuesta" />
