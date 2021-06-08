@@ -1,5 +1,6 @@
 package es.uma.informatica.Interfaces;
 
+import java.util.Date;
 import java.util.List;
 import javax.ejb.Local;
 
@@ -26,5 +27,11 @@ public interface InterfazEncuesta {
 
 
 	public List<Encuesta> leerEncuestasAlumno(Alumno al) throws EncuestaException;
+
+
+	public long obtenerExpTitu(long t, long id);
+
+
+	public void crearEncuesta(Date fecha, long exp) throws EncuestaException;
 }
 
