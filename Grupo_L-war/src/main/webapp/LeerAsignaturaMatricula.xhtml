@@ -53,22 +53,22 @@
 			
 			<p:column id = "matricula" headerText="Matricula" filterBy="#{asig.matricula.num_Archivo}"
 				filterMatchMode="contains">
-				<p:outputLabel value="#{asig.matricula.num_Archivo}" />
+				<p:outputLabel id = "mat" value="#{asig.matricula.num_Archivo}" />
 			</p:column>
 			
 			<p:column id = "asignatura" headerText="Asignatura" filterBy="#{asig.asignatura.referencia}"
 				filterMatchMode="contains">
-				<p:outputLabel value="#{asig.asignatura.referencia}" />
+				<p:outputLabel id="asig" value="#{asig.asignatura.referencia}" />
 			</p:column>
 			
 			<p:column id="grupo" headerText="Grupo_Curso" filterBy="#{asig.g_AM.curso}"
 				filterMatchMode="contains">
-				<p:outputLabel value="#{asig.g_AM.curso}" />
+				<p:outputLabel id ="grup" value="#{asig.g_AM.curso}" />
 			</p:column>
 			
 			<p:column id="letra" headerText="Grupo_Letra" filterBy="#{asig.g_AM.letra}"
 				filterMatchMode="contains">
-				<p:outputLabel value="#{asig.g_AM.letra}" />
+				<p:outputLabel id = "letr" value="#{asig.g_AM.letra}" />
 			</p:column>
 	 	</p:dataTable>
          
@@ -87,22 +87,22 @@
 		
 			<p:column id="matricula" headerText="Matricula" filterBy="#{asig.matricula.num_Archivo}"
 				filterMatchMode="contains">
-				<p:outputLabel value="#{asig.matricula.num_Archivo}" />
+				<p:outputLabel id ="mat" value="#{asig.matricula.num_Archivo}" />
 			</p:column>
 			
 			<p:column id="asignatura" headerText="Asignatura" filterBy="#{asig.asignatura.referencia}"
 				filterMatchMode="contains">
-				<p:outputLabel value="#{asig.asignatura.referencia}" />
+				<p:outputLabel id ="asig" value="#{asig.asignatura.referencia}" />
 			</p:column>
 			
 			<p:column id = "grupo" headerText="Grupo_Curso" filterBy="#{asig.g_AM.curso}"
 				filterMatchMode="contains">
-				<p:outputLabel value="#{asig.g_AM.curso}" />
+				<p:outputLabel id ="grup" value="#{asig.g_AM.curso}" />
 			</p:column>
 			
 			<p:column id= "letra" headerText="Grupo_Letra" filterBy="#{asig.g_AM.letra}"
 				filterMatchMode="contains">
-				<p:outputLabel value="#{asig.g_AM.letra}" />
+				<p:outputLabel id = "let" value="#{asig.g_AM.letra}" />
 			</p:column>
 	 	</p:dataTable>
          

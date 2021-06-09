@@ -26,10 +26,10 @@
 
 	<h1 class="titulo"> IMPORTAR HORARIO </h1>
 
-	<div class="centrado">
-	     <h:form enctype="multipart/form-data">
+	<div id = "caja" class="centrado">
+	     <h:form id="i" enctype="multipart/form-data">
 	    	<p:growl id="messages" showDetail="true"/>
-       		 <p:fileUpload mode="advanced"
+       		 <p:fileUpload  id ="imp" mode="advanced"
                       multiple="false"
                       sizeLimit="10240000" allowTypes="/(\.|\/)(xlsx)$/"
                       invalidSizeMessage="Maximum file size allowed is 10 MB"

@@ -44,22 +44,22 @@
 			
 				<p:column id="a" headerText="Asignatura" filterBy="#{c.AC.nombre}"
 				filterMatchMode="contains">
-				<p:outputLabel value="#{c.AC.nombre}" />
+				<p:outputLabel id="aa" value="#{c.AC.nombre}" />
 				</p:column>
 				
 				<p:column id="b" headerText="Dia" filterBy="#{c.dia}"
 				filterMatchMode="contains">
-				<p:outputLabel value="#{c.dia}" />
+				<p:outputLabel id="ab" value="#{c.dia}" />
 				</p:column>
 				
 				<p:column id="c" headerText="Hora inicio" filterBy="#{c.horaInicio}"
 				filterMatchMode="contains">
-				<p:outputLabel value="#{c.horaInicio}" />
+				<p:outputLabel id="ac" value="#{c.horaInicio}" />
 				</p:column>
 				
 				<p:column id="d" headerText="Hora fin" filterBy="#{c.horaFin}"
 				filterMatchMode="contains">
-				<p:outputLabel value="#{c.horaFin}" />
+				<p:outputLabel id="ad" value="#{c.horaFin}" />
 				</p:column>
 			</p:dataTable>
 		</h:form>
