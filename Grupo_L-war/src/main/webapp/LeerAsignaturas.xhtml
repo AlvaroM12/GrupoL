@@ -75,7 +75,7 @@
 					<p:outputLabel id="ah" value="#{a.nombre}" />
 				</p:column>
 				<p:column id="i" headerText="Curso" filterBy="#{a.curso}" filterMatchMode="contains">
-					<p:outputLabel id="ai"value="#{a.curso}" />
+					<p:outputLabel id="ai" value="#{a.curso}" />
 				</p:column>
 				<p:column id="j" headerText="Plazas" filterBy="#{a.plazas}" filterMatchMode="contains">
 					<p:outputLabel id="aj" value="#{a.plazas}" />
@@ -91,10 +91,16 @@
 	</ui:fragment >
 
 	<ui:fragment rendered="#{not empty infoSesion.personal}">
-		<h:form id="caja">
+		<h:form id="caja1">
+			
+			<div id="importar">
+				<h:button id="impAsig" value="Importar Asignatura" outcome="ImportarAsignatura.xhtml" />
+			</div>
+			
 			<p:commandButton id="mostrar" value="Mostar" actionListener="#{asignaturaBB.asignaturas}" update="dtAsig" />
 				
 			<p:dataTable styleClass="card" id="dtAsig" value="#{asignaturaBB.asignaturas}" var="a">
+			
 				<p:column id="a" headerText="Referencia" filterBy="#{a.referencia}" filterMatchMode="contains">
 					<p:outputLabel id="ab" value="#{a.referencia}" />
 				</p:column>
@@ -105,7 +111,7 @@
 					<p:outputLabel id="ac" value="#{a.codigo}" />
 				</p:column>
 				<p:column id="d" headerText="Créditos Teoricos" filterBy="#{a.creditos_Teoricos}" filterMatchMode="contains">
-					<p:outputLabel id="ac" value="#{a.creditos_Teoricos}" />
+					<p:outputLabel id="ad" value="#{a.creditos_Teoricos}" />
 				</p:column>
 				<p:column id="e" headerText="Créditos Practicos" filterBy="#{a.creditos_Practicos}" filterMatchMode="contains">
 					<p:outputLabel id="ae" value="#{a.creditos_Practicos}" />
@@ -133,10 +139,6 @@
 				</p:column>
 			</p:dataTable>
 		</h:form>
-		
-		<div class="importarMatricula">
-			<h:button value="Importar Asignatura" outcome="ImportarAsignatura.xhtml" />
-		</div>
 	</ui:fragment>
 
 	<div class="pie"> 
