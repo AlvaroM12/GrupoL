@@ -647,7 +647,38 @@ public class DefaultSuiteIT {
 	    assertThat(driver.findElement(By.id("clase:dtClase:0:j_idt26")).getText(), is("10:30"));
 	  }   
 	    
+	  
+	  @Test
+	  public void importarExpediente() {
+	    driver.get("http://localhost:8080/Grupo_L-war/faces/Login.xhtml");
+	    driver.manage().window().setSize(new Dimension(697, 770));
+	    driver.findElement(By.id("j_idt7:user")).sendKeys("pepe@uma.es");
+		driver.findElement(By.id("j_idt7:pass")).sendKeys("123");
+		driver.findElement(By.id("j_idt7:entrar")).click();
+		driver.findElement(By.cssSelector(".inicio")).click();
+		assertThat(driver.findElement(By.id("nombre2")).getText(), is("Hola, Jefe."));
+	    driver.findElement(By.id("leerExpediente")).click();
+	    driver.findElement(By.id("z")).click();
+	    WebElement element = driver.findElement(By.id("j_idt18:j_idt19_input"));
+	    element.sendKeys("/home/alumno/eclipse-workspace/Grupo_L/Grupo_L-ejb/Datos alumnadoFAKE.xlsx");
 	    
+	    List<WebElement> listBtn = driver.findElements(By.tagName("button"));
+	    listBtn.get(0).click();
+	    try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	    
+	    driver.findElement(By.cssSelector(".inicio > input")).click();
+	    driver.findElement(By.id("leerExpediente")).click();
+	    driver.findElement(By.id("j_idt38:dtExpediente:1:j_idt41")).click();
+	    driver.findElement(By.id("j_idt38:dtExpediente:1:j_idt41")).click();
+	    driver.findElement(By.id("j_idt38:dtExpediente:1:j_idt41")).click();
+	    assertThat(driver.findElement(By.id("j_idt38:dtExpediente:1:j_idt41")).getText(), is("104100003"));
+	  }
+	}
 	    
 	  
-}
+
