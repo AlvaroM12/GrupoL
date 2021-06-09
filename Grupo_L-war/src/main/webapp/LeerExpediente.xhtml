@@ -48,18 +48,15 @@
 	<ui:fragment rendered="#{not empty infoSesion.alumno}">
 		<div id="a" class="izquierda">
 			<b>MIS DATOS </b><br></br>
-			<br></br> <a href="LeerEncuesta.xhtml" style="text-decoration: none">Leer
-				Encuesta</a><br></br> <a href="LeerAsignaturaMatricula.xhtml"
-				style="text-decoration: none">Leer Asignatura Matricula</a><br></br>
-			<a href="LeerMatricula.xhtml" style="text-decoration: none">Leer
-				Matricula</a><br></br> <a href="LeerTitulacion.xhtml"
-				style="text-decoration: none">Leer Titulacion</a><br></br> <a
-				href="LeerAlumnos.xhtml" style="text-decoration: none">Leer
-				Usuario</a><br></br> <a href="LeerAsignaturas.xhtml"
-				style="text-decoration: none">Leer Asignatura</a><br></br> <a
-				href="LeerClase.xhtml" style="text-decoration: none">Leer Clase</a><br></br>
-			<a href="LeerExpediente.xhtml" style="text-decoration: none">Leer
-				Expediente</a>
+			<br></br> 
+			<a href="LeerEncuesta.xhtml" style="text-decoration: none">Leer Encuesta</a><br></br> 
+			<a href="LeerAsignaturaMatricula.xhtml" style="text-decoration: none">Leer Asignatura Matricula</a><br></br>
+			<a href="LeerMatricula.xhtml" style="text-decoration: none">Leer Matricula</a><br></br> 
+			<a href="LeerTitulacion.xhtml" style="text-decoration: none">Leer Titulacion</a><br></br> 
+			<a href="LeerAlumnos.xhtml" style="text-decoration: none">Leer	Usuario</a><br></br> 
+			<a href="LeerAsignaturas.xhtml" style="text-decoration: none">Leer Asignatura</a><br></br> 
+			<a href="LeerClase.xhtml" style="text-decoration: none">Leer Clase</a><br></br>
+			<a href="LeerExpediente.xhtml" style="text-decoration: none">Leer Expediente</a>
 		</div>
 
 
@@ -72,66 +69,62 @@
 				<p:commandButton value="Mostar"
 					actionListener="#{expedienteBB.expediente}" update="dtExpediente" />
 
-				<p:dataTable id="dtExpediente" value="#{expedienteBB.expediente}"
-					var="e">
+				<p:dataTable id="dtExpediente" value="#{expedienteBB.expediente}" var="e">
 
 					<p:column id="b" headerText="Num_Expediente"
 						filterBy="#{e.num_Expediente}" filterMatchMode="contains">
-						<p:outputLabel value="#{e.num_Expediente}" />
+						<p:outputLabel id="bb" value="#{e.num_Expediente}" />
 					</p:column>
 
 					<p:column id="c" headerText="Activo" filterBy="#{e.activo}"
 						filterMatchMode="contains">
-						<p:outputLabel value="#{e.activo}" />
+						<p:outputLabel id="bc" value="#{e.activo}" />
 					</p:column>
 
 					<p:column id="d" headerText="Nota_Media" filterBy="#{e.nota_Media}"
 						filterMatchMode="contains">
-						<p:outputLabel value="#{e.nota_Media}" />
+						<p:outputLabel id="bd" value="#{e.nota_Media}" />
 					</p:column>
 
 					<p:column id="e" headerText="Creditos_Superados"
 						filterBy="#{e.creditos_Superados}" filterMatchMode="contains">
-						<p:outputLabel value="#{e.creditos_Superados}" />
+						<p:outputLabel id="be" value="#{e.creditos_Superados}" />
 					</p:column>
 
 					<p:column id="f" headerText="Creditos_FB"
 						filterBy="#{e.creditos_FB}" filterMatchMode="contains">
-						<p:outputLabel value="#{e.creditos_FB}" />
+						<p:outputLabel id="bf" value="#{e.creditos_FB}" />
 					</p:column>
 
 					<p:column id="h" headerText="Creditos_OB"
 						filterBy="#{e.creditos_OB}" filterMatchMode="contains">
-						<p:outputLabel value="#{e.creditos_OB}" />
+						<p:outputLabel id="bh" value="#{e.creditos_OB}" />
 					</p:column>
 
 					<p:column id="i" headerText="Creditos_OP"
 						filterBy="#{e.creditos_OP}" filterMatchMode="contains">
-						<p:outputLabel value="#{e.creditos_OP}" />
+						<p:outputLabel id="bi" value="#{e.creditos_OP}" />
 					</p:column>
 
 					<p:column id="j" headerText="Creditos_CF"
 						filterBy="#{e.creditos_CF}" filterMatchMode="contains">
-						<p:outputLabel value="#{e.creditos_CF}" />
+						<p:outputLabel id="bj" value="#{e.creditos_CF}" />
 					</p:column>
 
 					<p:column id="k" headerText="Creditos_PE"
 						filterBy="#{e.creditos_PE}" filterMatchMode="contains">
-						<p:outputLabel value="#{e.creditos_PE}" />
+						<p:outputLabel id="bk" value="#{e.creditos_PE}" />
 					</p:column>
 
 					<p:column id="l" headerText="Creditos_TF"
 						filterBy="#{e.creditos_TF}" filterMatchMode="contains">
-						<p:outputLabel value="#{e.creditos_TF}" />
+						<p:outputLabel id="bl" value="#{e.creditos_TF}" />
 					</p:column>
 				</p:dataTable>
 			</h:form>
 		</div>
 
 	</ui:fragment>
-
-
-
 
 	<ui:fragment rendered="#{not empty infoSesion.personal}">
 

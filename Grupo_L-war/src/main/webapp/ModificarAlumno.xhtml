@@ -23,14 +23,15 @@
 	</h:form>
 	<div class="inicio"> <h:button value="INICIO" outcome="Principal.xhtml" /> </div>
 	<h1 class="titulo"> Modificar Alumno </h1>	
-				<h:form>
-            	<div class="centro">
-				<h:panelGrid columns="4">
-				
+	
+	<h:form id="form">
+       	<div class="centro">
+			<h:panelGrid columns="4">
+			
 				<h:outputText value="DNI:" />
 				<h:inputText id="user" required="true"
 					value="#{ma.a.DNI}" />
-
+			
 				<h:outputText value="Nombre:" />
 				<h:inputText id="nom" required="true"
 					value="#{ma.a.nombre}" />
@@ -46,7 +47,7 @@
 				<h:outputText value="Email_Institucional:" />
 				<h:inputText id="e" required="true"
 					value="#{ma.a.email_Institucional}" />
-
+			
 				<h:outputText value="Email_Personal" />
 				<h:inputText id="ep" required="true"
 					value="#{ma.a.email_Personal}" />
@@ -75,9 +76,8 @@
 				<h:commandButton id="modificar" value="Modificar" action="#{ma.modificar()}" /> 
 
 			</h:panelGrid>
-			
-			</div>
-				</h:form>
+		</div>
+	</h:form>
 		<div class="pie">Universidad de Málaga · Avda. Cervantes, 2. 29071 MÁLAGA · Tel. 952131000 · info@uma.es</div>
 		
 </h:body>

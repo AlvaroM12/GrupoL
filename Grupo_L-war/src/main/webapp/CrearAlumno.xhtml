@@ -15,69 +15,64 @@
 </h:head>
 
 <h:body>
-	<ui:fragment rendered="#{not empty infoSesion.personal}">	
+	<ui:fragment rendered="#{not empty infoSesion.personal}">
 		<div class="inicio"><p>Hola, <h:outputText value="#{infoSesion.personal.rango}"/>.</p></div>
 	</ui:fragment>
 	<h:form>
-	<div class="cerrar"> <h:commandLink action="#{infoSesion.invalidarSesion()}">Cerrar Sesion</h:commandLink> </div>
+		<div class="cerrar">
+			<h:commandLink action="#{infoSesion.invalidarSesion()}">Cerrar Sesion</h:commandLink>
+		</div>
 	</h:form>
-	<div class="inicio"> <h:button value="INICIO" outcome="Principal.xhtml" /> </div>
-		<h1 class="titulo"> Crear Alumno </h1>
-				<h:form>
-            	<div class="centro">
-				<h:panelGrid columns="4">
-				
+	<div class="inicio">
+		<h:button value="INICIO" outcome="Principal.xhtml" />
+	</div>
+	<h1 class="titulo">Crear Alumno</h1>
+	<h:form id="form">
+		<div class="centro">
+			<h:panelGrid columns="4">
+
 				<h:outputText value="DNI:" />
-				<h:inputText id="user" required="true"
-					value="#{ma.a.DNI}" />
-					
+				<h:inputText id="user" required="true" value="#{ma.a.DNI}" />
+
 				<h:outputText value="Nombre:" />
-				<h:inputText id="nom" required="true"
-					value="#{ma.a.nombre}" />
-					
-					<h:outputText value="Apellido1:" />
-				<h:inputText id="ape" required="true"
-					value="#{ma.a.apellido1}" />
-			
+				<h:inputText id="nom" required="true" value="#{ma.a.nombre}" />
+
+				<h:outputText value="Apellido1:" />
+				<h:inputText id="ape" required="true" value="#{ma.a.apellido1}" />
+
 				<h:outputText value="Apellido2:" />
-				<h:inputText id="a2" required="true"
-					value="#{ma.a.apellido2}" />
-					
+				<h:inputText id="a2" required="true" value="#{ma.a.apellido2}" />
+
 				<h:outputText value="Email_Institucional:" />
 				<h:inputText id="e" required="true"
 					value="#{ma.a.email_Institucional}" />
 
 				<h:outputText value="Email_Personal" />
-				<h:inputText id="ep" required="true"
-					value="#{ma.a.email_Personal}" />
-					
+				<h:inputText id="ep" required="true" value="#{ma.a.email_Personal}" />
+
 				<h:outputText value="Móvil" />
-				<h:inputText id="m" required="true"
-					value="#{ma.a.movil}" />
-						
+				<h:inputText id="m" required="true" value="#{ma.a.movil}" />
+
 				<h:outputText value="Direccion" />
-				<h:inputText id="d" required="true"
-					value="#{ma.a.direccion}" />
-					
+				<h:inputText id="d" required="true" value="#{ma.a.direccion}" />
+
 				<h:outputText value="Localidad" />
-				<h:inputText id="l" required="true"
-					value="#{ma.a.localidad}" />
-					
+				<h:inputText id="l" required="true" value="#{ma.a.localidad}" />
+
 				<h:outputText value="Provincia" />
-				<h:inputText id="pr" required="true"
-					value="#{ma.a.provincia}" />
-					
+				<h:inputText id="pr" required="true" value="#{ma.a.provincia}" />
+
 				<h:outputText value="CP" />
-				<h:inputText id="c" required="true"
-					value="#{ma.a.CP}" />
-					
-				<h:commandButton id="crear" value="Crear" action="#{ma.crear}" /> 
- 
+				<h:inputText id="c" required="true" value="#{ma.a.CP}" />
+
+				<h:commandButton id="crear" value="Crear" action="#{ma.crear}" />
+
 			</h:panelGrid>
-			
-			</div>
-				</h:form>
-		<div class="pie">Universidad de Málaga · Avda. Cervantes, 2. 29071 MÁLAGA · Tel. 952131000 · info@uma.es</div>
-		
+
+		</div>
+	</h:form>
+	<div class="pie">Universidad de Málaga · Avda. Cervantes, 2.
+		29071 MÁLAGA · Tel. 952131000 · info@uma.es</div>
+
 </h:body>
 </html>
