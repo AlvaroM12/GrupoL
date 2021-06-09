@@ -771,12 +771,12 @@ public class DefaultSuiteIT {
 			List<WebElement> elements = driver.findElements(By.id("caja1"));
 			assert(elements.size() > 0);
 		}
-		assertThat(driver.findElement(By.id("caja1:dtGrupos:0:j_idt41")).getText(), is("306000005"));
-		assertThat(driver.findElement(By.id("caja1:dtGrupos:1:j_idt41")).getText(), is("306000002"));
-		assertThat(driver.findElement(By.id("caja1:dtGrupos:2:j_idt41")).getText(), is("306000001"));
-		assertThat(driver.findElement(By.id("caja1:dtGrupos:3:j_idt41")).getText(), is("306000003"));
-		assertThat(driver.findElement(By.id("caja1:dtGrupos:4:j_idt41")).getText(), is("306000004"));
-		assertThat(driver.findElement(By.id("caja1:dtGrupos:5:j_idt41")).getText(), is("306000006"));
+		assertThat(driver.findElement(By.id("caja1:dtGrupos:0:aa")).getText(), is("306000005"));
+		assertThat(driver.findElement(By.id("caja1:dtGrupos:1:aa")).getText(), is("306000002"));
+		assertThat(driver.findElement(By.id("caja1:dtGrupos:2:aa")).getText(), is("306000001"));
+		assertThat(driver.findElement(By.id("caja1:dtGrupos:3:aa")).getText(), is("306000003"));
+		assertThat(driver.findElement(By.id("caja1:dtGrupos:4:aa")).getText(), is("306000004"));
+		assertThat(driver.findElement(By.id("caja1:dtGrupos:5:aa")).getText(), is("306000006"));
 	}
 	
 	@Test
@@ -791,12 +791,12 @@ public class DefaultSuiteIT {
 	      List<WebElement> elements = driver.findElements(By.id("caja1"));
 	      assert(elements.size() > 0);
 	    }
-	    assertThat(driver.findElement(By.id("caja1:dtExpediente:0:j_idt40")).getText(), is("104100002"));
-	    assertThat(driver.findElement(By.id("caja1:dtExpediente:1:j_idt40")).getText(), is("104195486"));
-	    assertThat(driver.findElement(By.id("caja1:dtExpediente:2:j_idt40")).getText(), is("104200001"));
-	    assertThat(driver.findElement(By.id("caja1:dtExpediente:3:j_idt40")).getText(), is("104300002"));
-	    assertThat(driver.findElement(By.id("caja1:dtExpediente:4:j_idt40")).getText(), is("105600003"));
-	    assertThat(driver.findElement(By.id("caja1:dtExpediente:5:j_idt40")).getText(), is("107300003"));
+	    assertThat(driver.findElement(By.id("caja1:dtExpediente:0:aa")).getText(), is("104100002"));
+	    assertThat(driver.findElement(By.id("caja1:dtExpediente:1:aa")).getText(), is("104195486"));
+	    assertThat(driver.findElement(By.id("caja1:dtExpediente:2:aa")).getText(), is("104200001"));
+	    assertThat(driver.findElement(By.id("caja1:dtExpediente:3:aa")).getText(), is("104300002"));
+	    assertThat(driver.findElement(By.id("caja1:dtExpediente:4:aa")).getText(), is("105600003"));
+	    assertThat(driver.findElement(By.id("caja1:dtExpediente:5:aa")).getText(), is("107300003"));
 	  }
 	
 	@Test

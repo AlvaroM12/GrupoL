@@ -5,187 +5,206 @@
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
-	 xmlns:p="http://primefaces.org/ui">
+	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
 	<title>Expediente</title>
-	<h:outputStylesheet library="css" name="Layout.css"/>
+	<h:outputStylesheet library="css" name="Layout.css" />
 	<h:outputStylesheet library="css" name="Estilos.css" />
 </h:head>
 
 <h:body>
 
 	<ui:fragment rendered="#{not empty infoSesion.alumno}">
-	<div class="inicio"><p>Hola, <h:outputText value="#{infoSesion.alumno.nombre}"/>.</p></div>
+		<div class="inicio">
+			<p>
+				Hola,
+				<h:outputText value="#{infoSesion.alumno.nombre}" />
+				.
+			</p>
+		</div>
 	</ui:fragment>
-	<ui:fragment rendered="#{not empty infoSesion.personal}">	
-	<div class="inicio"><p>Hola, <h:outputText value="#{infoSesion.personal.rango}"/>.</p></div>
+	<ui:fragment rendered="#{not empty infoSesion.personal}">
+		<div class="inicio">
+			<p>
+				Hola,
+				<h:outputText value="#{infoSesion.personal.rango}" />
+				.
+			</p>
+		</div>
 	</ui:fragment>
 
 	<h:form>
-	<div class="cerrar"> <h:commandLink action="#{infoSesion.invalidarSesion()}">Cerrar Sesion</h:commandLink> </div>
+		<div class="cerrar">
+			<h:commandLink action="#{infoSesion.invalidarSesion()}">Cerrar Sesion</h:commandLink>
+		</div>
 	</h:form>
-	<div class="inicio"> <h:button value="INICIO" outcome="Principal.xhtml" /> </div>
-
-	<h1 class="titulo"> Expediente </h1>
-
-	<ui:fragment rendered="#{not empty infoSesion.alumno}">	
-		<div id="a" class="izquierda"   >
-			<b>MIS DATOS </b><br></br><br></br> 
-			<a href="LeerEncuesta.xhtml" style="text-decoration: none">Leer Encuesta</a><br></br>
-			<a href="LeerAsignaturaMatricula.xhtml" style="text-decoration: none">Leer Asignatura Matricula</a><br></br>
-			<a href="LeerMatricula.xhtml" style="text-decoration: none">Leer Matricula</a><br></br> 
-			<a href="LeerTitulacion.xhtml" style="text-decoration: none">Leer Titulacion</a><br></br> 
-			<a href="LeerAlumnos.xhtml" style="text-decoration: none">Leer Usuario</a><br></br> 
-			<a href="LeerAsignaturas.xhtml" style="text-decoration: none">Leer Asignatura</a><br></br> 
-			<a href="LeerClase.xhtml" style="text-decoration: none">Leer Clase</a><br></br> 
-			<a href="LeerExpediente.xhtml" style="text-decoration: none">Leer Expediente</a>
-		</div>
-		
-		
-		<div class="centro">
-	 	<div class="izquierdaCentro">
-			<b>Expedientes: </b> <br></br>
-		</div>
-		
-        <h:form id="expediente">
-            <p:commandButton value="Mostar" actionListener="#{expedienteBB.expediente}" update="dtExpediente" />
-
-		<p:dataTable id="dtExpediente" value="#{expedienteBB.expediente}" var="e">
-		
-			<p:column id="b" headerText="Num_Expediente" filterBy="#{e.num_Expediente}"
-				filterMatchMode="contains">
-				<p:outputLabel value="#{e.num_Expediente}" />
-			</p:column>
-			
-			<p:column id="c" headerText="Activo" filterBy="#{e.activo}"
-				filterMatchMode="contains">
-				<p:outputLabel value="#{e.activo}" />
-			</p:column>
-			
-			<p:column id="d" headerText="Nota_Media" filterBy="#{e.nota_Media}"
-				filterMatchMode="contains">
-				<p:outputLabel value="#{e.nota_Media}" />
-			</p:column>
-			
-			<p:column id="e" headerText="Creditos_Superados" filterBy="#{e.creditos_Superados}"
-				filterMatchMode="contains">
-				<p:outputLabel value="#{e.creditos_Superados}" />
-			</p:column>
-			
-			<p:column id="f" headerText="Creditos_FB" filterBy="#{e.creditos_FB}"
-				filterMatchMode="contains">
-				<p:outputLabel value="#{e.creditos_FB}" />
-			</p:column>
-			
-			<p:column id="h" headerText="Creditos_OB" filterBy="#{e.creditos_OB}"
-				filterMatchMode="contains">
-				<p:outputLabel value="#{e.creditos_OB}" />
-			</p:column>
-			
-			<p:column id="i" headerText="Creditos_OP" filterBy="#{e.creditos_OP}"
-				filterMatchMode="contains">
-				<p:outputLabel value="#{e.creditos_OP}" />
-			</p:column>
-			
-			<p:column id="j" headerText="Creditos_CF" filterBy="#{e.creditos_CF}"
-				filterMatchMode="contains">
-				<p:outputLabel value="#{e.creditos_CF}" />
-			</p:column>
-			
-			<p:column id="k" headerText="Creditos_PE" filterBy="#{e.creditos_PE}"
-				filterMatchMode="contains">
-				<p:outputLabel value="#{e.creditos_PE}" />
-			</p:column>
-			
-			<p:column id="l" headerText="Creditos_TF" filterBy="#{e.creditos_TF}"
-				filterMatchMode="contains">
-				<p:outputLabel value="#{e.creditos_TF}" />
-			</p:column>
-	 	</p:dataTable>
-        </h:form>
-	 </div>
-	 
-	</ui:fragment>
-	
-	
-	
-	
-	<ui:fragment rendered="#{not empty infoSesion.personal}">
-		
-		<h:form id="caja1" styleClass="centrado">
-	 	<div class="izquierdaCentro">
-			<b>Expedientes: </b> <br></br>
-		</div>
-		
-        
-        <p:commandButton value="Mostar" actionListener="#{expedienteBB.expedientes}" update="dtExpediente" />
-
-		<p:dataTable id="dtExpediente" value="#{expedienteBB.expedientes}" var="e">
-		
-			<p:column id="m" headerText="Num_Expediente" filterBy="#{e.num_Expediente}"
-				filterMatchMode="contains">
-				<p:outputLabel value="#{e.num_Expediente}" />
-			</p:column>
-			
-			<p:column id="n" headerText="Activo" filterBy="#{e.activo}"
-				filterMatchMode="contains">
-				<p:outputLabel value="#{e.activo}" />
-			</p:column>
-			
-			<p:column id="o" headerText="Nota_Media" filterBy="#{e.nota_Media}"
-				filterMatchMode="contains">
-				<p:outputLabel value="#{e.nota_Media}" />
-			</p:column>
-			
-			<p:column id="p" headerText="Creditos_Superados" filterBy="#{e.creditos_Superados}"
-				filterMatchMode="contains">
-				<p:outputLabel value="#{e.creditos_Superados}" />
-			</p:column>
-			
-			<p:column id="q" headerText="Creditos_FB" filterBy="#{e.creditos_FB}"
-				filterMatchMode="contains">
-				<p:outputLabel value="#{e.creditos_FB}" />
-			</p:column>
-			
-			<p:column id="r" headerText="Creditos_OB" filterBy="#{e.creditos_OB}"
-				filterMatchMode="contains">
-				<p:outputLabel value="#{e.creditos_OB}" />
-			</p:column>
-			
-			<p:column id="s" headerText="Creditos_OP" filterBy="#{e.creditos_OP}"
-				filterMatchMode="contains">
-				<p:outputLabel value="#{e.creditos_OP}" />
-			</p:column>
-			
-			<p:column id="t" headerText="Creditos_CF" filterBy="#{e.creditos_CF}"
-				filterMatchMode="contains">
-				<p:outputLabel value="#{e.creditos_CF}" />
-			</p:column>
-			
-			<p:column id="u" headerText="Creditos_PE" filterBy="#{e.creditos_PE}"
-				filterMatchMode="contains">
-				<p:outputLabel value="#{e.creditos_PE}" />
-			</p:column>
-			
-			<p:column id="v" headerText="Creditos_TF" filterBy="#{e.creditos_TF}"
-				filterMatchMode="contains">
-				<p:outputLabel value="#{e.creditos_TF}" />
-			</p:column>
-	 	</p:dataTable>
-        </h:form>
-	 
-		
-	<div id="w" class="importarExpediente">
-			<h:button id="z" value="Importar Expediente" outcome="ImportarExpediente.xhtml" />
+	<div class="inicio">
+		<h:button value="INICIO" outcome="Principal.xhtml" />
 	</div>
-		
-	 
-		
-		
+
+	<h1 class="titulo">Expediente</h1>
+
+	<ui:fragment rendered="#{not empty infoSesion.alumno}">
+		<div id="a" class="izquierda">
+			<b>MIS DATOS </b><br></br>
+			<br></br> <a href="LeerEncuesta.xhtml" style="text-decoration: none">Leer
+				Encuesta</a><br></br> <a href="LeerAsignaturaMatricula.xhtml"
+				style="text-decoration: none">Leer Asignatura Matricula</a><br></br>
+			<a href="LeerMatricula.xhtml" style="text-decoration: none">Leer
+				Matricula</a><br></br> <a href="LeerTitulacion.xhtml"
+				style="text-decoration: none">Leer Titulacion</a><br></br> <a
+				href="LeerAlumnos.xhtml" style="text-decoration: none">Leer
+				Usuario</a><br></br> <a href="LeerAsignaturas.xhtml"
+				style="text-decoration: none">Leer Asignatura</a><br></br> <a
+				href="LeerClase.xhtml" style="text-decoration: none">Leer Clase</a><br></br>
+			<a href="LeerExpediente.xhtml" style="text-decoration: none">Leer
+				Expediente</a>
+		</div>
+
+
+		<div class="centro">
+			<div class="izquierdaCentro">
+				<b>Expedientes: </b> <br></br>
+			</div>
+
+			<h:form id="expediente">
+				<p:commandButton value="Mostar"
+					actionListener="#{expedienteBB.expediente}" update="dtExpediente" />
+
+				<p:dataTable id="dtExpediente" value="#{expedienteBB.expediente}"
+					var="e">
+
+					<p:column id="b" headerText="Num_Expediente"
+						filterBy="#{e.num_Expediente}" filterMatchMode="contains">
+						<p:outputLabel value="#{e.num_Expediente}" />
+					</p:column>
+
+					<p:column id="c" headerText="Activo" filterBy="#{e.activo}"
+						filterMatchMode="contains">
+						<p:outputLabel value="#{e.activo}" />
+					</p:column>
+
+					<p:column id="d" headerText="Nota_Media" filterBy="#{e.nota_Media}"
+						filterMatchMode="contains">
+						<p:outputLabel value="#{e.nota_Media}" />
+					</p:column>
+
+					<p:column id="e" headerText="Creditos_Superados"
+						filterBy="#{e.creditos_Superados}" filterMatchMode="contains">
+						<p:outputLabel value="#{e.creditos_Superados}" />
+					</p:column>
+
+					<p:column id="f" headerText="Creditos_FB"
+						filterBy="#{e.creditos_FB}" filterMatchMode="contains">
+						<p:outputLabel value="#{e.creditos_FB}" />
+					</p:column>
+
+					<p:column id="h" headerText="Creditos_OB"
+						filterBy="#{e.creditos_OB}" filterMatchMode="contains">
+						<p:outputLabel value="#{e.creditos_OB}" />
+					</p:column>
+
+					<p:column id="i" headerText="Creditos_OP"
+						filterBy="#{e.creditos_OP}" filterMatchMode="contains">
+						<p:outputLabel value="#{e.creditos_OP}" />
+					</p:column>
+
+					<p:column id="j" headerText="Creditos_CF"
+						filterBy="#{e.creditos_CF}" filterMatchMode="contains">
+						<p:outputLabel value="#{e.creditos_CF}" />
+					</p:column>
+
+					<p:column id="k" headerText="Creditos_PE"
+						filterBy="#{e.creditos_PE}" filterMatchMode="contains">
+						<p:outputLabel value="#{e.creditos_PE}" />
+					</p:column>
+
+					<p:column id="l" headerText="Creditos_TF"
+						filterBy="#{e.creditos_TF}" filterMatchMode="contains">
+						<p:outputLabel value="#{e.creditos_TF}" />
+					</p:column>
+				</p:dataTable>
+			</h:form>
+		</div>
+
 	</ui:fragment>
-	
-	<div class="pie"> Universidad de Málaga · Avda. Cervantes, 2. 29071 MÁLAGA · Tel. 952131000 · info@uma.es </div>
+
+
+
+
+	<ui:fragment rendered="#{not empty infoSesion.personal}">
+
+		<h:form id="caja1" styleClass="centrado">
+			<div class="izquierdaCentro">
+				<b>Expedientes: </b> <br></br>
+			</div>
+			
+			<div id="impExp" class="importarExpediente">
+				<h:button id="impExp" value="Importar Expediente" outcome="ImportarExpediente.xhtml" />
+			</div>
+			
+			<p:commandButton value="Mostar"
+				actionListener="#{expedienteBB.expedientes}" update="dtExpediente" />
+
+			<p:dataTable id="dtExpediente" value="#{expedienteBB.expedientes}"
+				var="e">
+
+				<p:column id="m" headerText="Num_Expediente"
+					filterBy="#{e.num_Expediente}" filterMatchMode="contains">
+					<p:outputLabel id="aa" value="#{e.num_Expediente}" />
+				</p:column>
+
+				<p:column id="n" headerText="Activo" filterBy="#{e.activo}"
+					filterMatchMode="contains">
+					<p:outputLabel value="#{e.activo}" />
+				</p:column>
+
+				<p:column id="o" headerText="Nota_Media" filterBy="#{e.nota_Media}"
+					filterMatchMode="contains">
+					<p:outputLabel value="#{e.nota_Media}" />
+				</p:column>
+
+				<p:column id="p" headerText="Creditos_Superados"
+					filterBy="#{e.creditos_Superados}" filterMatchMode="contains">
+					<p:outputLabel value="#{e.creditos_Superados}" />
+				</p:column>
+
+				<p:column id="q" headerText="Creditos_FB"
+					filterBy="#{e.creditos_FB}" filterMatchMode="contains">
+					<p:outputLabel value="#{e.creditos_FB}" />
+				</p:column>
+
+				<p:column id="r" headerText="Creditos_OB"
+					filterBy="#{e.creditos_OB}" filterMatchMode="contains">
+					<p:outputLabel value="#{e.creditos_OB}" />
+				</p:column>
+
+				<p:column id="s" headerText="Creditos_OP"
+					filterBy="#{e.creditos_OP}" filterMatchMode="contains">
+					<p:outputLabel value="#{e.creditos_OP}" />
+				</p:column>
+
+				<p:column id="t" headerText="Creditos_CF"
+					filterBy="#{e.creditos_CF}" filterMatchMode="contains">
+					<p:outputLabel value="#{e.creditos_CF}" />
+				</p:column>
+
+				<p:column id="u" headerText="Creditos_PE"
+					filterBy="#{e.creditos_PE}" filterMatchMode="contains">
+					<p:outputLabel value="#{e.creditos_PE}" />
+				</p:column>
+
+				<p:column id="v" headerText="Creditos_TF"
+					filterBy="#{e.creditos_TF}" filterMatchMode="contains">
+					<p:outputLabel value="#{e.creditos_TF}" />
+				</p:column>
+			</p:dataTable>
+		</h:form>
+	</ui:fragment>
+
+	<div class="pie">Universidad de Málaga · Avda. Cervantes, 2.
+		29071 MÁLAGA · Tel. 952131000 · info@uma.es</div>
 
 </h:body>
 </html>

@@ -21,7 +21,7 @@
 	<div class="izquierda"> <img src="resources/imagenes/logoFLM.png" width="400" /> </div>
 
 	<div class="centro">
-		<h:form>			
+		<h:form id="fondo">			
 			<img src="resources/imagenes/uma.png" width="200" />
 			<br></br>
 			
@@ -40,8 +40,8 @@
 			<br></br>
 			
 			<o:validateEqual components="passwd passwd2" message = " ERROR: Las contraseñas no coinciden" showMessageFor = "passwd2" />		
-			<h:commandButton value="Guardar Cambios" outcome="Login.xhtml" action="#{usuarioBB.validar}" /> 
-			<h:button value="Cancelar" outcome="Login.xhtml" /> 
+			<h:commandButton id="guardar" value="Guardar Cambios" outcome="Login.xhtml" action="#{usuarioBB.validar}" /> 
+			<h:button id="cancelar" value="Cancelar" outcome="Login.xhtml" /> 
 		</h:form>
 	</div>
 
