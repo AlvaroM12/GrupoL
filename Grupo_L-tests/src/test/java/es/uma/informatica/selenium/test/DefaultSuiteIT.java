@@ -42,7 +42,7 @@ public class DefaultSuiteIT {
 	public void tearDown() {
 		driver.quit();
 	}
-	@Ignore
+
 	@Test
 	public void inicioSesion() {
 		driver.get("http://localhost:8080/Grupo_L-war/");
@@ -55,7 +55,7 @@ public class DefaultSuiteIT {
 		driver.findElement(By.id("j_idt7:entrar")).click();
 		assertThat(driver.findElement(By.id("nombre")).getText(), is("Hola, Rocio."));
 	}
-	@Ignore
+
 	@Test
 	public void logginSecretaria() {
 		driver.get("http://localhost:8080/Grupo_L-war/faces/Login.xhtml");
@@ -66,7 +66,6 @@ public class DefaultSuiteIT {
 		assertThat(driver.findElement(By.id("nombre2")).getText(), is("Hola, Jefe."));
 	}
 
-	@Ignore
 	@Test
 	public void leerTitulaSec() {
 		driver.get("http://0.0.0.0:8080/Grupo_L-war/");
@@ -80,7 +79,7 @@ public class DefaultSuiteIT {
 		assertThat(driver.findElement(By.id("titulacion:dtTitulacion:0:j_idt32")).getText(), is("1041"));
 		assertThat(driver.findElement(By.id("titulacion:dtTitulacion:4:j_idt32")).getText(), is("1073"));
 	}
-	@Ignore
+
 	@Test
 	public void leertituusu() {
 		driver.get("http://0.0.0.0:8080/Grupo_L-war/");
@@ -112,7 +111,7 @@ public class DefaultSuiteIT {
 		assertThat(driver.findElement(By.id("expediente:dtExpediente:0:j_idt26")).getText(), is("104195486"));
 		assertThat(driver.findElement(By.id("expediente:dtExpediente:1:j_idt26")).getText(), is("104300002"));
 	}
-	@Ignore
+
 	@Test
 	public void testPrincipalSecretaria() {
 		driver.get("http://localhost:8080/Grupo_L-war/faces/Login.xhtml");
@@ -166,7 +165,7 @@ public class DefaultSuiteIT {
 			assert(elements.size() > 0);
 		}
 	}
-	@Ignore
+
 	@Test
 	public void testPrincipalAlumno() {
 		driver.get("http://localhost:8080/Grupo_L-war/");
@@ -192,7 +191,7 @@ public class DefaultSuiteIT {
 		}
 		assertThat(driver.findElement(By.linkText("Cerrar Sesion")).getText(), is("Cerrar Sesion"));
 	}
-	@Ignore
+
 	@Test
 	public void testGrupo() {
 		driver.get("http://localhost:8080/Grupo_L-war/faces/Login.xhtml");
@@ -262,7 +261,7 @@ public class DefaultSuiteIT {
 		driver.findElement(By.cssSelector(".ui-widget-content:nth-child(7) > td:nth-child(8)")).click();
 		assertThat(driver.findElement(By.id("tabla:dtGrupos:6:j_idt28")).getText(), is("180"));
 	}
-	@Ignore
+
 	@Test
 	public void testCentro() {
 		driver.get("http://localhost:8080/Grupo_L-war/faces/Login.xhtml");
@@ -280,7 +279,7 @@ public class DefaultSuiteIT {
 			List<WebElement> elements = driver.findElements(By.id("centro"));
 		}
 	}
-	@Ignore
+
 	@Test
 	public void testAsigMatS() {
 		driver.get("http://localhost:8080/Grupo_L-war/faces/Login.xhtml");
@@ -304,7 +303,7 @@ public class DefaultSuiteIT {
 		driver.findElement(By.id("asigm:dtAsigM:matricula:filter")).sendKeys("306000005");
 		driver.findElement(By.id("asigm:dtAsigM:matricula:filter")).sendKeys(Keys.ENTER);
 	}
-	@Ignore
+
 	@Test
 	public void generarNuevaContrasea() {
 		driver.get("http://0.0.0.0:8080/Grupo_L-war/faces/Login.xhtml");
@@ -327,7 +326,7 @@ public class DefaultSuiteIT {
 		}
 		driver.findElement(By.linkText("Cerrar Sesion")).click();
 	}
-	@Ignore
+
 	@Test
 	public void leerMatriculaA() {
 		driver.get("http://0.0.0.0:8080/Grupo_L-war/faces/Login.xhtml");
@@ -347,7 +346,7 @@ public class DefaultSuiteIT {
 		assertThat(driver.findElement(By.id("j_idt25:dtMat:0:j_idt31")).getText(), is("2019-12-29"));
 		driver.findElement(By.linkText("Cerrar Sesion")).click();
 	}
-	@Ignore
+
 	@Test
 	public void leerAsignturaA() {
 		driver.get("http://0.0.0.0:8080/Grupo_L-war/faces/Login.xhtml");
@@ -376,7 +375,7 @@ public class DefaultSuiteIT {
 		assertThat(driver.findElement(By.id("j_idt25:dtAsig:0:j_idt39")).getText(), is("No"));
 		driver.findElement(By.linkText("Cerrar Sesion")).click();
 	}
-	@Ignore
+
 	@Test
 	public void leerAsignaturaS() {
 		driver.get("http://0.0.0.0:8080/Grupo_L-war/faces/Login.xhtml");
@@ -400,7 +399,7 @@ public class DefaultSuiteIT {
 		assertThat(driver.findElement(By.id("j_idt41:dtAsignaturas:5:j_idt44")).getText(), is("Doble Grado en Ingenieria Informatica y Matematicas"));
 		driver.findElement(By.linkText("Cerrar Sesion")).click();
 	}
-	@Ignore
+
 	@Test
 	public void leerAlumnoA() {
 		driver.get("http://0.0.0.0:8080/Grupo_L-war/faces/Login.xhtml");
@@ -429,7 +428,6 @@ public class DefaultSuiteIT {
 		driver.findElement(By.linkText("Cerrar Sesion")).click();
 	}
 
-	@Ignore
 	@Test
 	public void leerEncuestaA() {
 		driver.get("http://localhost:8080/Grupo_L-war/");
@@ -452,7 +450,7 @@ public class DefaultSuiteIT {
 		}
 		assertThat(driver.findElement(By.id("encuesta:dtEncuesta:0:j_idt27")).getText(), is("104195486"));
 	}
-	@Ignore
+
 	@Test
 	public void leerEncuestaS() {
 		driver.get("http://localhost:8080/Grupo_L-war/faces/Login.xhtml");
@@ -471,7 +469,7 @@ public class DefaultSuiteIT {
 		assertThat(driver.findElement(By.id("encuestaAlum:dtEncuesta:1:j_idt37")).getText(), is("104195486"));
 		assertThat(driver.findElement(By.id("encuestaAlum:dtEncuesta:1:j_idt39")).getText(), is("2020-06-08 05:55:07.0"));
 	}
-	@Ignore
+
 	@Test
 	public void leerAsigMatrA() {
 		driver.get("http://localhost:8080/Grupo_L-war/");
@@ -491,7 +489,7 @@ public class DefaultSuiteIT {
 		assertThat(driver.findElement(By.id("asigmatri:dtAsigM:0:j_idt27")).getText(), is("306000002"));
 		assertThat(driver.findElement(By.id("asigmatri:dtAsigM:1:j_idt27")).getText(), is("306000003"));
 	}
-	@Ignore
+
 	@Test
 	public void solicitarCambioGrupo() {
 		driver.get("http://localhost:8080/Grupo_L-war/");
@@ -564,7 +562,6 @@ public class DefaultSuiteIT {
 		assertThat(driver.findElement(By.id("asigmatri:dtAsigM:1:j_idt30")).getText(), is("B"));
 	}
 
-	@Ignore
 	@Test
 	public void alumnoSecretaria() {
 		driver.get("http://localhost:8080/Grupo_L-war/faces/Login.xhtml");
@@ -609,7 +606,6 @@ public class DefaultSuiteIT {
 		}
 	}
 	
-	@Ignore
 	@Test
 	public void importarHorario(){
 		driver.get("http://localhost:8080/Grupo_L-war/faces/Login.xhtml");
@@ -648,7 +644,6 @@ public class DefaultSuiteIT {
 		assertThat(driver.findElement(By.id("clase:dtClase:0:j_idt26")).getText(), is("10:30"));
 	}   
 
-	@Ignore
 	@Test
 	public void exportarDatos() {
 		driver.get("http://localhost:8080/Grupo_L-war/faces/Login.xhtml");
@@ -663,7 +658,7 @@ public class DefaultSuiteIT {
 		driver.findElement(By.cssSelector(".ui-button-text:nth-child(1)")).click();
 		driver.findElement(By.cssSelector(".ui-button-text:nth-child(2)")).click();
 	}
-	@Ignore
+	
 	@Test
 	public void importarExpedienteMatricula() {
 		driver.get("http://localhost:8080/Grupo_L-war/faces/Login.xhtml");
@@ -787,7 +782,6 @@ public class DefaultSuiteIT {
 	    assertThat(driver.findElement(By.id("clase:dtClase:0:j_idt22")).getText(), is("10:30"));
 	}
 	
-	@Ignore
 	@Test
 	  public void importarTitulacion() {
 	    driver.get("http://localhost:8080/Grupo_L-war/faces/Login.xhtml");
@@ -815,7 +809,6 @@ public class DefaultSuiteIT {
 	    assertThat(driver.findElement(By.id("titulacion:dtTitulacion:0:j_idt33")).getText(), is("Grado en Ingeniería Informática"));
 	  }
 	
-	@Ignore
 	@Test
 	public void leerMatriSecre() {
 		driver.get("http://localhost:8080/Grupo_L-war/faces/Login.xhtml");
@@ -836,7 +829,6 @@ public class DefaultSuiteIT {
 		assertThat(driver.findElement(By.id("caja1:dtGrupos:5:j_idt41")).getText(), is("306000006"));
 	}
 	
-	@Ignore
 	@Test
 	  public void leerExpeSecre() {
 	    driver.get("http://localhost:8080/Grupo_L-war/faces/Login.xhtml");
@@ -857,7 +849,6 @@ public class DefaultSuiteIT {
 	    assertThat(driver.findElement(By.id("caja1:dtExpediente:5:j_idt40")).getText(), is("107300003"));
 	  }
 	
-	@Ignore
 	@Test
 	  public void rellenarEncuestaAlum() {
 	    driver.get("http://localhost:8080/Grupo_L-war/faces/Login.xhtml");
