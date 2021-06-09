@@ -28,9 +28,9 @@
 		</div>
 		<br />
 			
-	    <h:form enctype="multipart/form-data">
+	    <h:form id="fondo" enctype="multipart/form-data">
 			<p:growl id="messages" showDetail="true"/>
-       		<p:fileUpload mode="advanced"
+       		<p:fileUpload id="file" mode="advanced"
                       multiple="false"
                       sizeLimit="10240000" allowTypes="/(\.|\/)(xlsx)$/"
                       invalidSizeMessage="Maximum file size allowed is 10 MB"
