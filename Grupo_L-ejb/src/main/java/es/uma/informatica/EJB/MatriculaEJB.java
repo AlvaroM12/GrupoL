@@ -1,12 +1,11 @@
 package es.uma.informatica.EJB;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.logging.Logger;
@@ -21,8 +20,12 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
 import es.uma.informatica.Exception.MatriculaException;
 import es.uma.informatica.Interfaces.InterfazMatricula;
+import es.uma.informatica.Entidades.Asignatura;
+import es.uma.informatica.Entidades.Asignaturas_Matricula;
 import es.uma.informatica.Entidades.Expediente;
+import es.uma.informatica.Entidades.GruposPorAsignatura;
 import es.uma.informatica.Entidades.Matricula;
+import es.uma.informatica.Entidades.Titulacion;
 import es.uma.informatica.Entidades.Matricula.MatriculaId;
 
 /**
@@ -41,9 +44,11 @@ public class MatriculaEJB implements InterfazMatricula {
 		    Workbook wb = WorkbookFactory.create(file);
 			Sheet sheet = wb.getSheet("Hoja1");
 			
-	        for(int fila=4; fila<7; fila++) {
+	        for(int fila=4; fila<5; fila++) {
 	        	Matricula m = new Matricula();
 		        Expediente e = new Expediente();
+		        Asignaturas_Matricula am = new Asignaturas_Matricula();
+		        Titulacion t = new Titulacion();
 		        
 	        	String curso = sheet.getRow(0).getCell(1).getStringCellValue();
 	        	m.setCurso_Academico(curso);
@@ -63,24 +68,38 @@ public class MatriculaEJB implements InterfazMatricula {
 	        	
 	        	String turnoPref = sheet.getRow(fila).getCell(15).getStringCellValue();
 	        	m.setTurno_Preferente(turnoPref);
-	        	/*
-	        	String grupoAsig = sheet.getRow(fila).getCell(16).getStringCellValue();
-	        	List<Asignatura> asig = null;
 	        	
-	        	Long tit = Long.valueOf(Num_Expediente.substring(0, 3));
-	        	String[] parts = grupoAsig.split(",");
+	        	
+	        	String grupoAsig = sheet.getRow(fila).getCell(16).getStringCellValue();
+	        	List<Asignatura> asig = new ArrayList<Asignatura>();
+	        	
+	        	Long tit = Long.valueOf(Num_Expediente.substring(0, 4));
+	        	t.setCodigo(tit);
+	        	
+        		String[] parts = grupoAsig.split(",");
 	        	for (String s : parts) {
-	        		TypedQuery <Asignatura> query = em.createQuery("SELECT a FROM Asignatura a WHERE a.Referecia LIKE :ref AND a.TA LIKE :titula", Asignatura.class);
-	            	query.setParameter("ref", s);
-	            	query.setParameter("titula", tit);
-	        		Asignatura a = query.getSingleResult();
+	        		Asignatura a = new Asignatura();
+	        		a.setReferencia(Long.valueOf(s));
+	        		a.setTA(t);
 	        		
 	        		asig.add(a);
 				}
-	        	
 	        	m.setA(asig);
-	        	*/
 	        	em.merge(m);
+	        	
+	        	for (Asignatura asignatura : asig) {
+	        		List<GruposPorAsignatura> gpalist = new ArrayList<GruposPorAsignatura>();
+	        		TypedQuery <GruposPorAsignatura> query = em.createQuery("SELECT g FROM GruposPorAsignatura g " + "WHERE g.A_GPA LIKE :as", GruposPorAsignatura.class);
+	            	query.setParameter("as", asignatura);
+	        		gpalist = query.getResultList();
+	        		
+	        		for (GruposPorAsignatura gpa : gpalist) {
+						am.setMatricula(m);
+						am.setAsignatura(asignatura);
+						am.setG_AM(gpa.getG_GPA());
+						em.merge(am);
+					}
+				}
 	        }
 	        wb.close();
 		} catch (IOException e) {
