@@ -742,5 +742,33 @@ public class DefaultSuiteIT {
 		assertThat(driver.findElement(By.id("j_idt36:dtGrupos:1:j_idt56")).getText(), is("104100003"));
 		assertThat(driver.findElement(By.id("j_idt36:dtGrupos:1:j_idt46")).getText(), is("306000005"));
 	}
+	
+	@Test
+	  public void importarAsignaturas() {
+		driver.get("http://localhost:8080/Grupo_L-war/faces/Login.xhtml");
+		driver.manage().window().setSize(new Dimension(1158, 655));
+		driver.findElement(By.id("j_idt7:user")).sendKeys("pepe@uma.es");
+		driver.findElement(By.id("j_idt7:pass")).sendKeys("123");
+		driver.findElement(By.id("j_idt7:entrar")).click();
+		assertThat(driver.findElement(By.id("nombre2")).getText(), is("Hola, Jefe."));
+	    driver.findElement(By.id("leerAsignaturas")).click();
+	    driver.findElement(By.cssSelector(".importarMatricula > input")).click();
+	    WebElement element2 = driver.findElement(By.id("j_idt18:j_idt19_input"));
+		element2.sendKeys("/home/alumno/eclipse-workspace/Grupo_L/Grupo_L-ejb/Oferta asignaturas.xlsx");
+
+		List<WebElement> listBtn2 = driver.findElements(By.tagName("button"));
+		listBtn2.get(0).click();
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	    driver.findElement(By.cssSelector(".inicio > input")).click();
+	    driver.findElement(By.id("leerAsignaturas")).click();
+	    driver.findElement(By.id("j_idt41:dtAsignaturas:6:j_idt43")).click();
+	    assertThat(driver.findElement(By.id("j_idt41:dtAsignaturas:6:j_idt43")).getText(), is("50716"));
+	    driver.findElement(By.id("j_idt41:dtAsignaturas:6:j_idt44")).click();
+	    assertThat(driver.findElement(By.id("j_idt41:dtAsignaturas:6:j_idt44")).getText(), is("Grado en Ingenieria Informatica"));
+	  }
 
 }
