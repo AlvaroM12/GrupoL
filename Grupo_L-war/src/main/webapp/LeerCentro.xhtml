@@ -37,22 +37,22 @@
 			
 			<p:column id = "id" headerText="ID" filterBy="#{c.ID}"
 				filterMatchMode="contains">
-				<p:outputLabel value="#{c.ID}" />
+				<p:outputLabel id="i" value="#{c.ID}" />
 			</p:column>
 			
 			<p:column id = "nombre" headerText="Nombre" filterBy="#{centro.nombre}"
 				filterMatchMode="contains">
-				<p:outputLabel value="#{c.nombre}" />
+				<p:outputLabel id="nomb" value="#{c.nombre}" />
 			</p:column>
 			
 			<p:column id = "direccion" headerText="Direccion" filterBy="#{centro.direccion}"
 				filterMatchMode="contains">
-				<p:outputLabel value="#{c.direccion}" />
+				<p:outputLabel id="dir" value="#{c.direccion}" />
 			</p:column>
 			
 			<p:column id = "telefono" headerText="TLF_Conserjeria" filterBy="#{centro.TLF_Conserjeria}"
 				filterMatchMode="contains">
-				<p:outputLabel value="#{c.TLF_Conserjeria}" />
+				<p:outputLabel id="tlf" value="#{c.TLF_Conserjeria}" />
 			</p:column>
 			
 			<p:column id = "titulacion" headerText="Titulacion" filterBy="#{centro.TC}"
