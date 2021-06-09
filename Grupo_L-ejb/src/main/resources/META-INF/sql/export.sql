@@ -84,14 +84,14 @@ INSERT INTO Asignatura (Referencia, Codigo, Creditos_Practicos, Creditos_Teorico
 --  DDL for Table Grupo
 --------------------------------------------------------
 
-INSERT INTO Grupo (ID, Asignar, Curso, Ingles, Letra, Plazas, Turno_Maniana_Tarde, Visible, GG_ID, TG_Codigo) VALUES (1, 60, 1, 'NO', 'A', 120, 'MANIANA', null, null, 1041);
-INSERT INTO Grupo (ID, Asignar, Curso, Ingles, Letra, Plazas, Turno_Maniana_Tarde, Visible, GG_ID, TG_Codigo) VALUES (2, 120, 1, 'NO', 'B', 120, 'MANIANA', null, null, 1041);
-INSERT INTO Grupo (ID, Asignar, Curso, Ingles, Letra, Plazas, Turno_Maniana_Tarde, Visible, GG_ID, TG_Codigo) VALUES (3, 35, 2, 'NO', 'C', 120, 'MANIANA', null, null, 1042);
-INSERT INTO Grupo (ID, Asignar, Curso, Ingles, Letra, Plazas, Turno_Maniana_Tarde, Visible, GG_ID, TG_Codigo) VALUES (4, 60, 2, 'NO', 'D', 120, 'TARDE', null, null, 1043);
-INSERT INTO Grupo (ID, Asignar, Curso, Ingles, Letra, Plazas, Turno_Maniana_Tarde, Visible, GG_ID, TG_Codigo) VALUES (5, 60, 3, 'NO', 'A', 120, 'MANIANA', null, null, 1056);
-INSERT INTO Grupo (ID, Asignar, Curso, Ingles, Letra, Plazas, Turno_Maniana_Tarde, Visible, GG_ID, TG_Codigo) VALUES (6, 60, 1, 'NO', 'D', 120, 'TARDE', null, null, 1073);
-INSERT INTO Grupo (ID, Asignar, Curso, Ingles, Letra, Plazas, Turno_Maniana_Tarde, Visible, GG_ID, TG_Codigo) VALUES (7, 60, 1, 'NO', 'B', 120, 'MANIANA', null, null, 1042);
-
+INSERT INTO sii.Grupo (ID, Asignar, Curso, Ingles, Letra, Plazas, Turno_Maniana_Tarde, Visible, GG_ID, TG_Codigo) VALUES (1, 60, 1, 'NO', 'A', 120, 'MANIANA', null, null, 1041);
+INSERT INTO sii.Grupo (ID, Asignar, Curso, Ingles, Letra, Plazas, Turno_Maniana_Tarde, Visible, GG_ID, TG_Codigo) VALUES (2, 120, 1, 'NO', 'B', 120, 'MANIANA', null, null, 1041);
+INSERT INTO sii.Grupo (ID, Asignar, Curso, Ingles, Letra, Plazas, Turno_Maniana_Tarde, Visible, GG_ID, TG_Codigo) VALUES (3, 35, 2, 'NO', 'C', 120, 'MANIANA', null, null, 1042);
+INSERT INTO sii.Grupo (ID, Asignar, Curso, Ingles, Letra, Plazas, Turno_Maniana_Tarde, Visible, GG_ID, TG_Codigo) VALUES (4, 60, 2, 'NO', 'D', 120, 'TARDE', null, null, 1043);
+INSERT INTO sii.Grupo (ID, Asignar, Curso, Ingles, Letra, Plazas, Turno_Maniana_Tarde, Visible, GG_ID, TG_Codigo) VALUES (5, 60, 3, 'NO', 'A', 120, 'MANIANA', null, null, 1056);
+INSERT INTO sii.Grupo (ID, Asignar, Curso, Ingles, Letra, Plazas, Turno_Maniana_Tarde, Visible, GG_ID, TG_Codigo) VALUES (6, 60, 1, 'NO', 'D', 120, 'TARDE', null, null, 1073);
+INSERT INTO sii.Grupo (ID, Asignar, Curso, Ingles, Letra, Plazas, Turno_Maniana_Tarde, Visible, GG_ID, TG_Codigo) VALUES (7, 60, 1, 'NO', 'B', 120, 'MANIANA', null, null, 1042);
+INSERT INTO sii.Grupo (ID, Asignar, Curso, Ingles, Letra, Plazas, Turno_Maniana_Tarde, Visible, GG_ID, TG_Codigo) VALUES (8, 60, 3, 'NO', 'C', 120, 'TARDE', null, null, 1041);
 --------------------------------------------------------
 --  DDL for Table Clase
 --------------------------------------------------------
