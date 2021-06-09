@@ -20,6 +20,8 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import es.uma.informatica.sii.anotaciones.Requisitos;
+
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.Keys;
@@ -46,8 +48,9 @@ public class DefaultSuiteIT {
 	public void tearDown() {
 		driver.quit();
 	}
-
+	
 	@Test
+	@Requisitos({"RF12, RF17"})
 	public void inicioSesion() {
 		driver.get("http://localhost:8080/Grupo_L-war/faces/Login.xhtml");
 		driver.manage().window().setSize(new Dimension(977, 715));
@@ -58,6 +61,7 @@ public class DefaultSuiteIT {
 	}
 
 	@Test
+	@Requisitos({"RF17, RF17"})
 	public void logginSecretaria() {
 		driver.get("http://localhost:8080/Grupo_L-war/faces/Login.xhtml");
 		driver.manage().window().setSize(new Dimension(1158, 655));
@@ -68,6 +72,7 @@ public class DefaultSuiteIT {
 	}
 
 	@Test
+	@Requisitos({"RF24"})
 	public void leerTitulacionS() {
 		driver.get("http://localhost:8080/Grupo_L-war/faces/Login.xhtml");
 		driver.manage().window().setSize(new Dimension(679, 616));
@@ -82,6 +87,7 @@ public class DefaultSuiteIT {
 	}
 
 	@Test
+	@Requisitos({"RF24"})
 	public void leerTitulacionA() {
 		driver.get("http://localhost:8080/Grupo_L-war/faces/Login.xhtml");
 		driver.manage().window().setSize(new Dimension(679, 616));
@@ -96,6 +102,7 @@ public class DefaultSuiteIT {
 	}
 
 	@Test
+	@Requisitos({"RF28"})
 	public void expedienteAlumno() {
 		driver.get("http://localhost:8080/Grupo_L-war/faces/Login.xhtml");
 		driver.manage().window().setSize(new Dimension(679, 616));
@@ -115,6 +122,7 @@ public class DefaultSuiteIT {
 	}
 
 	@Test
+	@Requisitos({"RF17"})
 	public void testPrincipalSecretaria() {
 		driver.get("http://localhost:8080/Grupo_L-war/faces/Login.xhtml");
 		driver.manage().window().setSize(new Dimension(1158, 655));
@@ -169,6 +177,7 @@ public class DefaultSuiteIT {
 	}
 
 	@Test
+	@Requisitos({"RF17"})
 	public void testPrincipalAlumno() {
 		driver.get("http://localhost:8080/Grupo_L-war/faces/Login.xhtml");
 		driver.manage().window().setSize(new Dimension(977, 715));
@@ -192,6 +201,7 @@ public class DefaultSuiteIT {
 	}
 
 	@Test
+	@Requisitos({"RF5"})
 	public void testGrupo() {
 		driver.get("http://localhost:8080/Grupo_L-war/faces/Login.xhtml");
 		driver.manage().window().setSize(new Dimension(1158, 655));
@@ -262,6 +272,7 @@ public class DefaultSuiteIT {
 	}
 
 	@Test
+	@Requisitos({"RF16"})
 	public void testCentro() {
 		driver.get("http://localhost:8080/Grupo_L-war/faces/Login.xhtml");
 		driver.manage().window().setSize(new Dimension(1158, 655));
@@ -281,6 +292,7 @@ public class DefaultSuiteIT {
 	}
 
 	@Test
+	@Requisitos({"RF21"})
 	public void testAsigMatS() {
 		driver.get("http://localhost:8080/Grupo_L-war/faces/Login.xhtml");
 		driver.manage().window().setSize(new Dimension(1158, 855));
@@ -304,6 +316,7 @@ public class DefaultSuiteIT {
 	}
 
 	@Test
+	@Requisitos({"RF18"})
 	public void generarNuevaContrasena() {
 		driver.get("http://0.0.0.0:8080/Grupo_L-war/faces/Login.xhtml");
 		driver.manage().window().setSize(new Dimension(826, 694));
@@ -323,6 +336,7 @@ public class DefaultSuiteIT {
 	}
 
 	@Test
+	@Requisitos({"RF22"})
 	public void leerMatriculaA() {
 		driver.get("http://0.0.0.0:8080/Grupo_L-war/faces/Login.xhtml");
 		driver.manage().window().setSize(new Dimension(826, 694));
@@ -343,6 +357,7 @@ public class DefaultSuiteIT {
 	}
 
 	@Test
+	@Requisitos({"RF26"})
 	public void leerAsignaturaA() {
 		driver.get("http://0.0.0.0:8080/Grupo_L-war/faces/Login.xhtml");
 		driver.manage().window().setSize(new Dimension(826, 694));
@@ -369,6 +384,7 @@ public class DefaultSuiteIT {
 	}
 
 	@Test
+	@Requisitos({"RF26"})
 	public void leerAsignaturaS() {
 		driver.get("http://0.0.0.0:8080/Grupo_L-war/faces/Login.xhtml");
 		driver.manage().window().setSize(new Dimension(887, 631));
@@ -391,6 +407,7 @@ public class DefaultSuiteIT {
 	}
 
 	@Test
+	@Requisitos({"RF25"})
 	public void leerAlumnoA() {
 		driver.get("http://0.0.0.0:8080/Grupo_L-war/faces/Login.xhtml");
 		driver.manage().window().setSize(new Dimension(826, 694));
@@ -417,6 +434,7 @@ public class DefaultSuiteIT {
 	}
 
 	@Test
+	@Requisitos({"RF20"})
 	public void leerEncuestaA() {
 		driver.get("http://localhost:8080/Grupo_L-war/faces/Login.xhtml");
 		driver.manage().window().setSize(new Dimension(977, 715));
@@ -437,6 +455,7 @@ public class DefaultSuiteIT {
 	}
 
 	@Test
+	@Requisitos({"RF20"})
 	public void leerEncuestaS() {
 		driver.get("http://localhost:8080/Grupo_L-war/faces/Login.xhtml");
 		driver.manage().window().setSize(new Dimension(1158, 655));
@@ -450,6 +469,7 @@ public class DefaultSuiteIT {
 	}
 
 	@Test
+	@Requisitos({"RF21"})
 	public void leerAsigMatrA() {
 		driver.get("http://localhost:8080/Grupo_L-war/faces/Login.xhtml");
 		driver.manage().window().setSize(new Dimension(977, 715));
@@ -467,6 +487,7 @@ public class DefaultSuiteIT {
 	}
 
 	@Test
+	@Requisitos({"RF9, RF10"})
 	public void solicitarCambioGrupo() {
 		driver.get("http://localhost:8080/Grupo_L-war/faces/Login.xhtml");
 		driver.manage().window().setSize(new Dimension(1211, 1028));
@@ -497,6 +518,11 @@ public class DefaultSuiteIT {
 		}
 		driver.findElement(By.cssSelector("#desplegable\\3A curso > option:nth-child(2)")).click();
 		js.executeScript("window.scrollTo(0,0)");
+		try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 		driver.findElement(By.id("desplegable:letra")).click();
 		{
 			WebElement dropdown = driver.findElement(By.id("desplegable:letra"));
@@ -536,6 +562,7 @@ public class DefaultSuiteIT {
 	}
 
 	@Test
+	@Requisitos({"RF1"})
 	public void alumnoSecretaria() {
 		driver.get("http://localhost:8080/Grupo_L-war/faces/Login.xhtml");
 		driver.manage().window().setSize(new Dimension(1235, 900));
@@ -579,6 +606,7 @@ public class DefaultSuiteIT {
 	}
 
 	@Test
+	@Requisitos({"RF19"})
 	public void exportarDatos() {
 		driver.get("http://localhost:8080/Grupo_L-war/faces/Login.xhtml");
 		driver.manage().window().setSize(new Dimension(1158, 655));
@@ -595,6 +623,7 @@ public class DefaultSuiteIT {
 	}
 	
 	@Test
+	@Requisitos({"RF3, RF6"})
 	public void importarExpedienteMatricula() {
 		driver.get("http://localhost:8080/Grupo_L-war/faces/Login.xhtml");
 		driver.manage().window().setSize(new Dimension(697, 770));
@@ -657,6 +686,7 @@ public class DefaultSuiteIT {
 	}
 
 	@Test
+	@Requisitos({"RF2"})
 	public void importarAsignaturas() {
 		driver.get("http://localhost:8080/Grupo_L-war/faces/Login.xhtml");
 		driver.manage().window().setSize(new Dimension(1158, 655));
@@ -694,6 +724,7 @@ public class DefaultSuiteIT {
 	}
 
 	@Test
+	@Requisitos({"RF2, RF7, RF27"})
 	public void importarAsignaturaHorario() {
 		driver.get("http://localhost:8080/Grupo_L-war/faces/Login.xhtml");
 		driver.manage().window().setSize(new Dimension(1158, 855));
@@ -759,6 +790,7 @@ public class DefaultSuiteIT {
 	}
 
 	@Test
+	@Requisitos({"RF23"})
 	public void importarTitulacion() {
 		driver.get("http://localhost:8080/Grupo_L-war/faces/Login.xhtml");
 		driver.manage().window().setSize(new Dimension(1168, 825));
@@ -796,6 +828,7 @@ public class DefaultSuiteIT {
 	}
 
 	@Test
+	@Requisitos({"RF22"})
 	public void leerMatriSecre() {
 		driver.get("http://localhost:8080/Grupo_L-war/faces/Login.xhtml");
 		driver.manage().window().setSize(new Dimension(1168, 817));
@@ -816,6 +849,7 @@ public class DefaultSuiteIT {
 	}
 
 	@Test
+	@Requisitos({"RF28"})
 	public void leerExpeSecre() {
 		driver.get("http://localhost:8080/Grupo_L-war/faces/Login.xhtml");
 		driver.manage().window().setSize(new Dimension(1168, 817));
@@ -836,6 +870,7 @@ public class DefaultSuiteIT {
 	}
 
 	@Test
+	@Requisitos({"RF4, RF11"})
 	public void rellenarEncuestaAlum() {
 		driver.get("http://localhost:8080/Grupo_L-war/faces/Login.xhtml");
 		driver.manage().window().setSize(new Dimension(1168, 817));
@@ -848,6 +883,11 @@ public class DefaultSuiteIT {
 			dropdown.findElement(By.xpath("//option[. = 'A']")).click();
 		}
 		driver.findElement(By.id("formu:env")).click();
+		try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 		assertThat(driver.findElement(By.id("encuesta:dtEncuesta:0:exp")).getText(), is("104195486"));
 
 	}
