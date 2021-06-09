@@ -100,12 +100,12 @@ INSERT INTO sii.Grupo (ID, Asignar, Curso, Ingles, Letra, Plazas, Turno_Maniana_
 --  DDL for Table Matricula
 --------------------------------------------------------
 
-INSERT INTO Matricula (Curso_Academico, EM, Estado, Fecha_De_Matricula, Nuevo_Ingreso, Num_Archivo, Turno_Preferente) VALUES ('2020/2021', 104100002, null, '2019-12-29', null, 306000005, 'Mañana');
-INSERT INTO Matricula (Curso_Academico, EM, Estado, Fecha_De_Matricula, Nuevo_Ingreso, Num_Archivo, Turno_Preferente) VALUES ('2020/2021', 104195486, null, '2019-12-29', null, 306000002, 'Mañana');
-INSERT INTO Matricula (Curso_Academico, EM, Estado, Fecha_De_Matricula, Nuevo_Ingreso, Num_Archivo, Turno_Preferente) VALUES ('2020/2021', 104200001, null, '2019-12-29', null, 306000001, 'Mañana');
-INSERT INTO Matricula (Curso_Academico, EM, Estado, Fecha_De_Matricula, Nuevo_Ingreso, Num_Archivo, Turno_Preferente) VALUES ('2020/2021', 104300002, null, '2019-12-29', null, 306000003, 'Mañana');
-INSERT INTO Matricula (Curso_Academico, EM, Estado, Fecha_De_Matricula, Nuevo_Ingreso, Num_Archivo, Turno_Preferente) VALUES ('2020/2021', 105600003, null, '2019-12-29', null, 306000004, 'Mañana');
-INSERT INTO Matricula (Curso_Academico, EM, Estado, Fecha_De_Matricula, Nuevo_Ingreso, Num_Archivo, Turno_Preferente) VALUES ('2020/2021', 107300003, null, '2019-12-29', null, 306000006, 'Mañana');
+INSERT INTO Matricula (Curso_Academico, EM, Estado, Fecha_De_Matricula, Nuevo_Ingreso, Num_Archivo, Turno_Preferente) VALUES ('2020/2021', 104100002, null, '2019-12-29', null, 306000005, 'Maniana');
+INSERT INTO Matricula (Curso_Academico, EM, Estado, Fecha_De_Matricula, Nuevo_Ingreso, Num_Archivo, Turno_Preferente) VALUES ('2020/2021', 104195486, null, '2019-12-29', null, 306000002, 'Maniana');
+INSERT INTO Matricula (Curso_Academico, EM, Estado, Fecha_De_Matricula, Nuevo_Ingreso, Num_Archivo, Turno_Preferente) VALUES ('2020/2021', 104200001, null, '2019-12-29', null, 306000001, 'Maniana');
+INSERT INTO Matricula (Curso_Academico, EM, Estado, Fecha_De_Matricula, Nuevo_Ingreso, Num_Archivo, Turno_Preferente) VALUES ('2020/2021', 104300002, null, '2019-12-29', null, 306000003, 'Maniana');
+INSERT INTO Matricula (Curso_Academico, EM, Estado, Fecha_De_Matricula, Nuevo_Ingreso, Num_Archivo, Turno_Preferente) VALUES ('2020/2021', 105600003, null, '2019-12-29', null, 306000004, 'Maniana');
+INSERT INTO Matricula (Curso_Academico, EM, Estado, Fecha_De_Matricula, Nuevo_Ingreso, Num_Archivo, Turno_Preferente) VALUES ('2020/2021', 107300003, null, '2019-12-29', null, 306000006, 'Maniana');
 
 --------------------------------------------------------
 --  DDL for Table Asignaturas_Matricula
