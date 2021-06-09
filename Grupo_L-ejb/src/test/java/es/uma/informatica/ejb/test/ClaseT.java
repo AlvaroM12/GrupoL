@@ -24,13 +24,13 @@ public class ClaseT {
 		clase = (InterfazClase) SuiteTest.ctx.lookup(Clase_EJB);
 		BaseDatos.inicializaBaseDatos(UNIDAD_PERSITENCIA_PRUEBAS);
 	}
-	/*
+	
 	@Test
 	@Ignore
 	@Requisitos({"RF7"})
 	public void testImportarHorario() throws ClaseException {
 		try {
-			clase.Importar_Horario();
+			//clase.Importar_Horario();
 			ClaseId clase1 = new ClaseId("Lunes","08:45",(long)4000);
 			Clase c = clase.leerClase(clase1);
 			if((long)4000 != c.getGC().getID()) {
@@ -42,6 +42,7 @@ public class ClaseT {
 	}
 	
 	@Test
+	@Ignore
 	@Requisitos({"RF27"})
 	public void testLeerClase() throws ClaseException {
 		
@@ -55,5 +56,5 @@ public class ClaseT {
 		} catch (ClaseException e) {
 				fail("No deberia lanzar excepcion2");
 		}
-	}*/
+	}
 }

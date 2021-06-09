@@ -6,6 +6,7 @@ import java.io.File;
 import java.io.IOException;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import es.uma.informatica.Entidades.Titulacion;
 import es.uma.informatica.Exception.TitulacionException;
@@ -37,6 +38,7 @@ public class TitulacionT {
 	
 
 	@Test
+	@Ignore
 	@Requisitos({"RF23"})
 	public void testImportarTitulacion() throws IOException {
 		try {
