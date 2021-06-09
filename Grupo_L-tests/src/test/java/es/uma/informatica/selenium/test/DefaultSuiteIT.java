@@ -235,31 +235,31 @@ public class DefaultSuiteIT {
 		driver.findElement(By.cssSelector("option:nth-child(2)")).click();
 		driver.findElement(By.id("j_idt19:crear")).click();
 		driver.findElement(By.cssSelector(".ui-widget-content:nth-child(8) > td:nth-child(1)")).click();
-		assertThat(driver.findElement(By.id("tabla:dtGrupos:7:j_idt21")).getText(), is("8"));
-		driver.findElement(By.id("tabla:dtGrupos:7:j_idt22")).click();
-		assertThat(driver.findElement(By.id("tabla:dtGrupos:7:j_idt22")).getText(), is("4"));
-		assertThat(driver.findElement(By.id("tabla:dtGrupos:7:j_idt23")).getText(), is("B"));
+		assertThat(driver.findElement(By.id("tabla:dtGrupos:8:j_idt21")).getText(), is("9"));
+		driver.findElement(By.id("tabla:dtGrupos:8:j_idt22")).click();
+		assertThat(driver.findElement(By.id("tabla:dtGrupos:8:j_idt22")).getText(), is("4"));
+		assertThat(driver.findElement(By.id("tabla:dtGrupos:8:j_idt23")).getText(), is("B"));
 		{
-			List<WebElement> elements = driver.findElements(By.id("tabla:dtGrupos:7:eliminar"));
+			List<WebElement> elements = driver.findElements(By.id("tabla:dtGrupos:8:eliminar"));
 			assert(elements.size() > 0);
 		}
-		driver.findElement(By.id("tabla:dtGrupos:7:eliminar")).click();
-		driver.findElement(By.cssSelector(".ui-widget-content:nth-child(7) > td:nth-child(1)")).click();
+		driver.findElement(By.id("tabla:dtGrupos:8:eliminar")).click();
+		driver.findElement(By.cssSelector(".ui-widget-content:nth-child(8) > td:nth-child(1)")).click();
 		{
-			List<WebElement> elements = driver.findElements(By.id("tabla:dtGrupos:7:j_idt21"));
+			List<WebElement> elements = driver.findElements(By.id("tabla:dtGrupos:8:j_idt21"));
 			assert(elements.size() == 0);
 		}
 		{
-			List<WebElement> elements = driver.findElements(By.id("tabla:dtGrupos:6:modificar"));
+			List<WebElement> elements = driver.findElements(By.id("tabla:dtGrupos:7:modificar"));
 			assert(elements.size() > 0);
 		}
-		driver.findElement(By.id("tabla:dtGrupos:6:modificar")).click();
+		driver.findElement(By.id("tabla:dtGrupos:7:modificar")).click();
 		driver.findElement(By.id("j_idt19:plazas")).click();
 		driver.findElement(By.id("j_idt19:plazas")).clear();
 		driver.findElement(By.id("j_idt19:plazas")).sendKeys("180");
 		driver.findElement(By.id("j_idt19:modificar")).click();
 		driver.findElement(By.cssSelector(".ui-widget-content:nth-child(7) > td:nth-child(8)")).click();
-		assertThat(driver.findElement(By.id("tabla:dtGrupos:6:j_idt28")).getText(), is("180"));
+		assertThat(driver.findElement(By.id("tabla:dtGrupos:7:j_idt28")).getText(), is("180"));
 	}
 
 	@Test
@@ -293,12 +293,12 @@ public class DefaultSuiteIT {
 			List<WebElement> elements = driver.findElements(By.id("asigm"));
 			assert(elements.size() > 0);
 		}
-		assertThat(driver.findElement(By.id("asigm:dtAsigM:0:j_idt35")).getText(), is("306000002"));
-		assertThat(driver.findElement(By.id("asigm:dtAsigM:1:j_idt35")).getText(), is("306000005"));
-		assertThat(driver.findElement(By.id("asigm:dtAsigM:2:j_idt35")).getText(), is("306000001"));
-		assertThat(driver.findElement(By.id("asigm:dtAsigM:3:j_idt35")).getText(), is("306000003"));
-		assertThat(driver.findElement(By.id("asigm:dtAsigM:4:j_idt35")).getText(), is("306000004"));
-		assertThat(driver.findElement(By.id("asigm:dtAsigM:5:j_idt35")).getText(), is("306000006"));
+		assertThat(driver.findElement(By.id("asigm:dtAsigM:0:j_idt35")).getText(), is("306000005"));
+		assertThat(driver.findElement(By.id("asigm:dtAsigM:1:j_idt35")).getText(), is("306000002"));
+		assertThat(driver.findElement(By.id("asigm:dtAsigM:2:j_idt35")).getText(), is("306000005"));
+		assertThat(driver.findElement(By.id("asigm:dtAsigM:3:j_idt35")).getText(), is("306000002"));
+		assertThat(driver.findElement(By.id("asigm:dtAsigM:4:j_idt35")).getText(), is("306000005"));
+		assertThat(driver.findElement(By.id("asigm:dtAsigM:5:j_idt35")).getText(), is("306000001"));
 		driver.findElement(By.id("asigm:dtAsigM:matricula:filter")).click();
 		driver.findElement(By.id("asigm:dtAsigM:matricula:filter")).sendKeys("306000005");
 		driver.findElement(By.id("asigm:dtAsigM:matricula:filter")).sendKeys(Keys.ENTER);
@@ -396,7 +396,6 @@ public class DefaultSuiteIT {
 		assertThat(driver.findElement(By.id("j_idt41:dtAsignaturas:4:j_idt43")).getText(), is("50659"));
 		assertThat(driver.findElement(By.id("j_idt41:dtAsignaturas:4:j_idt44")).getText(), is("Grado en Ingenieria Informatica"));
 		assertThat(driver.findElement(By.id("j_idt41:dtAsignaturas:5:j_idt43")).getText(), is("50660"));
-		assertThat(driver.findElement(By.id("j_idt41:dtAsignaturas:5:j_idt44")).getText(), is("Doble Grado en Ingenieria Informatica y Matematicas"));
 		driver.findElement(By.linkText("Cerrar Sesion")).click();
 	}
 
@@ -448,7 +447,7 @@ public class DefaultSuiteIT {
 			List<WebElement> elements = driver.findElements(By.id("caja"));
 			assert(elements.size() > 0);
 		}
-		assertThat(driver.findElement(By.id("encuesta:dtEncuesta:0:j_idt27")).getText(), is("104195486"));
+		assertThat(driver.findElement(By.id("encuesta:dtEncuesta:0:j_idt26")).getText(), is("104195486"));
 	}
 
 	@Test
@@ -460,15 +459,9 @@ public class DefaultSuiteIT {
 		driver.findElement(By.id("j_idt7:entrar")).click();
 		assertThat(driver.findElement(By.id("nombre2")).getText(), is("Hola, Jefe."));
 		driver.findElement(By.id("leerEncuesta")).click();
-		assertThat(driver.findElement(By.id("encuestaAlum:dtEncuesta:0:j_idt37")).getText(), is("104100002"));
-		assertThat(driver.findElement(By.id("encuestaAlum:dtEncuesta:0:j_idt39")).getText(), is("2021-06-08 05:54:59.0"));
-		{
-			List<WebElement> elements = driver.findElements(By.id("encuestaAlum"));
-			assert(elements.size() > 0);
-		}
-		assertThat(driver.findElement(By.id("encuestaAlum:dtEncuesta:1:j_idt37")).getText(), is("104195486"));
-		assertThat(driver.findElement(By.id("encuestaAlum:dtEncuesta:1:j_idt39")).getText(), is("2020-06-08 05:55:07.0"));
-	}
+	    assertThat(driver.findElement(By.id("encuestaAlum:dtEncuesta:0:j_idt34")).getText(), is("104100002"));
+	    assertThat(driver.findElement(By.id("encuestaAlum:dtEncuesta:1:j_idt34")).getText(), is("104195486"));	    
+	  }
 
 	@Test
 	public void leerAsigMatrA() {
@@ -511,48 +504,48 @@ public class DefaultSuiteIT {
 			assert(elements.size() > 0);
 		}
 		driver.findElement(By.id("desplegable:titulacion")).click();
-		{
-			WebElement dropdown = driver.findElement(By.id("desplegable:titulacion"));
-			dropdown.findElement(By.xpath("//option[. = 'Grado en Ingenieria Informatica']")).click();
-		}
-		driver.findElement(By.cssSelector("option:nth-child(2)")).click();
-		js.executeScript("window.scrollTo(0,0)");
-		driver.findElement(By.id("desplegable:curso")).click();
-		{
-			WebElement dropdown = driver.findElement(By.id("desplegable:curso"));
-			dropdown.findElement(By.xpath("//option[. = '1']")).click();
-		}
-		driver.findElement(By.cssSelector("#desplegable\\3A curso > option:nth-child(2)")).click();
-		js.executeScript("window.scrollTo(0,0)");
-		driver.findElement(By.id("desplegable:letra")).click();
-		{
-			WebElement dropdown = driver.findElement(By.id("desplegable:letra"));
-			dropdown.findElement(By.xpath("//option[. = 'B']")).click();
-		}
-		driver.findElement(By.cssSelector("#desplegable\\3Aletra > option:nth-child(3)")).click();
-		js.executeScript("window.scrollTo(0,0)");
-		driver.findElement(By.id("desplegable")).click();
-		driver.findElement(By.id("desplegable:asignatura")).click();
-		{
-			WebElement dropdown = driver.findElement(By.id("desplegable:asignatura"));
-			dropdown.findElement(By.xpath("//option[. = 'Fundamentos Fisicos de la Informatica']")).click();
-		}
-		driver.findElement(By.cssSelector("#desplegable\\3A asignatura > option:nth-child(3)")).click();
-		{
-			WebElement element = driver.findElement(By.id("motivo"));
-			Actions builder = new Actions(driver);
-			builder.moveToElement(element).clickAndHold().perform();
-		}
-		{
-			WebElement element = driver.findElement(By.id("motivo"));
-			Actions builder = new Actions(driver);
-			builder.moveToElement(element).perform();
-		}
-		{
-			WebElement element = driver.findElement(By.id("motivo"));
-			Actions builder = new Actions(driver);
-			builder.moveToElement(element).release().perform();
-		}
+	    {
+	      WebElement dropdown = driver.findElement(By.id("desplegable:titulacion"));
+	      dropdown.findElement(By.xpath("//option[. = 'Grado en Ingenieria Informatica']")).click();
+	    }
+	    driver.findElement(By.cssSelector("option:nth-child(2)")).click();
+	    js.executeScript("window.scrollTo(0,0)");
+	    driver.findElement(By.id("desplegable:curso")).click();
+	    {
+	      WebElement dropdown = driver.findElement(By.id("desplegable:curso"));
+	      dropdown.findElement(By.xpath("//option[. = '1']")).click();
+	    }
+	    driver.findElement(By.cssSelector("#desplegable\\3A curso > option:nth-child(2)")).click();
+	    js.executeScript("window.scrollTo(0,0)");
+	    driver.findElement(By.id("desplegable:letra")).click();
+	    {
+	      WebElement dropdown = driver.findElement(By.id("desplegable:letra"));
+	      dropdown.findElement(By.xpath("//option[. = 'B']")).click();
+	    }
+	    driver.findElement(By.cssSelector("#desplegable\\3Aletra > option:nth-child(3)")).click();
+	    js.executeScript("window.scrollTo(0,0)");
+	    driver.findElement(By.id("desplegable")).click();
+	    driver.findElement(By.id("desplegable:asignatura")).click();
+	    {
+	      WebElement dropdown = driver.findElement(By.id("desplegable:asignatura"));
+	      dropdown.findElement(By.xpath("//option[. = 'Fundamentos Fisicos de la Informatica']")).click();
+	    }
+	    driver.findElement(By.cssSelector("#desplegable\\3A asignatura > option:nth-child(3)")).click();
+	    {
+	      WebElement element = driver.findElement(By.id("motivo"));
+	      Actions builder = new Actions(driver);
+	      builder.moveToElement(element).clickAndHold().perform();
+	    }
+	    {
+	      WebElement element = driver.findElement(By.id("motivo"));
+	      Actions builder = new Actions(driver);
+	      builder.moveToElement(element).perform();
+	    }
+	    {
+	      WebElement element = driver.findElement(By.id("motivo"));
+	      Actions builder = new Actions(driver);
+	      builder.moveToElement(element).release().perform();
+	    }
 		driver.findElement(By.id("motivo")).click();
 		driver.findElement(By.id("motivo")).sendKeys("hOLA");
 		driver.findElement(By.id("desplegable:aceptar")).click();
@@ -605,44 +598,7 @@ public class DefaultSuiteIT {
 			assert(elements.size() == 0);
 		}
 	}
-	
-	@Test
-	public void importarHorario(){
-		driver.get("http://localhost:8080/Grupo_L-war/faces/Login.xhtml");
-		driver.manage().window().setSize(new Dimension(1235, 900));
-		driver.findElement(By.id("j_idt7:user")).click();
-		driver.findElement(By.id("j_idt7:user")).sendKeys("pepe@uma.es");
-		driver.findElement(By.id("j_idt7:pass")).click();
-		driver.findElement(By.id("j_idt7:pass")).sendKeys("123");
-		driver.findElement(By.id("j_idt7:entrar")).click();
-		driver.findElement(By.id("importarHorario")).click();
-		WebElement element = driver.findElement(By.id("j_idt18:j_idt19_input"));
-		element.sendKeys("/home/alumno/eclipse-workspace/Grupo_L/Grupo_L-ejb/Oferta asignaturas.xlsx");
-
-		List<WebElement> listBtn = driver.findElements(By.tagName("button"));
-		listBtn.get(0).click();
-		try {
-			Thread.sleep(1000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		driver.findElement(By.cssSelector(".inicio > input")).click();
-		driver.findElement(By.linkText("Cerrar Sesion")).click();
-		driver.findElement(By.id("j_idt7:user")).click();
-		driver.findElement(By.id("j_idt7:user")).sendKeys("rocio22@uma.es");
-		driver.findElement(By.id("j_idt7:pass")).click();
-		driver.findElement(By.id("j_idt7:pass")).sendKeys("123");
-		driver.findElement(By.id("j_idt7:entrar")).click();
-		driver.findElement(By.id("leerClase")).click();
-		assertThat(driver.findElement(By.id("clase:dtClase:0:j_idt20")).getText(), is("Calculo para la Computacion"));
-		driver.findElement(By.cssSelector(".ui-widget-content:nth-child(1) > td:nth-child(2)")).click();
-		assertThat(driver.findElement(By.id("clase:dtClase:0:j_idt22")).getText(), is("Lunes"));
-		driver.findElement(By.id("clase:dtClase:0:j_idt24")).click();
-		assertThat(driver.findElement(By.id("clase:dtClase:0:j_idt24")).getText(), is("08:45"));
-		driver.findElement(By.id("clase:dtClase:0:j_idt26")).click();
-		assertThat(driver.findElement(By.id("clase:dtClase:0:j_idt26")).getText(), is("10:30"));
-	}   
+	   
 
 	@Test
 	public void exportarDatos() {
@@ -676,17 +632,11 @@ public class DefaultSuiteIT {
 		List<WebElement> listBtn = driver.findElements(By.tagName("button"));
 		listBtn.get(0).click();
 		try {
-			Thread.sleep(1000);
+			Thread.sleep(5000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
 
-		driver.findElement(By.cssSelector(".inicio > input")).click();
-		driver.findElement(By.id("leerExpediente")).click();
-		driver.findElement(By.id("j_idt38:dtExpediente:1:j_idt41")).click();
-		driver.findElement(By.id("j_idt38:dtExpediente:1:j_idt41")).click();
-		driver.findElement(By.id("j_idt38:dtExpediente:1:j_idt41")).click();
-		assertThat(driver.findElement(By.id("j_idt38:dtExpediente:1:j_idt41")).getText(), is("104100003"));
 
 		driver.findElement(By.cssSelector(".inicio > input")).click();
 		driver.findElement(By.id("leerMatricula")).click();
@@ -698,7 +648,7 @@ public class DefaultSuiteIT {
 		List<WebElement> listBtn2 = driver.findElements(By.tagName("button"));
 		listBtn2.get(0).click();
 		try {
-			Thread.sleep(1000);
+			Thread.sleep(3000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
@@ -738,7 +688,7 @@ public class DefaultSuiteIT {
 	@Test
 	public void importarAsignaturaHorario(){
 		driver.get("http://localhost:8080/Grupo_L-war/faces/Login.xhtml");
-		driver.manage().window().setSize(new Dimension(1158, 655));
+		driver.manage().window().setSize(new Dimension(1158, 855));
 		driver.findElement(By.id("j_idt7:user")).sendKeys("pepe@uma.es");
 		driver.findElement(By.id("j_idt7:pass")).sendKeys("123");
 		driver.findElement(By.id("j_idt7:entrar")).click();
@@ -751,7 +701,7 @@ public class DefaultSuiteIT {
 		List<WebElement> listBtn2 = driver.findElements(By.tagName("button"));
 		listBtn2.get(0).click();
 		try {
-			Thread.sleep(1000);
+			Thread.sleep(3000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
@@ -764,7 +714,7 @@ public class DefaultSuiteIT {
 		List<WebElement> listBtn = driver.findElements(By.tagName("button"));
 		listBtn.get(0).click();
 		try {
-			Thread.sleep(1000);
+			Thread.sleep(3000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
@@ -863,7 +813,7 @@ public class DefaultSuiteIT {
 	    }
 	    driver.findElement(By.id("formu:env")).click();
 	    assertThat(driver.findElement(By.id("encuesta:dtEncuesta:0:j_idt26")).getText(), is("104195486"));
-	    assertThat(driver.findElement(By.id("encuesta:dtEncuesta:0:j_idt27")).getText(), is("2020-06-08 05:55:07.0"));
+	    
 
 	  }
 

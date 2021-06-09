@@ -38,7 +38,7 @@ public class MatriculaBB {
 	
 
 	//METODO PARA LEER UNA MATRICULA (ALUMNO)
-	public  synchronized List<Matricula> getMatriculaAlumno() throws MatriculaException{
+	public  List<Matricula> getMatriculaAlumno() throws MatriculaException{
 		List<Matricula> matalum = new ArrayList<Matricula>();
 		
         for (Expediente ex : infosesion.getAlumno().getExpedientes()) {
@@ -51,7 +51,7 @@ public class MatriculaBB {
 
 
 	//METODO PARA LEER TODAS LAS MATRICULAS(S)
-	public  synchronized List<Matricula> getMatriculas(){
+	public  List<Matricula> getMatriculas(){
 		
 		try {
 			return matricula.leerMatriculasSecretaria();
