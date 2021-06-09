@@ -44,14 +44,10 @@ public class ClaseEJB implements InterfazClase{
 	@Override
 	public void Importar_Horario(File fichero) throws ClaseException {
 		try {
-			/*String directorio_de_ejecucion_de_la_aplicacion;
-			directorio_de_ejecucion_de_la_aplicacion = new java.io.File( "." ).getCanonicalPath();
-			String sFile = directorio_de_ejecucion_de_la_aplicacion + "/" +"Oferta asignaturas.xlsx"; */
-			Workbook wb = WorkbookFactory.create(fichero);	// El path ya te da el nombre incluido
+			Workbook wb = WorkbookFactory.create(fichero);
 	        Sheet sheet = wb.getSheet("GII");
 	        
-
-	        for(int fila=1; fila<4; fila++) {
+	        for(int fila=1; fila<5; fila++) {
 	        	
 	        	Clase c = new Clase();
 		        Asignatura a = new Asignatura();

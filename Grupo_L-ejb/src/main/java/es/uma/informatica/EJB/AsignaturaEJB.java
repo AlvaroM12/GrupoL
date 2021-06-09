@@ -42,7 +42,7 @@ public class AsignaturaEJB implements InterfazAsignatura {
 			Workbook wb = WorkbookFactory.create(fichero);	// El path ya te da el nombre incluido
 	        Sheet sheet = wb.getSheet("GII");
 	        
-	    	for(int fila=1; fila<2; fila++) {
+	    	for(int fila=1; fila<5; fila++) {
 	        	
 	        	Asignatura a = new Asignatura();
 	 	        Titulacion t = new Titulacion();
