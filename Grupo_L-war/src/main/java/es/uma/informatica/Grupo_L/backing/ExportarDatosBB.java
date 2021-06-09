@@ -53,7 +53,8 @@ public class ExportarDatosBB {
     	long codigo=Long.parseLong(selectedOption);
     	Titulacion t=titulacion.consultarTitulacion(codigo);
     	name=t.getNombre();
-    	datosejb.exportarDatos(t);			
+    	datosejb.exportarDatos(t);
+					
     }  
    
 }

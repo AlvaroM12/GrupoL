@@ -678,6 +678,24 @@ public class DefaultSuiteIT {
 	    driver.findElement(By.id("j_idt38:dtExpediente:1:j_idt41")).click();
 	    assertThat(driver.findElement(By.id("j_idt38:dtExpediente:1:j_idt41")).getText(), is("104100003"));
 	  }
+	  
+	  @Test
+	  public void exportarDatos() {
+		driver.get("http://localhost:8080/Grupo_L-war/faces/Login.xhtml");
+		driver.manage().window().setSize(new Dimension(1158, 655));
+		driver.findElement(By.id("j_idt7:user")).sendKeys("pepe@uma.es");
+		driver.findElement(By.id("j_idt7:pass")).sendKeys("123");
+		driver.findElement(By.id("j_idt7:entrar")).click();
+		assertThat(driver.findElement(By.id("nombre2")).getText(), is("Hola, Jefe."));
+		driver.findElement(By.id("exportarDatos")).click();
+	    driver.findElement(By.id("j_idt19:option_label")).click();
+	    driver.findElement(By.id("j_idt19:option_1")).click();
+	    driver.findElement(By.cssSelector(".ui-button-text:nth-child(1)")).click();
+	    driver.findElement(By.cssSelector(".ui-button-text:nth-child(2)")).click();
+	  }
+	  
+	  
+	  
 	}
 	    
 	  
