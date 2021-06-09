@@ -27,12 +27,10 @@
             	<div class="centro">
 				<h:panelGrid columns="4">
 				
-					
 				<h:outputText value="DNI:" />
 				<h:inputText id="user" required="true"
 					value="#{ma.a.DNI}" />
 
-					
 				<h:outputText value="Nombre:" />
 				<h:inputText id="nom" required="true"
 					value="#{ma.a.nombre}" />
@@ -41,7 +39,6 @@
 				<h:inputText id="ape" required="true"
 					value="#{ma.a.apellido1}" />
 					
-			
 				<h:outputText value="Apellido2:" />
 				<h:inputText id="a2" required="true"
 					value="#{ma.a.apellido2}" />
@@ -75,10 +72,7 @@
 					value="#{ma.a.CP}" />
 					<h:inputHidden value="#{ma.a.ID}"/>
 				
-					
 				<h:commandButton id="modificar" value="Modificar" action="#{ma.modificar()}" /> 
-			
-				
 
 			</h:panelGrid>
 			
