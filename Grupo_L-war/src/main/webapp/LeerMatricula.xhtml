@@ -28,7 +28,7 @@
 	<h1 class="titulo">Matricula</h1>
 
 	<ui:fragment rendered="#{not empty infoSesion.alumno}">
-		<div class="izquierda"   >
+		<div id="caja" class="izquierda"   >
 			<b>MIS DATOS </b><br></br><br></br> 
 			<a href="LeerEncuesta.xhtml" style="text-decoration: none">Leer Encuesta</a><br></br>
 			<a href="LeerAsignaturaMatricula.xhtml" style="text-decoration: none">Leer Asignatura Matricula</a><br></br>
@@ -39,50 +39,50 @@
 			<a href="LeerClase.xhtml" style="text-decoration: none">Leer Clase</a><br></br> 
 			<a href="LeerExpediente.xhtml" style="text-decoration: none">Leer Expediente</a>
 		</div>
-
-		<h:form styleClass="centro">
+	
+		<h:form id="caja" styleClass="centro">
 			<p:commandButton value="Mostar" actionListener="#{matriculaBB.matriculaAlumno}" update="dtMat" />
 		
 			<p:dataTable id="dtMat" value="#{matriculaBB.matriculaAlumno}" var="m">
 	
 				<p:column id="a" headerText="Curso Academico" filterBy="#{m.curso_Academico}"
 					filterMatchMode="contains">
-					<p:outputLabel value="#{m.curso_Academico}" />
+					<p:outputLabel id="ab" value="#{m.curso_Academico}" />
 				</p:column>
 	
 				<p:column id="b" headerText="Estado" filterBy="#{m.estado}"
 					filterMatchMode="contains">
-					<p:outputLabel value="#{m.estado}" />
+					<p:outputLabel id="ba" value="#{m.estado}" />
 				</p:column>
 	
 				<p:column id="c" headerText="Numero Archivo" filterBy="#{m.num_Archivo}"
 					filterMatchMode="contains">
-					<p:outputLabel value="#{m.num_Archivo}" />
+					<p:outputLabel id="ca" value="#{m.num_Archivo}" />
 				</p:column>
 	
 				<p:column id="d" headerText="Turno Preferente" filterBy="#{m.turno_Preferente}"
 					filterMatchMode="contains">
-					<p:outputLabel value="#{m.turno_Preferente}" />
+					<p:outputLabel id="da" value="#{m.turno_Preferente}" />
 				</p:column>
 	
 				<p:column id="e" headerText="Fecha de matricula" filterBy="#{m.fecha_De_Matricula}"
 					 filterMatchMode="contains">
-					<p:outputLabel value="#{m.fecha_De_Matricula}" />
+					<p:outputLabel id="ea" value="#{m.fecha_De_Matricula}" />
 				</p:column>
 	
 				<p:column id="f" headerText="Nuevo Ingreso" filterBy="#{m.nuevo_Ingreso}"
 					filterMatchMode="contains">
-					<p:outputLabel value="#{m.nuevo_Ingreso}" />
+					<p:outputLabel id="fa" value="#{m.nuevo_Ingreso}" />
 				</p:column>
 	
 				<p:column id="g" headerText="Listado Asignaturas" filterBy="#{m.a}"
 					filterMatchMode="contains">
-					<p:outputLabel value="#{m.a}" />
+					<p:outputLabel id="ga" value="#{m.a}" />
 				</p:column>
 	
 				<p:column id="h" headerText="Expediente" filterBy="#{m.EM.num_Expediente}"
 					filterMatchMode="contains">
-					<p:outputLabel value="#{m.EM.num_Expediente}" />
+					<p:outputLabel id="ha" value="#{m.EM.num_Expediente}" />
 				</p:column>
 			</p:dataTable>
 		</h:form>
