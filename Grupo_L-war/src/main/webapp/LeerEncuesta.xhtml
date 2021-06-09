@@ -50,17 +50,17 @@
 		
 			<p:column id="a" headerText="Número de expediente" filterBy="#{enc.EE.num_Expediente}"
 				filterMatchMode="contains">
-				<p:outputLabel value="#{enc.EE.num_Expediente}" />
+				<p:outputLabel id = "exp" value="#{enc.EE.num_Expediente}" />
 			</p:column>
 			
 			<p:column id="b" headerText="Fecha de envío" filterBy="#{enc.fecha_De_Envio}"
 				filterMatchMode="contains">
-				<p:outputLabel value="#{enc.fecha_De_Envio}" />
+				<p:outputLabel id = "fecha" value="#{enc.fecha_De_Envio}" />
 			</p:column>
 			
 			<p:column id="c" headerText="Grupos por asignaturas" filterBy="#{enc.gruposPorAsignaturas}"
 				filterMatchMode="contains">
-				<p:outputLabel value="#{enc.gruposPorAsignaturas}" />
+				<p:outputLabel id = "grupo" value="#{enc.gruposPorAsignaturas}" />
 			</p:column>
 	 	</p:dataTable>
         </h:form>
@@ -77,17 +77,17 @@
 		
 			<p:column headerText="Número de expediente" filterBy="#{encues.EE.num_Expediente}"
 				filterMatchMode="contains">
-				<p:outputLabel value="#{encues.EE.num_Expediente}" />
+				<p:outputLabel id = "exp" value="#{encues.EE.num_Expediente}" />
 			</p:column>
 			
 			<p:column headerText="Fecha de envío" filterBy="#{encues.fecha_De_Envio}"
 				filterMatchMode="contains">
-				<p:outputLabel value="#{encues.fecha_De_Envio}" />
+				<p:outputLabel id = "fecha" value="#{encues.fecha_De_Envio}" />
 			</p:column>
 			
 			<p:column headerText="Grupos por asignaturas" filterBy="#{encues.gruposPorAsignaturas}"
 				filterMatchMode="contains">
-				<p:outputLabel value="#{encues.gruposPorAsignaturas}" />
+				<p:outputLabel id = "grupo" value="#{encues.gruposPorAsignaturas}" />
 			</p:column>
 	 	</p:dataTable>
         </h:form>
